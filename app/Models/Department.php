@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'status',
-    ];
+
+    protected $fillable = ['department_id, name'];
+    protected $primaryKey = 'id';
+    protected $table = 'department';
+    protected $dateFormat = 'Y-m-d';
+
+    public $timestamps = false;
 }

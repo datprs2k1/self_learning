@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
 use Illuminate\Http\Request;
+use App\Models\Department;
 
 class DepartmentController extends Controller
 {
@@ -14,9 +14,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $department = Department::all();
-        
-        return response()->json($department);
+        //
+        return Department::all();
     }
 
     /**
@@ -37,15 +36,33 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
+        //
+
         if (auth()->user()->hasRole('admin')) {
-            
-            $request->validate([
-                'name' => 'required|string|max:255|unique:departments',
-            ]);
+            $request->validate(
+                [
+                    'department_id' => 'required|unique:department',
+                    'name' => 'required|unique:department',
+                ],
+                [
+                    'department_id.required' => 'Mã khoa không được để trống.',
+                    'department_id.unique' => 'Mã khoa đã tồn tại.',
+                    'name.required' => 'Tên khoa không được để trống.',
+                    'name.unique' => 'Tên khoa đã tồn tại.',
+                ]
+            );
 
-            $department = Department::create($request->all());
+            $department = new Department();
+            $department->department_id = $request->department_id;
+            $department->name = $request->name;
+            $department->created_at = date('Y-m-d');
+            $department->save();
 
-            return response()->json($department);
+            return response()->json([
+                'message' => 'Thêm khoa thành công.',
+            ], 200);
+        } else {
+            return response()->json(['errors' => ['auth' => ['Bạn không có quyền truy cập.']]], 302);
         }
     }
 
@@ -57,13 +74,8 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        $department = Department::find($id);
-
-        if (!$department) {
-            return response()->json(['message' => 'Khoa không tồn tại']);
-        }
-
-        return response()->json($department);
+        //
+        return Department::find($id);
     }
 
     /**
@@ -75,6 +87,7 @@ class DepartmentController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -86,15 +99,32 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $department = Department::find($id);
+        //
+        if (auth()->user()->hasRole('admin')) {
+            $request->validate(
+                [
+                    'department_id' => 'required',
+                    'name' => 'required',
+                ],
+                [
+                    'department_id.required' => 'Mã khoa không được để trống.',
+                    'name.required' => 'Tên khoa không được để trống.',
+                ]
+            );
 
-        if (!$department) {
-            return response()->json(['message' => 'Khoa không tồn tại']);
+            $department = Department::find($id);
+            $department->department_id = $request->department_id;
+            $department->name = $request->name;
+            $department->save();
+
+            return response()->json([
+                'success' => 'true'
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => 'unauthorized'
+            ], 401);
         }
-
-        $department->update($request->all());
-
-        return response()->json($department);
     }
 
     /**
@@ -105,14 +135,18 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        $department = Department::find($id);
+        //
+        if (auth()->user()->hasRole('admin')) {
+            $department = Department::find($id);
+            $department->delete();
 
-        if (!$department) {
-            return response()->json(['message' => 'Khoa không tồn tại']);
+            return response()->json([
+                'success' => 'true'
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => 'unauthorized'
+            ], 401);
         }
-
-        $department->delete();
-
-        return response()->json('Xóa thành công');
     }
 }

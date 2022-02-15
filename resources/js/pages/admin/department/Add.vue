@@ -37,57 +37,45 @@
                 <form>
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
+                      <label for="department_id">Mã khoa</label>
                       <input
-                        type="email"
+                        type="text"
                         class="form-control"
-                        id="exampleInputEmail1"
-                        placeholder="Enter email"
+                        id="department_id"
+                        placeholder="Nhập mã khoa."
+                        name="department_id"
+                        v-model="department.department_id"
+                        :class="{ 'is-invalid': errors.department_id }"
                       />
+                      <span
+                        v-if="errors.department_id"
+                        id="exampleInputEmail1-error"
+                        class="error invalid-feedback"
+                        >{{ errors.department_id[0] }}</span
+                      >
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
+                      <label for="name">Tên khoa</label>
                       <input
-                        type="password"
+                        type="text"
                         class="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="Password"
+                        id="name"
+                        placeholder="Nhập tên khoa."
+                        name="name"
+                        v-model="department.name"
+                        :class="{ 'is-invalid': errors.name }"
                       />
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <div class="input-group">
-                        <div class="custom-file">
-                          <input
-                            type="file"
-                            class="custom-file-input"
-                            id="exampleInputFile"
-                          />
-                          <label
-                            class="custom-file-label"
-                            for="exampleInputFile"
-                            >Choose file</label
-                          >
-                        </div>
-                        <div class="input-group-append">
-                          <span class="input-group-text">Upload</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="exampleCheck1"
-                      />
-                      <label class="form-check-label" for="exampleCheck1"
-                        >Check me out</label
+                      <span
+                        v-if="errors.name"
+                        id="exampleInputEmail1-error"
+                        class="error invalid-feedback"
+                        >{{ errors.name[0] }}</span
                       >
                     </div>
                   </div>
 
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">
+                    <button @click.prevent="submit()" class="btn btn-primary">
                       Submit
                     </button>
                   </div>
@@ -110,5 +98,29 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      department: {
+        department_id: "",
+        name: "",
+      },
+      errors: {},
+    };
+  },
+  methods: {
+    async submit() {
+      try {
+        await this.$store.dispatch("department/add", this.department);
+        this.$swal({
+          title: "Thành công",
+          text: "Thêm khoa thành công.",
+          icon: "success",
+        });
+      } catch (error) {
+        this.errors = error.response.data.errors;
+      }
+    },
+  },
+};
 </script>

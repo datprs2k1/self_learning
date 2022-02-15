@@ -268,10 +268,22 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/layout/top-nav.html" class="nav-link">
+                  <router-link
+                    :to="{ name: 'department.index' }"
+                    class="nav-link"
+                  >
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Thêm khoa</p>
-                  </a>
+                    <p>Danh sách</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link
+                    :to="{ name: 'department.add' }"
+                    class="nav-link"
+                  >
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Thêm</p>
+                  </router-link>
                 </li>
               </ul>
             </li>
