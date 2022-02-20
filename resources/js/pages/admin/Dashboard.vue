@@ -863,9 +863,58 @@
       <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-  </div>
+  </div>  
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    let plugin = document.createElement('script');
+      plugin.setAttribute('src', '../../../../admin/plugins/jquery/jquery.min.js');
+      document.head.appendChild(plugin);
+      let plugin1 = document.createElement('script');
+      plugin1.setAttribute('src', '../../../../admin/plugins/jquery-ui/jquery-ui.min.js');
+      document.head.appendChild(plugin1);
+      let plugin2 = document.createElement('script');
+      plugin2.setAttribute('src', '../../../../admin/plugins/bootstrap/js/bootstrap.bundle.min.js');
+      document.head.appendChild(plugin2);
+      let plugin3 = document.createElement('script');
+      plugin3.setAttribute('src', '../../../../admin/plugins/chart.js/Chart.min.js');
+      document.head.appendChild(plugin3);
+      let plugin4 = document.createElement('script');
+      plugin4.setAttribute('src', '../../../../admin/plugins/sparklines/sparkline.js');
+      document.head.appendChild(plugin4);
+      let plugin5 = document.createElement('script');
+      plugin5.setAttribute('src', '../../../../admin/plugins/jqvmap/jquery.vmap.min.js');
+      document.head.appendChild(plugin5);
+      let plugin6 = document.createElement('script');
+      plugin6.setAttribute('src', '../../../../admin/plugins/jqvmap/maps/jquery.vmap.usa.js');
+      document.head.appendChild(plugin6);
+      let plugin7 = document.createElement('script');
+      plugin7.setAttribute('src', '../../../../admin/plugins/jquery-knob/jquery.knob.min.js');
+      document.head.appendChild(plugin7);
+      let plugin8 = document.createElement('script');
+      plugin8.setAttribute('src', '../../../../admin/plugins/moment/moment.min.js');
+      document.head.appendChild(plugin8);
+      let plugin9 = document.createElement('script');
+      plugin9.setAttribute('src', '../../../../admin/plugins/daterangepicker/daterangepicker.js');
+      document.head.appendChild(plugin9);
+      let plugin10 = document.createElement('script');
+      plugin10.setAttribute('src', '../../../../admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js');
+      document.head.appendChild(plugin10);
+      let plugin11 = document.createElement('script');
+      plugin11.setAttribute('src', '../../../../admin/plugins/summernote/summernote-bs4.min.js');
+      document.head.appendChild(plugin11);
+      let plugin12 = document.createElement('script');
+      plugin12.setAttribute('src', '../../../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js');
+      document.head.appendChild(plugin12);
+      // let plugin13 = document.createElement('script');
+      // plugin11.setAttribute('src', '../../../../admin/dist/js/adminlte.min.js');
+      // document.head.appendChild(plugin13);
+      let plugin14 = document.createElement('script');
+      plugin14.setAttribute('src', '../../../../admin/dist/js/pages/dashboard.js');
+      document.head.appendChild(plugin14);
+
+  }
+};
 </script>

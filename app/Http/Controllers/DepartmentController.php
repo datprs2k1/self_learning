@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Department;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DepartmentController extends Controller
 {
@@ -15,7 +17,13 @@ class DepartmentController extends Controller
     public function index()
     {
         //
-        return Department::all();
+        $data = DB::table('department')->orderBy('department.created_at', 'desc')->get();
+        foreach ($data as $key => $value) {
+            $data[$key]->created_at = Carbon::parse($value->created_at)->format('d/m/Y H:i:s');
+        }
+        if ($data) {
+            return $data;
+        }
     }
 
     /**
@@ -55,7 +63,7 @@ class DepartmentController extends Controller
             $department = new Department();
             $department->department_id = $request->department_id;
             $department->name = $request->name;
-            $department->created_at = date('Y-m-d');
+            $department->created_at = date('Y-m-d H:i:s');
             $department->save();
 
             return response()->json([

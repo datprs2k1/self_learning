@@ -114,8 +114,12 @@ export default {
         await this.$store.dispatch("department/edit", this.Department);
         this.$swal({
           title: "Thành công",
-          text: "Thêm khoa thành công.",
+          text: "Sửa khoa thành công.",
           icon: "success",
+          showConfirmButton: false,
+          position: 'top-end',
+          timer: 1000,
+          width: 360
         });
         this.$router.push({ name: "department.index" });
       } catch (error) {

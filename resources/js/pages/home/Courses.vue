@@ -330,16 +330,5 @@ export default {
     
 }
 </script>
-<style scoped>
-@import "../../../../public/css/fonts/flaticon/font/flaticon.css";
-@import "../../../../public/css/fonts/icomoon/style.css";
-/* @import "../../../../public/css/bootstrap.min.css"; */
-@import "../../../../public/css/jquery-ui.css";
-@import "../../../../public/css/owl.carousel.min.css";
-@import "../../../../public/css/owl.theme.default.min.css";
-@import "../../../../public/css/jquery.fancybox.min.css";
-@import "../../../../public/css/bootstrap-datepicker.css";
-@import "../../../../public/css/aos.css";
-/* @import "../../../../public/css/jquery.mb.YTPlayer.min.css"; */
-@import "../../../../public/css/style.css";
+<style>
 </style>

@@ -116,6 +116,10 @@ export default {
           title: "Thành công",
           text: "Thêm khoa thành công.",
           icon: "success",
+          showConfirmButton: false,
+          position: 'top-end',
+          timer: 1000,
+          width: 360
         });
       } catch (error) {
         this.errors = error.response.data.errors;

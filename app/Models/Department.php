@@ -12,7 +12,7 @@ class Department extends Model
     protected $fillable = ['department_id, name'];
     protected $primaryKey = 'id';
     protected $table = 'department';
-    protected $dateFormat = 'Y-m-d';
+    protected $dateFormat = 'Y-m-d H:i:s';
 
     public $timestamps = false;
 }

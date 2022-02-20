@@ -9,7 +9,16 @@
   <link rel="icon" href="images/logo-utt.png">
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
   <link href="{{ asset("css/jquery.mb.YTPlayer.min.css") }}" media="all" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="{{ asset("css/fonts/flaticon/font/flaticon.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/fonts/icomoon/style.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/bootstrap.min.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/jquery-ui.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/owl.carousel.min.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/owl.theme.default.min.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/jquery.fancybox.min.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/bootstrap-datepicker.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/aos.css") }}">
+  <link rel="stylesheet" href="{{ asset("css/style.css") }}">
   
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">

@@ -13,5 +13,22 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .scripts([
+        'node_modules/admin-lte/plugins/jquery/jquery.min.js',
+        'node_modules/admin-lte/plugins/jquery-ui/jquery-ui.min.js',
+        'node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js',
+        'node_modules/admin-lte/plugins/chart.js/Chart.min.js',
+        'node_modules/admin-lte/plugins/sparklines/sparkline.js',
+        'node_modules/admin-lte/plugins/jqvmap/jquery.vmap.min.js',
+        'node_modules/admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js',
+        'node_modules/admin-lte/plugins/jquery-knob/jquery.knob.min.js',
+        'node_modules/admin-lte/plugins/moment/moment.min.js',
+        'node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js',
+        'node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
+        'node_modules/admin-lte/plugins/summernote/summernote-bs4.min.js',
+        'node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
+        'node_modules/admin-lte/dist/js/adminlte.js',
+        'node_modules/admin-lte/dist/js/pages/dashboard.js',
+    ], 'public/admin/dist/js/all.min.js');
 

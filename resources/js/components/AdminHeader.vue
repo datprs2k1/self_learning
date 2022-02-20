@@ -204,7 +204,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <router-link to="/adminpanel" class="brand-link">
         <img
           src="/images/logo-utt.png"
           alt="UTT Logo"
@@ -212,7 +212,7 @@
           style="opacity: 0.9"
         />
         <span class="brand-text font-weight-light">UTT SELFLEARNING</span>
-      </a>
+      </router-link>
 
       <!-- Sidebar -->
       <div class="sidebar">
