@@ -29,13 +29,11 @@
                 <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
+              <div class="card-body" style="overflow-x:auto;">
                 <b-table
                 striped
                 :items="departments"
                 :fields="fields"
-                :per-page="perPage"
-                :current-page="currentPage"
                 id="example1"
               >
                 <template #cell(actions)="row">
@@ -54,6 +52,9 @@
                     Xoá
                   </button>
                 </template>
+                <template #cell(index)="row">
+        {{ row.index + 1 }}
+      </template>
               </b-table>
               </div>
               <!-- /.card-body -->
@@ -81,6 +82,10 @@ export default {
       perPage: 5,
       currentPage: 1,
       fields: [
+        {
+          key: "index",
+          label: "STT",
+        },
         {
           key: "department_id",
           label: "Mã khoa",
@@ -164,12 +169,12 @@ export default {
       let plugin1 = document.createElement('script');
       plugin1.setAttribute('src', '../../../../admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js');
       document.body.appendChild(plugin1);
-      let plugin2 = document.createElement('script');
-      plugin2.setAttribute('src', '../../../../admin/plugins/datatables-responsive/js/dataTables.responsive.min.js');
-      document.body.appendChild(plugin2);
-      let plugin3 = document.createElement('script');
-      plugin3.setAttribute('src', '../../../../admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js');
-      document.body.appendChild(plugin3);
+      // let plugin2 = document.createElement('script');
+      // plugin2.setAttribute('src', '../../../../admin/plugins/datatables-responsive/js/dataTables.responsive.min.js');
+      // document.body.appendChild(plugin2);
+      // let plugin3 = document.createElement('script');
+      // plugin3.setAttribute('src', '../../../../admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js');
+      // document.body.appendChild(plugin3);
       let plugin4 = document.createElement('script');
       plugin4.setAttribute('src', '../../../../admin/plugins/datatables-buttons/js/dataTables.buttons.min.js');
       document.body.appendChild(plugin4);
