@@ -24,5 +24,6 @@ Route::post('register', 'App\Http\Controllers\AuthController@register');
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('/department', DepartmentController::class);
+    Route::delete('/department/delete/{department}', 'App\Http\Controllers\DepartmentController@deleteMutiple');
     Route::get('logout', 'App\Http\Controllers\AuthController@logout');
 });

@@ -7,13 +7,14 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
+              <h1 class="m-0">Thêm Mới Khoa</h1>
             </div>
             <!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
+                <li class="breadcrumb-item"><router-link to="/adminpanel">Tổng Quan</router-link></li>
+                <li class="breadcrumb-item "><router-link :to="{ name: 'department.index' }">Khoa</router-link></li>
+                <li class="breadcrumb-item active">Thêm Mới Khoa</li>
               </ol>
             </div>
             <!-- /.col -->
@@ -31,7 +32,7 @@
             <div class="col-md-12">
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Quick Example</h3>
+                  <h3 class="card-title"></h3>
                 </div>
 
                 <form>
@@ -76,7 +77,7 @@
 
                   <div class="card-footer">
                     <button @click.prevent="submit()" class="btn btn-primary">
-                      Submit
+                      Xác nhận
                     </button>
                   </div>
                 </form>
@@ -121,10 +122,15 @@ export default {
           timer: 1000,
           width: 360
         });
+        this.department = {
+          department_id: "",
+          name: "",
+        };
       } catch (error) {
         this.errors = error.response.data.errors;
       }
     },
   },
+  
 };
 </script>

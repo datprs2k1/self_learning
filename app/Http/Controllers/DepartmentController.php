@@ -157,4 +157,22 @@ class DepartmentController extends Controller
             ], 401);
         }
     }
+
+    public function deleteMutiple($ids)
+    {
+        if (auth()->user()->hasRole('admin')) {
+            $ids = explode(',', $ids);
+            foreach ($ids as $id) {
+                $department = Department::find($id);
+                $department->delete();
+            }
+            return response()->json([
+                'success' => 'true'
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => 'unauthorized'
+            ], 401);
+        }
+    }
 }

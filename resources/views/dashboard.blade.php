@@ -8,6 +8,9 @@
     <link rel="icon" href="images/logo-utt.png">
 
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
+    <link rel="stylesheet" href="{{ asset("admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
     <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.css') }}">
     <style>
       #example1_filter>label {
@@ -15,6 +18,9 @@
       }
       ul.pagination {
         float: right;
+      }
+      label.custom-control-label {
+        cursor: pointer;
       }
     </style>
     

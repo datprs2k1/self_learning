@@ -38,6 +38,9 @@ const actions = {
         });
     },
 
+    async deleteMutiple({ commit }, ids) {
+        await api.del(`/department/delete/${ids}`);
+    },
 
     async getDepartment({ commit }, id) {
         const response = await api.get(`/department/${id}`);
