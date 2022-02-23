@@ -8,6 +8,7 @@ import store from './store'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import VueSweetalert2 from 'vue-sweetalert2';
 
+
 // If you don't need the styles, do not connect
 import 'sweetalert2/dist/sweetalert2.min.css';
 
@@ -22,6 +23,8 @@ Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(VueSweetalert2);
+
+
 
 
 /**

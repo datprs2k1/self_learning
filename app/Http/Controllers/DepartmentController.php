@@ -17,13 +17,8 @@ class DepartmentController extends Controller
     public function index()
     {
         //
-        $data = DB::table('department')->orderBy('department.id', 'desc')->get();
-        foreach ($data as $key => $value) {
-            $data[$key]->created_at = Carbon::parse($value->created_at)->format('d/m/Y H:i:s');
-        }
-        if ($data) {
-            return $data;
-        }
+        $data = Department::orderBy('department.id', 'desc')->get();
+        return response()->json($data, 200);
     }
 
     /**

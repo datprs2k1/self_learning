@@ -7,7 +7,9 @@ import DashboardStudent from "../pages/student/Dashboard.vue";
 import DepartmentAdd from "../pages/admin/department/Add.vue";
 import DepartmentEdit from "../pages/admin/department/Edit.vue";
 import Department from "../pages/admin/department/Index.vue";
-
+import ClassAdd from "../pages/admin/class/Add.vue";
+import ClassEdit from "../pages/admin/class/Edit.vue";
+import Class from "../pages/admin/class/Index.vue";
 
 const routes = [
     {
@@ -50,6 +52,36 @@ const routes = [
                 name: "department.index",
                 meta: {
                     title: "Danh sách khoa",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "class/add",
+                component: ClassAdd,
+                name: "class.add",
+                meta: {
+                    title: "Thêm lớp",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "class",
+                component: Class,
+                name: "class.index",
+                meta: {
+                    title: "Danh sách lớp",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "class/edit/:id",
+                component: ClassEdit,
+                name: "class.edit",
+                meta: {
+                    title: "Sửa lớp",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
