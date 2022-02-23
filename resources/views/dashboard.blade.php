@@ -23,7 +23,7 @@
         cursor: pointer;
       }
     </style>
-    
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div id="app" class="wrapper">
@@ -46,7 +46,7 @@
   <script src="{{ asset('admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
   <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
   <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
- 
+
   <!-- Page specific script -->
   <script>
     $(function () {
@@ -55,7 +55,7 @@
         "buttons": ["copy", "excel", "pdf", "print"],
         "bDestroy": true,
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      
+
     });
   </script>
 </body>

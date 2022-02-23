@@ -177,7 +177,7 @@ export default {
     },
     selectAll(checked) {
       this.getCLASSES();
-      this.selected = checked ? this.departments.map((item) => item.id) : [];
+      this.selected = checked ? this.CLASSES.map((item) => item.id) : [];
     },
     deleteMutiple() {
       this.$swal({
