@@ -18,21 +18,10 @@ class Department extends Model
         'updated_at' => 'datetime:d-m-Y',
     ];
 
-    protected $appends = ['value', 'text'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
-    public function getValueAttribute($value)
-    {
-        return $this->id;
-    }
-
-    public function getTextAttribute($value)
-    {
-        return $this->name;
-    }
-
-    public function CLASS()
+    public function Class()
     {
         return $this->hasMany(ClassModel::class, 'dept_id', 'id');
     }

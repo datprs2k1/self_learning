@@ -20,16 +20,6 @@ class ClassModel extends Model
         'updated_at' => 'datetime:d-m-Y',
     ];
 
-    public function getValueAttribute($value)
-    {
-        return $this->id;
-    }
-
-    public function getTextAttribute($value)
-    {
-        return $this->name;
-    }
-
     public function department()
     {
         return $this->belongsTo(Department::class, 'dept_id', 'id');

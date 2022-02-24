@@ -1,15 +1,14 @@
 import Admin from "../pages/admin/Index.vue";
 import DashboardAdmin from "../pages/admin/Dashboard.vue";
-import Lecturer from "../pages/lecturer/Index.vue";
-import DashboardLecturer from "../pages/lecturer/Dashboard.vue";
-import Student from "../pages/student/Index.vue";
-import DashboardStudent from "../pages/student/Dashboard.vue";
 import DepartmentAdd from "../pages/admin/department/Add.vue";
 import DepartmentEdit from "../pages/admin/department/Edit.vue";
 import Department from "../pages/admin/department/Index.vue";
 import ClassAdd from "../pages/admin/class/Add.vue";
 import ClassEdit from "../pages/admin/class/Edit.vue";
 import Class from "../pages/admin/class/Index.vue";
+import StudentAdd from "../pages/admin/student/Add.vue";
+import StudentEdit from "../pages/admin/student/Edit.vue";
+import Student from "../pages/admin/student/Index.vue";
 
 const routes = [
     {
@@ -86,39 +85,37 @@ const routes = [
                     requiredRole: "admin",
                 },
             },
-        ],
-    },
-    {
-        path: "/lecturer",
-        name: "Lecturer",
-        component: Lecturer,
-        children: [
             {
-                path: "",
-                component: DashboardLecturer,
+                path: "student/add",
+                component: StudentAdd,
+                name: "student.add",
                 meta: {
-                    title: "UTT SelfLearning: Giảng Viên",
+                    title: "Thêm sinh viên",
                     requiresAuth: true,
-                    requiredRole: "lecturer",
-                },
-            }
-        ],
-    },
-    {
-        path: "/student",
-        name: "Student",
-        component: Student,
-        children: [
-            {
-                path: "",
-                component: DashboardStudent,
-                meta: {
-                    title: "UTT SelfLearning: Học Viên",
-                    requiresAuth: true,
-                    requiredRole: "student",
+                    requiredRole: "admin",
                 },
             },
-        ]
+            {
+                path: "student",
+                component: Student,
+                name: "student.index",
+                meta: {
+                    title: "Danh sách sinh viên",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "student/edit/:id",
+                component: StudentEdit,
+                name: "student.edit",
+                meta: {
+                    title: "Sửa sinh viên",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+        ],
     },
 ];
 

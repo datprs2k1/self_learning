@@ -66,6 +66,8 @@
                       <b-form-select
                         v-model="CLASS.dept_id"
                         :options="departments"
+                        text-field="name"
+                        value-field="id"
                         :class="{ 'is-invalid': errors.dept_id }"
                       >
                         <template #first>
@@ -131,6 +133,12 @@ export default {
           timer: 1000,
           width: 360,
         });
+
+        this.errors = {
+          name: null,
+          dept_id: null,
+        };
+
         this.$router.push({
           name: "class.index",
         });

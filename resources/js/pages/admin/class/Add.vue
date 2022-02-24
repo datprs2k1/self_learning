@@ -64,6 +64,8 @@
                       <b-form-select
                         v-model="CLASS.dept_id"
                         :options="departments"
+                        text-field="name"
+                        value-field="id"
                         :class="{ 'is-invalid': errors.dept_id }"
                       >
                         <template #first>

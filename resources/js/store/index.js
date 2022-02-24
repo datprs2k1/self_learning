@@ -5,6 +5,7 @@ import createPersistedState from "vuex-persistedstate";
 import auth from './modules/auth';
 import department from './modules/department';
 import CLASS from './modules/class';
+import student from './modules/student';
 
 Vue.use(Vuex);
 
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
     modules: {
         auth,
         department,
-        CLASS
+        CLASS,
+        student,
     },
     plugins: [createPersistedState()]
 });

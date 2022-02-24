@@ -17,7 +17,7 @@ class DepartmentController extends Controller
     public function index()
     {
         //
-        $data = Department::orderBy('department.id', 'desc')->get();
+        $data = Department::with('Class')->orderBy('id', 'desc')->get();
         return response()->json($data, 200);
     }
 
