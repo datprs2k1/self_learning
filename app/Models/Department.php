@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\ClassController;
+use App\Models\ClassModel;
 
 class Department extends Model
 {
@@ -24,11 +24,16 @@ class Department extends Model
 
     public function getValueAttribute($value)
     {
-        return $this->department_id;
+        return $this->id;
     }
 
     public function getTextAttribute($value)
     {
         return $this->name;
+    }
+
+    public function CLASS()
+    {
+        return $this->hasMany(ClassModel::class, 'dept_id', 'id');
     }
 }
