@@ -22,7 +22,7 @@ const mutations = {
 const actions = {
     async add({ commit }, data) {
         await api.post('/department', {
-            department_id: data.department_id,
+            code: data.code,
             name: data.name,
         });
     },
@@ -33,7 +33,7 @@ const actions = {
 
     async edit({ commit }, data) {
         await api.put(`/department/${data.id}`, {
-            department_id: data.department_id,
+            code: data.code,
             name: data.name,
         });
     },

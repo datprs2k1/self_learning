@@ -12,8 +12,14 @@
             <!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><router-link to="/adminpanel">Tổng Quan</router-link></li>
-                <li class="breadcrumb-item "><router-link :to="{ name: 'department.index' }">Khoa</router-link></li>
+                <li class="breadcrumb-item">
+                  <router-link to="/adminpanel">Tổng Quan</router-link>
+                </li>
+                <li class="breadcrumb-item">
+                  <router-link :to="{ name: 'department.index' }"
+                    >Khoa</router-link
+                  >
+                </li>
                 <li class="breadcrumb-item active">Thêm Mới Khoa</li>
               </ol>
             </div>
@@ -38,21 +44,21 @@
                 <form>
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="department_id">Mã khoa</label>
+                      <label for="code">Mã khoa</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="department_id"
+                        id="code"
                         placeholder="Nhập mã khoa."
-                        name="department_id"
-                        v-model="department.department_id"
-                        :class="{ 'is-invalid': errors.department_id }"
+                        name="code"
+                        v-model="department.code"
+                        :class="{ 'is-invalid': errors.code }"
                       />
                       <span
-                        v-if="errors.department_id"
+                        v-if="errors.code"
                         id="exampleInputEmail1-error"
                         class="error invalid-feedback"
-                        >{{ errors.department_id[0] }}</span
+                        >{{ errors.code[0] }}</span
                       >
                     </div>
                     <div class="form-group">
@@ -103,7 +109,7 @@ export default {
   data() {
     return {
       department: {
-        department_id: "",
+        code: "",
         name: "",
       },
       errors: {},
@@ -118,12 +124,12 @@ export default {
           text: "Thêm khoa thành công.",
           icon: "success",
           showConfirmButton: false,
-          position: 'top-end',
+          position: "top-end",
           timer: 1000,
-          width: 360
+          width: 360,
         });
         this.department = {
-          department_id: "",
+          code: "",
           name: "",
         };
       } catch (error) {
@@ -131,6 +137,5 @@ export default {
       }
     },
   },
-  
 };
 </script>

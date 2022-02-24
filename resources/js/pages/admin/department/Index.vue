@@ -108,7 +108,7 @@ export default {
           label: "STT",
         },
         {
-          key: "department_id",
+          key: "code",
           label: "Mã khoa",
           class: "text-center",
         },

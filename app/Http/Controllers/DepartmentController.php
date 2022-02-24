@@ -44,19 +44,19 @@ class DepartmentController extends Controller
         if (auth()->user()->hasRole('admin')) {
             $request->validate(
                 [
-                    'department_id' => 'required|unique:department',
+                    'code' => 'required|unique:department',
                     'name' => 'required|unique:department',
                 ],
                 [
-                    'department_id.required' => 'Mã khoa không được để trống.',
-                    'department_id.unique' => 'Mã khoa đã tồn tại.',
+                    'code.required' => 'Mã khoa không được để trống.',
+                    'code.unique' => 'Mã khoa đã tồn tại.',
                     'name.required' => 'Tên khoa không được để trống.',
                     'name.unique' => 'Tên khoa đã tồn tại.',
                 ]
             );
 
             $department = new Department();
-            $department->department_id = $request->department_id;
+            $department->code = $request->code;
             $department->name = $request->name;
             $department->created_at = date('Y-m-d H:i:s');
             $department->save();
@@ -106,17 +106,17 @@ class DepartmentController extends Controller
         if (auth()->user()->hasRole('admin')) {
             $request->validate(
                 [
-                    'department_id' => 'required',
+                    'code' => 'required',
                     'name' => 'required',
                 ],
                 [
-                    'department_id.required' => 'Mã khoa không được để trống.',
+                    'code.required' => 'Mã khoa không được để trống.',
                     'name.required' => 'Tên khoa không được để trống.',
                 ]
             );
 
             $department = Department::find($id);
-            $department->department_id = $request->department_id;
+            $department->code = $request->code;
             $department->name = $request->name;
             $department->save();
 
