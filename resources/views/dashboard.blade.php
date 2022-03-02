@@ -13,14 +13,33 @@
     <link rel="stylesheet" href="{{ asset("admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
     <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.css') }}">
     <style>
-      #example1_filter>label {
-        float: right;
-      }
+      /* căn phải phân trang */
       ul.pagination {
         float: right;
       }
+      /* con trỏ khi chỉ vào checkbox */
       label.custom-control-label {
         cursor: pointer;
+      }
+      /* Độ rộng của cột hành động  */
+      .width-actions {
+        max-width: 36px;
+      }
+      /* Độ rộng của combobox số bản ghi trên một trang */
+      #per-page-select {
+        max-width: 100px;
+        min-width: 68px;
+      }
+      /* Đổi màu cho hành động xóa */
+      .fa-trash-alt {
+        color: #f44336;
+        cursor: pointer;
+      }
+      .fa-trash-alt:hover {
+        color: #E00000;
+      }
+      .fa-file-pdf {
+        color: whitesmoke;
       }
     </style>
 
@@ -31,11 +50,11 @@
     </div>
     <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
     <!-- jQuery -->
-<script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
+{{-- <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
     <!-- DataTables  & Plugins -->
-  <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+  {{-- <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
   <script src="{{ asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
   <script src="{{ asset('admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
@@ -45,10 +64,10 @@
   <script src="{{ asset('admin/plugins/pdfmake/pdfmake.min.js') }}"></script>
   <script src="{{ asset('admin/plugins/pdfmake/vfs_fonts.js') }}"></script>
   <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-  <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+  <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script> --}}
 
   <!-- Page specific script -->
-  <script>
+  {{-- <script>
     $(function () {
       $("#example1").DataTable({
         "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -57,6 +76,6 @@
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
     });
-  </script>
+  </script> --}}
 </body>
 </html>

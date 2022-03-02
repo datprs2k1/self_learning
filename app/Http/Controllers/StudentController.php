@@ -71,6 +71,7 @@ class StudentController extends Controller
             $student->phone = $request->phone;
             $student->dept_id = $request->dept_id;
             $student->class_id = $request->class_id;
+            $student->created_at = date('Y-m-d H:i:s');
             $student->save();
 
             return response()->json([
@@ -146,6 +147,7 @@ class StudentController extends Controller
             $student->phone = $request->phone;
             $student->dept_id = $request->dept_id;
             $student->class_id = $request->class_id;
+            $student->updated_at = date('Y-m-d H:i:s');
             $student->save();
 
             return response()->json([

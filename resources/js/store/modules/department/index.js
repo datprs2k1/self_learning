@@ -50,7 +50,8 @@ const actions = {
     async getDepartments({ commit }) {
         const response = await api.get('/department');
         commit('SET_DEPARTMENTS', response.data);
-    }
+    },
+
 };
 
 export default {

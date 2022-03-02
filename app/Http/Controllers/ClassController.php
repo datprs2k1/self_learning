@@ -55,6 +55,7 @@ class ClassController extends Controller
             $class = new ClassModel();
             $class->dept_id = $request->dept_id;
             $class->name = $request->name;
+            $class->created_at = date('Y-m-d H:i:s');
             $class->save();
 
             return response()->json([
@@ -115,6 +116,7 @@ class ClassController extends Controller
             $class = ClassModel::find($id);
             $class->dept_id = $request->dept_id;
             $class->name = $request->name;
+            $class->updated_at = date('Y-m-d H:i:s');
             $class->save();
 
             return response()->json([

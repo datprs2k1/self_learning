@@ -17,8 +17,7 @@ class CreateClassTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('dept_id');
-            $table->date('created_at');
-            $table->date('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 

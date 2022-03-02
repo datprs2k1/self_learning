@@ -15,11 +15,11 @@ class Student extends Model
     protected $primaryKey = 'id';
     protected $table = 'student';
     protected $casts = [
-        'created_at' => 'datetime:d-m-Y',
-        'updated_at' => 'datetime:d-m-Y',
+        'created_at' => 'datetime:d/m/Y H:i:s',
+        'updated_at' => 'datetime:d/m/Y H:i:s',
     ];
 
-    public $timestamps = true;
+    public $timestamps = false;
 
     public function Department()
     {

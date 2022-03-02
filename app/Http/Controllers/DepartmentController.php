@@ -118,6 +118,7 @@ class DepartmentController extends Controller
             $department = Department::find($id);
             $department->code = $request->code;
             $department->name = $request->name;
+            $department->updated_at = date('Y-m-d H:i:s');
             $department->save();
 
             return response()->json([
@@ -170,4 +171,5 @@ class DepartmentController extends Controller
             ], 401);
         }
     }
+
 }

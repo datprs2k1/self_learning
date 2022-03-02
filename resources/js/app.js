@@ -18,11 +18,14 @@ import Vue from 'vue';
 import auth from './services/auth';
 import role from './services/role';
 import App from './App.vue';
+import excel from 'vue-excel-export';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+Vue.use(excel)
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
-Vue.use(VueSweetalert2);
+Vue.use(VueSweetalert2)
 
 
 
