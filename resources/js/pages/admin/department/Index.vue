@@ -117,7 +117,6 @@
                                         :sort-by.sync="sortBy"
                                         :sort-desc.sync="sortDesc"
                                         :filter="filter"
-                                        @filtered="onFiltered"
                                     >
                                         <template #head(checkbox)="">
                                             <b-form-checkbox
@@ -202,10 +201,9 @@ export default {
         return {
             selected: [],
             allSelected: false,
-            rows: 1,
             currentPage: 1,
             perPage: 10,
-            pageOptions: [10, 25, 50, 100],
+            pageOptions: [10, 25, 50, 100, 500],
             sortDesc: false,
             sortBy: "checkbox",
             filter: null,
@@ -448,11 +446,6 @@ export default {
 
             pdfMake.vfs = pdfFonts.pdfMake.vfs;
             pdfMake.createPdf(docDefinition).download("Danh sách khoa.pdf");
-        },
-        onFiltered(filteredItems) {
-            // Trigger pagination to update the number of buttons/pages due to filtering
-            this.rows = filteredItems.length;
-            this.currentPage = 1;
         },
     },
     computed: {
