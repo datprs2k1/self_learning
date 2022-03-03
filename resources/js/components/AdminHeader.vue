@@ -259,11 +259,11 @@
               with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
+                <i class="nav-icon fas fa-warehouse"></i>
                 <p>
                   Quản lý khoa
                   <i class="fas fa-angle-left right"></i>
-                  <span class="badge badge-info right">6</span>
+                  <!-- <span class="badge badge-info right">6</span> -->
                 </p>
               </a>
               <ul class="nav nav-treeview">
@@ -272,7 +272,7 @@
                     :to="{ name: 'department.index' }"
                     class="nav-link"
                   >
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
                     <p>Danh sách</p>
                   </router-link>
                 </li>
@@ -281,7 +281,7 @@
                     :to="{ name: 'department.add' }"
                     class="nav-link"
                   >
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
                     <p>Thêm</p>
                   </router-link>
                 </li>
@@ -289,23 +289,95 @@
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
+                <i class="nav-icon fas fa-users"></i>
                 <p>
                   Quản lý lớp
                   <i class="fas fa-angle-left right"></i>
-                  <span class="badge badge-info right">6</span>
+                  <!-- <span class="badge badge-info right">6</span> -->
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <router-link :to="{ name: 'class.index' }" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
                     <p>Danh sách</p>
                   </router-link>
                 </li>
                 <li class="nav-item">
                   <router-link :to="{ name: 'class.add' }" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
+                    <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
+                    <p>Thêm</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Quản lý sinh viên
+                  <i class="fas fa-angle-left right"></i>
+                  <!-- <span class="badge badge-info right">6</span> -->
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link :to="{ name: 'student.index' }" class="nav-link">
+                    <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
+                    <p>Danh sách</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'student.add' }" class="nav-link">
+                    <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
+                    <p>Thêm</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                  Quản lý môn học
+                  <i class="fas fa-angle-left right"></i>
+                  <!-- <span class="badge badge-info right">6</span> -->
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link :to="{ name: 'subject.index' }" class="nav-link">
+                    <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
+                    <p>Danh sách</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'subject.add' }" class="nav-link">
+                    <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
+                    <p>Thêm</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-file-invoice"></i>
+                <p>
+                  Quản lý bài giảng
+                  <i class="fas fa-angle-left right"></i>
+                  <!-- <span class="badge badge-info right">6</span> -->
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link :to="{ name: 'subject.index' }" class="nav-link">
+                    <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
+                    <p>Danh sách</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'subject.add' }" class="nav-link">
+                    <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
                     <p>Thêm</p>
                   </router-link>
                 </li>

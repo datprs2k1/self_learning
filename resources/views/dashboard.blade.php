@@ -23,7 +23,8 @@
       }
       /* Độ rộng của cột hành động  */
       .width-actions {
-        max-width: 36px;
+        min-width: 100px;
+        max-width: 100px;
       }
       /* Độ rộng của combobox số bản ghi trên một trang */
       #per-page-select {
@@ -32,14 +33,21 @@
       }
       /* Đổi màu cho hành động xóa */
       .fa-trash-alt {
-        color: #f44336;
+        color: #dc3545;
         cursor: pointer;
       }
       .fa-trash-alt:hover {
-        color: #E00000;
+        color: #bd2130;
       }
       .fa-file-pdf {
         color: whitesmoke;
+      }
+      .fa-eye {
+        color: #ffc107;
+        cursor: pointer;
+      }
+      .fa-eye:hover {
+        color: #dda802;
       }
     </style>
 

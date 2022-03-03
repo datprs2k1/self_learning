@@ -379,7 +379,6 @@ export default {
                         width: 360,
                     });
                     await this.getDepartments();
-                    // lỗi hiển thị lại khi select tất cả fix tạm thời
                 } else {
                     this.$swal({
                         title: "Hủy xóa!",
