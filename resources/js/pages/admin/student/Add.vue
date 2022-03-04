@@ -202,6 +202,11 @@ export default {
   },
   created() {
     this.getDepartments();
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
   methods: {
     ...mapActions("department", ["getDepartments"]),
@@ -210,7 +215,7 @@ export default {
         await this.$store.dispatch("student/add", this.student);
         this.$swal({
           title: "Thành công",
-          text: "Thêm khoa thành công.",
+          text: "Thêm thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",

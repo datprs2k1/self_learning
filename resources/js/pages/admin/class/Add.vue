@@ -82,7 +82,7 @@
                       >
                     </div>
                   </div>
-
+                  
                   <div class="card-footer">
                     <button @click.prevent="submit()" class="btn btn-primary">
                       Xác nhận
@@ -121,6 +121,11 @@ export default {
   },
   created() {
     this.getDepartments();
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
   methods: {
     ...mapActions("department", ["getDepartments"]),
@@ -129,7 +134,7 @@ export default {
         await this.$store.dispatch("CLASS/add", this.CLASS);
         this.$swal({
           title: "Thành công",
-          text: "Thêm khoa thành công.",
+          text: "Thêm thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",

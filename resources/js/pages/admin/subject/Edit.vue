@@ -119,6 +119,11 @@ export default {
   created() {
     this.getSubject(this.$route.params.id);
     this.getCLASSES();
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
   methods: {
     ...mapActions("subject", ["getSubject"]),
@@ -128,7 +133,7 @@ export default {
         await this.$store.dispatch("subject/edit", this.subject);
         this.$swal({
           title: "Thành công",
-          text: "Thêm khoa thành công.",
+          text: "Sửa thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",

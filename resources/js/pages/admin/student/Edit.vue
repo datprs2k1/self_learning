@@ -196,6 +196,11 @@ export default {
     this.getStudent(this.$route.params.id);
     this.getDepartments();
     this.getCLASSES();
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
   methods: {
     ...mapActions("student", ["getStudent"]),
@@ -206,7 +211,7 @@ export default {
         await this.$store.dispatch("student/edit", this.student);
         this.$swal({
           title: "Thành công",
-          text: "Sửa khoa thành công.",
+          text: "Sửa thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",

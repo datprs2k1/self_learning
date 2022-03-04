@@ -247,31 +247,37 @@ export default {
                     key: "code",
                     label: "MSV",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "name",
                     label: "Họ tên",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "email",
                     label: "Email",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "phone",
                     label: "SĐT",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "class.name",
                     label: "Tên lớp",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "department.name",
                     label: "Tên khoa",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "created_at",

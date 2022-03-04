@@ -121,7 +121,7 @@ export default {
         await this.$store.dispatch("department/add", this.department);
         this.$swal({
           title: "Thành công",
-          text: "Thêm khoa thành công.",
+          text: "Thêm thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",
@@ -136,6 +136,13 @@ export default {
         this.errors = error.response.data.errors;
       }
     },
+  },
+  created() {
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
 };
 </script>

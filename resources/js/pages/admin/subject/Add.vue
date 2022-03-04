@@ -122,6 +122,11 @@ export default {
   },
   created() {
     this.getCLASSES();
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
   methods: {
     ...mapActions("CLASS", ["getCLASSES"]),
@@ -130,14 +135,14 @@ export default {
         await this.$store.dispatch("subject/add", this.subject);
         this.$swal({
           title: "Thành công",
-          text: "Thêm khoa thành công.",
+          text: "Thêm thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",
           timer: 1000,
           width: 360,
         });
-        this.department = {
+        this.subject = {
           name: "",
           class_id: null,
         };

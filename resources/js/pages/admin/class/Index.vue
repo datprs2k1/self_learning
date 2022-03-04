@@ -217,21 +217,25 @@ export default {
                     key: "name",
                     label: "Tên lớp",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "department.name",
                     label: "Tên khoa",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "created_at",
                     label: "Ngày tạo",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "updated_at",
                     label: "Ngày sửa",
                     class: "text-center",
+                    sortable: true,
                 },
                 {
                     key: "actions",
