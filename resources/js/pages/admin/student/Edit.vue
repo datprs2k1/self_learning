@@ -121,7 +121,7 @@
                         text-field="name"
                         value-field="id"
                         :class="{ 'is-invalid': errors.dept_id }"
-                        @change="getCLASSES()"
+                        @change="getCLASS()"
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled
@@ -189,7 +189,7 @@ export default {
   data() {
     return {
       errors: {},
-      CLASSES: [],
+      CLASS: [],
     };
   },
   created() {
@@ -200,6 +200,7 @@ export default {
   methods: {
     ...mapActions("student", ["getStudent"]),
     ...mapActions("department", ["getDepartments"]),
+    ...mapActions("CLASS", ["getCLASSES"]),
     async submit() {
       try {
         await this.$store.dispatch("student/edit", this.student);
@@ -220,15 +221,16 @@ export default {
         this.errors = error.response.data.errors;
       }
     },
-    getCLASSES() {
-      this.CLASSES = this.departments.find(
-        (dept) => dept.id == this.student.dept_id
-      ).class;
+    getCLASS() {
+      this.CLASS = this.CLASSES.filter(
+        (item) => item.dept_id == this.student.dept_id
+      );
     },
   },
   computed: {
     ...mapGetters("student", ["student"]),
     ...mapGetters("department", ["departments"]),
+    ...mapGetters("CLASS", ["CLASSES"]),
   },
 };
 </script>
