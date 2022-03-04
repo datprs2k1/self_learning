@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +29,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('/department', DepartmentController::class);
     Route::resource('/class', ClassController::class);
     Route::resource('/student', StudentController::class);
+    Route::resource('/subject', SubjectController::class);
     Route::delete('/department/delete/{department}', 'App\Http\Controllers\DepartmentController@deleteMutiple');
     Route::delete('/class/delete/{class}', 'App\Http\Controllers\ClassController@deleteMutiple');
     Route::delete('/student/delete/{student}', 'App\Http\Controllers\StudentController@deleteMutiple');
+    Route::delete('/subject/delete/{subject}', 'App\Http\Controllers\SubjectController@deleteMutiple');
     Route::get('logout', 'App\Http\Controllers\AuthController@logout');
 });

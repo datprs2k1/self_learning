@@ -6,6 +6,7 @@ import auth from './modules/auth';
 import department from './modules/department';
 import CLASS from './modules/class';
 import student from './modules/student';
+import subject from './modules/subject';
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ const store = new Vuex.Store({
         department,
         CLASS,
         student,
+        subject
     },
     plugins: [createPersistedState()]
 });
