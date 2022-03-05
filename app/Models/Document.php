@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ClassModel;
+use App\Models\Subject;
 
 class Document extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name, file_name, subj_id, class_id'];
+    protected $fillable = ['name, content, file_name, subj_id, class_id'];
     protected $primaryKey = 'id';
     protected $table = 'document';
 
@@ -19,4 +21,14 @@ class Document extends Model
         'created_at' => 'datetime:d/m/Y H:i:s',
         'updated_at' => 'datetime:d/m/Y H:i:s',
     ];
+
+    public function Subject()
+    {
+        return $this->belongsTo(Subject::class, 'subj_id', 'id');
+    }
+
+    public function Class()
+    {
+        return $this->belongsTo(ClassModel::class, 'class_id', 'id');
+    }
 }

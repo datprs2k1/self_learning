@@ -8,6 +8,7 @@ import CLASS from './modules/class';
 import student from './modules/student';
 import subject from './modules/subject';
 import lesson from './modules/lesson';
+import document from './modules/document';
 
 Vue.use(Vuex);
 
@@ -18,7 +19,8 @@ const store = new Vuex.Store({
         CLASS,
         student,
         subject,
-        lesson
+        lesson,
+        document,
     },
     plugins: [createPersistedState()]
 });

@@ -5,7 +5,7 @@ const api_url = location.protocol + '//' + location.hostname + '/api';
 const getHeaders = () => {
     let token = localStorage.getItem('token');
     return {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`,
     }
 };
 

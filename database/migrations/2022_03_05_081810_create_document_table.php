@@ -16,6 +16,7 @@ class CreateDocumentTable extends Migration
         Schema::create('document', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->text('content');
             $table->text('file_name');
             $table->integer('subj_id');
             $table->integer('class_id');

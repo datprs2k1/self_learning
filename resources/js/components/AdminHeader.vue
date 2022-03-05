@@ -383,6 +383,33 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-file-invoice"></i>
+                <p>
+                  Quản lý tài liệu
+                  <i class="fas fa-angle-left right"></i>
+                  <!-- <span class="badge badge-info right">6</span> -->
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <router-link
+                    :to="{ name: 'document.index' }"
+                    class="nav-link"
+                  >
+                    <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
+                    <p>Danh sách</p>
+                  </router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'document.add' }" class="nav-link">
+                    <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
+                    <p>Thêm</p>
+                  </router-link>
+                </li>
+              </ul>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
