@@ -258,6 +258,7 @@ const routes = [
                 name: "document.index",
                 meta: {
                     title: "Danh sách tài liệu",
+                    breadcrumb: "Tài Liệu",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -268,6 +269,12 @@ const routes = [
                 name: "document.add",
                 meta: {
                     title: "Thêm tài liệu",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "document.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -278,6 +285,12 @@ const routes = [
                 name: "document.edit",
                 meta: {
                     title: "Sửa tài liệu",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "document.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },

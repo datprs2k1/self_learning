@@ -27,30 +27,30 @@ Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(VueSweetalert2)
-Vue.use(VueBreadcrumbs,{
+Vue.use(VueBreadcrumbs, {
     template:
-    '<section class=content-header>\n'+
-    '    <div class="container-fluid">\n'+
-    '        <div class="row mb-2">\n'+
-    '            <div class="col-sm-6" v-if="$breadcrumbs.length">\n'+
-    '                <h1 class="m-0" v-for="(crumb, key) in $breadcrumbs" v-if="crumb.meta.breadcrumb && key == $breadcrumbs.length-1" :key="key" >{{getBreadcrumb(crumb.meta.breadcrumb)}}</h1>\n'+
-    '            </div>\n'+
-    '            <div v-if="$breadcrumbs.length" class="col-sm-6">\n' +
-    '                <ol class="breadcrumb float-sm-right" v-if="$breadcrumbs.length>=3">\n' +
-    '                    <li v-for="(crumb, key) in $breadcrumbs" v-if="crumb.meta.breadcrumb && key >= 1" :key="key" class="breadcrumb-item">\n' +
-    '                        <router-link :to="{ path: getPath(crumb) }">{{ getBreadcrumb(crumb.meta.breadcrumb) }}</router-link>' +
-    '                    </li>\n' +
-    '                </ol>\n' +
-    '                <ol class="breadcrumb float-sm-right" v-else>\n' +
-    '                    <li v-for="(crumb, key) in $breadcrumbs" v-if="crumb.meta.breadcrumb" :key="key" class="breadcrumb-item">\n' +
-    '                        <router-link :to="{ path: getPath(crumb) }">{{ getBreadcrumb(crumb.meta.breadcrumb) }}</router-link>' +
-    '                    </li>\n' +
-    '                </ol>\n' +
-    '            </div>\n' +
-    '        </div>\n' +
-    '    </div>\n' +
-    '</section>'
-    })
+        '<section class=content-header>\n' +
+        '    <div class="container-fluid">\n' +
+        '        <div class="row mb-2">\n' +
+        '            <div class="col-sm-6" v-if="$breadcrumbs.length">\n' +
+        '                <h1 class="m-0" v-for="(crumb, key) in $breadcrumbs" v-if="crumb.meta.breadcrumb && key == $breadcrumbs.length-1" :key="key" >{{getBreadcrumb(crumb.meta.breadcrumb)}}</h1>\n' +
+        '            </div>\n' +
+        '            <div v-if="$breadcrumbs.length" class="col-sm-6">\n' +
+        '                <ol class="breadcrumb float-sm-right" v-if="$breadcrumbs.length>=3">\n' +
+        '                    <li v-for="(crumb, key) in $breadcrumbs" v-if="crumb.meta.breadcrumb && key >= 1" :key="key" class="breadcrumb-item">\n' +
+        '                        <router-link :to="{ path: getPath(crumb) }">{{ getBreadcrumb(crumb.meta.breadcrumb) }}</router-link>' +
+        '                    </li>\n' +
+        '                </ol>\n' +
+        '                <ol class="breadcrumb float-sm-right" v-else>\n' +
+        '                    <li v-for="(crumb, key) in $breadcrumbs" v-if="crumb.meta.breadcrumb" :key="key" class="breadcrumb-item">\n' +
+        '                        <router-link :to="{ path: getPath(crumb) }">{{ getBreadcrumb(crumb.meta.breadcrumb) }}</router-link>' +
+        '                    </li>\n' +
+        '                </ol>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </div>\n' +
+        '</section>'
+})
 
 
 /**
