@@ -82,6 +82,8 @@ class LessonController extends Controller
     public function show($id)
     {
         //
+        $lesson = Lesson::with('Class', 'Subject')->find($id);
+        return response()->json($lesson);
     }
 
     /**

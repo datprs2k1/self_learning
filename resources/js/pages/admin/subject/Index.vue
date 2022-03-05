@@ -49,7 +49,7 @@
                         <export-excel
                           :data="json_data"
                           class="btn btn-success"
-                          name="Danh sách lớp.xls"
+                          name="Danh sách môn học.xls"
                           id="export-excel"
                           v-b-tooltip.hover.v-secondary="
                             'Xuất Excel các bản ghi đã chọn'
@@ -200,21 +200,25 @@ export default {
           key: "name",
           label: "Tên môn học",
           class: "text-center",
+          sortable: true,
         },
         {
           key: "class.name",
           label: "Tên lớp",
           class: "text-center",
+          sortable: true,
         },
         {
           key: "created_at",
           label: "Ngày tạo",
           class: "text-center",
+          sortable: true,
         },
         {
           key: "updated_at",
           label: "Ngày sửa",
           class: "text-center",
+          sortable: true,
         },
         {
           key: "actions",

@@ -42,7 +42,10 @@ const actions = {
     async edit({ commit }, data) {
         await api.put(`/lesson/${data.id}`, {
             name: data.name,
-            subject_id: data.subject_id,
+            introduce: data.introduce,
+            content: data.content,
+            class_id: data.class_id,
+            subj_id: data.subj_id,
         });
     },
 

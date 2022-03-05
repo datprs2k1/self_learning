@@ -140,7 +140,7 @@
                       <label for="class">Tên lớp</label>
                       <b-form-select
                         v-model="student.class_id"
-                        :options="CLASSES"
+                        :options="CLASS"
                         text-field="name"
                         value-field="id"
                         :class="{ 'is-invalid': errors.class_id }"
@@ -192,21 +192,25 @@ export default {
       CLASS: [],
     };
   },
-  created() {
-    this.getStudent(this.$route.params.id);
-    this.getDepartments();
-    this.getCLASSES();
+  async created() {
+    await this.getStudent(this.$route.params.id);
+    await this.getDepartments();
+    await this.getCLASS();
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
   methods: {
     ...mapActions("student", ["getStudent"]),
     ...mapActions("department", ["getDepartments"]),
-    ...mapActions("CLASS", ["getCLASSES"]),
     async submit() {
       try {
         await this.$store.dispatch("student/edit", this.student);
         this.$swal({
           title: "Thành công",
-          text: "Sửa khoa thành công.",
+          text: "Sửa thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",
@@ -222,15 +226,14 @@ export default {
       }
     },
     getCLASS() {
-      this.CLASS = this.CLASSES.filter(
-        (item) => item.dept_id == this.student.dept_id
-      );
+      this.CLASS = this.departments.find(
+        (item) => item.id == this.student.dept_id
+      ).class;
     },
   },
   computed: {
     ...mapGetters("student", ["student"]),
     ...mapGetters("department", ["departments"]),
-    ...mapGetters("CLASS", ["CLASSES"]),
   },
 };
 </script>

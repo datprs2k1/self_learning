@@ -171,25 +171,18 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
-      lesson: {
-        name: "",
-        introduce: "",
-        content: "",
-        class_id: null,
-        subj_id: null,
-      },
       subject: [],
       errors: {},
     };
   },
-  created() {
-    this.getCLASSES();
-    this.getSubjects();
+  async created() {
+    await this.getLesson(this.$route.params.id);
+    await this.getCLASSES();
+    await this.getSubject();
   },
   methods: {
     ...mapActions("lesson", ["getLesson"]),
     ...mapActions("CLASS", ["getCLASSES"]),
-    ...mapActions("subject", ["getSubjects"]),
     async submit() {
       try {
         await this.$store.dispatch("lesson/edit", this.lesson);
@@ -210,15 +203,14 @@ export default {
       }
     },
     getSubject() {
-      this.subject = this.subjects.filter(
-        (subject) => subject.class_id == this.lesson.class_id
-      );
+      this.subject = this.CLASSES.find(
+        (CLASS) => CLASS.id == this.lesson.class_id
+      ).subject;
     },
   },
   computed: {
     ...mapGetters("lesson", ["lesson"]),
     ...mapGetters("CLASS", ["CLASSES"]),
-    ...mapGetters("subject", ["subjects"]),
   },
 };
 </script>

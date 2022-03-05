@@ -119,6 +119,11 @@ export default {
   async created() {
     await this.getDepartments();
     await this.getCLASS(this.$route.params.id);
+    window.addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        this.submit();
+      }
+    });
   },
   methods: {
     async submit() {
@@ -126,7 +131,7 @@ export default {
         await this.$store.dispatch("CLASS/edit", this.CLASS);
         this.$swal({
           title: "Thành công",
-          text: "Sửa khoa thành công.",
+          text: "Sửa thành công.",
           icon: "success",
           showConfirmButton: false,
           position: "top-end",

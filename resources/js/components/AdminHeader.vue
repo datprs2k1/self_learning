@@ -370,13 +370,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <router-link :to="{ name: 'subject.index' }" class="nav-link">
+                  <router-link :to="{ name: 'lesson.index' }" class="nav-link">
                     <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
                     <p>Danh sách</p>
                   </router-link>
                 </li>
                 <li class="nav-item">
-                  <router-link :to="{ name: 'subject.add' }" class="nav-link">
+                  <router-link :to="{ name: 'lesson.add' }" class="nav-link">
                     <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
                     <p>Thêm</p>
                   </router-link>
