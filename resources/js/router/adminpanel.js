@@ -12,6 +12,9 @@ import Student from "../pages/admin/student/Index.vue";
 import SubjectAdd from "../pages/admin/subject/Add.vue";
 import SubjectEdit from "../pages/admin/subject/Edit.vue";
 import Subject from "../pages/admin/subject/Index.vue";
+import Lesson from "../pages/admin/lesson/Index.vue";
+import LessonAdd from "../pages/admin/lesson/Add.vue";
+import LessonEdit from "../pages/admin/lesson/Edit.vue";
 
 const routes = [
     {
@@ -144,6 +147,36 @@ const routes = [
                 name: "subject.edit",
                 meta: {
                     title: "Sửa môn học",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "lesson",
+                component: Lesson,
+                name: "lesson.index",
+                meta: {
+                    title: "Danh sách bài học",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "lesson/add",
+                component: LessonAdd,
+                name: "lesson.add",
+                meta: {
+                    title: "Thêm bài học",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "lesson/edit/:id",
+                component: LessonEdit,
+                name: "lesson.edit",
+                meta: {
+                    title: "Sửa bài học",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
