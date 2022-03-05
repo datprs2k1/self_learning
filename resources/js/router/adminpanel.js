@@ -22,7 +22,7 @@ const routes = [
         name: "Admin",
         component: Admin,
         meta: {
-            breadcrumb: "Tổng quan",
+            breadcrumb: "Tổng Quan",
         },
         children: [
             {
