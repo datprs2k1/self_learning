@@ -21,6 +21,9 @@ const routes = [
         path: "/adminpanel",
         name: "Admin",
         component: Admin,
+        meta: {
+            breadcrumb: "Tổng quan",
+        },
         children: [
             {
                 path: "",
@@ -37,6 +40,12 @@ const routes = [
                 name: "department.add",
                 meta: {
                     title: "Thêm khoa",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "department.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -47,6 +56,12 @@ const routes = [
                 name: "department.edit",
                 meta: {
                     title: "Sửa khoa",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "department.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -57,6 +72,7 @@ const routes = [
                 name: "department.index",
                 meta: {
                     title: "Danh sách khoa",
+                    breadcrumb: "Khoa",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -67,6 +83,12 @@ const routes = [
                 name: "class.add",
                 meta: {
                     title: "Thêm lớp",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "class.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -77,6 +99,7 @@ const routes = [
                 name: "class.index",
                 meta: {
                     title: "Danh sách lớp",
+                    breadcrumb: "Lớp",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -87,6 +110,12 @@ const routes = [
                 name: "class.edit",
                 meta: {
                     title: "Sửa lớp",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "class.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -97,6 +126,12 @@ const routes = [
                 name: "student.add",
                 meta: {
                     title: "Thêm sinh viên",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "student.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -107,6 +142,7 @@ const routes = [
                 name: "student.index",
                 meta: {
                     title: "Danh sách sinh viên",
+                    breadcrumb: "Sinh Viên",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -117,6 +153,12 @@ const routes = [
                 name: "student.edit",
                 meta: {
                     title: "Sửa sinh viên",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "student.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -127,6 +169,12 @@ const routes = [
                 name: "subject.add",
                 meta: {
                     title: "Thêm môn học",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "subject.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -137,6 +185,7 @@ const routes = [
                 name: "subject.index",
                 meta: {
                     title: "Danh sách môn học",
+                    breadcrumb: "Môn Học",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -147,6 +196,12 @@ const routes = [
                 name: "subject.edit",
                 meta: {
                     title: "Sửa môn học",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "subject.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -156,7 +211,8 @@ const routes = [
                 component: Lesson,
                 name: "lesson.index",
                 meta: {
-                    title: "Danh sách bài học",
+                    title: "Danh sách bài giảng",
+                    breadcrumb: "Bài Giảng",
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -166,7 +222,13 @@ const routes = [
                 component: LessonAdd,
                 name: "lesson.add",
                 meta: {
-                    title: "Thêm bài học",
+                    title: "Thêm bài giảng",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "lesson.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
@@ -176,7 +238,13 @@ const routes = [
                 component: LessonEdit,
                 name: "lesson.edit",
                 meta: {
-                    title: "Sửa bài học",
+                    title: "Sửa bài giảng",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "lesson.index",
+                        }
+                    },
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
