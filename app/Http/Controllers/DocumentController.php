@@ -17,7 +17,7 @@ class DocumentController extends Controller
     public function index()
     {
         //
-        $document = Document::with('Subject')->with('Class')->orderBy('id', 'desc')->get();
+        $document = Document::with('Subject', 'Class', 'Lesson')->orderBy('id', 'desc')->get();
         return response()->json($document, 200);
     }
 
@@ -49,6 +49,7 @@ class DocumentController extends Controller
                     'file' => 'required',
                     'subj_id' => 'required|integer',
                     'class_id' => 'required|integer',
+                    'lesson_id' => 'required|integer',
                 ],
                 [
                     'name.required' => 'Tên tài liệu không được để trống.',
@@ -58,6 +59,7 @@ class DocumentController extends Controller
                     'subj_id.integer' => 'Mã môn học không được để trống.',
                     'class_id.required' => 'Mã lớp không được để trống.',
                     'class_id.integer' => 'Mã lớp không được để trống.',
+                    'lesson_id.required' => 'Mã bài học không được để trống.',
                 ]
             );
 
@@ -71,6 +73,7 @@ class DocumentController extends Controller
             $document->file_name = $name;
             $document->subj_id = $request->subj_id;
             $document->class_id = $request->class_id;
+            $document->lesson_id = $request->lesson_id;
             $document->created_at = date('Y-m-d H:i:s');
             $document->save();
 
@@ -91,7 +94,7 @@ class DocumentController extends Controller
     public function show($id)
     {
         //
-        $document = Document::with('Subject')->with('Class')->find($id);
+        $document = Document::with('Subject', 'Class', 'Lesson')->find($id);
         return response()->json($document, 200);
     }
 
@@ -124,6 +127,7 @@ class DocumentController extends Controller
                     'content' => 'required',
                     'subj_id' => 'required|integer',
                     'class_id' => 'required|integer',
+                    'lesson_id' => 'required|integer',
 
                 ],
                 [
@@ -133,6 +137,7 @@ class DocumentController extends Controller
                     'subj_id.integer' => 'Mã môn học không được để trống.',
                     'class_id.required' => 'Mã lớp không được để trống.',
                     'class_id.integer' => 'Mã lớp không được để trống.',
+                    'lesson_id.required' => 'Mã bài học không được để trống.',
                 ]
             );
 
@@ -156,6 +161,7 @@ class DocumentController extends Controller
             $document->file_name = $name;
             $document->subj_id = $request->subj_id;
             $document->class_id = $request->class_id;
+            $document->lesson_id = $request->lesson_id;
             $document->created_at = date('Y-m-d H:i:s');
             $document->save();
 

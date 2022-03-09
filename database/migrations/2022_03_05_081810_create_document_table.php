@@ -18,6 +18,7 @@ class CreateDocumentTable extends Migration
             $table->text('name');
             $table->text('content');
             $table->text('file_name');
+            $table->integer('lesson_id');
             $table->integer('subj_id');
             $table->integer('class_id');
             $table->timestamps();

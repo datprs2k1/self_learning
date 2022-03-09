@@ -111,6 +111,16 @@
                     </template>
 
                     <template #cell(actions)="row">
+                      <router-link
+                        :to="{
+                          name: 'document.edit',
+                          params: { id: row.item.id },
+                        }"
+                        ><i
+                          class="fas fa-edit fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Sửa bản ghi'"
+                        ></i
+                      ></router-link>
                       <span @click="row.toggleDetails">
                         <i
                           class="fas fa-eye fa-lg"

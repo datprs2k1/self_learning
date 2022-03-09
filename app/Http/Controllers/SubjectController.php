@@ -16,7 +16,7 @@ class SubjectController extends Controller
     public function index()
     {
         //
-        $subject = Subject::with('Class')->orderBy('id', 'desc')->get();
+        $subject = Subject::with('Class', 'lesson')->orderBy('id', 'desc')->get();
         return response()->json($subject, 200);
     }
 
@@ -74,7 +74,7 @@ class SubjectController extends Controller
     public function show($id)
     {
         //
-        $subject = Subject::find($id);
+        $subject = Subject::with('Class', 'lesson')->find($id)->get();
         return response()->json($subject, 200);
     }
 

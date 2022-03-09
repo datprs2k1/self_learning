@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ClassModel;
 use App\Models\Subject;
+use App\Models\Lesson;
 
 class Document extends Model
 {
@@ -30,5 +31,10 @@ class Document extends Model
     public function Class()
     {
         return $this->belongsTo(ClassModel::class, 'class_id', 'id');
+    }
+
+    public function Lesson()
+    {
+        return $this->hasMany(Lesson::class, 'id', 'lesson_id');
     }
 }

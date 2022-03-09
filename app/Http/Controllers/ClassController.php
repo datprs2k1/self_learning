@@ -16,7 +16,7 @@ class ClassController extends Controller
     public function index()
     {
         //
-        $data = ClassModel::with('subject')->orderBy('id', 'desc')->get();
+        $data = ClassModel::with('subject', 'department')->orderBy('id', 'desc')->get();
         return response()->json($data, 200);
     }
 

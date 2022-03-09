@@ -100,6 +100,7 @@
                         text-field="name"
                         value-field="id"
                         :class="{ 'is-invalid': errors.subj_id }"
+                        @change="getLesson()"
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled
@@ -112,6 +113,28 @@
                         id="exampleInputEmail1-error"
                         class="error invalid-feedback"
                         >{{ errors.subj_id[0] }}</span
+                      >
+                    </div>
+                    <div class="form-group">
+                      <label for="class">Tên bài giảng</label>
+                      <b-form-select
+                        v-model="document.lesson_id"
+                        :options="lesson"
+                        text-field="name"
+                        value-field="id"
+                        :class="{ 'is-invalid': errors.lesson_id }"
+                      >
+                        <template #first>
+                          <b-form-select-option :value="null" disabled
+                            >-- Chọn bài giảng --</b-form-select-option
+                          >
+                        </template>
+                      </b-form-select>
+                      <span
+                        v-if="errors.lesson_id"
+                        id="exampleInputEmail1-error"
+                        class="error invalid-feedback"
+                        >{{ errors.lesson_id[0] }}</span
                       >
                     </div>
                   </div>
@@ -150,18 +173,22 @@ export default {
         file: null,
         class_id: null,
         subj_id: null,
+        lesson_id: null,
       },
       subject: [],
+      lesson: [],
       errors: {},
     };
   },
   created() {
     this.getCLASSES();
     this.getSubjects();
+    this.getLessons();
   },
   methods: {
     ...mapActions("CLASS", ["getCLASSES"]),
     ...mapActions("subject", ["getSubjects"]),
+    ...mapActions("lesson", ["getLessons"]),
     async submit() {
       try {
         const formData = new FormData();
@@ -170,6 +197,7 @@ export default {
         formData.append("file", this.document.file);
         formData.append("subj_id", this.document.subj_id);
         formData.append("class_id", this.document.class_id);
+        formData.append("lesson_id", this.document.lesson_id);
 
         await this.$store.dispatch("document/add", formData);
         this.$swal({
@@ -187,6 +215,7 @@ export default {
           file: null,
           class_id: null,
           subj_id: null,
+          lesson_id: null,
         };
         this.errors = {
           name: null,
@@ -194,6 +223,7 @@ export default {
           file: null,
           class_id: null,
           subj_id: null,
+          lesson_id: null,
         };
       } catch (error) {
         this.errors = error.response.data.errors;
@@ -204,10 +234,17 @@ export default {
         (subject) => subject.class_id == this.document.class_id
       );
     },
+
+    getLesson() {
+      this.lesson = this.lessons.filter(
+        (lesson) => lesson.subj_id == this.document.subj_id
+      );
+    },
   },
   computed: {
     ...mapGetters("CLASS", ["CLASSES"]),
     ...mapGetters("subject", ["subjects"]),
+    ...mapGetters("lesson", ["lessons"]),
   },
 };
 </script>

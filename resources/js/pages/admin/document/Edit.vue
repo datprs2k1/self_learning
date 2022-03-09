@@ -114,6 +114,28 @@
                         >{{ errors.subj_id[0] }}</span
                       >
                     </div>
+                    <div class="form-group">
+                      <label for="class">Tên bài giảng</label>
+                      <b-form-select
+                        v-model="document.lesson_id"
+                        :options="lesson"
+                        text-field="name"
+                        value-field="id"
+                        :class="{ 'is-invalid': errors.lesson_id }"
+                      >
+                        <template #first>
+                          <b-form-select-option :value="null" disabled
+                            >-- Chọn bài giảng --</b-form-select-option
+                          >
+                        </template>
+                      </b-form-select>
+                      <span
+                        v-if="errors.lesson_id"
+                        id="exampleInputEmail1-error"
+                        class="error invalid-feedback"
+                        >{{ errors.lesson_id[0] }}</span
+                      >
+                    </div>
                   </div>
 
                   <div class="card-footer">
@@ -145,17 +167,23 @@ export default {
   data() {
     return {
       subject: [],
+      lesson: [],
       errors: {},
     };
   },
   async created() {
     await this.getDocument(this.$route.params.id);
     await this.getCLASSES();
+    await this.getSubjects();
+    await this.getLessons();
     await this.getSubject();
+    await this.getLesson();
   },
   methods: {
     ...mapActions("document", ["getDocument"]),
     ...mapActions("CLASS", ["getCLASSES"]),
+    ...mapActions("subject", ["getSubjects"]),
+    ...mapActions("lesson", ["getLessons"]),
     async submit() {
       try {
         const formData = new FormData();
@@ -165,6 +193,7 @@ export default {
         formData.append("file", this.document.file);
         formData.append("subj_id", this.document.subj_id);
         formData.append("class_id", this.document.class_id);
+        formData.append("lesson_id", this.document.lesson_id);
         formData.append("_method", "put");
 
         await this.$store.dispatch("document/edit", formData);
@@ -186,14 +215,21 @@ export default {
       }
     },
     getSubject() {
-      this.subject = this.CLASSES.find(
-        (CLASS) => CLASS.id == this.document.class_id
-      ).subject;
+      this.subject = this.subjects.filter(
+        (subject) => subject.class_id == this.document.class_id
+      );
+    },
+    getLesson() {
+      this.lesson = this.lessons.filter(
+        (lesson) => lesson.subj_id == this.document.subj_id
+      );
     },
   },
   computed: {
     ...mapGetters("document", ["document"]),
     ...mapGetters("CLASS", ["CLASSES"]),
+    ...mapGetters("subject", ["subjects"]),
+    ...mapGetters("lesson", ["lessons"]),
   },
 };
 </script>
