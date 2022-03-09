@@ -35,6 +35,6 @@ class Document extends Model
 
     public function Lesson()
     {
-        return $this->hasMany(Lesson::class, 'id', 'lesson_id');
+        return $this->belongsTo(Lesson::class, 'lesson_id', 'id');
     }
 }
