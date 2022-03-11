@@ -5,7 +5,7 @@ import store from '../store';
 
 Vue.use(VueRouter);
 
-import Error404 from "../components/Error404.vue";
+const Error404 = () => import("../components/Error404.vue");
 import Home from "./home";
 import Admin from "./adminpanel";
 

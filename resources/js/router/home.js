@@ -1,9 +1,9 @@
-import Index from "../pages/home/Index.vue";
-import Home from "../pages/home/Home.vue";
-import Login from "../pages/login/Index.vue";
-import About from "../pages/home/About.vue";
-import Courses from "../pages/home/Courses.vue";
-import Contact from "../pages/home/Contact.vue";
+const Index = () => import("../pages/home/Index.vue");
+const Home = () => import("../pages/home/Home.vue");
+const Login = () => import("../pages/login/Index.vue");
+const About = () => import("../pages/home/About.vue");
+const Courses = () => import("../pages/home/Courses.vue");
+const Contact = () => import("../pages/home/Contact.vue");
 
 const routers = [
     {
