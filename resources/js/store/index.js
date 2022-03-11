@@ -9,6 +9,7 @@ import student from './modules/student';
 import subject from './modules/subject';
 import lesson from './modules/lesson';
 import document from './modules/document';
+import test from './modules/test';
 
 Vue.use(Vuex);
 
@@ -21,6 +22,7 @@ const store = new Vuex.Store({
         subject,
         lesson,
         document,
+        test,
     },
     plugins: [createPersistedState()]
 });

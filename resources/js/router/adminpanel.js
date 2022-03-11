@@ -18,6 +18,9 @@ import LessonEdit from "../pages/admin/lesson/Edit.vue";
 import Document from "../pages/admin/document/Index.vue";
 import DocumentAdd from "../pages/admin/document/Add.vue";
 import DocumentEdit from "../pages/admin/document/Edit.vue";
+import Test from "../pages/admin/test/Index.vue";
+import TestAdd from "../pages/admin/test/Add.vue";
+import TestEdit from "../pages/admin/test/Edit.vue";
 
 const routes = [
     {
@@ -289,6 +292,49 @@ const routes = [
                         return {
                             label: this.$route.meta.title,
                             parent: "document.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "test",
+                component: Test,
+                name: "test.index",
+                meta: {
+                    title: "Danh sách đề thi",
+                    breadcrumb: "Đề Thi",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "test/add",
+                component: TestAdd,
+                name: "test.add",
+                meta: {
+                    title: "Thêm đề thi",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "test.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "test/edit/:id",
+                component: TestEdit,
+                name: "test.edit",
+                meta: {
+                    title: "Sửa đề thi",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "test.index",
                         }
                     },
                     requiresAuth: true,
