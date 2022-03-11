@@ -198,6 +198,10 @@ export default {
   },
   created() {
     this.getTests();
+    if (this.$route.params.test_id) {
+      this.question.test_id = this.$route.params.test_id;
+    }
+
     window.addEventListener("keyup", (e) => {
       if (e.key == "Enter") {
         this.submit();

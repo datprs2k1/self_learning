@@ -112,6 +112,19 @@
                     <template #cell(actions)="row">
                       <router-link
                         :to="{
+                          name: 'lesson.add',
+                          params: {
+                            subj_id: row.item.id,
+                            class_id: row.item.class.id,
+                          },
+                        }"
+                        ><i
+                          class="fas fa-plus fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Thêm bài giảng'"
+                        ></i
+                      ></router-link>
+                      <router-link
+                        :to="{
                           name: 'subject.edit',
                           params: { id: row.item.id },
                         }"

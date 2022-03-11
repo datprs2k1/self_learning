@@ -176,6 +176,17 @@ export default {
     this.getCLASSES();
     this.getSubjects();
     this.getLessons();
+    if (
+      this.$route.params.class_id &&
+      this.$route.params.subj_id &&
+      this.$route.params.lesson_id
+    ) {
+      this.test.class_id = this.$route.params.class_id;
+      this.test.subj_id = this.$route.params.subj_id;
+      this.test.lesson_id = this.$route.params.lesson_id;
+    }
+    this.getSubject();
+    this.getLesson();
   },
   methods: {
     ...mapActions("CLASS", ["getCLASSES"]),

@@ -113,6 +113,19 @@
                     <template #cell(actions)="row">
                       <router-link
                         :to="{
+                          name: 'question.add',
+                          params: {
+                            test_id: row.item.id,
+                          },
+                        }"
+                        ><i
+                          class="fas fa-plus fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Thêm bài giảng'"
+                        ></i
+                      ></router-link>
+
+                      <router-link
+                        :to="{
                           name: 'test.edit',
                           params: { id: row.item.id },
                         }"
@@ -121,16 +134,18 @@
                           v-b-tooltip.hover.v-secondary="'Sửa bản ghi'"
                         ></i
                       ></router-link>
-                      <span @click="row.toggleDetails">
-                        <i
-                          class="fas fa-eye fa-lg"
-                          v-b-tooltip.hover.v-secondary="'Xem chi tiết'"
-                        ></i>
-                      </span>
+
                       <span @click="deleteTest(row.item.id)">
                         <i
                           class="fas fa-trash-alt fa-lg"
                           v-b-tooltip.hover.v-secondary="'Xóa bản ghi'"
+                        ></i>
+                      </span>
+
+                      <span @click="row.toggleDetails">
+                        <i
+                          class="fas fa-eye fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Xem chi tiết'"
                         ></i>
                       </span>
                     </template>

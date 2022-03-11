@@ -2,7 +2,7 @@
   <div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <Breadcrumbs/>
+      <Breadcrumbs />
 
       <!-- Main content -->
       <section class="content">
@@ -110,12 +110,34 @@
                     </template>
 
                     <template #cell(actions)="row">
-                      <span @click="row.toggleDetails">
-                        <i
-                          class="fas fa-eye fa-lg"
-                          v-b-tooltip.hover.v-secondary="'Xem chi tiết'"
-                        ></i>
-                      </span>
+                      <router-link
+                        :to="{
+                          name: 'document.add',
+                          params: {
+                            lesson_id: row.item.id,
+                            subj_id: row.item.subject.id,
+                            class_id: row.item.class.id,
+                          },
+                        }"
+                        ><i
+                          class="fas fa-book-medical fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Thêm tài liệu'"
+                        ></i
+                      ></router-link>
+                      <router-link
+                        :to="{
+                          name: 'test.add',
+                          params: {
+                            lesson_id: row.item.id,
+                            subj_id: row.item.subject.id,
+                            class_id: row.item.class.id,
+                          },
+                        }"
+                        ><i
+                          class="fas fa-graduation-cap fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Thêm đề thi'"
+                        ></i
+                      ></router-link>
                       <router-link
                         :to="{
                           name: 'lesson.edit',
@@ -130,6 +152,12 @@
                         <i
                           class="fas fa-trash-alt fa-lg"
                           v-b-tooltip.hover.v-secondary="'Xóa bản ghi'"
+                        ></i>
+                      </span>
+                      <span @click="row.toggleDetails">
+                        <i
+                          class="fas fa-eye fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Xem chi tiết'"
                         ></i>
                       </span>
                     </template>
