@@ -10,6 +10,7 @@ import subject from './modules/subject';
 import lesson from './modules/lesson';
 import document from './modules/document';
 import test from './modules/test';
+import question from './modules/question';
 
 Vue.use(Vuex);
 
@@ -23,6 +24,7 @@ const store = new Vuex.Store({
         lesson,
         document,
         test,
+        question
     },
     plugins: [createPersistedState()]
 });

@@ -2,7 +2,7 @@
   <div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <Breadcrumbs/>
+      <Breadcrumbs />
 
       <!-- Main content -->
       <section class="content">

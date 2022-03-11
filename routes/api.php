@@ -9,6 +9,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('/lesson', LessonController::class);
     Route::resource('/document', DocumentController::class);
     Route::resource('/test', TestController::class);
+    Route::resource('/question', QuestionController::class);
     Route::delete('/department/delete/{department}', 'App\Http\Controllers\DepartmentController@deleteMutiple');
     Route::delete('/class/delete/{class}', 'App\Http\Controllers\ClassController@deleteMutiple');
     Route::delete('/student/delete/{student}', 'App\Http\Controllers\StudentController@deleteMutiple');
@@ -43,5 +45,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/lesson/delete/{lesson}', 'App\Http\Controllers\LessonController@deleteMutiple');
     Route::delete('/document/delete/{document}', 'App\Http\Controllers\DocumentController@deleteMutiple');
     Route::delete('/test/delete/{test}', 'App\Http\Controllers\TestController@deleteMutiple');
+    Route::delete('/question/delete/{question}', 'App\Http\Controllers\QuestionController@deleteMutiple');
     Route::get('logout', 'App\Http\Controllers\AuthController@logout');
 });

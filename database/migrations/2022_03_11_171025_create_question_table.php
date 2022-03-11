@@ -20,8 +20,8 @@ class CreateQuestionTable extends Migration
             $table->string('Ans_B');
             $table->string('Ans_C');
             $table->string('Ans_D');
-            $table->string('True_Ans');
-            $table->integer('lesson_id');
+            $table->string('Correct_Ans');
+            $table->integer('test_id');
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
   <div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-     <Breadcrumbs/>
+      <Breadcrumbs />
 
       <!-- Main content -->
       <section class="content">
@@ -95,6 +95,9 @@ export default {
   },
   created() {
     this.getCLASSES();
+    if (this.$route.params.class_id) {
+      this.subject.class_id = this.$route.params.class_id;
+    }
     window.addEventListener("keyup", (e) => {
       if (e.key == "Enter") {
         this.submit();

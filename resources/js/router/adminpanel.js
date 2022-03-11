@@ -21,6 +21,10 @@ import DocumentEdit from "../pages/admin/document/Edit.vue";
 import Test from "../pages/admin/test/Index.vue";
 import TestAdd from "../pages/admin/test/Add.vue";
 import TestEdit from "../pages/admin/test/Edit.vue";
+import Question from "../pages/admin/question/Index.vue";
+import QuestionAdd from "../pages/admin/question/Add.vue";
+import QuestionEdit from "../pages/admin/question/Edit.vue";
+
 
 const routes = [
     {
@@ -335,6 +339,49 @@ const routes = [
                         return {
                             label: this.$route.meta.title,
                             parent: "test.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "question",
+                component: Question,
+                name: "question.index",
+                meta: {
+                    title: "Danh sách câu hỏi",
+                    breadcrumb: "Câu Hỏi",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "question/add",
+                component: QuestionAdd,
+                name: "question.add",
+                meta: {
+                    title: "Thêm câu hỏi",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "question.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "question/edit/:id",
+                component: QuestionEdit,
+                name: "question.edit",
+                meta: {
+                    title: "Sửa câu hỏi",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "question.index",
                         }
                     },
                     requiresAuth: true,
