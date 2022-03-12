@@ -211,6 +211,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -80394,6 +80405,36 @@ var render = function () {
                                   {
                                     attrs: {
                                       to: {
+                                        name: "class.show",
+                                        params: { id: row.item.id },
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("i", {
+                                      directives: [
+                                        {
+                                          name: "b-tooltip",
+                                          rawName:
+                                            "v-b-tooltip.hover.v-secondary",
+                                          value: "Xem chi tiết",
+                                          expression: "'Xem chi tiết'",
+                                          modifiers: {
+                                            hover: true,
+                                            "v-secondary": true,
+                                          },
+                                        },
+                                      ],
+                                      staticClass: "fas fa-eye fa-lg",
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: {
                                         name: "subject.add",
                                         params: { class_id: row.item.id },
                                       },
@@ -80426,8 +80467,8 @@ var render = function () {
                                       to: {
                                         name: "student.add",
                                         params: {
-                                          dept_id: row.item.department.id,
                                           class_id: row.item.id,
+                                          dept_id: row.item.department.id,
                                         },
                                       },
                                     },
@@ -80447,8 +80488,7 @@ var render = function () {
                                           },
                                         },
                                       ],
-                                      staticClass:
-                                        "fas fa-graduation-cap fa-lg",
+                                      staticClass: "fas fa-plus fa-lg",
                                     }),
                                   ]
                                 ),

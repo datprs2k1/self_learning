@@ -112,6 +112,17 @@
                     <template #cell(actions)="row">
                       <router-link
                         :to="{
+                          name: 'class.show',
+                          params: { id: row.item.id },
+                        }"
+                        ><i
+                          class="fas fa-eye fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Xem chi tiết'"
+                        ></i
+                      ></router-link>
+
+                      <router-link
+                        :to="{
                           name: 'subject.add',
                           params: { class_id: row.item.id },
                         }"
@@ -125,12 +136,12 @@
                         :to="{
                           name: 'student.add',
                           params: {
-                            dept_id: row.item.department.id,
                             class_id: row.item.id,
+                            dept_id: row.item.department.id,
                           },
                         }"
                         ><i
-                          class="fas fa-graduation-cap fa-lg"
+                          class="fas fa-plus fa-lg"
                           v-b-tooltip.hover.v-secondary="'Thêm sinh viên'"
                         ></i
                       ></router-link>
