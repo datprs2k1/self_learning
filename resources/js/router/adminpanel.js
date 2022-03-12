@@ -6,6 +6,7 @@ const Department = () => import("../pages/admin/department/Index.vue");
 const ClassAdd = () => import("../pages/admin/class/Add.vue");
 const ClassEdit = () => import("../pages/admin/class/Edit.vue");
 const Class = () => import("../pages/admin/class/Index.vue");
+const ClassShow = () => import("../pages/admin/class/Show.vue");
 const StudentAdd = () => import("../pages/admin/student/Add.vue");
 const StudentEdit = () => import("../pages/admin/student/Edit.vue");
 const Student = () => import("../pages/admin/student/Index.vue");
@@ -120,6 +121,22 @@ const routes = [
                 name: "class.edit",
                 meta: {
                     title: "Sửa Lớp",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "class.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "class/show/:id",
+                component: ClassShow,
+                name: "class.show",
+                meta: {
+                    title: "Xem Lớp",
                     breadcrumb() {
                         return {
                             label: this.$route.meta.title,

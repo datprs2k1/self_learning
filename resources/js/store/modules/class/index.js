@@ -50,7 +50,7 @@ const actions = {
     async getCLASSES({ commit }) {
         const response = await api.get('/class');
         commit('SET_CLASSES', response.data);
-    }
+    },
 
 };
 

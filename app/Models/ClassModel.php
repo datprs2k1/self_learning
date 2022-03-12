@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Department;
 use App\Models\Subject;
 use App\Models\Lesson;
+use App\Models\Student;
 
 class ClassModel extends Model
 {
@@ -35,5 +36,10 @@ class ClassModel extends Model
     public function lesson()
     {
         return $this->hasMany(Lesson::class, 'class_id', 'id');
+    }
+
+    public function student()
+    {
+        return $this->hasMany(Student::class, 'class_id', 'id');
     }
 }

@@ -75,7 +75,7 @@ class ClassController extends Controller
     public function show($id)
     {
         //
-        $class = ClassModel::with('department')->find($id);
+        $class = ClassModel::with('department', 'subject', 'student')->find($id);
         return response()->json($class, 200);
     }
 
