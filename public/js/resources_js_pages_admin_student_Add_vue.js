@@ -199,20 +199,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         class_id: null
       },
       errors: {},
-      CLASSES: []
+      CLASS: []
     };
   },
   created: function created() {
     var _this = this;
 
     this.getDepartments();
+    this.getCLASSES();
+
+    if (this.$route.params.class_id && this.$route.params.dept_id) {
+      this.student.dept_id = this.$route.params.dept_id;
+      this.student.class_id = this.$route.params.class_id;
+    }
+
+    this.getCLASS();
     window.addEventListener("keyup", function (e) {
       if (e.key == "Enter") {
         _this.submit();
       }
     });
   },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("department", ["getDepartments"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("department", ["getDepartments"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("CLASS", ["getCLASSES"])), {}, {
     submit: function submit() {
       var _this2 = this;
 
@@ -268,15 +276,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee, null, [[0, 8]]);
       }))();
     },
-    getCLASSES: function getCLASSES() {
+    getCLASS: function getCLASS() {
       var _this3 = this;
 
-      this.CLASSES = this.departments.find(function (dept) {
-        return dept.id == _this3.student.dept_id;
-      })["class"];
+      this.CLASS = this.CLASSES.filter(function (item) {
+        return item.dept_id == _this3.student.dept_id;
+      });
     }
   }),
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("department", ["departments"]))
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("department", ["departments"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("CLASS", ["CLASSES"]))
 });
 
 /***/ }),
@@ -586,7 +594,7 @@ var render = function () {
                             },
                             on: {
                               change: function ($event) {
-                                return _vm.getCLASSES()
+                                return _vm.getCLASS()
                               },
                             },
                             scopedSlots: _vm._u([
@@ -638,7 +646,7 @@ var render = function () {
                           _c("b-form-select", {
                             class: { "is-invalid": _vm.errors.class_id },
                             attrs: {
-                              options: _vm.CLASSES,
+                              options: _vm.CLASS,
                               "text-field": "name",
                               "value-field": "id",
                             },

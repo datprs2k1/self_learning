@@ -120,6 +120,21 @@
                           v-b-tooltip.hover.v-secondary="'Thêm môn học'"
                         ></i
                       ></router-link>
+
+                      <router-link
+                        :to="{
+                          name: 'student.add',
+                          params: {
+                            dept_id: row.item.department.id,
+                            class_id: row.item.id,
+                          },
+                        }"
+                        ><i
+                          class="fas fa-graduation-cap fa-lg"
+                          v-b-tooltip.hover.v-secondary="'Thêm sinh viên'"
+                        ></i
+                      ></router-link>
+
                       <router-link
                         :to="{
                           name: 'class.edit',

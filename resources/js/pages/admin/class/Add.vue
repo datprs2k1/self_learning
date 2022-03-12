@@ -2,7 +2,7 @@
   <div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <Breadcrumbs/>
+      <Breadcrumbs />
 
       <!-- Main content -->
       <section class="content">
@@ -57,7 +57,7 @@
                       >
                     </div>
                   </div>
-                  
+
                   <div class="card-footer">
                     <button @click.prevent="submit()" class="btn btn-primary">
                       Xác nhận
@@ -96,6 +96,9 @@ export default {
   },
   created() {
     this.getDepartments();
+    if (this.$route.params.dept_id) {
+      this.CLASS.dept_id = this.$route.params.dept_id;
+    }
     window.addEventListener("keyup", (e) => {
       if (e.key == "Enter") {
         this.submit();

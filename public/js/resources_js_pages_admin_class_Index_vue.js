@@ -196,6 +196,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -80400,6 +80415,40 @@ var render = function () {
                                         },
                                       ],
                                       staticClass: "fas fa-plus fa-lg",
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: {
+                                        name: "student.add",
+                                        params: {
+                                          dept_id: row.item.department.id,
+                                          class_id: row.item.id,
+                                        },
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("i", {
+                                      directives: [
+                                        {
+                                          name: "b-tooltip",
+                                          rawName:
+                                            "v-b-tooltip.hover.v-secondary",
+                                          value: "Thêm sinh viên",
+                                          expression: "'Thêm sinh viên'",
+                                          modifiers: {
+                                            hover: true,
+                                            "v-secondary": true,
+                                          },
+                                        },
+                                      ],
+                                      staticClass:
+                                        "fas fa-graduation-cap fa-lg",
                                     }),
                                   ]
                                 ),

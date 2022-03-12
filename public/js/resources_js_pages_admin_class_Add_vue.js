@@ -125,6 +125,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this = this;
 
     this.getDepartments();
+
+    if (this.$route.params.dept_id) {
+      this.CLASS.dept_id = this.$route.params.dept_id;
+    }
+
     window.addEventListener("keyup", function (e) {
       if (e.key == "Enter") {
         _this.submit();

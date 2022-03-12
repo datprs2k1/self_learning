@@ -2,7 +2,7 @@
   <div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <Breadcrumbs/>
+      <Breadcrumbs />
 
       <!-- Main content -->
       <section class="content">
@@ -96,7 +96,7 @@
                         text-field="name"
                         value-field="id"
                         :class="{ 'is-invalid': errors.dept_id }"
-                        @change="getCLASSES()"
+                        @change="getCLASS()"
                       >
                         <template #first>
                           <b-form-select-option :value="null" disabled
@@ -115,7 +115,7 @@
                       <label for="class">Tên lớp</label>
                       <b-form-select
                         v-model="student.class_id"
-                        :options="CLASSES"
+                        :options="CLASS"
                         text-field="name"
                         value-field="id"
                         :class="{ 'is-invalid': errors.class_id }"
@@ -172,11 +172,17 @@ export default {
         class_id: null,
       },
       errors: {},
-      CLASSES: [],
+      CLASS: [],
     };
   },
   created() {
     this.getDepartments();
+    this.getCLASSES();
+    if (this.$route.params.class_id && this.$route.params.dept_id) {
+      this.student.dept_id = this.$route.params.dept_id;
+      this.student.class_id = this.$route.params.class_id;
+    }
+    this.getCLASS();
     window.addEventListener("keyup", (e) => {
       if (e.key == "Enter") {
         this.submit();
@@ -185,6 +191,7 @@ export default {
   },
   methods: {
     ...mapActions("department", ["getDepartments"]),
+    ...mapActions("CLASS", ["getCLASSES"]),
     async submit() {
       try {
         await this.$store.dispatch("student/add", this.student);
@@ -217,14 +224,15 @@ export default {
         this.errors = error.response.data.errors;
       }
     },
-    getCLASSES() {
-      this.CLASSES = this.departments.find(
-        (dept) => dept.id == this.student.dept_id
-      ).class;
+    getCLASS() {
+      this.CLASS = this.CLASSES.filter((item) => {
+        return item.dept_id == this.student.dept_id;
+      });
     },
   },
   computed: {
     ...mapGetters("department", ["departments"]),
+    ...mapGetters("CLASS", ["CLASSES"]),
   },
 };
 </script>

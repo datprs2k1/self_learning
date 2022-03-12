@@ -197,12 +197,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -80121,7 +80115,7 @@ var render = function () {
                                     rawName: "v-b-tooltip.hover.v-secondary",
                                     value: "Số bản ghi trên một trang",
                                     expression:
-                                      "\n                                                'Số bản ghi trên một trang'\n                                            ",
+                                      "\n                        'Số bản ghi trên một trang'\n                      ",
                                     modifiers: {
                                       hover: true,
                                       "v-secondary": true,
@@ -80162,7 +80156,7 @@ var render = function () {
                                           value:
                                             "Xuất Excel các bản ghi đã chọn",
                                           expression:
-                                            "\n                                                    'Xuất Excel các bản ghi đã chọn'\n                                                ",
+                                            "\n                          'Xuất Excel các bản ghi đã chọn'\n                        ",
                                           modifiers: {
                                             hover: true,
                                             "v-secondary": true,
@@ -80197,7 +80191,7 @@ var render = function () {
                                           "v-b-tooltip.hover.v-secondary",
                                         value: "Xuất PDF các bản ghi đã chọn",
                                         expression:
-                                          "\n                                                    'Xuất PDF các bản ghi đã chọn'\n                                                ",
+                                          "\n                          'Xuất PDF các bản ghi đã chọn'\n                        ",
                                         modifiers: {
                                           hover: true,
                                           "v-secondary": true,
@@ -80224,7 +80218,7 @@ var render = function () {
                                       rawName: "v-b-tooltip.hover.v-secondary",
                                       value: "Xóa các bản ghi đã chọn",
                                       expression:
-                                        "\n                                                'Xóa các bản ghi đã chọn'\n                                            ",
+                                        "\n                        'Xóa các bản ghi đã chọn'\n                      ",
                                       modifiers: {
                                         hover: true,
                                         "v-secondary": true,
@@ -80245,8 +80239,7 @@ var render = function () {
                                       name: "b-tooltip",
                                       rawName: "v-b-tooltip.hover.v-secondary",
                                       value: "Thêm mới bản ghi",
-                                      expression:
-                                        "\n                                                'Thêm mới bản ghi'\n                                            ",
+                                      expression: "'Thêm mới bản ghi'",
                                       modifiers: {
                                         hover: true,
                                         "v-secondary": true,
@@ -80386,6 +80379,36 @@ var render = function () {
                                   {
                                     attrs: {
                                       to: {
+                                        name: "class.add",
+                                        params: { dept_id: row.item.id },
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c("i", {
+                                      directives: [
+                                        {
+                                          name: "b-tooltip",
+                                          rawName:
+                                            "v-b-tooltip.hover.v-secondary",
+                                          value: "Thêm lớp",
+                                          expression: "'Thêm lớp'",
+                                          modifiers: {
+                                            hover: true,
+                                            "v-secondary": true,
+                                          },
+                                        },
+                                      ],
+                                      staticClass: "fas fa-plus fa-lg",
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: {
                                         name: "department.edit",
                                         params: { id: row.item.id },
                                       },
@@ -80399,8 +80422,7 @@ var render = function () {
                                           rawName:
                                             "v-b-tooltip.hover.v-secondary",
                                           value: "Sửa bản ghi",
-                                          expression:
-                                            "\n                                                    'Sửa bản ghi'\n                                                ",
+                                          expression: "'Sửa bản ghi'",
                                           modifiers: {
                                             hover: true,
                                             "v-secondary": true,
@@ -80429,8 +80451,7 @@ var render = function () {
                                           rawName:
                                             "v-b-tooltip.hover.v-secondary",
                                           value: "Xóa bản ghi",
-                                          expression:
-                                            "\n                                                    'Xóa bản ghi'\n                                                ",
+                                          expression: "'Xóa bản ghi'",
                                           modifiers: {
                                             hover: true,
                                             "v-secondary": true,
@@ -80449,9 +80470,9 @@ var render = function () {
                             fn: function (row) {
                               return [
                                 _vm._v(
-                                  "\n                                        " +
+                                  "\n                    " +
                                     _vm._s(row.index + 1) +
-                                    "\n                                    "
+                                    "\n                  "
                                 ),
                               ]
                             },
