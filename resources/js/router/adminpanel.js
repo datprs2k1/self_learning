@@ -22,6 +22,7 @@ const DocumentEdit = () => import("../pages/admin/document/Edit.vue");
 const Test = () => import("../pages/admin/test/Index.vue");
 const TestAdd = () => import("../pages/admin/test/Add.vue");
 const TestEdit = () => import("../pages/admin/test/Edit.vue");
+const TestShow = () => import("../pages/admin/test/Show.vue");
 const Question = () => import("../pages/admin/question/Index.vue");
 const QuestionAdd = () => import("../pages/admin/question/Add.vue");
 const QuestionEdit = () => import("../pages/admin/question/Edit.vue");
@@ -352,6 +353,22 @@ const routes = [
                 name: "test.edit",
                 meta: {
                     title: "Sửa đề thi",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "test.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "test/show/:id",
+                component: TestShow,
+                name: "test.show",
+                meta: {
+                    title: "Xem đề thi",
                     breadcrumb() {
                         return {
                             label: this.$route.meta.title,

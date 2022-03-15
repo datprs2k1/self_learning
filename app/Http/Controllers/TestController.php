@@ -85,7 +85,8 @@ class TestController extends Controller
     {
         //
 
-        $test = Test::with('Class', 'Lesson', 'Subject')->find($id);
+        $test = Test::with('Class', 'Lesson', 'Subject', 'Question')->find($id);
+
         return response()->json($test, 200);
     }
 
