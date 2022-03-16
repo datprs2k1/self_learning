@@ -21,7 +21,8 @@ class CreateQuestionTable extends Migration
             $table->string('Ans_C');
             $table->string('Ans_D');
             $table->string('Correct_Ans');
-            $table->integer('test_id');
+            $table->bigInteger('test_id')->unsigned();
+            $table->foreign('test_id')->references('id')->on('test')->onDelete('cascade');
             $table->timestamps();
         });
     }

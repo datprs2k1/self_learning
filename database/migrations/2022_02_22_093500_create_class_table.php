@@ -16,7 +16,8 @@ class CreateClassTable extends Migration
         Schema::create('class', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('dept_id');
+            $table->bigInteger('dept_id')->unsigned();
+            $table->foreign('dept_id')->references('id')->on('department')->onDelete('cascade');
             $table->timestamps();
         });
     }

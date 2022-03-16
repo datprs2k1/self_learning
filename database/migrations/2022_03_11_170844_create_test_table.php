@@ -17,9 +17,12 @@ class CreateTestTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('type');
-            $table->integer('lesson_id');
-            $table->integer('subj_id');
-            $table->integer('class_id');
+            $table->bigInteger('lesson_id')->unsigned();
+            $table->bigInteger('subj_id')->unsigned();
+            $table->bigInteger('class_id')->unsigned();
+            $table->foreign('lesson_id')->references('id')->on('lesson')->onDelete('cascade');
+            $table->foreign('subj_id')->references('id')->on('subject')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('cascade');
             $table->timestamps();
         });
     }

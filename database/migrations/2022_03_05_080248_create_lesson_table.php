@@ -18,8 +18,10 @@ class CreateLessonTable extends Migration
             $table->text('name');
             $table->text('introduce');
             $table->text('content');
-            $table->integer('subj_id');
-            $table->integer('class_id');
+            $table->bigInteger('subj_id')->unsigned();
+            $table->bigInteger('class_id')->unsigned();
+            $table->foreign('subj_id')->references('id')->on('subject')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('cascade');
             $table->timestamps();
         });
     }

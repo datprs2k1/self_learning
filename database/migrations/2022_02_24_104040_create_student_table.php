@@ -19,8 +19,10 @@ class CreateStudentTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone')->length(10);
-            $table->integer('dept_id');
-            $table->integer('class_id');
+            $table->bigInteger('dept_id')->unsigned();
+            $table->bigInteger('class_id')->unsigned();
+            $table->foreign('dept_id')->references('id')->on('department')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('cascade');
             $table->timestamps();
         });
     }

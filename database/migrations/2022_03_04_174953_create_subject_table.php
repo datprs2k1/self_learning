@@ -16,7 +16,8 @@ class CreateSubjectTable extends Migration
         Schema::create('subject', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->integer('class_id');
+            $table->bigInteger('class_id')->unsigned();
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('cascade');
             $table->timestamps();
         });
     }
