@@ -8,12 +8,14 @@ Vue.use(VueRouter);
 const Error404 = () => import("../components/Error404.vue");
 import Home from "./home";
 import Admin from "./adminpanel";
+import Student from "./student";
 
 export const routes = [
     { path: "/404", component: Error404 },
     { path: "*", redirect: "/404" },
     ...Home,
     ...Admin,
+    ...Student,
 ];
 
 //Register Routes

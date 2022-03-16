@@ -1,9 +1,9 @@
 <template>
   <div>
-    <router-view></router-view>
+    <div class="wrapper">
+      <admin-header></admin-header>
+      <router-view></router-view>
+      <admin-footer></admin-footer>
+    </div>
   </div>
 </template>
-
-<script>
-export default {};
-</script>

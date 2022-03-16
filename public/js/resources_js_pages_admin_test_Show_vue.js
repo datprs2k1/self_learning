@@ -98,20 +98,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      selected: null,
-      currentPage: 1,
-      perPage: 1
+      selected: null
     };
   },
   created: function created() {
     this.getTest(this.$route.params.id);
   },
-  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)("test", ["getTest"])),
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)("test", ["test"])), {}, {
-    rows: function rows() {
-      return this.test.question.length;
-    }
-  })
+  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)("question", ["getTest"])),
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)("question", ["questions"]))
 });
 
 /***/ }),
@@ -217,7 +211,7 @@ var render = function () {
                   _c(
                     "div",
                     { staticClass: "card-body" },
-                    _vm._l(_vm.test.question, function (question, index) {
+                    _vm._l(_vm.questions, function (question, index) {
                       return _c(
                         "div",
                         { key: question.id, staticClass: "form-group mb-3" },

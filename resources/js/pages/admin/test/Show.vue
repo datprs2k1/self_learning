@@ -16,7 +16,7 @@
                 <div class="card-body">
                   <div
                     class="form-group mb-3"
-                    v-for="(question, index) in test.question"
+                    v-for="(question, index) in questions"
                     :key="question.id"
                   >
                     <label for="name"
@@ -80,21 +80,16 @@ export default {
   data() {
     return {
       selected: null,
-      currentPage: 1,
-      perPage: 1,
     };
   },
   created() {
     this.getTest(this.$route.params.id);
   },
   methods: {
-    ...mapActions("test", ["getTest"]),
+    ...mapActions("question", ["getTest"]),
   },
   computed: {
-    ...mapGetters("test", ["test"]),
-    rows() {
-      return this.test.question.length;
-    },
+    ...mapGetters("question", ["questions"]),
   },
 };
 </script>

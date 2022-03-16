@@ -46,5 +46,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/document/delete/{document}', 'App\Http\Controllers\DocumentController@deleteMutiple');
     Route::delete('/test/delete/{test}', 'App\Http\Controllers\TestController@deleteMutiple');
     Route::delete('/question/delete/{question}', 'App\Http\Controllers\QuestionController@deleteMutiple');
+    Route::get('/question/test/{test}', 'App\Http\Controllers\QuestionController@getQuestionTest');
+    Route::post('/test/checkTest/{test}', 'App\Http\Controllers\TestController@checkTest');
     Route::get('logout', 'App\Http\Controllers\AuthController@logout');
 });

@@ -57,6 +57,13 @@ const actions = {
     async getTest({ commit }, id) {
         const response = await api.get(`/test/${id}`);
         commit('setTest', response.data);
+    },
+
+    async checkTest({ commit }, { id, selected }) {
+        const response = await api.post(`/test/checkTest/${id}`, {
+            selected
+        });
+        return response.data;
     }
 };
 

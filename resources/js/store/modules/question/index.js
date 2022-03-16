@@ -63,7 +63,7 @@ const actions = {
         commit('SET_QUESTION', response.data);
     },
 
-    async getQuestionsByTest({ commit }, id) {
+    async getTest({ commit }, id) {
         const response = await api.get(`/question/test/${id}`);
         commit('SET_QUESTIONS', response.data);
     }

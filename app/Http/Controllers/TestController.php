@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Test;
+use App\Models\Question;
 
 class TestController extends Controller
 {
@@ -85,7 +86,7 @@ class TestController extends Controller
     {
         //
 
-        $test = Test::with('Class', 'Lesson', 'Subject', 'Question')->find($id);
+        $test = Test::with('Class', 'Lesson', 'Subject')->find($id);
 
         return response()->json($test, 200);
     }
@@ -187,5 +188,24 @@ class TestController extends Controller
                 'error' => 'unauthorized'
             ], 401);
         }
+    }
+
+    public function checkTest($id, Request $request)
+    {
+        $answer = Question::where('test_id', $id)->select('Correct_Ans')->orderBy('id', 'asc')->get();
+        $selected = $request->selected;
+
+        $count = 0;
+
+        foreach ($answer as $key => $value) {
+            if ($value->Correct_Ans == $selected[$key]) {
+                $count++;
+            }
+        }
+
+        return response()->json([
+            'result' => $count,
+            'total' => count($answer)
+        ], 200);
     }
 }

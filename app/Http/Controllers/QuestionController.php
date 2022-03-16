@@ -198,4 +198,10 @@ class QuestionController extends Controller
             ], 401);
         }
     }
+
+    public function getQuestionTest($id)
+    {
+        $questions = Question::with('test')->where('test_id', $id)->orderBy('id', 'asc')->get();
+        return response()->json($questions, 200);
+    }
 }
