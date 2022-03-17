@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+
 
 class StudentController extends Controller
 {
@@ -73,6 +76,14 @@ class StudentController extends Controller
             $student->class_id = $request->class_id;
             $student->created_at = date('Y-m-d H:i:s');
             $student->save();
+
+            $user = new User();
+            $user->name = $student->name;
+            $user->email = $student->email;
+            $user->password = bcrypt($student->phone);
+            $user->save();
+
+            $user->assignRole('student');
 
             return response()->json([
                 'message' => 'Thêm sinh viên thành công.',
@@ -149,6 +160,8 @@ class StudentController extends Controller
             $student->class_id = $request->class_id;
             $student->updated_at = date('Y-m-d H:i:s');
             $student->save();
+
+
 
             return response()->json([
                 'message' => 'Cập nhật sinh viên thành công.',
