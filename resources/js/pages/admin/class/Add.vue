@@ -17,24 +17,6 @@
                 <form>
                   <div class="card-body">
                     <div class="form-group">
-                      <label for="name">Tên lớp</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        placeholder="Nhập tên lớp."
-                        name="name"
-                        v-model="CLASS.name"
-                        :class="{ 'is-invalid': errors.name }"
-                      />
-                      <span
-                        v-if="errors.name"
-                        id="exampleInputEmail1-error"
-                        class="error invalid-feedback"
-                        >{{ errors.name[0] }}</span
-                      >
-                    </div>
-                    <div class="form-group">
                       <label for="dept">Tên khoa</label>
                       <b-form-select
                         v-model="CLASS.dept_id"
@@ -56,6 +38,25 @@
                         >{{ errors.dept_id[0] }}</span
                       >
                     </div>
+                    <div class="form-group">
+                      <label for="name">Tên lớp</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Nhập tên lớp."
+                        name="name"
+                        v-model="CLASS.name"
+                        :class="{ 'is-invalid': errors.name }"
+                      />
+                      <span
+                        v-if="errors.name"
+                        id="exampleInputEmail1-error"
+                        class="error invalid-feedback"
+                        >{{ errors.name[0] }}</span
+                      >
+                    </div>
+                    
                   </div>
 
                   <div class="card-footer">

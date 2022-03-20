@@ -109,25 +109,65 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       subject: {
         name: "",
-        class_id: null
+        code: "",
+        weeks: 15
       },
+      options: [{
+        value: 15,
+        text: "15"
+      }, {
+        value: 14,
+        text: "14"
+      }, {
+        value: 13,
+        text: "13"
+      }, {
+        value: 12,
+        text: "12"
+      }, {
+        value: 11,
+        text: "11"
+      }, {
+        value: 10,
+        text: "10"
+      }],
       errors: {}
     };
   },
   created: function created() {
     var _this = this;
-
-    this.getCLASSES();
-
-    if (this.$route.params.class_id) {
-      this.subject.class_id = this.$route.params.class_id;
-    }
 
     window.addEventListener("keyup", function (e) {
       if (e.key == "Enter") {
@@ -161,7 +201,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _this2.subject = {
                   name: "",
-                  class_id: null
+                  code: "",
+                  weeks: 15
                 };
                 _context.next = 10;
                 break;
@@ -287,6 +328,53 @@ var render = function () {
                     _c("div", { staticClass: "card-body" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Mã môn học"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.subject.code,
+                              expression: "subject.code",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.errors.code,
+                          },
+                          attrs: {
+                            type: "text",
+                            id: "name",
+                            placeholder: "Nhập mã môn học.",
+                            name: "name",
+                          },
+                          domProps: { value: _vm.subject.code },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.subject, "code", $event.target.value)
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.code
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "error invalid-feedback",
+                                attrs: { id: "exampleInputEmail1-error" },
+                              },
+                              [_vm._v(_vm._s(_vm.errors.code[0]))]
+                            )
+                          : _vm._e(),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "name" } }, [
                           _vm._v("Tên môn học"),
                         ]),
                         _vm._v(" "),
@@ -300,11 +388,13 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          class: { "is-invalid": _vm.errors.name },
+                          class: {
+                            "is-invalid": _vm.errors.name,
+                          },
                           attrs: {
                             type: "text",
                             id: "name",
-                            placeholder: "Nhập tên khoa.",
+                            placeholder: "Nhập tên môn.",
                             name: "name",
                           },
                           domProps: { value: _vm.subject.name },
@@ -335,48 +425,31 @@ var render = function () {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "class" } }, [
-                            _vm._v("Tên lớp"),
+                            _vm._v("Số tuần học"),
                           ]),
                           _vm._v(" "),
                           _c("b-form-select", {
-                            class: { "is-invalid": _vm.errors.class_id },
-                            attrs: {
-                              options: _vm.CLASSES,
-                              "text-field": "name",
-                              "value-field": "id",
+                            class: {
+                              "is-invalid": _vm.errors.weeks,
                             },
-                            scopedSlots: _vm._u([
-                              {
-                                key: "first",
-                                fn: function () {
-                                  return [
-                                    _c(
-                                      "b-form-select-option",
-                                      { attrs: { value: null, disabled: "" } },
-                                      [_vm._v("-- Chọn lớp --")]
-                                    ),
-                                  ]
-                                },
-                                proxy: true,
-                              },
-                            ]),
+                            attrs: { options: _vm.options },
                             model: {
-                              value: _vm.subject.class_id,
+                              value: _vm.subject.weeks,
                               callback: function ($$v) {
-                                _vm.$set(_vm.subject, "class_id", $$v)
+                                _vm.$set(_vm.subject, "weeks", $$v)
                               },
-                              expression: "subject.class_id",
+                              expression: "subject.weeks",
                             },
                           }),
                           _vm._v(" "),
-                          _vm.errors.class_id
+                          _vm.errors.weeks
                             ? _c(
                                 "span",
                                 {
                                   staticClass: "error invalid-feedback",
                                   attrs: { id: "exampleInputEmail1-error" },
                                 },
-                                [_vm._v(_vm._s(_vm.errors.class_id[0]))]
+                                [_vm._v(_vm._s(_vm.errors.weeks[0]))]
                               )
                             : _vm._e(),
                         ],
@@ -398,7 +471,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                    Xác nhận\n                  "
+                            "\n                                        Xác nhận\n                                    "
                           ),
                         ]
                       ),

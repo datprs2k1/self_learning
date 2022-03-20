@@ -16,7 +16,7 @@ class SubjectController extends Controller
     public function index()
     {
         //
-        $subject = Subject::with('Class', 'lesson')->orderBy('id', 'desc')->get();
+        $subject = Subject::with('lesson')->orderBy('id', 'desc')->get();
         return response()->json($subject, 200);
     }
 
@@ -38,22 +38,26 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
         if (auth()->user()->hasRole('admin')) {
             $request->validate(
                 [
-                    'name' => 'required',
-                    'class_id' => 'required',
+                    'code' => 'required|max:255|unique:subject',
+                    'name' => 'required|max:255|unique:subject',
                 ],
                 [
                     'name.required' => 'Tên môn học không được để trống.',
-                    'class_id.required' => 'Lớp không được để trống.',
+                    'name.max' => 'Tên môn học không được quá 255 ký tự.',
+                    'name.unique' => 'Tên môn học đã tồn tại.',
+                    'code.required' => 'Mã môn học không được để trống.',
+                    'code.max' => 'Mã môn học không được quá 255 ký tự.',
+                    'code.unique' => 'Mã môn học đã tồn tại.',
                 ]
             );
 
             $subject = new Subject();
             $subject->name = $request->name;
-            $subject->class_id = $request->class_id;
+            $subject->code = $request->code;
+            $subject->weeks = $request->weeks;
             $subject->created_at = date('Y-m-d H:i:s');
             $subject->save();
 
@@ -74,7 +78,7 @@ class SubjectController extends Controller
     public function show($id)
     {
         //
-        $subject = Subject::with('Class', 'lesson')->find($id)->get();
+        $subject = Subject::with('lesson')->where('id', $id)->first();
         return response()->json($subject, 200);
     }
 
@@ -102,18 +106,23 @@ class SubjectController extends Controller
         if (auth()->user()->hasRole('admin')) {
             $request->validate(
                 [
-                    'name' => 'required',
-                    'class_id' => 'required',
+                    'code' => 'required|max:255|unique:subject,code,' . $id,
+                    'name' => 'required|max:255|unique:subject,name,' . $id,
                 ],
                 [
                     'name.required' => 'Tên môn học không được để trống.',
-                    'class_id.required' => 'Lớp không được để trống.',
+                    'name.max' => 'Tên môn học không được quá 255 ký tự.',
+                    'name.unique' => 'Tên môn học đã tồn tại.',
+                    'code.required' => 'Mã môn học không được để trống.',
+                    'code.max' => 'Mã môn học không được quá 255 ký tự.',
+                    'code.unique' => 'Mã môn học đã tồn tại.',
                 ]
             );
 
             $subject = Subject::find($id);
             $subject->name = $request->name;
-            $subject->class_id = $request->class_id;
+            $subject->code = $request->code;
+            $subject->weeks = $request->weeks;
             $subject->updated_at = date('Y-m-d H:i:s');
             $subject->save();
 

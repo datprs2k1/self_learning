@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 use App\Models\ClassModel;
+use App\Models\Subject;
+use DB;
 
 class ClassController extends Controller
 {
@@ -16,7 +17,7 @@ class ClassController extends Controller
     public function index()
     {
         //
-        $data = ClassModel::with('subject', 'department')->orderBy('id', 'desc')->get();
+        $data = ClassModel::with('department', 'subject', 'student')->orderBy('id', 'desc')->get();
         return response()->json($data, 200);
     }
 
@@ -169,4 +170,75 @@ class ClassController extends Controller
             ], 401);
         }
     }
+
+    public function addSubject(Request $request)
+    {
+        if (auth()->user()->hasRole('admin')) {
+            foreach ($request->subject_ids as $subject_id) {
+                if (!$this->checkAddSubjects($request->class_id, $subject_id)) {
+                    $subjectName = Subject::find($subject_id)->name;
+                    $subjectCode = Subject::find($subject_id)->code;
+                    return response()->json([
+                        'errors' => [
+                            'Môn học: ' . $subjectName . ' (' . $subjectCode . ') đã tồn tại trong lớp.'
+                        ]
+                    ], 422);
+                }
+            }
+
+            foreach ($request->subject_ids as $id) {
+                $class = ClassModel::find($request->class_id);
+                $class->subject()->attach($id);
+            }
+            return response()->json([
+                'success' => 'true'
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => 'unauthorized'
+            ], 401);
+        }
+    }
+
+    public function checkAddSubjects($class_id, $subject_id)
+    {
+        $row = DB::select('select * from subject_class where subject_id = ? and class_id = ?', [$subject_id, $class_id]);
+        if ($row) {
+            return false;
+        }
+        return true;
+    }
+
+    public function deleteSubjects(Request $request)
+    {
+        if (auth()->user()->hasRole('admin')) {
+            foreach ($request->subject_ids as $id) {
+                $class = ClassModel::find($request->class_id);
+                $class->subject()->detach($id);
+            }
+            return response()->json([
+                'success' => 'true'
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => 'unauthorized'
+            ], 401);
+        }
+    }
+
+    public function deleteSubject(Request $request)
+    {
+        if (auth()->user()->hasRole('admin')) {
+            $class = ClassModel::find($request->class_id);
+            $class->subject()->detach($request->subject_id);
+            return response()->json([
+                'success' => 'true'
+            ], 200);
+        } else {
+            return response()->json([
+                'error' => 'unauthorized'
+            ], 401);
+        }
+    }
+
 }

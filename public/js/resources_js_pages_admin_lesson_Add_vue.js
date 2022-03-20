@@ -189,7 +189,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getSubjects();
 
     if (this.$route.params.subj_id && this.$route.params.class_id) {
-      this.lesson.subj_id = this.$route.params.subj_id;
+      this.lesson.subject_id = this.$route.params.subject_id;
       this.lesson.class_id = this.$route.params.class_id;
     }
 

@@ -24,7 +24,8 @@ const actions = {
     async add({ commit }, data) {
         await api.post('/subject', {
             name: data.name,
-            class_id: data.class_id,
+            code: data.code,
+            weeks: data.weeks,
         });
     },
 
@@ -39,7 +40,8 @@ const actions = {
     async edit({ commit }, data) {
         await api.put(`/subject/${data.id}`, {
             name: data.name,
-            class_id: data.class_id,
+            code: data.code,
+            weeks: data.weeks,
         });
     },
 

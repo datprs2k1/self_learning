@@ -109,6 +109,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -290,51 +291,6 @@ var render = function () {
                   _vm._v(" "),
                   _c("form", [
                     _c("div", { staticClass: "card-body" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "name" } }, [
-                          _vm._v("Tên lớp"),
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.CLASS.name,
-                              expression: "CLASS.name",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          class: { "is-invalid": _vm.errors.name },
-                          attrs: {
-                            type: "text",
-                            id: "name",
-                            placeholder: "Nhập tên lớp.",
-                            name: "name",
-                          },
-                          domProps: { value: _vm.CLASS.name },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.CLASS, "name", $event.target.value)
-                            },
-                          },
-                        }),
-                        _vm._v(" "),
-                        _vm.errors.name
-                          ? _c(
-                              "span",
-                              {
-                                staticClass: "error invalid-feedback",
-                                attrs: { id: "exampleInputEmail1-error" },
-                              },
-                              [_vm._v(_vm._s(_vm.errors.name[0]))]
-                            )
-                          : _vm._e(),
-                      ]),
-                      _vm._v(" "),
                       _c(
                         "div",
                         { staticClass: "form-group" },
@@ -387,6 +343,51 @@ var render = function () {
                         ],
                         1
                       ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Tên lớp"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.CLASS.name,
+                              expression: "CLASS.name",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.errors.name },
+                          attrs: {
+                            type: "text",
+                            id: "name",
+                            placeholder: "Nhập tên lớp.",
+                            name: "name",
+                          },
+                          domProps: { value: _vm.CLASS.name },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.CLASS, "name", $event.target.value)
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.name
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "error invalid-feedback",
+                                attrs: { id: "exampleInputEmail1-error" },
+                              },
+                              [_vm._v(_vm._s(_vm.errors.name[0]))]
+                            )
+                          : _vm._e(),
+                      ]),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-footer" }, [

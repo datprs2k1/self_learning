@@ -11,7 +11,7 @@ class Subject extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name, class_id'];
+    protected $fillable = ['code, name , weeks'];
     protected $primaryKey = 'id';
     protected $table = 'subject';
     protected $casts = [
@@ -23,7 +23,7 @@ class Subject extends Model
 
     public function Class()
     {
-        return $this->belongsTo(ClassModel::class, 'class_id', 'id');
+        return $this->belongsToMany(ClassModel::class, 'subject_class', 'subject_id', 'class_id');
     }
 
     public function Lesson()

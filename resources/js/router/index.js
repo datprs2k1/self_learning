@@ -11,7 +11,7 @@ import Admin from "./adminpanel";
 import Student from "./student";
 
 export const routes = [
-    { path: "/404", component: Error404 },
+    { path: "/404", name: '404', component: Error404 },
     { path: "*", redirect: "/404" },
     ...Home,
     ...Admin,

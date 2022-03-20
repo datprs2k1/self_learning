@@ -30,7 +30,7 @@ class ClassModel extends Model
 
     public function subject()
     {
-        return $this->hasMany(Subject::class, 'class_id', 'id');
+        return $this->belongsToMany(Subject::class, 'subject_class', 'class_id', 'subject_id');
     }
 
     public function lesson()

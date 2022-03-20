@@ -13,10 +13,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
 /* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var pdfmake_build_vfs_fonts_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! pdfmake/build/vfs_fonts.js */ "./node_modules/pdfmake/build/vfs_fonts.js");
+/* harmony import */ var _subject_Index_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../subject/Index.vue */ "./resources/js/pages/admin/subject/Index.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -222,6 +223,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -272,13 +306,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         key: "charset",
         value: "utf-8"
       }]],
-      pdf_data: []
+      pdf_data: [],
+      class_id: null,
+      className: ""
     };
   },
   created: function created() {
     this.getCLASSES();
   },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapActions)("CLASS", ["getCLASSES", "delete"])), {}, {
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)("CLASS", ["getCLASSES", "delete"])), {}, {
     deleteCLASS: function deleteCLASS(id) {
       var _this = this;
 
@@ -500,14 +536,724 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       };
       (pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default().vfs) = pdfmake_build_vfs_fonts_js__WEBPACK_IMPORTED_MODULE_2__.pdfMake.vfs;
       pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default().createPdf(docDefinition).download("Danh sách lớp.pdf");
+    },
+    showModal: function showModal(id, name) {
+      this.class_id = id;
+      this.className = name;
+      this.$refs.modalComponent.show();
     }
   }),
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)("CLASS", ["CLASSES"])), {}, {
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapGetters)("CLASS", ["CLASSES"])), {}, {
     rows: function rows() {
       return this.CLASSES.length;
     }
   }),
-  mounted: function mounted() {}
+  components: {
+    Subject: _subject_Index_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/subject/Index.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/subject/Index.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var pdfmake_build_vfs_fonts_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! pdfmake/build/vfs_fonts.js */ "./node_modules/pdfmake/build/vfs_fonts.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      selected: [],
+      allSelected: false,
+      currentPage: 1,
+      perPage: 10,
+      pageOptions: [10, 25, 50, 100, 500],
+      sortDesc: false,
+      sortBy: "checkbox",
+      filter: null,
+      fields: [{
+        key: "checkbox"
+      }, {
+        key: "index",
+        label: "STT"
+      }, {
+        key: "code",
+        label: "Mã môn học",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "name",
+        label: "Tên môn học",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "weeks",
+        label: "Số tuần học",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "created_at",
+        label: "Ngày tạo",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "updated_at",
+        label: "Ngày sửa",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "actions",
+        label: "Hành động",
+        "class": "text-center",
+        tdClass: "width-actions"
+      }],
+      fieldsNotActions: [{
+        key: "checkbox"
+      }, {
+        key: "index",
+        label: "STT"
+      }, {
+        key: "code",
+        label: "Mã môn học",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "name",
+        label: "Tên môn học",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "weeks",
+        label: "Số tuần học",
+        "class": "text-center",
+        sortable: true
+      }],
+      json_data: [],
+      json_meta: [[{
+        key: "charset",
+        value: "utf-8"
+      }]],
+      pdf_data: []
+    };
+  },
+  props: {
+    class_id: {
+      type: Number,
+      "default": 0
+    },
+    className: {
+      type: String,
+      "default": ""
+    }
+  },
+  created: function created() {
+    this.getSubjects();
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapActions)("subject", ["getSubjects", "delete"])), {}, {
+    deleteSubject: function deleteSubject(id) {
+      var _this = this;
+
+      this.$swal({
+        title: "Bạn chắc chắn muốn xóa?",
+        text: "Bạn sẽ không thể hoàn tác!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Đồng ý!",
+        cancelButtonText: "Hủy",
+        width: 480
+      }).then( /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(result) {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  if (!result.isConfirmed) {
+                    _context.next = 8;
+                    break;
+                  }
+
+                  _context.next = 3;
+                  return _this["delete"](id);
+
+                case 3:
+                  _this.$swal({
+                    title: "Đã xóa!",
+                    icon: "success",
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    width: 360
+                  });
+
+                  _context.next = 6;
+                  return _this.getSubjects();
+
+                case 6:
+                  _context.next = 9;
+                  break;
+
+                case 8:
+                  _this.$swal({
+                    title: "Hủy xóa!",
+                    icon: "info",
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    width: 360
+                  });
+
+                case 9:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }());
+    },
+    selectAll: function selectAll(checked) {
+      this.getSubjects();
+      this.selected = checked ? this.subjects.map(function (item) {
+        return item.id;
+      }) : [];
+      this.json_data = checked ? this.subjects.map(function (item, index) {
+        return {
+          STT: index + 1,
+          "Mã môn": item.code,
+          "Tên môn": item.name,
+          "Ngày tạo": item.created_at,
+          "Ngày sửa": item.updated_at
+        };
+      }) : [];
+      this.pdf_data = checked ? this.subjects.map(function (item, index) {
+        return [index + 1, item.code, item.name, item.created_at, item.updated_at];
+      }) : [];
+    },
+    selectOne: function selectOne(checked) {
+      var _this2 = this;
+
+      if (checked) {
+        this.json_data = this.subjects.filter(function (item) {
+          return _this2.selected.includes(item.id);
+        }).map(function (item, index) {
+          return {
+            STT: index + 1,
+            "Mã môn học": item.code,
+            "Tên môn học": item.name,
+            "Ngày tạo": item.created_at,
+            "Ngày sửa": item.updated_at
+          };
+        });
+        this.pdf_data = this.subjects.filter(function (item) {
+          return _this2.selected.includes(item.id);
+        }).map(function (item, index) {
+          return [index + 1, item.code, item.name, item.created_at, item.updated_at];
+        });
+      }
+
+      this.allSelected = this.subjects.length === this.selected.length;
+    },
+    deleteMutiple: function deleteMutiple() {
+      var _this3 = this;
+
+      this.$swal({
+        title: "Bạn chắc chắn muốn xóa?",
+        text: "Bạn sẽ không thể hoàn tác!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Đồng ý!",
+        cancelButtonText: "Hủy",
+        width: 480
+      }).then( /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(result) {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  if (!result.isConfirmed) {
+                    _context2.next = 8;
+                    break;
+                  }
+
+                  _context2.next = 3;
+                  return _this3.$store.dispatch("subject/deleteMutiple", _this3.selected);
+
+                case 3:
+                  _this3.$swal({
+                    title: "Đã xóa!",
+                    icon: "success",
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    width: 360
+                  });
+
+                  _context2.next = 6;
+                  return _this3.getSubject();
+
+                case 6:
+                  _context2.next = 9;
+                  break;
+
+                case 8:
+                  _this3.$swal({
+                    title: "Hủy xóa!",
+                    icon: "info",
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    width: 360
+                  });
+
+                case 9:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }));
+
+        return function (_x2) {
+          return _ref2.apply(this, arguments);
+        };
+      }());
+    },
+    exportPdf: function exportPdf() {
+      if (this.pdf_data.length === 0) return;
+      this.pdf_data.unshift([{
+        text: "STT",
+        fillColor: "#6c7ae0",
+        color: "white",
+        alignment: "center"
+      }, {
+        text: "Mã môn học",
+        fillColor: "#6c7ae0",
+        color: "white",
+        alignment: "center"
+      }, {
+        text: "Tên môn học",
+        fillColor: "#6c7ae0",
+        color: "white",
+        alignment: "center"
+      }, {
+        text: "Ngày tạo",
+        fillColor: "#6c7ae0",
+        color: "white",
+        alignment: "center"
+      }, {
+        text: "Ngày sửa",
+        fillColor: "#6c7ae0",
+        color: "white",
+        alignment: "center"
+      }]);
+      var docDefinition = {
+        header: {
+          text: "DANH SÁCH MÔN HỌC",
+          alignment: "center",
+          bold: "true",
+          fontSize: 20
+        },
+        content: [{
+          table: {
+            headerRows: 1,
+            widths: ["auto", "*", "*", "*", "*"],
+            body: this.pdf_data
+          }
+        }]
+      };
+      (pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default().vfs) = pdfmake_build_vfs_fonts_js__WEBPACK_IMPORTED_MODULE_2__.pdfMake.vfs;
+      pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_1___default().createPdf(docDefinition).download("Danh sách môn học.pdf");
+    },
+    show: function show() {
+      this.$refs.modal1.show();
+    },
+    handleOk: function handleOk(e) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                e.preventDefault();
+
+                if (!(_this4.selected.length === 0)) {
+                  _context3.next = 6;
+                  break;
+                }
+
+                _this4.$swal({
+                  title: "Thông báo!",
+                  text: "Bạn chưa chọn môn học nào!",
+                  icon: "warning"
+                });
+
+                return _context3.abrupt("return");
+
+              case 6:
+                _context3.next = 8;
+                return _this4.$store.dispatch("CLASS/addSubject", {
+                  selected: _this4.selected,
+                  class_id: _this4.class_id
+                }).then(function () {
+                  _this4.$nextTick(function () {
+                    _this4.$bvModal.hide("modal1");
+                  });
+
+                  _this4.$swal({
+                    title: "Thành công",
+                    text: "Th\xEAm m\xF4n h\u1ECDc cho l\u1EDBp ".concat(_this4.className, " th\xE0nh c\xF4ng"),
+                    icon: "success",
+                    showConfirmButton: false,
+                    position: "top-end",
+                    timer: 1500,
+                    width: 360
+                  });
+
+                  _this4.setEmptySelected();
+                })["catch"](function (err) {
+                  return _this4.$swal({
+                    title: "Thông báo!",
+                    text: err.response.data.errors[0],
+                    icon: "warning"
+                  });
+                });
+
+              case 8:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    setEmptySelected: function setEmptySelected() {
+      this.selected = [];
+      this.allSelected = false;
+    }
+  }),
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)("subject", ["subjects"])), {}, {
+    rows: function rows() {
+      return this.subjects.length;
+    }
+  })
 });
 
 /***/ }),
@@ -80057,6 +80803,45 @@ component.options.__file = "resources/js/pages/admin/class/Index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin/subject/Index.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/pages/admin/subject/Index.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Index_vue_vue_type_template_id_1773e5f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=1773e5f6&scoped=true& */ "./resources/js/pages/admin/subject/Index.vue?vue&type=template&id=1773e5f6&scoped=true&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/pages/admin/subject/Index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_1773e5f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Index_vue_vue_type_template_id_1773e5f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "1773e5f6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/admin/subject/Index.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/admin/class/Index.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/pages/admin/class/Index.vue?vue&type=script&lang=js& ***!
@@ -80069,6 +80854,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/class/Index.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/admin/subject/Index.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/pages/admin/subject/Index.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/subject/Index.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
@@ -80090,6 +80891,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/admin/subject/Index.vue?vue&type=template&id=1773e5f6&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/pages/admin/subject/Index.vue?vue&type=template&id=1773e5f6&scoped=true& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_1773e5f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_1773e5f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_1773e5f6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=1773e5f6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/subject/Index.vue?vue&type=template&id=1773e5f6&scoped=true&");
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/class/Index.vue?vue&type=template&id=25d73302&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/class/Index.vue?vue&type=template&id=25d73302&scoped=true& ***!
@@ -80106,107 +80924,137 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "content-wrapper" },
-      [
-        _c("Breadcrumbs"),
-        _vm._v(" "),
-        _c("section", { staticClass: "content" }, [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("div", { staticClass: "card" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { "overflow-x": "auto" },
-                    },
-                    [
-                      _c(
-                        "b-row",
-                        [
-                          _c(
-                            "b-col",
-                            { attrs: { md: "1" } },
-                            [
-                              _c("b-form-select", {
-                                directives: [
-                                  {
-                                    name: "b-tooltip",
-                                    rawName: "v-b-tooltip.hover.v-secondary",
-                                    value: "Số bản ghi trên một trang",
-                                    expression:
-                                      "\n                        'Số bản ghi trên một trang'\n                      ",
-                                    modifiers: {
-                                      hover: true,
-                                      "v-secondary": true,
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        { staticClass: "content-wrapper" },
+        [
+          _c("Breadcrumbs"),
+          _vm._v(" "),
+          _c("section", { staticClass: "content" }, [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-body",
+                        staticStyle: { "overflow-x": "auto" },
+                      },
+                      [
+                        _c(
+                          "b-row",
+                          [
+                            _c(
+                              "b-col",
+                              { attrs: { md: "1" } },
+                              [
+                                _c("b-form-select", {
+                                  directives: [
+                                    {
+                                      name: "b-tooltip",
+                                      rawName: "v-b-tooltip.hover.v-secondary",
+                                      value: "Số bản ghi trên một trang",
+                                      expression:
+                                        "\n                                                'Số bản ghi trên một trang'\n                                            ",
+                                      modifiers: {
+                                        hover: true,
+                                        "v-secondary": true,
+                                      },
                                     },
+                                  ],
+                                  attrs: {
+                                    id: "per-page-select",
+                                    options: _vm.pageOptions,
                                   },
-                                ],
-                                attrs: {
-                                  id: "per-page-select",
-                                  options: _vm.pageOptions,
-                                },
-                                model: {
-                                  value: _vm.perPage,
-                                  callback: function ($$v) {
-                                    _vm.perPage = $$v
+                                  model: {
+                                    value: _vm.perPage,
+                                    callback: function ($$v) {
+                                      _vm.perPage = $$v
+                                    },
+                                    expression: "perPage",
                                   },
-                                  expression: "perPage",
-                                },
-                              }),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-col",
-                            { attrs: { md: "" } },
-                            [
-                              _c(
-                                "span",
-                                [
+                                }),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "b-col",
+                              { attrs: { md: "" } },
+                              [
+                                _c(
+                                  "span",
+                                  [
+                                    _c(
+                                      "export-excel",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value:
+                                              "Xuất Excel các bản ghi đã chọn",
+                                            expression:
+                                              "\n                                                    'Xuất Excel các bản ghi đã chọn'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "btn btn-success",
+                                        attrs: {
+                                          data: _vm.json_data,
+                                          name: "Danh sách lớp.xls",
+                                          id: "export-excel",
+                                        },
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-file-excel",
+                                        }),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("span", [
                                   _c(
-                                    "export-excel",
+                                    "button",
                                     {
                                       directives: [
                                         {
                                           name: "b-tooltip",
                                           rawName:
                                             "v-b-tooltip.hover.v-secondary",
-                                          value:
-                                            "Xuất Excel các bản ghi đã chọn",
+                                          value: "Xuất PDF các bản ghi đã chọn",
                                           expression:
-                                            "\n                          'Xuất Excel các bản ghi đã chọn'\n                        ",
+                                            "\n                                                    'Xuất PDF các bản ghi đã chọn'\n                                                ",
                                           modifiers: {
                                             hover: true,
                                             "v-secondary": true,
                                           },
                                         },
                                       ],
-                                      staticClass: "btn btn-success",
-                                      attrs: {
-                                        data: _vm.json_data,
-                                        name: "Danh sách lớp.xls",
-                                        id: "export-excel",
-                                      },
+                                      staticClass: "btn btn-warning",
                                     },
                                     [
                                       _c("i", {
-                                        staticClass: "fa fa-file-excel",
+                                        staticClass: "fas fa-file-pdf",
+                                        on: { click: _vm.exportPdf },
                                       }),
                                     ]
                                   ),
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c("span", [
+                                ]),
+                                _vm._v(" "),
                                 _c(
                                   "button",
                                   {
@@ -80215,387 +81063,380 @@ var render = function () {
                                         name: "b-tooltip",
                                         rawName:
                                           "v-b-tooltip.hover.v-secondary",
-                                        value: "Xuất PDF các bản ghi đã chọn",
+                                        value: "Xóa các bản ghi đã chọn",
                                         expression:
-                                          "\n                          'Xuất PDF các bản ghi đã chọn'\n                        ",
+                                          "\n                                                'Xóa các bản ghi đã chọn'\n                                            ",
                                         modifiers: {
                                           hover: true,
                                           "v-secondary": true,
                                         },
                                       },
                                     ],
-                                    staticClass: "btn btn-warning",
+                                    staticClass: "btn-danger btn",
+                                    on: { click: _vm.deleteMutiple },
                                   },
-                                  [
-                                    _c("i", {
-                                      staticClass: "fas fa-file-pdf",
-                                      on: { click: _vm.exportPdf },
-                                    }),
-                                  ]
+                                  [_c("i", { staticClass: "fas fa-trash" })]
                                 ),
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  directives: [
-                                    {
-                                      name: "b-tooltip",
-                                      rawName: "v-b-tooltip.hover.v-secondary",
-                                      value: "Xóa các bản ghi đã chọn",
-                                      expression:
-                                        "\n                        'Xóa các bản ghi đã chọn'\n                      ",
-                                      modifiers: {
-                                        hover: true,
-                                        "v-secondary": true,
-                                      },
-                                    },
-                                  ],
-                                  staticClass: "btn-danger btn",
-                                  on: { click: _vm.deleteMutiple },
-                                },
-                                [_c("i", { staticClass: "fas fa-trash" })]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "router-link",
-                                {
-                                  directives: [
-                                    {
-                                      name: "b-tooltip",
-                                      rawName: "v-b-tooltip.hover.v-secondary",
-                                      value: "Thêm mới bản ghi",
-                                      expression: "'Thêm mới bản ghi'",
-                                      modifiers: {
-                                        hover: true,
-                                        "v-secondary": true,
-                                      },
-                                    },
-                                  ],
-                                  staticClass: "btn btn-primary",
-                                  attrs: { to: { name: "class.add" } },
-                                },
-                                [_c("i", { staticClass: "fas fa-plus" })]
-                              ),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-col",
-                            { staticClass: "my-1", attrs: { md: "4" } },
-                            [
-                              _c(
-                                "b-form-group",
-                                [
-                                  _c(
-                                    "b-input-group",
-                                    [
-                                      _c("b-form-input", {
-                                        attrs: {
-                                          id: "filter-input",
-                                          type: "search",
-                                          placeholder: "Nhập từ khóa tìm kiếm",
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "b-tooltip",
+                                        rawName:
+                                          "v-b-tooltip.hover.v-secondary",
+                                        value: "Thêm mới bản ghi",
+                                        expression:
+                                          "\n                                                'Thêm mới bản ghi'\n                                            ",
+                                        modifiers: {
+                                          hover: true,
+                                          "v-secondary": true,
                                         },
-                                        model: {
-                                          value: _vm.filter,
-                                          callback: function ($$v) {
-                                            _vm.filter = $$v
+                                      },
+                                    ],
+                                    staticClass: "btn btn-primary",
+                                    attrs: { to: { name: "class.add" } },
+                                  },
+                                  [_c("i", { staticClass: "fas fa-plus" })]
+                                ),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "b-col",
+                              { staticClass: "my-1", attrs: { md: "4" } },
+                              [
+                                _c(
+                                  "b-form-group",
+                                  [
+                                    _c(
+                                      "b-input-group",
+                                      [
+                                        _c("b-form-input", {
+                                          attrs: {
+                                            id: "filter-input",
+                                            type: "search",
+                                            placeholder:
+                                              "Nhập từ khóa tìm kiếm",
                                           },
-                                          expression: "filter",
+                                          model: {
+                                            value: _vm.filter,
+                                            callback: function ($$v) {
+                                              _vm.filter = $$v
+                                            },
+                                            expression: "filter",
+                                          },
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("b-table", {
+                          attrs: {
+                            items: _vm.CLASSES,
+                            fields: _vm.fields,
+                            "current-page": _vm.currentPage,
+                            "per-page": _vm.perPage,
+                            "sort-by": _vm.sortBy,
+                            "sort-desc": _vm.sortDesc,
+                            filter: _vm.filter,
+                          },
+                          on: {
+                            "update:sortBy": function ($event) {
+                              _vm.sortBy = $event
+                            },
+                            "update:sort-by": function ($event) {
+                              _vm.sortBy = $event
+                            },
+                            "update:sortDesc": function ($event) {
+                              _vm.sortDesc = $event
+                            },
+                            "update:sort-desc": function ($event) {
+                              _vm.sortDesc = $event
+                            },
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "head(checkbox)",
+                              fn: function () {
+                                return [
+                                  _c("b-form-checkbox", {
+                                    directives: [
+                                      {
+                                        name: "b-tooltip",
+                                        rawName:
+                                          "v-b-tooltip.hover.v-secondary",
+                                        modifiers: {
+                                          hover: true,
+                                          "v-secondary": true,
+                                        },
+                                      },
+                                    ],
+                                    attrs: { title: "Chọn tất cả" },
+                                    on: { change: _vm.selectAll },
+                                    model: {
+                                      value: _vm.allSelected,
+                                      callback: function ($$v) {
+                                        _vm.allSelected = $$v
+                                      },
+                                      expression: "allSelected",
+                                    },
+                                  }),
+                                ]
+                              },
+                              proxy: true,
+                            },
+                            {
+                              key: "cell(checkbox)",
+                              fn: function (row) {
+                                return [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("b-form-checkbox", {
+                                        attrs: { value: row.item.id },
+                                        on: { change: _vm.selectOne },
+                                        model: {
+                                          value: _vm.selected,
+                                          callback: function ($$v) {
+                                            _vm.selected = $$v
+                                          },
+                                          expression: "selected",
                                         },
                                       }),
                                     ],
                                     1
                                   ),
-                                ],
-                                1
-                              ),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("b-table", {
-                        attrs: {
-                          items: _vm.CLASSES,
-                          fields: _vm.fields,
-                          "current-page": _vm.currentPage,
-                          "per-page": _vm.perPage,
-                          "sort-by": _vm.sortBy,
-                          "sort-desc": _vm.sortDesc,
-                          filter: _vm.filter,
-                        },
-                        on: {
-                          "update:sortBy": function ($event) {
-                            _vm.sortBy = $event
-                          },
-                          "update:sort-by": function ($event) {
-                            _vm.sortBy = $event
-                          },
-                          "update:sortDesc": function ($event) {
-                            _vm.sortDesc = $event
-                          },
-                          "update:sort-desc": function ($event) {
-                            _vm.sortDesc = $event
-                          },
-                        },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "head(checkbox)",
-                            fn: function () {
-                              return [
-                                _c("b-form-checkbox", {
-                                  directives: [
+                                ]
+                              },
+                            },
+                            {
+                              key: "cell(actions)",
+                              fn: function (row) {
+                                return [
+                                  _c(
+                                    "router-link",
                                     {
-                                      name: "b-tooltip",
-                                      rawName: "v-b-tooltip.hover.v-secondary",
-                                      modifiers: {
-                                        hover: true,
-                                        "v-secondary": true,
+                                      attrs: {
+                                        to: {
+                                          name: "class.show",
+                                          params: { id: row.item.id },
+                                        },
                                       },
                                     },
-                                  ],
-                                  attrs: { title: "Chọn tất cả" },
-                                  on: { change: _vm.selectAll },
-                                  model: {
-                                    value: _vm.allSelected,
-                                    callback: function ($$v) {
-                                      _vm.allSelected = $$v
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Xem chi tiết",
+                                            expression:
+                                              "\n                                                    'Xem chi tiết'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-eye fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticStyle: { cursor: "pointer" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.showModal(
+                                            row.item.id,
+                                            row.item.name
+                                          )
+                                        },
+                                      },
                                     },
-                                    expression: "allSelected",
-                                  },
-                                }),
-                              ]
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Thêm môn học",
+                                            expression:
+                                              "\n                                                    'Thêm môn học'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-plus fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "student.add",
+                                          params: {
+                                            class_id: row.item.id,
+                                            dept_id: row.item.department.id,
+                                          },
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Thêm sinh viên",
+                                            expression:
+                                              "\n                                                    'Thêm sinh viên'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-plus fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "class.edit",
+                                          params: { id: row.item.id },
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Sửa bản ghi",
+                                            expression:
+                                              "\n                                                    'Sửa bản ghi'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-edit fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.deleteCLASS(row.item.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Xóa bản ghi",
+                                            expression:
+                                              "\n                                                    'Xóa bản ghi'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-trash-alt fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              },
                             },
-                            proxy: true,
-                          },
-                          {
-                            key: "cell(checkbox)",
-                            fn: function (row) {
-                              return [
-                                _c(
-                                  "b-form-group",
-                                  [
-                                    _c("b-form-checkbox", {
-                                      attrs: { value: row.item.id },
-                                      on: { change: _vm.selectOne },
-                                      model: {
-                                        value: _vm.selected,
-                                        callback: function ($$v) {
-                                          _vm.selected = $$v
-                                        },
-                                        expression: "selected",
-                                      },
-                                    }),
-                                  ],
-                                  1
-                                ),
-                              ]
+                            {
+                              key: "cell(index)",
+                              fn: function (row) {
+                                return [
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(row.index + 1) +
+                                      "\n                                    "
+                                  ),
+                                ]
+                              },
                             },
+                          ]),
+                        }),
+                        _vm._v(" "),
+                        _c("b-pagination", {
+                          staticClass: "my-0 mt-3",
+                          attrs: {
+                            "total-rows": _vm.rows,
+                            "per-page": _vm.perPage,
+                            align: "fill",
                           },
-                          {
-                            key: "cell(actions)",
-                            fn: function (row) {
-                              return [
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: {
-                                      to: {
-                                        name: "class.show",
-                                        params: { id: row.item.id },
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _c("i", {
-                                      directives: [
-                                        {
-                                          name: "b-tooltip",
-                                          rawName:
-                                            "v-b-tooltip.hover.v-secondary",
-                                          value: "Xem chi tiết",
-                                          expression: "'Xem chi tiết'",
-                                          modifiers: {
-                                            hover: true,
-                                            "v-secondary": true,
-                                          },
-                                        },
-                                      ],
-                                      staticClass: "fas fa-eye fa-lg",
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: {
-                                      to: {
-                                        name: "subject.add",
-                                        params: { class_id: row.item.id },
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _c("i", {
-                                      directives: [
-                                        {
-                                          name: "b-tooltip",
-                                          rawName:
-                                            "v-b-tooltip.hover.v-secondary",
-                                          value: "Thêm môn học",
-                                          expression: "'Thêm môn học'",
-                                          modifiers: {
-                                            hover: true,
-                                            "v-secondary": true,
-                                          },
-                                        },
-                                      ],
-                                      staticClass: "fas fa-plus fa-lg",
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: {
-                                      to: {
-                                        name: "student.add",
-                                        params: {
-                                          class_id: row.item.id,
-                                          dept_id: row.item.department.id,
-                                        },
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _c("i", {
-                                      directives: [
-                                        {
-                                          name: "b-tooltip",
-                                          rawName:
-                                            "v-b-tooltip.hover.v-secondary",
-                                          value: "Thêm sinh viên",
-                                          expression: "'Thêm sinh viên'",
-                                          modifiers: {
-                                            hover: true,
-                                            "v-secondary": true,
-                                          },
-                                        },
-                                      ],
-                                      staticClass: "fas fa-plus fa-lg",
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    attrs: {
-                                      to: {
-                                        name: "class.edit",
-                                        params: { id: row.item.id },
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _c("i", {
-                                      directives: [
-                                        {
-                                          name: "b-tooltip",
-                                          rawName:
-                                            "v-b-tooltip.hover.v-secondary",
-                                          value: "Sửa bản ghi",
-                                          expression: "'Sửa bản ghi'",
-                                          modifiers: {
-                                            hover: true,
-                                            "v-secondary": true,
-                                          },
-                                        },
-                                      ],
-                                      staticClass: "fas fa-edit fa-lg",
-                                    }),
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "span",
-                                  {
-                                    on: {
-                                      click: function ($event) {
-                                        return _vm.deleteCLASS(row.item.id)
-                                      },
-                                    },
-                                  },
-                                  [
-                                    _c("i", {
-                                      directives: [
-                                        {
-                                          name: "b-tooltip",
-                                          rawName:
-                                            "v-b-tooltip.hover.v-secondary",
-                                          value: "Xóa bản ghi",
-                                          expression: "'Xóa bản ghi'",
-                                          modifiers: {
-                                            hover: true,
-                                            "v-secondary": true,
-                                          },
-                                        },
-                                      ],
-                                      staticClass: "fas fa-trash-alt fa-lg",
-                                    }),
-                                  ]
-                                ),
-                              ]
+                          model: {
+                            value: _vm.currentPage,
+                            callback: function ($$v) {
+                              _vm.currentPage = $$v
                             },
+                            expression: "currentPage",
                           },
-                          {
-                            key: "cell(index)",
-                            fn: function (row) {
-                              return [
-                                _vm._v(
-                                  "\n                    " +
-                                    _vm._s(row.index + 1) +
-                                    "\n                  "
-                                ),
-                              ]
-                            },
-                          },
-                        ]),
-                      }),
-                      _vm._v(" "),
-                      _c("b-pagination", {
-                        staticClass: "my-0 mt-3",
-                        attrs: {
-                          "total-rows": _vm.rows,
-                          "per-page": _vm.perPage,
-                          align: "fill",
-                        },
-                        model: {
-                          value: _vm.currentPage,
-                          callback: function ($$v) {
-                            _vm.currentPage = $$v
-                          },
-                          expression: "currentPage",
-                        },
-                      }),
-                    ],
-                    1
-                  ),
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
                 ]),
               ]),
             ]),
           ]),
-        ]),
-      ],
-      1
-    ),
-  ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("Subject", {
+        ref: "modalComponent",
+        staticClass: "d-none",
+        attrs: { className: _vm.className, class_id: _vm.class_id },
+      }),
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {
@@ -80604,6 +81445,736 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", { staticClass: "card-title" }, [_vm._v("Bảng Khoa")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/subject/Index.vue?vue&type=template&id=1773e5f6&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/admin/subject/Index.vue?vue&type=template&id=1773e5f6&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        { staticClass: "content-wrapper" },
+        [
+          _c("Breadcrumbs"),
+          _vm._v(" "),
+          _c("section", { staticClass: "content" }, [
+            _c("div", [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-body",
+                        staticStyle: { "overflow-x": "auto" },
+                      },
+                      [
+                        _c(
+                          "b-row",
+                          [
+                            _c(
+                              "b-col",
+                              { attrs: { md: "1" } },
+                              [
+                                _c("b-form-select", {
+                                  directives: [
+                                    {
+                                      name: "b-tooltip",
+                                      rawName: "v-b-tooltip.hover.v-secondary",
+                                      value: "Số bản ghi trên một trang",
+                                      expression:
+                                        "\n                                                'Số bản ghi trên một trang'\n                                            ",
+                                      modifiers: {
+                                        hover: true,
+                                        "v-secondary": true,
+                                      },
+                                    },
+                                  ],
+                                  attrs: {
+                                    id: "per-page-select",
+                                    options: _vm.pageOptions,
+                                  },
+                                  model: {
+                                    value: _vm.perPage,
+                                    callback: function ($$v) {
+                                      _vm.perPage = $$v
+                                    },
+                                    expression: "perPage",
+                                  },
+                                }),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "b-col",
+                              { attrs: { md: "" } },
+                              [
+                                _c(
+                                  "span",
+                                  [
+                                    _c(
+                                      "export-excel",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value:
+                                              "Xuất Excel các bản ghi đã chọn",
+                                            expression:
+                                              "\n                                                    'Xuất Excel các bản ghi đã chọn'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "btn btn-success",
+                                        attrs: {
+                                          data: _vm.json_data,
+                                          name: "Danh sách môn học.xls",
+                                          id: "export-excel",
+                                        },
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-file-excel",
+                                        }),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("span", [
+                                  _c(
+                                    "button",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "b-tooltip",
+                                          rawName:
+                                            "v-b-tooltip.hover.v-secondary",
+                                          value: "Xuất PDF các bản ghi đã chọn",
+                                          expression:
+                                            "\n                                                    'Xuất PDF các bản ghi đã chọn'\n                                                ",
+                                          modifiers: {
+                                            hover: true,
+                                            "v-secondary": true,
+                                          },
+                                        },
+                                      ],
+                                      staticClass: "btn btn-warning",
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fas fa-file-pdf",
+                                        on: { click: _vm.exportPdf },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "b-tooltip",
+                                        rawName:
+                                          "v-b-tooltip.hover.v-secondary",
+                                        value: "Xóa các bản ghi đã chọn",
+                                        expression:
+                                          "\n                                                'Xóa các bản ghi đã chọn'\n                                            ",
+                                        modifiers: {
+                                          hover: true,
+                                          "v-secondary": true,
+                                        },
+                                      },
+                                    ],
+                                    staticClass: "btn-danger btn",
+                                    on: { click: _vm.deleteMutiple },
+                                  },
+                                  [_c("i", { staticClass: "fas fa-trash" })]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "b-tooltip",
+                                        rawName:
+                                          "v-b-tooltip.hover.v-secondary",
+                                        value: "Thêm mới bản ghi",
+                                        expression:
+                                          "\n                                                'Thêm mới bản ghi'\n                                            ",
+                                        modifiers: {
+                                          hover: true,
+                                          "v-secondary": true,
+                                        },
+                                      },
+                                    ],
+                                    staticClass: "btn btn-primary",
+                                    attrs: { to: { name: "subject.add" } },
+                                  },
+                                  [_c("i", { staticClass: "fas fa-plus" })]
+                                ),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "b-col",
+                              { staticClass: "my-1", attrs: { md: "4" } },
+                              [
+                                _c(
+                                  "b-form-group",
+                                  [
+                                    _c(
+                                      "b-input-group",
+                                      [
+                                        _c("b-form-input", {
+                                          attrs: {
+                                            id: "filter-input",
+                                            type: "search",
+                                            placeholder:
+                                              "Nhập từ khóa tìm kiếm",
+                                          },
+                                          model: {
+                                            value: _vm.filter,
+                                            callback: function ($$v) {
+                                              _vm.filter = $$v
+                                            },
+                                            expression: "filter",
+                                          },
+                                        }),
+                                      ],
+                                      1
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("b-table", {
+                          attrs: {
+                            items: _vm.subjects,
+                            fields: _vm.fields,
+                            "current-page": _vm.currentPage,
+                            "per-page": _vm.perPage,
+                            "sort-by": _vm.sortBy,
+                            "sort-desc": _vm.sortDesc,
+                            filter: _vm.filter,
+                          },
+                          on: {
+                            "update:sortBy": function ($event) {
+                              _vm.sortBy = $event
+                            },
+                            "update:sort-by": function ($event) {
+                              _vm.sortBy = $event
+                            },
+                            "update:sortDesc": function ($event) {
+                              _vm.sortDesc = $event
+                            },
+                            "update:sort-desc": function ($event) {
+                              _vm.sortDesc = $event
+                            },
+                          },
+                          scopedSlots: _vm._u([
+                            {
+                              key: "head(checkbox)",
+                              fn: function () {
+                                return [
+                                  _c("b-form-checkbox", {
+                                    directives: [
+                                      {
+                                        name: "b-tooltip",
+                                        rawName:
+                                          "v-b-tooltip.hover.v-secondary",
+                                        modifiers: {
+                                          hover: true,
+                                          "v-secondary": true,
+                                        },
+                                      },
+                                    ],
+                                    attrs: { title: "Chọn tất cả" },
+                                    on: { change: _vm.selectAll },
+                                    model: {
+                                      value: _vm.allSelected,
+                                      callback: function ($$v) {
+                                        _vm.allSelected = $$v
+                                      },
+                                      expression: "allSelected",
+                                    },
+                                  }),
+                                ]
+                              },
+                              proxy: true,
+                            },
+                            {
+                              key: "cell(checkbox)",
+                              fn: function (row) {
+                                return [
+                                  _c(
+                                    "b-form-group",
+                                    [
+                                      _c("b-form-checkbox", {
+                                        attrs: { value: row.item.id },
+                                        on: { change: _vm.selectOne },
+                                        model: {
+                                          value: _vm.selected,
+                                          callback: function ($$v) {
+                                            _vm.selected = $$v
+                                          },
+                                          expression: "selected",
+                                        },
+                                      }),
+                                    ],
+                                    1
+                                  ),
+                                ]
+                              },
+                            },
+                            {
+                              key: "cell(actions)",
+                              fn: function (row) {
+                                return [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "lesson.add",
+                                          params: {
+                                            subj_id: row.item.id,
+                                          },
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Thêm bài giảng",
+                                            expression:
+                                              "\n                                                    'Thêm bài giảng'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-plus fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: {
+                                          name: "subject.edit",
+                                          params: { id: row.item.id },
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Sửa bản ghi",
+                                            expression:
+                                              "\n                                                    'Sửa bản ghi'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-edit fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.deleteSubject(row.item.id)
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _c("i", {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Xóa bản ghi",
+                                            expression:
+                                              "\n                                                    'Xóa bản ghi'\n                                                ",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "fas fa-trash-alt fa-lg",
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              },
+                            },
+                            {
+                              key: "cell(index)",
+                              fn: function (row) {
+                                return [
+                                  _vm._v(
+                                    "\n                                        " +
+                                      _vm._s(row.index + 1) +
+                                      "\n                                    "
+                                  ),
+                                ]
+                              },
+                            },
+                          ]),
+                        }),
+                        _vm._v(" "),
+                        _c("b-pagination", {
+                          staticClass: "my-0 mt-3",
+                          attrs: {
+                            "total-rows": _vm.rows,
+                            "per-page": _vm.perPage,
+                            align: "fill",
+                          },
+                          model: {
+                            value: _vm.currentPage,
+                            callback: function ($$v) {
+                              _vm.currentPage = $$v
+                            },
+                            expression: "currentPage",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modal1",
+          attrs: { id: "modal1", size: "lg", title: "Thêm Môn Học" },
+          on: {
+            hidden: _vm.setEmptySelected,
+            show: _vm.setEmptySelected,
+            ok: _vm.handleOk,
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-title",
+              fn: function () {
+                return [
+                  _vm._v(" Thêm Môn Học [" + _vm._s(_vm.className) + "] "),
+                ]
+              },
+              proxy: true,
+            },
+            {
+              key: "modal-footer",
+              fn: function (ref) {
+                var ok = ref.ok
+                var cancel = ref.cancel
+                return [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "primary" },
+                          on: {
+                            click: function ($event) {
+                              return ok()
+                            },
+                          },
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Xác nhận\n                "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "secondary" },
+                          on: {
+                            click: function ($event) {
+                              cancel()
+                              _vm.setEmptySelected()
+                            },
+                          },
+                        },
+                        [_vm._v("\n                    Hủy\n                ")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+            },
+          ]),
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "card-body", staticStyle: { "overflow-x": "auto" } },
+            [
+              _c(
+                "b-row",
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { md: "1" } },
+                    [
+                      _c("b-form-select", {
+                        directives: [
+                          {
+                            name: "b-tooltip",
+                            rawName: "v-b-tooltip.hover.v-secondary",
+                            value: "Số bản ghi trên một trang",
+                            expression:
+                              "\n                            'Số bản ghi trên một trang'\n                        ",
+                            modifiers: { hover: true, "v-secondary": true },
+                          },
+                        ],
+                        attrs: {
+                          id: "per-page-select",
+                          options: _vm.pageOptions,
+                        },
+                        model: {
+                          value: _vm.perPage,
+                          callback: function ($$v) {
+                            _vm.perPage = $$v
+                          },
+                          expression: "perPage",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("b-col", { attrs: { md: "7" } }),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { staticClass: "float-right", attrs: { md: "4" } },
+                    [
+                      _c(
+                        "b-form-group",
+                        [
+                          _c(
+                            "b-input-group",
+                            [
+                              _c("b-form-input", {
+                                attrs: {
+                                  id: "filter-input",
+                                  type: "search",
+                                  placeholder: "Nhập từ khóa tìm kiếm",
+                                },
+                                model: {
+                                  value: _vm.filter,
+                                  callback: function ($$v) {
+                                    _vm.filter = $$v
+                                  },
+                                  expression: "filter",
+                                },
+                              }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("b-table", {
+                attrs: {
+                  items: _vm.subjects,
+                  fields: _vm.fieldsNotActions,
+                  "current-page": _vm.currentPage,
+                  "per-page": _vm.perPage,
+                  "sort-by": _vm.sortBy,
+                  "sort-desc": _vm.sortDesc,
+                  filter: _vm.filter,
+                },
+                on: {
+                  "update:sortBy": function ($event) {
+                    _vm.sortBy = $event
+                  },
+                  "update:sort-by": function ($event) {
+                    _vm.sortBy = $event
+                  },
+                  "update:sortDesc": function ($event) {
+                    _vm.sortDesc = $event
+                  },
+                  "update:sort-desc": function ($event) {
+                    _vm.sortDesc = $event
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "head(checkbox)",
+                    fn: function () {
+                      return [
+                        _c("b-form-checkbox", {
+                          directives: [
+                            {
+                              name: "b-tooltip",
+                              rawName: "v-b-tooltip.hover.v-secondary",
+                              modifiers: { hover: true, "v-secondary": true },
+                            },
+                          ],
+                          attrs: { title: "Chọn tất cả" },
+                          on: { change: _vm.selectAll },
+                          model: {
+                            value: _vm.allSelected,
+                            callback: function ($$v) {
+                              _vm.allSelected = $$v
+                            },
+                            expression: "allSelected",
+                          },
+                        }),
+                      ]
+                    },
+                    proxy: true,
+                  },
+                  {
+                    key: "cell(checkbox)",
+                    fn: function (row) {
+                      return [
+                        _c(
+                          "b-form-group",
+                          [
+                            _c("b-form-checkbox", {
+                              attrs: { value: row.item.id },
+                              on: { change: _vm.selectOne },
+                              model: {
+                                value: _vm.selected,
+                                callback: function ($$v) {
+                                  _vm.selected = $$v
+                                },
+                                expression: "selected",
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ]
+                    },
+                  },
+                  {
+                    key: "cell(index)",
+                    fn: function (row) {
+                      return [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(row.index + 1) +
+                            "\n                "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _c("b-pagination", {
+                staticClass: "my-0 mt-3",
+                attrs: {
+                  "total-rows": _vm.rows,
+                  "per-page": _vm.perPage,
+                  align: "fill",
+                },
+                model: {
+                  value: _vm.currentPage,
+                  callback: function ($$v) {
+                    _vm.currentPage = $$v
+                  },
+                  expression: "currentPage",
+                },
+              }),
+            ],
+            1
+          ),
+        ]
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Bảng môn học")]),
     ])
   },
 ]

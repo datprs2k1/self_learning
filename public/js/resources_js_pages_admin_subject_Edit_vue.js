@@ -109,25 +109,69 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      errors: {}
+      errors: {},
+      options: [{
+        text: '15',
+        value: 15
+      }, {
+        text: '14',
+        value: 14
+      }, {
+        text: '13',
+        value: 13
+      }, {
+        text: '12',
+        value: 12
+      }, {
+        text: '11',
+        value: 11
+      }, {
+        text: '10',
+        value: 10
+      }]
     };
   },
   created: function created() {
     var _this = this;
 
     this.getSubject(this.$route.params.id);
-    this.getCLASSES();
     window.addEventListener("keyup", function (e) {
       if (e.key == "Enter") {
         _this.submit();
       }
     });
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("subject", ["getSubject"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("CLASS", ["getCLASSES"])), {}, {
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("subject", ["getSubject"])), {}, {
     submit: function submit() {
       var _this2 = this;
 
@@ -172,7 +216,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }))();
     }
   }),
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("subject", ["subject"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("CLASS", ["CLASSES"]))
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("subject", ["subject"]))
 });
 
 /***/ }),
@@ -279,6 +323,53 @@ var render = function () {
                     _c("div", { staticClass: "card-body" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Mã môn học"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.subject.code,
+                              expression: "subject.code",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.errors.code,
+                          },
+                          attrs: {
+                            type: "text",
+                            id: "name",
+                            placeholder: "Nhập mã môn học.",
+                            name: "name",
+                          },
+                          domProps: { value: _vm.subject.code },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.subject, "code", $event.target.value)
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm.errors.code
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "error invalid-feedback",
+                                attrs: { id: "exampleInputEmail1-error" },
+                              },
+                              [_vm._v(_vm._s(_vm.errors.code[0]))]
+                            )
+                          : _vm._e(),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "name" } }, [
                           _vm._v("Tên môn học"),
                         ]),
                         _vm._v(" "),
@@ -292,11 +383,13 @@ var render = function () {
                             },
                           ],
                           staticClass: "form-control",
-                          class: { "is-invalid": _vm.errors.name },
+                          class: {
+                            "is-invalid": _vm.errors.name,
+                          },
                           attrs: {
                             type: "text",
                             id: "name",
-                            placeholder: "Nhập tên khoa.",
+                            placeholder: "Nhập tên môn.",
                             name: "name",
                           },
                           domProps: { value: _vm.subject.name },
@@ -327,48 +420,31 @@ var render = function () {
                         { staticClass: "form-group" },
                         [
                           _c("label", { attrs: { for: "class" } }, [
-                            _vm._v("Tên lớp"),
+                            _vm._v("Số tuần học"),
                           ]),
                           _vm._v(" "),
                           _c("b-form-select", {
-                            class: { "is-invalid": _vm.errors.class_id },
-                            attrs: {
-                              options: _vm.CLASSES,
-                              "text-field": "name",
-                              "value-field": "id",
+                            class: {
+                              "is-invalid": _vm.errors.weeks,
                             },
-                            scopedSlots: _vm._u([
-                              {
-                                key: "first",
-                                fn: function () {
-                                  return [
-                                    _c(
-                                      "b-form-select-option",
-                                      { attrs: { value: null, disabled: "" } },
-                                      [_vm._v("-- Chọn lớp --")]
-                                    ),
-                                  ]
-                                },
-                                proxy: true,
-                              },
-                            ]),
+                            attrs: { options: _vm.options },
                             model: {
-                              value: _vm.subject.class_id,
+                              value: _vm.subject.weeks,
                               callback: function ($$v) {
-                                _vm.$set(_vm.subject, "class_id", $$v)
+                                _vm.$set(_vm.subject, "weeks", $$v)
                               },
-                              expression: "subject.class_id",
+                              expression: "subject.weeks",
                             },
                           }),
                           _vm._v(" "),
-                          _vm.errors.class_id
+                          _vm.errors.weeks
                             ? _c(
                                 "span",
                                 {
                                   staticClass: "error invalid-feedback",
                                   attrs: { id: "exampleInputEmail1-error" },
                                 },
-                                [_vm._v(_vm._s(_vm.errors.class_id[0]))]
+                                [_vm._v(_vm._s(_vm.errors.weeks[0]))]
                               )
                             : _vm._e(),
                         ],
@@ -390,7 +466,7 @@ var render = function () {
                         },
                         [
                           _vm._v(
-                            "\n                    Xác nhận\n                  "
+                            "\n                                        Xác nhận\n                                    "
                           ),
                         ]
                       ),
