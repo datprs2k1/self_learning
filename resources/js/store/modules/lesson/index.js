@@ -22,13 +22,7 @@ const mutations = {
 const actions = {
 
     async add({ commit }, data) {
-        await api.post('/lesson', {
-            name: data.name,
-            introduce: data.introduce,
-            content: data.content,
-            class_id: data.class_id,
-            subj_id: data.subj_id,
-        });
+        await api.post('/lesson', data);
     },
 
     async delete({ commit }, id) {

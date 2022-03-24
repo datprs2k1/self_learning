@@ -12,7 +12,7 @@ class Lesson extends Model
     use HasFactory;
 
     use HasFactory;
-    protected $fillable = ['name, introduce, content, subj_id'];
+    protected $fillable = ['name, path, video_path, week, subject_id, class_id'];
     protected $primaryKey = 'id';
     protected $table = 'lesson';
 
@@ -30,6 +30,6 @@ class Lesson extends Model
 
     public function Subject()
     {
-        return $this->belongsTo(Subject::class, 'subj_id', 'id');
+        return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
 }

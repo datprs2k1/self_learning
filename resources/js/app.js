@@ -10,7 +10,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import excel from 'vue-excel-export';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import VueBreadcrumbs from 'vue-2-breadcrumbs';
-
+import LazyYoutube from 'vue-lazytube'
 
 // If you don't need the styles, do not connect
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -22,6 +22,7 @@ import auth from './services/auth';
 import role from './services/role';
 import App from './App.vue';
 
+Vue.use(LazyYoutube);
 Vue.use(excel)
 Vue.use(VueAxios, axios)
 Vue.use(BootstrapVue)
@@ -51,7 +52,6 @@ Vue.use(VueBreadcrumbs, {
         '    </div>\n' +
         '</section>'
 })
-
 
 /**
  * The following block of code may be used to automatically register your

@@ -15,9 +15,9 @@ class CreateLessonTable extends Migration
     {
         Schema::create('lesson', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('path');
-            $table->string('video_path');
+            $table->string('name')->nullable();
+            $table->string('path')->nullable();
+            $table->string('video_path')->nullable();
             $table->integer('week');
             $table->bigInteger('subject_id')->unsigned();
             $table->bigInteger('class_id')->unsigned();
