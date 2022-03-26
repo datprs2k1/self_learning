@@ -31,7 +31,7 @@
                             >Slide bài giảng
                             {{ item.week }}
                             <b-button
-                              @click.stop="getCurrentLesson(item.week)"
+                              @click.stop="getCurrentLesson(item.week);"
                               v-b-modal.modal-slide
                               class="float-right p-0 pl-1 btn-warning btn-sm"
                               ><i class="fas fa-edit"></i
@@ -62,7 +62,7 @@
                             Bài luyện tập
                             {{ item.week }}
                             <b-button
-                              @click.stop="getCurrentLesson(item.week)"
+                              @click.stop="getCurrentLesson(item.week); getCurrentQuestions(item.week)"
                               v-b-modal.modal-test
                               class="float-right p-0 pl-1 btn-warning btn-sm"
                               ><i class="fas fa-edit"></i></b-button
@@ -218,7 +218,7 @@
                             <b-form-group label="Đáp án" label-for="name-input">
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="A">
+                                        <b-form-radio v-model="question.correct_Answer" name="answer_A" value="A">
                                             <label for="answer_A">Đáp án A</label>
                                             <b-form-input
                                                 id="answer_A"
@@ -228,7 +228,7 @@
                                         </b-form-radio>
                                     </div>
                                     <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="B">
+                                        <b-form-radio v-model="question.correct_Answer" name="answer_B" value="B">
                                             <label for="answer_B">Đáp án B</label>
                                             <b-form-input
                                                 id="answer_B"
@@ -240,7 +240,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="C">
+                                        <b-form-radio v-model="question.correct_Answer" name="answer_C" value="C">
                                             <label for="answer_C">Đáp án C</label>
                                             <b-form-input
                                                 id="answer_C"
@@ -250,7 +250,7 @@
                                         </b-form-radio>
                                     </div>
                                     <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="D">
+                                        <b-form-radio v-model="question.correct_Answer" name="answer_D" value="D">
                                             <label for="answer_D">Đáp án D</label>
                                             <b-form-input
                                                 id="answer_D"
@@ -354,6 +354,19 @@ export default {
         this.lesson.path = null;
         this.lesson.video_path = "";
         this.lesson.week = week;
+      }
+    },
+    getCurrentQuestions(week) {
+      let questions = this.CLASS.question.filter(
+        (item) =>
+          item.week == week &&
+          item.subject_id == this.lesson.subject_id &&
+          item.class_id == this.lesson.class_id
+      );
+      if (questions.length != 0) {
+        this.questions = questions;
+      } else {
+        this.questions = [];
       }
     },
     setEmptyLesson() {

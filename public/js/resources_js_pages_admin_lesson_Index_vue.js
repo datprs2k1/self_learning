@@ -416,6 +416,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.lesson.week = week;
       }
     },
+    getCurrentQuestions: function getCurrentQuestions(week) {
+      var _this3 = this;
+
+      var questions = this.CLASS.question.filter(function (item) {
+        return item.week == week && item.subject_id == _this3.lesson.subject_id && item.class_id == _this3.lesson.class_id;
+      });
+
+      if (questions.length != 0) {
+        this.questions = questions;
+      } else {
+        this.questions = [];
+      }
+    },
     setEmptyLesson: function setEmptyLesson() {
       this.lesson.name = null;
       this.lesson.path = null;
@@ -424,7 +437,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errors = {};
     },
     submitSlide: function submitSlide() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var formData;
@@ -434,68 +447,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.prev = 0;
                 formData = new FormData();
-                formData.append("name", _this3.lesson.name);
-                formData.append("path", _this3.lesson.path);
+                formData.append("name", _this4.lesson.name);
+                formData.append("path", _this4.lesson.path);
                 formData.append("video_path", null);
-                formData.append("week", _this3.lesson.week);
-                formData.append("subject_id", _this3.lesson.subject_id);
-                formData.append("class_id", _this3.lesson.class_id);
-                formData.append("type", "slide");
-                _context2.next = 11;
-                return _this3.$store.dispatch("lesson/add", formData);
-
-              case 11:
-                _this3.$swal({
-                  title: "Thành công",
-                  icon: "success",
-                  showConfirmButton: false,
-                  position: "top-end",
-                  timer: 1000,
-                  width: 360
-                });
-
-                _this3.setEmptyLesson();
-
-                _this3.$refs.modalSlide.hide();
-
-                _this3.getCLASS(_this3.lesson.class_id);
-
-                _context2.next = 20;
-                break;
-
-              case 17:
-                _context2.prev = 17;
-                _context2.t0 = _context2["catch"](0);
-                _this3.errors = _context2.t0.response.data.errors;
-
-              case 20:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, null, [[0, 17]]);
-      }))();
-    },
-    submitVideo: function submitVideo() {
-      var _this4 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-                formData = new FormData();
-                formData.append("video_path", _this4.lesson.video_path);
                 formData.append("week", _this4.lesson.week);
                 formData.append("subject_id", _this4.lesson.subject_id);
                 formData.append("class_id", _this4.lesson.class_id);
-                formData.append("type", "video");
-                _context3.next = 9;
+                formData.append("type", "slide");
+                _context2.next = 11;
                 return _this4.$store.dispatch("lesson/add", formData);
 
-              case 9:
+              case 11:
                 _this4.$swal({
                   title: "Thành công",
                   icon: "success",
@@ -507,9 +469,60 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this4.setEmptyLesson();
 
-                _this4.$refs.modalVideo.hide();
+                _this4.$refs.modalSlide.hide();
 
                 _this4.getCLASS(_this4.lesson.class_id);
+
+                _context2.next = 20;
+                break;
+
+              case 17:
+                _context2.prev = 17;
+                _context2.t0 = _context2["catch"](0);
+                _this4.errors = _context2.t0.response.data.errors;
+
+              case 20:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 17]]);
+      }))();
+    },
+    submitVideo: function submitVideo() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var formData;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                formData = new FormData();
+                formData.append("video_path", _this5.lesson.video_path);
+                formData.append("week", _this5.lesson.week);
+                formData.append("subject_id", _this5.lesson.subject_id);
+                formData.append("class_id", _this5.lesson.class_id);
+                formData.append("type", "video");
+                _context3.next = 9;
+                return _this5.$store.dispatch("lesson/add", formData);
+
+              case 9:
+                _this5.$swal({
+                  title: "Thành công",
+                  icon: "success",
+                  showConfirmButton: false,
+                  position: "top-end",
+                  timer: 1000,
+                  width: 360
+                });
+
+                _this5.setEmptyLesson();
+
+                _this5.$refs.modalVideo.hide();
+
+                _this5.getCLASS(_this5.lesson.class_id);
 
                 _context3.next = 18;
                 break;
@@ -517,7 +530,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 15:
                 _context3.prev = 15;
                 _context3.t0 = _context3["catch"](0);
-                _this4.errors = _context3.t0.response.data.errors;
+                _this5.errors = _context3.t0.response.data.errors;
 
               case 18:
               case "end":
@@ -528,7 +541,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getSlide: function getSlide(week) {
-      var _this5 = this;
+      var _this6 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var slide;
@@ -537,29 +550,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return _this5.getCLASS(_this5.lesson.class_id);
+                return _this6.getCLASS(_this6.lesson.class_id);
 
               case 2:
-                slide = _this5.CLASS.lesson.filter(function (item) {
-                  return item.week == week && item.subject_id == _this5.lesson.subject_id && item.class_id == _this5.lesson.class_id;
+                slide = _this6.CLASS.lesson.filter(function (item) {
+                  return item.week == week && item.subject_id == _this6.lesson.subject_id && item.class_id == _this6.lesson.class_id;
                 });
 
                 if (slide.length == 0) {
-                  _this5.$swal({
+                  _this6.$swal({
                     title: "Chưa có nội dung slide",
                     icon: "info",
                     width: 480
                   });
                 } else {
                   if (slide[0].path == null) {
-                    _this5.$swal({
+                    _this6.$swal({
                       title: "Chưa có nội dung slide",
                       icon: "info",
                       width: 480
                     });
                   } else {
-                    _this5.lesson = slide[0];
-                    window.open("../files/" + _this5.lesson.path, "_blank");
+                    _this6.lesson = slide[0];
+                    window.open("../files/" + _this6.lesson.path, "_blank");
                   }
                 }
 
@@ -572,7 +585,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getVideo: function getVideo(week) {
-      var _this6 = this;
+      var _this7 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
         var video;
@@ -581,30 +594,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context5.prev = _context5.next) {
               case 0:
                 _context5.next = 2;
-                return _this6.getCLASS(_this6.lesson.class_id);
+                return _this7.getCLASS(_this7.lesson.class_id);
 
               case 2:
-                video = _this6.CLASS.lesson.filter(function (item) {
-                  return item.week == week && item.subject_id == _this6.lesson.subject_id && item.class_id == _this6.lesson.class_id;
+                video = _this7.CLASS.lesson.filter(function (item) {
+                  return item.week == week && item.subject_id == _this7.lesson.subject_id && item.class_id == _this7.lesson.class_id;
                 });
 
                 if (video.length == 0) {
-                  _this6.$swal({
+                  _this7.$swal({
                     title: "Chưa có nội dung video",
                     icon: "info",
                     width: 480
                   });
                 } else {
                   if (video[0].video_path == null) {
-                    _this6.$swal({
+                    _this7.$swal({
                       title: "Chưa có nội dung video",
                       icon: "info",
                       width: 480
                     });
                   } else {
-                    _this6.lesson = video[0];
+                    _this7.lesson = video[0];
 
-                    _this6.$refs.modalViewVideo.show();
+                    _this7.$refs.modalViewVideo.show();
                   }
                 }
 
@@ -637,7 +650,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     addQuestions: function addQuestions() {
-      var _this7 = this;
+      var _this8 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
         var formData;
@@ -647,12 +660,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context6.prev = 0;
                 formData = new FormData();
-                formData.append("questions", JSON.stringify(_this7.questions));
+                formData.append("questions", JSON.stringify(_this8.questions));
                 _context6.next = 5;
-                return _this7.$store.dispatch("question/add", formData);
+                return _this8.$store.dispatch("question/add", formData);
 
               case 5:
-                _this7.$swal({
+                _this8.$swal({
                   title: "Thành công",
                   icon: "success",
                   showConfirmButton: false,
@@ -661,11 +674,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   width: 360
                 });
 
-                _this7.setEmptyLesson();
+                _this8.setEmptyLesson();
 
-                _this7.$refs.modalQuestion.hide();
+                _this8.$refs.modalQuestion.hide();
 
-                _this7.getCLASS(_this7.lesson.class_id);
+                _this8.getCLASS(_this8.lesson.class_id);
 
                 _context6.next = 14;
                 break;
@@ -673,7 +686,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 11:
                 _context6.prev = 11;
                 _context6.t0 = _context6["catch"](0);
-                _this7.errors = _context6.t0.response.data.errors;
+                _this8.errors = _context6.t0.response.data.errors;
 
               case 14:
               case "end":
@@ -962,7 +975,8 @@ var render = function () {
                                             on: {
                                               click: function ($event) {
                                                 $event.stopPropagation()
-                                                return _vm.getCurrentLesson(
+                                                _vm.getCurrentLesson(item.week)
+                                                _vm.getCurrentQuestions(
                                                   item.week
                                                 )
                                               },
@@ -1456,7 +1470,7 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
-                                                    name: "correct_Answer",
+                                                    name: "answer_A",
                                                     value: "A",
                                                   },
                                                   model: {
@@ -1517,7 +1531,7 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
-                                                    name: "correct_Answer",
+                                                    name: "answer_B",
                                                     value: "B",
                                                   },
                                                   model: {
@@ -1580,7 +1594,7 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
-                                                    name: "correct_Answer",
+                                                    name: "answer_C",
                                                     value: "C",
                                                   },
                                                   model: {
@@ -1641,7 +1655,7 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
-                                                    name: "correct_Answer",
+                                                    name: "answer_D",
                                                     value: "D",
                                                   },
                                                   model: {
