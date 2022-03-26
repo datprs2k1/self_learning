@@ -326,91 +326,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -895,15 +810,15 @@ var render = function () {
                         _c("div", { staticClass: "col-12" }, [
                           _c("h4", [
                             _vm._v(
-                              "\n                                            Lớp: " +
+                              "\n                      Lớp: " +
                                 _vm._s(_vm.CLASS.name) +
-                                "\n                                            "
+                                "\n                      "
                             ),
                             _c("div", { staticClass: "float-right" }, [
                               _vm._v(
-                                "\n                                                Khoa:\n                                                " +
+                                "\n                        Khoa:\n                        " +
                                   _vm._s(_vm.CLASS.department.name) +
-                                  "\n                                            "
+                                  "\n                      "
                               ),
                             ]),
                           ]),
@@ -945,7 +860,7 @@ var render = function () {
                               },
                               [
                                 _vm._v(
-                                  "Danh sách môn học\n                                        "
+                                  "Danh sách môn học\n                    "
                                 ),
                                 _c(
                                   "b-badge",
@@ -992,7 +907,7 @@ var render = function () {
                                               value:
                                                 "Số bản ghi trên một trang",
                                               expression:
-                                                "\n                                                        'Số bản ghi trên một trang'\n                                                    ",
+                                                "\n                            'Số bản ghi trên một trang'\n                          ",
                                               modifiers: {
                                                 hover: true,
                                                 "v-secondary": true,
@@ -1012,8 +927,7 @@ var render = function () {
                                                 $$v
                                               )
                                             },
-                                            expression:
-                                              "\n                                                        subjectopt.perPage\n                                                    ",
+                                            expression: "subjectopt.perPage",
                                           },
                                         }),
                                       ],
@@ -1031,7 +945,7 @@ var render = function () {
                                                 "v-b-tooltip.hover.v-secondary",
                                               value: "Xóa các bản ghi đã chọn",
                                               expression:
-                                                "\n                                                        'Xóa các bản ghi đã chọn'\n                                                    ",
+                                                "\n                            'Xóa các bản ghi đã chọn'\n                          ",
                                               modifiers: {
                                                 hover: true,
                                                 "v-secondary": true,
@@ -1080,7 +994,7 @@ var render = function () {
                                                       )
                                                     },
                                                     expression:
-                                                      "\n                                                                subjectopt.filter\n                                                            ",
+                                                      "subjectopt.filter",
                                                   },
                                                 }),
                                               ],
@@ -1182,7 +1096,7 @@ var render = function () {
                                                     )
                                                   },
                                                   expression:
-                                                    "\n                                                            subjectopt.selected\n                                                        ",
+                                                    "subjectopt.selected",
                                                 },
                                               }),
                                             ],
@@ -1248,8 +1162,7 @@ var render = function () {
                                                     rawName:
                                                       "v-b-tooltip.hover.v-secondary",
                                                     value: "Xóa bản ghi",
-                                                    expression:
-                                                      "\n                                                            'Xóa bản ghi'\n                                                        ",
+                                                    expression: "'Xóa bản ghi'",
                                                     modifiers: {
                                                       hover: true,
                                                       "v-secondary": true,
@@ -1269,9 +1182,9 @@ var render = function () {
                                       fn: function (row) {
                                         return [
                                           _vm._v(
-                                            "\n                                                " +
+                                            "\n                        " +
                                               _vm._s(row.index + 1) +
-                                              "\n                                            "
+                                              "\n                      "
                                           ),
                                         ]
                                       },
@@ -1341,7 +1254,7 @@ var render = function () {
                               },
                               [
                                 _vm._v(
-                                  "Danh sách sinh viên\n                                        "
+                                  "Danh sách sinh viên\n                    "
                                 ),
                                 _c(
                                   "b-badge",
@@ -1388,7 +1301,7 @@ var render = function () {
                                               value:
                                                 "Số bản ghi trên một trang",
                                               expression:
-                                                "\n                                                        'Số bản ghi trên một trang'\n                                                    ",
+                                                "\n                            'Số bản ghi trên một trang'\n                          ",
                                               modifiers: {
                                                 hover: true,
                                                 "v-secondary": true,
@@ -1408,8 +1321,7 @@ var render = function () {
                                                 $$v
                                               )
                                             },
-                                            expression:
-                                              "\n                                                        studentotp.perPage\n                                                    ",
+                                            expression: "studentotp.perPage",
                                           },
                                         }),
                                       ],
@@ -1427,7 +1339,7 @@ var render = function () {
                                                 "v-b-tooltip.hover.v-secondary",
                                               value: "Xóa các bản ghi đã chọn",
                                               expression:
-                                                "\n                                                        'Xóa các bản ghi đã chọn'\n                                                    ",
+                                                "\n                            'Xóa các bản ghi đã chọn'\n                          ",
                                               modifiers: {
                                                 hover: true,
                                                 "v-secondary": true,
@@ -1476,7 +1388,7 @@ var render = function () {
                                                       )
                                                     },
                                                     expression:
-                                                      "\n                                                                studentotp.filter\n                                                            ",
+                                                      "studentotp.filter",
                                                   },
                                                 }),
                                               ],
@@ -1548,7 +1460,7 @@ var render = function () {
                                                 )
                                               },
                                               expression:
-                                                "\n                                                        studentotp.allSelected\n                                                    ",
+                                                "studentotp.allSelected",
                                             },
                                           }),
                                         ]
@@ -1578,7 +1490,7 @@ var render = function () {
                                                     )
                                                   },
                                                   expression:
-                                                    "\n                                                            studentotp.selected\n                                                        ",
+                                                    "studentotp.selected",
                                                 },
                                               }),
                                             ],
@@ -1605,7 +1517,7 @@ var render = function () {
                                                       "v-b-tooltip.hover.v-secondary",
                                                     value: "Xem chi tiết",
                                                     expression:
-                                                      "\n                                                            'Xem chi tiết'\n                                                        ",
+                                                      "'Xem chi tiết'",
                                                     modifiers: {
                                                       hover: true,
                                                       "v-secondary": true,
@@ -1637,8 +1549,7 @@ var render = function () {
                                                     rawName:
                                                       "v-b-tooltip.hover.v-secondary",
                                                     value: "Sửa bản ghi",
-                                                    expression:
-                                                      "\n                                                            'Sửa bản ghi'\n                                                        ",
+                                                    expression: "'Sửa bản ghi'",
                                                     modifiers: {
                                                       hover: true,
                                                       "v-secondary": true,
@@ -1670,8 +1581,7 @@ var render = function () {
                                                     rawName:
                                                       "v-b-tooltip.hover.v-secondary",
                                                     value: "Xóa bản ghi",
-                                                    expression:
-                                                      "\n                                                            'Xóa bản ghi'\n                                                        ",
+                                                    expression: "'Xóa bản ghi'",
                                                     modifiers: {
                                                       hover: true,
                                                       "v-secondary": true,
@@ -1691,9 +1601,9 @@ var render = function () {
                                       fn: function (row) {
                                         return [
                                           _vm._v(
-                                            "\n                                                " +
+                                            "\n                        " +
                                               _vm._s(row.index + 1) +
-                                              "\n                                            "
+                                              "\n                      "
                                           ),
                                         ]
                                       },
@@ -1711,7 +1621,7 @@ var render = function () {
                                                     "far fa-dot-circle",
                                                 }),
                                                 _vm._v(
-                                                  "\n                                                        Ngày tạo:\n                                                        " +
+                                                  "\n                            Ngày tạo:\n                            " +
                                                     _vm._s(row.item.created_at)
                                                 ),
                                               ]),
@@ -1722,7 +1632,7 @@ var render = function () {
                                                     "far fa-dot-circle",
                                                 }),
                                                 _vm._v(
-                                                  "\n                                                        Ngày sửa gần nhất:\n                                                        " +
+                                                  "\n                            Ngày sửa gần nhất:\n                            " +
                                                     _vm._s(row.item.updated_at)
                                                 ),
                                               ]),

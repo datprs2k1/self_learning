@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\DB;
 try {
     DB::connection()->getPdo();
 } catch (\Exception $e) {
-    die("Could not connect to the database.  Please check your configuration. error:" . $e );
+    die("Could not connect to the database.  Please check your configuration. error:" . $e);
 }
 class AuthController extends Controller
 {
-    
+
     public function login(Request $request)
     {
         $request->validate(
@@ -72,6 +72,6 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::user()->tokens()->delete();
+        Auth::logout();
     }
 }

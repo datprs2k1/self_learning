@@ -290,27 +290,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -80334,7 +80313,7 @@ var render = function () {
                                       rawName: "v-b-tooltip.hover.v-secondary",
                                       value: "Số bản ghi trên một trang",
                                       expression:
-                                        "\n                                                'Số bản ghi trên một trang'\n                                            ",
+                                        "\n                        'Số bản ghi trên một trang'\n                      ",
                                       modifiers: {
                                         hover: true,
                                         "v-secondary": true,
@@ -80375,7 +80354,7 @@ var render = function () {
                                             value:
                                               "Xuất Excel các bản ghi đã chọn",
                                             expression:
-                                              "\n                                                    'Xuất Excel các bản ghi đã chọn'\n                                                ",
+                                              "\n                          'Xuất Excel các bản ghi đã chọn'\n                        ",
                                             modifiers: {
                                               hover: true,
                                               "v-secondary": true,
@@ -80410,7 +80389,7 @@ var render = function () {
                                             "v-b-tooltip.hover.v-secondary",
                                           value: "Xuất PDF các bản ghi đã chọn",
                                           expression:
-                                            "\n                                                    'Xuất PDF các bản ghi đã chọn'\n                                                ",
+                                            "\n                          'Xuất PDF các bản ghi đã chọn'\n                        ",
                                           modifiers: {
                                             hover: true,
                                             "v-secondary": true,
@@ -80438,7 +80417,7 @@ var render = function () {
                                           "v-b-tooltip.hover.v-secondary",
                                         value: "Xóa các bản ghi đã chọn",
                                         expression:
-                                          "\n                                                'Xóa các bản ghi đã chọn'\n                                            ",
+                                          "\n                        'Xóa các bản ghi đã chọn'\n                      ",
                                         modifiers: {
                                           hover: true,
                                           "v-secondary": true,
@@ -80460,8 +80439,7 @@ var render = function () {
                                         rawName:
                                           "v-b-tooltip.hover.v-secondary",
                                         value: "Thêm mới bản ghi",
-                                        expression:
-                                          "\n                                                'Thêm mới bản ghi'\n                                            ",
+                                        expression: "'Thêm mới bản ghi'",
                                         modifiers: {
                                           hover: true,
                                           "v-secondary": true,
@@ -80618,8 +80596,7 @@ var render = function () {
                                             rawName:
                                               "v-b-tooltip.hover.v-secondary",
                                             value: "Thêm bài giảng",
-                                            expression:
-                                              "\n                                                    'Thêm bài giảng'\n                                                ",
+                                            expression: "'Thêm bài giảng'",
                                             modifiers: {
                                               hover: true,
                                               "v-secondary": true,
@@ -80649,8 +80626,7 @@ var render = function () {
                                             rawName:
                                               "v-b-tooltip.hover.v-secondary",
                                             value: "Sửa bản ghi",
-                                            expression:
-                                              "\n                                                    'Sửa bản ghi'\n                                                ",
+                                            expression: "'Sửa bản ghi'",
                                             modifiers: {
                                               hover: true,
                                               "v-secondary": true,
@@ -80679,8 +80655,7 @@ var render = function () {
                                             rawName:
                                               "v-b-tooltip.hover.v-secondary",
                                             value: "Xóa bản ghi",
-                                            expression:
-                                              "\n                                                    'Xóa bản ghi'\n                                                ",
+                                            expression: "'Xóa bản ghi'",
                                             modifiers: {
                                               hover: true,
                                               "v-secondary": true,
@@ -80699,9 +80674,9 @@ var render = function () {
                               fn: function (row) {
                                 return [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\n                    " +
                                       _vm._s(row.index + 1) +
-                                      "\n                                    "
+                                      "\n                  "
                                   ),
                                 ]
                               },
@@ -80775,11 +80750,7 @@ var render = function () {
                             },
                           },
                         },
-                        [
-                          _vm._v(
-                            "\n                    Xác nhận\n                "
-                          ),
-                        ]
+                        [_vm._v(" Xác nhận ")]
                       ),
                       _vm._v(" "),
                       _c(
@@ -80793,7 +80764,7 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("\n                    Hủy\n                ")]
+                        [_vm._v("\n          Hủy\n        ")]
                       ),
                     ],
                     1
@@ -80821,8 +80792,7 @@ var render = function () {
                             name: "b-tooltip",
                             rawName: "v-b-tooltip.hover.v-secondary",
                             value: "Số bản ghi trên một trang",
-                            expression:
-                              "\n                            'Số bản ghi trên một trang'\n                        ",
+                            expression: "'Số bản ghi trên một trang'",
                             modifiers: { hover: true, "v-secondary": true },
                           },
                         ],
@@ -80961,9 +80931,7 @@ var render = function () {
                     fn: function (row) {
                       return [
                         _vm._v(
-                          "\n                    " +
-                            _vm._s(row.index + 1) +
-                            "\n                "
+                          "\n          " + _vm._s(row.index + 1) + "\n        "
                         ),
                       ]
                     },

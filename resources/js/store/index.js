@@ -26,7 +26,9 @@ const store = new Vuex.Store({
         test,
         question
     },
-    plugins: [createPersistedState()]
+    plugins: [createPersistedState({
+        paths: ['auth']
+    })]
 });
 
 export default store;

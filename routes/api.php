@@ -28,6 +28,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', 'App\Http\Controllers\AuthController@login');
 Route::post('register', 'App\Http\Controllers\AuthController@register');
+Route::get('logout', 'App\Http\Controllers\AuthController@logout');
+
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('/department', DepartmentController::class);
@@ -50,8 +52,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/test/checkTest/{test}', 'App\Http\Controllers\TestController@checkTest');
 
     Route::post('/class/addSubject', 'App\Http\Controllers\ClassController@addSubject');
-    Route::post('/class/deleteSubject','App\Http\Controllers\ClassController@deleteSubject');
-    Route::post('/class/deleteSubjects','App\Http\Controllers\ClassController@deleteSubjects');
-   
-    Route::get('logout', 'App\Http\Controllers\AuthController@logout');
+    Route::post('/class/deleteSubject', 'App\Http\Controllers\ClassController@deleteSubject');
+    Route::post('/class/deleteSubjects', 'App\Http\Controllers\ClassController@deleteSubjects');
 });

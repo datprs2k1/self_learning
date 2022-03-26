@@ -44,55 +44,42 @@ class LessonController extends Controller
             $checkExist = $this->checkExistLesson($request->class_id, $request->subject_id, $request->week);
             if ($checkExist != 0) {
                 $lesson = Lesson::find($checkExist);
-                if ($request->video_path != "null") {
-                    $lesson->video_path = $request->video_path;
+                if (!$request->hasFile('path')) {
+                    $lesson->path = $lesson->path;
+                    if ($lesson->video_path == null) {
+                        $lesson->video_path = $request->video_path;
+                    }
                     $lesson->updated_at = date('Y-m-d H:i:s');
                 } else {
                     $this->validateLesson($request);
                     $file = $request->file('path');
                     $name = time() . '_' . $file->getClientOriginalName();
                     Storage::disk('public')->put($name, File::get($file));
-
                     File::delete('files/' . $lesson->path);
                     $lesson->path = $name;
                     $lesson->name = $request->name;
                     $lesson->updated_at = date('Y-m-d H:i:s');
                 }
-
-                $lesson->save();
-
-                return response()->json([
-                    'message' => 'Thêm thành công.',
-                ], 200);
             } else {
+                $this->validateLesson($request);
+                $file = $request->file('path');
+                $name = time() . '_' . $file->getClientOriginalName();
+                Storage::disk('public')->put($name, File::get($file));
                 $lesson = new Lesson();
-                if ($request->video_path != "null") {
-                    $lesson->video_path = $request->video_path;
-                    $lesson->week = $request->week;
-                    $lesson->subject_id = $request->subject_id;
-                    $lesson->class_id = $request->class_id;
-                    $lesson->created_at = date('Y-m-d H:i:s');
-                } else {
-                    $this->validateLesson($request);
-                    $file = $request->file('path');
-                    $name = time() . '_' . $file->getClientOriginalName();
-                    Storage::disk('public')->put($name, File::get($file));
-
-                    $lesson->path = $name;
-                    $lesson->name = $request->name;
-                    $lesson->week = $request->week;
-                    $lesson->subject_id = $request->subject_id;
-                    $lesson->class_id = $request->class_id;
-                    $lesson->created_at = date('Y-m-d H:i:s');
-                }
-                $lesson->save();
-
-                return response()->json([
-                    'message' => 'Thêm thành công.',
-                ], 200);
+                $lesson->class_id = $request->class_id;
+                $lesson->subject_id = $request->subject_id;
+                $lesson->week = $request->week;
+                $lesson->path = $name;
+                $lesson->name = $request->name;
+                $lesson->video_path = $request->video_path;
+                $lesson->created_at = date('Y-m-d H:i:s');
             }
-        } else {
-            return response()->json(['errors' => ['auth' => ['Bạn không có quyền truy cập.']]], 302);
+
+            $lesson->save();
+
+            return response()->json([
+                'message' => 'Thêm thành công.',
+            ], 200);
         }
     }
 
@@ -220,25 +207,25 @@ class LessonController extends Controller
         return 0;
     }
 
-    public function validateLesson(Request $request) {
-            $request->validate(
-                [
-                    'name' => 'required|string|max:255',
-                    'path' => 'required|mimes:pdf,doc,docx,ppt,pptx|max:100000',
-                    'week' => 'required|integer',
-                    'subject_id' => 'required',
-                    'class_id' => 'required',
-                ],
-                [
-                    'name.required' => 'Tên bài giảng không được để trống',
-                    'path.required' => 'Nội dung bài giảng không được để trống',
-                    'path.mimes' => 'Định dạng file không hợp lệ, định dạng hợp lệ (pdf, doc, docx, ppt, pptx)',
-                    'path.max' => 'Dung lượng file vượt giới hạn (100MB)',
-                    'week.required' => 'Tuần không được để trống',
-                    'subject_id.required' => 'Môn học không được để trống',
-                    'class_id.required' => 'Lớp không được để trống',
-                ]
-            );
-       
+    public function validateLesson(Request $request)
+    {
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'path' => 'required|mimes:pdf,doc,docx,ppt,pptx|max:100000',
+                'week' => 'required|integer',
+                'subject_id' => 'required',
+                'class_id' => 'required',
+            ],
+            [
+                'name.required' => 'Tên bài giảng không được để trống',
+                'path.required' => 'Nội dung bài giảng không được để trống',
+                'path.mimes' => 'Định dạng file không hợp lệ, định dạng hợp lệ (pdf, doc, docx, ppt, pptx)',
+                'path.max' => 'Dung lượng file vượt giới hạn (100MB)',
+                'week.required' => 'Tuần không được để trống',
+                'subject_id.required' => 'Môn học không được để trống',
+                'class_id.required' => 'Lớp không được để trống',
+            ]
+        );
     }
 }
