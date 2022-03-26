@@ -44,35 +44,49 @@ class LessonController extends Controller
             $checkExist = $this->checkExistLesson($request->class_id, $request->subject_id, $request->week);
             if ($checkExist != 0) {
                 $lesson = Lesson::find($checkExist);
-                if (!$request->hasFile('path')) {
-                    $lesson->path = $lesson->path;
-                    if ($lesson->video_path == null) {
+                if ($request->type == "slide") {
+                    if (!$request->hasFile('path')) {
+                        $lesson->path = $lesson->path;
+                        $lesson->updated_at = date('Y-m-d H:i:s');
+                    } else {
+                        $this->validateSlide($request);
+                        $file = $request->file('path');
+                        $name = time() . '_' . $file->getClientOriginalName();
+                        Storage::disk('public')->put($name, File::get($file));
+                        File::delete('files/' . $lesson->path);
+                        $lesson->path = $name;
+                        $lesson->name = $request->name;
+                        $lesson->updated_at = date('Y-m-d H:i:s');
+                    }
+                } else if ($request->type == "video") {
+                    if ($request->video_path == null) {
+                        $lesson->video_path = $lesson->video_path;
+                    } else {
                         $lesson->video_path = $request->video_path;
                     }
-                    $lesson->updated_at = date('Y-m-d H:i:s');
-                } else {
-                    $this->validateLesson($request);
+                }
+            } else {
+                if ($request->type == "slide") {
+                    $this->validateSlide($request);
                     $file = $request->file('path');
                     $name = time() . '_' . $file->getClientOriginalName();
                     Storage::disk('public')->put($name, File::get($file));
-                    File::delete('files/' . $lesson->path);
+                    $lesson = new Lesson();
+                    $lesson->class_id = $request->class_id;
+                    $lesson->subject_id = $request->subject_id;
+                    $lesson->week = $request->week;
                     $lesson->path = $name;
                     $lesson->name = $request->name;
-                    $lesson->updated_at = date('Y-m-d H:i:s');
+                    $lesson->created_at = date('Y-m-d H:i:s');
+                } else {
+                    $this->validateVideo($request);
+                    $lesson = new Lesson();
+                    $lesson->class_id = $request->class_id;
+                    $lesson->subject_id = $request->subject_id;
+                    $lesson->week = $request->week;
+                    $lesson->video_path = $request->video_path;
+                    $lesson->created_at = date('Y-m-d H:i:s');
                 }
-            } else {
-                $this->validateLesson($request);
-                $file = $request->file('path');
-                $name = time() . '_' . $file->getClientOriginalName();
-                Storage::disk('public')->put($name, File::get($file));
-                $lesson = new Lesson();
-                $lesson->class_id = $request->class_id;
-                $lesson->subject_id = $request->subject_id;
-                $lesson->week = $request->week;
-                $lesson->path = $name;
-                $lesson->name = $request->name;
-                $lesson->video_path = $request->video_path;
-                $lesson->created_at = date('Y-m-d H:i:s');
             }
 
             $lesson->save();
@@ -207,7 +221,7 @@ class LessonController extends Controller
         return 0;
     }
 
-    public function validateLesson(Request $request)
+    public function validateSlide(Request $request)
     {
         $request->validate(
             [
@@ -222,6 +236,25 @@ class LessonController extends Controller
                 'path.required' => 'Nội dung bài giảng không được để trống',
                 'path.mimes' => 'Định dạng file không hợp lệ, định dạng hợp lệ (pdf, doc, docx, ppt, pptx)',
                 'path.max' => 'Dung lượng file vượt giới hạn (100MB)',
+                'week.required' => 'Tuần không được để trống',
+                'subject_id.required' => 'Môn học không được để trống',
+                'class_id.required' => 'Lớp không được để trống',
+            ]
+        );
+    }
+
+    public function validateVideo(Request $request)
+    {
+        $request->validate(
+            [
+                'video_path' => 'required|string',
+                'week.required' => 'Tuần không được để trống',
+                'subject_id.required' => 'Môn học không được để trống',
+                'class_id.required' => 'Lớp không được để trống',
+            ],
+            [
+                'video_path.required' => 'Đường dẫn video không được để trống',
+                'video_path.string' => 'Đường dẫn video không hợp lệ',
                 'week.required' => 'Tuần không được để trống',
                 'subject_id.required' => 'Môn học không được để trống',
                 'class_id.required' => 'Lớp không được để trống',

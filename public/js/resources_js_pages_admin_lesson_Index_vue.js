@@ -222,6 +222,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -231,7 +239,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       lesson: {
         name: "",
         path: null,
-        video_path: null,
+        video_path: "",
         week: null,
         subject_id: null,
         class_id: null
@@ -312,14 +320,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       } else {
         this.lesson.name = "";
         this.lesson.path = null;
-        this.lesson.video_path = null;
+        this.lesson.video_path = "";
         this.lesson.week = week;
       }
     },
     setEmptyLesson: function setEmptyLesson() {
-      this.lesson.name = "";
+      this.lesson.name = null;
       this.lesson.path = null;
-      this.lesson.video_path = null;
+      this.lesson.video_path = "";
       this.lesson.week = null;
       this.errors = {};
     },
@@ -340,10 +348,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.append("week", _this3.lesson.week);
                 formData.append("subject_id", _this3.lesson.subject_id);
                 formData.append("class_id", _this3.lesson.class_id);
-                _context2.next = 10;
+                formData.append("type", "slide");
+                _context2.next = 11;
                 return _this3.$store.dispatch("lesson/add", formData);
 
-              case 10:
+              case 11:
                 _this3.$swal({
                   title: "Thành công",
                   icon: "success",
@@ -359,88 +368,78 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this3.getCLASS(_this3.lesson.class_id);
 
-                _context2.next = 19;
+                _context2.next = 20;
                 break;
 
-              case 16:
-                _context2.prev = 16;
+              case 17:
+                _context2.prev = 17;
                 _context2.t0 = _context2["catch"](0);
                 _this3.errors = _context2.t0.response.data.errors;
 
-              case 19:
+              case 20:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 16]]);
+        }, _callee2, null, [[0, 17]]);
       }))();
     },
     submitVideo: function submitVideo() {
-      try {
-        this.$store.dispatch("lesson/add", this.lesson);
-        this.$swal({
-          title: "Thành công",
-          icon: "success",
-          showConfirmButton: false,
-          position: "top-end",
-          timer: 1000,
-          width: 360
-        });
-        this.setEmptyLesson();
-        this.getCLASS(this.lesson.class_id);
-      } catch (error) {
-        this.errors = error.response.data.errors;
-      }
-    },
-    getSlide: function getSlide(week) {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var slide;
+        var formData;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
-                return _this4.getCLASS(_this4.lesson.class_id);
+                _context3.prev = 0;
+                formData = new FormData();
+                formData.append("video_path", _this4.lesson.video_path);
+                formData.append("week", _this4.lesson.week);
+                formData.append("subject_id", _this4.lesson.subject_id);
+                formData.append("class_id", _this4.lesson.class_id);
+                formData.append("type", "video");
+                _context3.next = 9;
+                return _this4.$store.dispatch("lesson/add", formData);
 
-              case 2:
-                slide = _this4.CLASS.lesson.filter(function (item) {
-                  return item.week == week && item.subject_id == _this4.lesson.subject_id && item.class_id == _this4.lesson.class_id;
+              case 9:
+                _this4.$swal({
+                  title: "Thành công",
+                  icon: "success",
+                  showConfirmButton: false,
+                  position: "top-end",
+                  timer: 1000,
+                  width: 360
                 });
 
-                if (slide.length == 0) {
-                  _this4.$swal({
-                    title: "Chưa có nội dung slide",
-                    icon: "info",
-                    width: 480
-                  });
-                } else {
-                  if (slide[0].path == null) {
-                    _this4.$swal({
-                      title: "Chưa có nội dung slide",
-                      icon: "info",
-                      width: 480
-                    });
-                  } else {
-                    _this4.lesson = slide[0];
-                    window.open("../files/" + _this4.lesson.path, "_blank");
-                  }
-                }
+                _this4.setEmptyLesson();
 
-              case 4:
+                _this4.$refs.modalVideo.hide();
+
+                _this4.getCLASS(_this4.lesson.class_id);
+
+                _context3.next = 18;
+                break;
+
+              case 15:
+                _context3.prev = 15;
+                _context3.t0 = _context3["catch"](0);
+                _this4.errors = _context3.t0.response.data.errors;
+
+              case 18:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3);
+        }, _callee3, null, [[0, 15]]);
       }))();
     },
-    getVideo: function getVideo(week) {
+    getSlide: function getSlide(week) {
       var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-        var video;
+        var slide;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -449,27 +448,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this5.getCLASS(_this5.lesson.class_id);
 
               case 2:
-                video = _this5.CLASS.lesson.filter(function (item) {
+                slide = _this5.CLASS.lesson.filter(function (item) {
                   return item.week == week && item.subject_id == _this5.lesson.subject_id && item.class_id == _this5.lesson.class_id;
                 });
 
-                if (video.length == 0) {
+                if (slide.length == 0) {
                   _this5.$swal({
-                    title: "Chưa có nội dung video",
+                    title: "Chưa có nội dung slide",
                     icon: "info",
                     width: 480
                   });
                 } else {
-                  if (video[0].video_path == null) {
+                  if (slide[0].path == null) {
                     _this5.$swal({
-                      title: "Chưa có nội dung video",
+                      title: "Chưa có nội dung slide",
                       icon: "info",
                       width: 480
                     });
                   } else {
-                    _this5.lesson = video[0];
-
-                    _this5.$refs.modalViewVideo.show();
+                    _this5.lesson = slide[0];
+                    window.open("../files/" + _this5.lesson.path, "_blank");
                   }
                 }
 
@@ -479,6 +477,51 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee4);
+      }))();
+    },
+    getVideo: function getVideo(week) {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        var video;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return _this6.getCLASS(_this6.lesson.class_id);
+
+              case 2:
+                video = _this6.CLASS.lesson.filter(function (item) {
+                  return item.week == week && item.subject_id == _this6.lesson.subject_id && item.class_id == _this6.lesson.class_id;
+                });
+
+                if (video.length == 0) {
+                  _this6.$swal({
+                    title: "Chưa có nội dung video",
+                    icon: "info",
+                    width: 480
+                  });
+                } else {
+                  if (video[0].video_path == null) {
+                    _this6.$swal({
+                      title: "Chưa có nội dung video",
+                      icon: "info",
+                      width: 480
+                    });
+                  } else {
+                    _this6.lesson = video[0];
+
+                    _this6.$refs.modalViewVideo.show();
+                  }
+                }
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
       }))();
     }
   }),
@@ -918,12 +961,12 @@ var render = function () {
                     _c(
                       "b-modal",
                       {
+                        ref: "modalVideo",
                         attrs: {
                           id: "modal-video",
                           size: "lg",
                           title: "Video Bài Giảng Tuần " + _vm.lesson.week,
                         },
-                        on: { ok: _vm.submitVideo },
                         scopedSlots: _vm._u([
                           {
                             key: "modal-footer",
@@ -938,11 +981,7 @@ var render = function () {
                                       "b-button",
                                       {
                                         attrs: { variant: "primary" },
-                                        on: {
-                                          click: function ($event) {
-                                            return ok()
-                                          },
-                                        },
+                                        on: { click: _vm.submitVideo },
                                       },
                                       [
                                         _vm._v(
@@ -986,6 +1025,9 @@ var render = function () {
                           },
                           [
                             _c("b-form-input", {
+                              class: {
+                                "is-invalid": _vm.errors.video_path,
+                              },
                               attrs: { required: "" },
                               model: {
                                 value: _vm.lesson.video_path,
@@ -995,6 +1037,17 @@ var render = function () {
                                 expression: "lesson.video_path",
                               },
                             }),
+                            _vm._v(" "),
+                            _vm.errors.video_path
+                              ? _c(
+                                  "span",
+                                  {
+                                    staticClass: "error invalid-feedback",
+                                    attrs: { id: "exampleInputEmail1-error" },
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.video_path[0]))]
+                                )
+                              : _vm._e(),
                           ],
                           1
                         ),

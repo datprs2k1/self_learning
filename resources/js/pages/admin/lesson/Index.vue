@@ -123,15 +123,23 @@
 
                   <b-modal
                     id="modal-video"
-                    @ok="submitVideo"
                     size="lg"
                     :title="'Video Bài Giảng Tuần ' + lesson.week"
+                    ref="modalVideo"
                   >
                     <b-form-group label="Nội dung" label-for="slide-input">
                       <b-form-input
                         v-model="lesson.video_path"
                         required
+                        :class="{
+                          'is-invalid': errors.video_path,
+                        }"
                       ></b-form-input>
+                        <span
+                            v-if="errors.video_path"
+                            id="exampleInputEmail1-error"
+                            class="error invalid-feedback"
+                            >{{ errors.video_path[0] }}</span>
                     </b-form-group>
                     <div
                       class="d-flex justify-content-center"
@@ -142,7 +150,7 @@
 
                     <template #modal-footer="{ ok, cancel }">
                       <div>
-                        <b-button variant="primary" @click="ok()">
+                        <b-button variant="primary" @click="submitVideo">
                           Xác nhận
                         </b-button>
                         <b-button variant="secondary" @click="cancel()">
@@ -204,7 +212,7 @@ export default {
       lesson: {
         name: "",
         path: null,
-        video_path: null,
+        video_path: "",
         week: null,
         subject_id: null,
         class_id: null,
@@ -252,14 +260,14 @@ export default {
       } else {
         this.lesson.name = "";
         this.lesson.path = null;
-        this.lesson.video_path = null;
+        this.lesson.video_path = "";
         this.lesson.week = week;
       }
     },
     setEmptyLesson() {
-      this.lesson.name = "";
+      this.lesson.name = null;
       this.lesson.path = null;
-      this.lesson.video_path = null;
+      this.lesson.video_path = "";
       this.lesson.week = null;
       this.errors = {};
     },
@@ -272,6 +280,7 @@ export default {
         formData.append("week", this.lesson.week);
         formData.append("subject_id", this.lesson.subject_id);
         formData.append("class_id", this.lesson.class_id);
+        formData.append("type", "slide");
 
         await this.$store.dispatch("lesson/add", formData);
         this.$swal({
@@ -289,9 +298,15 @@ export default {
         this.errors = error.response.data.errors;
       }
     },
-    submitVideo() {
+    async submitVideo() {
       try {
-        this.$store.dispatch("lesson/add", this.lesson);
+        const formData = new FormData();
+        formData.append("video_path", this.lesson.video_path);
+        formData.append("week", this.lesson.week);
+        formData.append("subject_id", this.lesson.subject_id);
+        formData.append("class_id", this.lesson.class_id);
+        formData.append("type", "video");
+        await this.$store.dispatch("lesson/add", formData);
         this.$swal({
           title: "Thành công",
           icon: "success",
@@ -301,6 +316,7 @@ export default {
           width: 360,
         });
         this.setEmptyLesson();
+        this.$refs.modalVideo.hide();
         this.getCLASS(this.lesson.class_id);
       } catch (error) {
         this.errors = error.response.data.errors;
