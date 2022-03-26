@@ -319,6 +319,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -425,6 +432,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       if (questions.length != 0) {
         this.questions = questions;
+        this.number_question = questions.length;
       } else {
         this.questions = [];
       }
@@ -1470,7 +1478,8 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
-                                                    name: "answer_A",
+                                                    "aria-describedby":
+                                                      _vm.ariaDescribedby,
                                                     value: "A",
                                                   },
                                                   model: {
@@ -1531,7 +1540,9 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
-                                                    name: "answer_B",
+                                                    "aria-describedby":
+                                                      _vm.ariaDescribedby,
+                                                    name: "answer",
                                                     value: "B",
                                                   },
                                                   model: {
@@ -1594,6 +1605,8 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
+                                                    "aria-describedby":
+                                                      _vm.ariaDescribedby,
                                                     name: "answer_C",
                                                     value: "C",
                                                   },
@@ -1655,6 +1668,8 @@ var render = function () {
                                                 "b-form-radio",
                                                 {
                                                   attrs: {
+                                                    "aria-describedby":
+                                                      _vm.ariaDescribedby,
                                                     name: "answer_D",
                                                     value: "D",
                                                   },
