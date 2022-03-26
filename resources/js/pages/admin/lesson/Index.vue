@@ -63,6 +63,7 @@
                             {{ item.week }}
                             <b-button
                               @click.stop="getCurrentLesson(item.week)"
+                              v-b-modal.modal-test
                               class="float-right p-0 pl-1 btn-warning btn-sm"
                               ><i class="fas fa-edit"></i></b-button
                           ></b-list-group-item>
@@ -185,6 +186,94 @@
                       </div>
                     </template>
                   </b-modal>
+                   <b-modal
+                    id="modal-test"
+                    size="lg"
+                    :title="'Bài Luyện Tập Tuần ' + lesson.week"
+                    ref="modalTest"
+                  >
+                    <b-form-group label="Nhập số câu hỏi" label-for="name-input">
+                      <b-form-input
+                        id="name-input"
+                        type="number"
+                        v-model="number_question"
+                        required
+                        min="1"
+                        @update="createQuestion()"
+                        :class="{
+                          'is-invalid': errors.name,
+                        }"
+                      ></b-form-input>
+                    </b-form-group>
+                    <div v-if="questions.length > 0">
+                        <div v-for="(question, index) in questions" :key="question.id">
+                            <b-form-group>
+                                <label for="question">Câu hỏi {{ index + 1 }}</label>
+                                <b-form-input
+                                    id="question"
+                                    v-model="question.question"
+                                    required
+                                ></b-form-input>
+                            </b-form-group>
+                            <b-form-group label="Đáp án" label-for="name-input">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="A">
+                                            <label for="answer_A">Đáp án A</label>
+                                            <b-form-input
+                                                id="answer_A"
+                                                v-model="question.answer_A"
+                                                required
+                                            ></b-form-input>
+                                        </b-form-radio>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="B">
+                                            <label for="answer_B">Đáp án B</label>
+                                            <b-form-input
+                                                id="answer_B"
+                                                v-model="question.answer_B"
+                                                required
+                                            ></b-form-input>
+                                        </b-form-radio>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="C">
+                                            <label for="answer_C">Đáp án C</label>
+                                            <b-form-input
+                                                id="answer_C"
+                                                v-model="question.answer_C"
+                                                required
+                                            ></b-form-input>
+                                        </b-form-radio>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b-form-radio v-model="question.correct_Answer" name="correct_Answer" value="D">
+                                            <label for="answer_D">Đáp án D</label>
+                                            <b-form-input
+                                                id="answer_D"
+                                                v-model="question.answer_D"
+                                                required
+                                            ></b-form-input>
+                                        </b-form-radio>
+                                    </div>
+                                </div>
+                            </b-form-group>
+                        </div>
+                    </div>
+                    <template #modal-footer="{ ok, cancel }">
+                      <div>
+                        <b-button variant="primary" @click="addQuestions">
+                          Xác nhận
+                        </b-button>
+                        <b-button variant="secondary" @click="cancel()">
+                          Hủy
+                        </b-button>
+                      </div>
+                    </template>
+                  </b-modal>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -213,10 +302,13 @@ export default {
         name: "",
         path: null,
         video_path: "",
+        test_id: null,
         week: null,
         subject_id: null,
         class_id: null,
       },
+      number_question: 0,
+      questions: [],
       errors: {},
     };
   },
@@ -374,6 +466,45 @@ export default {
           this.lesson = video[0];
           this.$refs.modalViewVideo.show();
         }
+      }
+    },
+    createQuestion() {
+      this.questions = [];
+      for (let i = 0; i < this.number_question; i++) {
+        let question = {
+          id: i,
+          question: "",
+          correct_Answer: "",
+          answer_A: "",
+          answer_B: "",
+          answer_C: "",
+          answer_D: "",
+          lesson_id: this.lesson.id,
+          week: this.lesson.week,
+          subject_id: this.lesson.subject_id,
+          class_id: this.lesson.class_id,
+        };
+        this.questions.push(question);
+      }
+    },
+    async addQuestions() {
+      try {
+        const formData = new FormData();
+        formData.append("questions", JSON.stringify(this.questions));
+        await this.$store.dispatch("question/add", formData);
+        this.$swal({
+          title: "Thành công",
+          icon: "success",
+          showConfirmButton: false,
+          position: "top-end",
+          timer: 1000,
+          width: 360,
+        });
+        this.setEmptyLesson();
+        this.$refs.modalQuestion.hide();
+        this.getCLASS(this.lesson.class_id);
+      } catch (error) {
+        this.errors = error.response.data.errors;
       }
     },
   },

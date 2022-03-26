@@ -8,6 +8,7 @@ use App\Models\Department;
 use App\Models\Subject;
 use App\Models\Lesson;
 use App\Models\Student;
+use App\Models\Question;
 
 class ClassModel extends Model
 {
@@ -37,6 +38,7 @@ class ClassModel extends Model
     {
         return $this->hasMany(Lesson::class, 'class_id', 'id');
     }
+
 
     public function student()
     {

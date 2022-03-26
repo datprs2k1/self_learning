@@ -32,4 +32,8 @@ class Lesson extends Model
     {
         return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
+    public function Questions()
+    {
+        return $this->hasMany(Question::class, 'lesson_id', 'id');
+    }
 }

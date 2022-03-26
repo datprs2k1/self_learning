@@ -24,4 +24,9 @@ class Question extends Model
     {
         return $this->belongsTo(Test::class);
     }
+
+    public function Class()
+    {
+        return $this->belongsToMany(ClassModel::class, 'class_id', 'class_id', 'subject_id', 'lesson_id', 'week');
+    }
 }

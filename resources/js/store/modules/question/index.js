@@ -22,15 +22,8 @@ const mutations = {
 const actions = {
 
     async add({ commit }, data) {
-        await api.post('/question', {
-            question: data.question,
-            Ans_A: data.Ans_A,
-            Ans_B: data.Ans_B,
-            Ans_C: data.Ans_C,
-            Ans_D: data.Ans_D,
-            Correct_Ans: data.Correct_Ans,
-            test_id: data.test_id,
-        });
+        console.log(data);
+        await api.post('/question', data);
     },
 
     async delete({ commit }, id) {
@@ -42,7 +35,7 @@ const actions = {
     },
 
     async edit({ commit }, data) {
-        await api.put(`/question/${data.id}`, {
+        await api.post(`/question/${data.id}`, {
             question: data.question,
             Ans_A: data.Ans_A,
             Ans_B: data.Ans_B,
@@ -53,8 +46,8 @@ const actions = {
         });
     },
 
-    async getQuestions({ commit }) {
-        const response = await api.get('/question');
+    async getQuestions({ commit }, data) {
+        const response = await api.get('/question', data);
         commit('SET_QUESTIONS', response.data);
     },
 

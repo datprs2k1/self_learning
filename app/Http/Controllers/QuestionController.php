@@ -41,43 +41,23 @@ class QuestionController extends Controller
         //
 
         if (auth()->user()->hasRole('admin')) {
-            $request->validate(
-                [
-                    'question' => 'required',
-                    'Ans_A' => 'required',
-                    'Ans_B' => 'required',
-                    'Ans_C' => 'required',
-                    'Ans_D' => 'required',
-                    'Correct_Ans' => 'required',
-                    'test_id' => 'required',
-                ],
-                [
-                    'question.required' => 'Câu hỏi không được để trống.',
-                    'Ans_A.required' => 'Đáp án A không được để trống.',
-                    'Ans_B.required' => 'Đáp án B không được để trống.',
-                    'Ans_C.required' => 'Đáp án C không được để trống.',
-                    'Ans_D.required' => 'Đáp án D không được để trống.',
-                    'Correct_Ans.required' => 'Đáp án đúng không được để trống.',
-                    'test_id.required' => 'Mã đề thi không được để trống.',
-                ]
-            );
-
-            $question = new Question();
-            $question->question = $request->question;
-            $question->Ans_A = $request->Ans_A;
-            $question->Ans_B = $request->Ans_B;
-            $question->Ans_C = $request->Ans_C;
-            $question->Ans_D = $request->Ans_D;
-            $question->Correct_Ans = $request->Correct_Ans;
-            $question->test_id = $request->test_id;
-            $question->created_at = date('Y-m-d H:i:s');
-            $question->save();
-
-            return response()->json([
-                'message' => 'Thêm sinh viên thành công.',
-            ], 200);
-        } else {
-            return response()->json(['errors' => ['auth' => ['Bạn không có quyền truy cập.']]], 302);
+            $questions = $request->questions;
+            $questions = json_decode($questions);
+            foreach ($questions as $question) {
+                $a = new Question;
+                $a->question = $question->question;
+                $a->answer_A = $question->answer_A;
+                $a->answer_B = $question->answer_B;
+                $a->answer_C = $question->answer_C;
+                $a->answer_D = $question->answer_D;
+                $a->class_id = $question->class_id;
+                $a->subject_id = $question->subject_id;
+                $a->lesson_id = $question->lesson_id;
+                $a->week = $question->week;
+                $a->correct_Answer = $question->correct_Answer;
+                $a->created_at = date('Y-m-d H:i:s');
+                $a->save();
+            }
         }
     }
 
@@ -87,10 +67,14 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         //
-        $question = Question::with('test')->find($id);
+        $class_id = $request->class_id;
+        $subject_id = $request->subject_id;
+        $lesson_id = $request->lesson_id;
+        $week = $request->week;
+        $question = Question::where('class_id', $class_id)->where('subject_id', $subject_id)->where('lesson_id', $lesson_id)->where('week', $week)->get();
         return response()->json($question, 200);
     }
 
@@ -197,11 +181,5 @@ class QuestionController extends Controller
                 'error' => 'unauthorized'
             ], 401);
         }
-    }
-
-    public function getQuestionTest($id)
-    {
-        $questions = Question::with('test')->where('test_id', $id)->orderBy('id', 'asc')->get();
-        return response()->json($questions, 200);
     }
 }
