@@ -31,7 +31,7 @@
                             >Slide bài giảng
                             {{ item.week }}
                             <b-button
-                              @click.stop="getCurrentLesson(item.week);"
+                              @click.stop="getCurrentLesson(item.week)"
                               v-b-modal.modal-slide
                               class="float-right p-0 pl-1 btn-warning btn-sm"
                               ><i class="fas fa-edit"></i
@@ -62,7 +62,10 @@
                             Bài luyện tập
                             {{ item.week }}
                             <b-button
-                              @click.stop="getCurrentLesson(item.week); getCurrentQuestions(item.week)"
+                              @click.stop="
+                                getCurrentLesson(item.week);
+                                getCurrentQuestions(item.week);
+                              "
                               v-b-modal.modal-test
                               class="float-right p-0 pl-1 btn-warning btn-sm"
                               ><i class="fas fa-edit"></i></b-button
@@ -136,11 +139,12 @@
                           'is-invalid': errors.video_path,
                         }"
                       ></b-form-input>
-                        <span
-                            v-if="errors.video_path"
-                            id="exampleInputEmail1-error"
-                            class="error invalid-feedback"
-                            >{{ errors.video_path[0] }}</span>
+                      <span
+                        v-if="errors.video_path"
+                        id="exampleInputEmail1-error"
+                        class="error invalid-feedback"
+                        >{{ errors.video_path[0] }}</span
+                      >
                     </b-form-group>
                     <div
                       class="d-flex justify-content-center"
@@ -167,16 +171,15 @@
                     ref="modalViewVideo"
                   >
                     <b-form-group>
-                        <div
-                      class="d-flex justify-content-center"
-                      v-if="this.lesson.video_path != null"
-                    >
-                      <LazyYoutube
-                      :src="this.lesson.video_path"
-                      :autoplay="true" />
-                    </div>
-                    </b-form-group>
-
+                      <div
+                        class="d-flex justify-content-center"
+                        v-if="this.lesson.video_path != null"
+                      >
+                        <LazyYoutube
+                          :src="this.lesson.video_path"
+                          :autoplay="true"
+                        />
+                      </div>
                     </b-form-group>
                     <template #modal-footer="{ ok, cancel }">
                       <div>
@@ -186,89 +189,129 @@
                       </div>
                     </template>
                   </b-modal>
-                   <b-modal
+                  <b-modal
                     id="modal-test"
                     size="lg"
                     :title="'Bài Luyện Tập Tuần ' + lesson.week"
                     ref="modalTest"
                   >
-                    <b-form-group label="Nhập số câu hỏi" label-for="name-input">
-                      <b-form-input
-                        id="name-input"
-                        type="number"
-                        v-model="number_question"
-                        required
-                        min="1"
-                        @update="createQuestion()"
-                        :class="{
-                          'is-invalid': errors.name,
-                        }"
-                      ></b-form-input>
+                    <b-form-group
+                      label="Nhập số câu hỏi"
+                      label-for="name-input"
+                    >
+                      <div class="row">
+                        <div class="col-md-10">
+                          <b-form-input
+                            id="name-input"
+                            type="number"
+                            v-model="number_question"
+                            required
+                            min="1"
+                            :class="{
+                              'is-invalid': errors.name,
+                            }"
+                          ></b-form-input>
+                        </div>
+                        <div class="col-md-2">
+                          <b-button variant="primary" @click="createQuestion()">
+                            Thêm
+                          </b-button>
+                        </div>
+                      </div>
                     </b-form-group>
                     <div v-if="questions.length > 0">
-                        <div v-for="(question, index) in questions" :key="question.id">
-                            <b-form-group>
-                                <label for="question">Câu hỏi {{ index + 1 }}</label>
+                      <div
+                        v-for="(question, index) in questions"
+                        :key="question.id"
+                      >
+                        <b-form-group>
+                          <div class="row mb-3">
+                            <div class="col-md-10">
+                              <label for="question"
+                                >Câu hỏi {{ index + 1 }}</label
+                              >
+                            </div>
+                            <div class="col-md-2">
+                              <b-button
+                                variant="danger"
+                                @click="removeQuestion(index)"
+                              >
+                                Xóa
+                              </b-button>
+                            </div>
+                          </div>
+                          <b-form-input
+                            id="question"
+                            v-model="question.question"
+                            required
+                          ></b-form-input>
+                        </b-form-group>
+                        <b-form-group label="Đáp án" label-for="name-input">
+                          <div class="row mb-3">
+                            <div class="col-md-6">
+                              <b-form-radio
+                                v-model="question.correct_Answer"
+                                :aria-describedby="ariaDescribedby"
+                                value="A"
+                              >
+                                <label for="answer_A">Đáp án A</label>
                                 <b-form-input
-                                    id="question"
-                                    v-model="question.question"
-                                    required
+                                  id="answer_A"
+                                  v-model="question.answer_A"
+                                  required
                                 ></b-form-input>
-                            </b-form-group>
-                            <b-form-group label="Đáp án" label-for="name-input">
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer"
-                                        :aria-describedby="ariaDescribedby" value="A">
-                                            <label for="answer_A">Đáp án A</label>
-                                            <b-form-input
-                                                id="answer_A"
-                                                v-model="question.answer_A"
-                                                required
-                                            ></b-form-input>
-                                        </b-form-radio>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer"
-                                         :aria-describedby="ariaDescribedby"
-                                         name="answer" value="B">
-                                            <label for="answer_B">Đáp án B</label>
-                                            <b-form-input
-                                                id="answer_B"
-                                                v-model="question.answer_B"
-                                                required
-                                            ></b-form-input>
-                                        </b-form-radio>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer"
-                                         :aria-describedby="ariaDescribedby"
-                                         name="answer_C" value="C">
-                                            <label for="answer_C">Đáp án C</label>
-                                            <b-form-input
-                                                id="answer_C"
-                                                v-model="question.answer_C"
-                                                required
-                                            ></b-form-input>
-                                        </b-form-radio>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <b-form-radio v-model="question.correct_Answer"
-                                        :aria-describedby="ariaDescribedby"
-                                        name="answer_D" value="D">
-                                            <label for="answer_D">Đáp án D</label>
-                                            <b-form-input
-                                                id="answer_D"
-                                                v-model="question.answer_D"
-                                                required
-                                            ></b-form-input>
-                                        </b-form-radio>
-                                    </div>
-                                </div>
-                            </b-form-group>
-                        </div>
+                              </b-form-radio>
+                            </div>
+                            <div class="col-md-6">
+                              <b-form-radio
+                                v-model="question.correct_Answer"
+                                :aria-describedby="ariaDescribedby"
+                                name="answer"
+                                value="B"
+                              >
+                                <label for="answer_B">Đáp án B</label>
+                                <b-form-input
+                                  id="answer_B"
+                                  v-model="question.answer_B"
+                                  required
+                                ></b-form-input>
+                              </b-form-radio>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <b-form-radio
+                                v-model="question.correct_Answer"
+                                :aria-describedby="ariaDescribedby"
+                                name="answer_C"
+                                value="C"
+                              >
+                                <label for="answer_C">Đáp án C</label>
+                                <b-form-input
+                                  id="answer_C"
+                                  v-model="question.answer_C"
+                                  required
+                                ></b-form-input>
+                              </b-form-radio>
+                            </div>
+                            <div class="col-md-6">
+                              <b-form-radio
+                                v-model="question.correct_Answer"
+                                :aria-describedby="ariaDescribedby"
+                                name="answer_D"
+                                value="D"
+                              >
+                                <label for="answer_D">Đáp án D</label>
+                                <b-form-input
+                                  id="answer_D"
+                                  v-model="question.answer_D"
+                                  required
+                                ></b-form-input>
+                              </b-form-radio>
+                            </div>
+                          </div>
+                        </b-form-group>
+                      </div>
                     </div>
                     <template #modal-footer="{ ok, cancel }">
                       <div>
@@ -490,7 +533,6 @@ export default {
       }
     },
     createQuestion() {
-      this.questions = [];
       for (let i = 0; i < this.number_question; i++) {
         let question = {
           id: i,
@@ -507,6 +549,9 @@ export default {
         };
         this.questions.push(question);
       }
+    },
+    removeQuestion(id) {
+      this.questions.splice(id, 1);
     },
     async addQuestions() {
       try {

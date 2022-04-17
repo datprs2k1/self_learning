@@ -22,7 +22,6 @@ const mutations = {
 const actions = {
 
     async add({ commit }, data) {
-        console.log(data);
         await api.post('/question', data);
     },
 

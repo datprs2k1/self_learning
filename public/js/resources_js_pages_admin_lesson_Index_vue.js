@@ -326,6 +326,49 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -638,8 +681,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     createQuestion: function createQuestion() {
-      this.questions = [];
-
       for (var i = 0; i < this.number_question; i++) {
         var question = {
           id: i,
@@ -656,6 +697,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         };
         this.questions.push(question);
       }
+    },
+    removeQuestion: function removeQuestion(id) {
+      this.questions.splice(id, 1);
     },
     addQuestions: function addQuestions() {
       var _this8 = this;
@@ -1391,31 +1435,58 @@ var render = function () {
                             },
                           },
                           [
-                            _c("b-form-input", {
-                              class: {
-                                "is-invalid": _vm.errors.name,
-                              },
-                              attrs: {
-                                id: "name-input",
-                                type: "number",
-                                required: "",
-                                min: "1",
-                              },
-                              on: {
-                                update: function ($event) {
-                                  return _vm.createQuestion()
-                                },
-                              },
-                              model: {
-                                value: _vm.number_question,
-                                callback: function ($$v) {
-                                  _vm.number_question = $$v
-                                },
-                                expression: "number_question",
-                              },
-                            }),
-                          ],
-                          1
+                            _c("div", { staticClass: "row" }, [
+                              _c(
+                                "div",
+                                { staticClass: "col-md-10" },
+                                [
+                                  _c("b-form-input", {
+                                    class: {
+                                      "is-invalid": _vm.errors.name,
+                                    },
+                                    attrs: {
+                                      id: "name-input",
+                                      type: "number",
+                                      required: "",
+                                      min: "1",
+                                    },
+                                    model: {
+                                      value: _vm.number_question,
+                                      callback: function ($$v) {
+                                        _vm.number_question = $$v
+                                      },
+                                      expression: "number_question",
+                                    },
+                                  }),
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-md-2" },
+                                [
+                                  _c(
+                                    "b-button",
+                                    {
+                                      attrs: { variant: "primary" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.createQuestion()
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                          Thêm\n                        "
+                                      ),
+                                    ]
+                                  ),
+                                ],
+                                1
+                              ),
+                            ]),
+                          ]
                         ),
                         _vm._v(" "),
                         _vm.questions.length > 0
@@ -1429,15 +1500,50 @@ var render = function () {
                                     _c(
                                       "b-form-group",
                                       [
-                                        _c(
-                                          "label",
-                                          { attrs: { for: "question" } },
-                                          [
-                                            _vm._v(
-                                              "Câu hỏi " + _vm._s(index + 1)
-                                            ),
-                                          ]
-                                        ),
+                                        _c("div", { staticClass: "row mb-3" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-10" },
+                                            [
+                                              _c(
+                                                "label",
+                                                { attrs: { for: "question" } },
+                                                [
+                                                  _vm._v(
+                                                    "Câu hỏi " +
+                                                      _vm._s(index + 1)
+                                                  ),
+                                                ]
+                                              ),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "col-md-2" },
+                                            [
+                                              _c(
+                                                "b-button",
+                                                {
+                                                  attrs: { variant: "danger" },
+                                                  on: {
+                                                    click: function ($event) {
+                                                      return _vm.removeQuestion(
+                                                        index
+                                                      )
+                                                    },
+                                                  },
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    "\n                              Xóa\n                            "
+                                                  ),
+                                                ]
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ]),
                                         _vm._v(" "),
                                         _c("b-form-input", {
                                           attrs: {
