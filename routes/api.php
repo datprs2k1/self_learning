@@ -47,10 +47,9 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/lesson/delete/{lesson}', 'App\Http\Controllers\LessonController@deleteMutiple');
     Route::delete('/document/delete/{document}', 'App\Http\Controllers\DocumentController@deleteMutiple');
     Route::delete('/test/delete/{test}', 'App\Http\Controllers\TestController@deleteMutiple');
-    Route::delete('/question/delete/{question}', 'App\Http\Controllers\QuestionController@deleteMutiple');
+    Route::delete('/question/deleteMutiple', 'App\Http\Controllers\QuestionController@deleteMutiple');
     Route::get('/question/test/{test}', 'App\Http\Controllers\QuestionController@getQuestionTest');
     Route::post('/test/checkTest/{test}', 'App\Http\Controllers\TestController@checkTest');
-
     Route::post('/class/addSubject', 'App\Http\Controllers\ClassController@addSubject');
     Route::post('/class/deleteSubject', 'App\Http\Controllers\ClassController@deleteSubject');
     Route::post('/class/deleteSubjects', 'App\Http\Controllers\ClassController@deleteSubjects');

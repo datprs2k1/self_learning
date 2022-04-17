@@ -39,12 +39,23 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         //
+        $delete = json_decode($request->delete);
+        if (count($delete) > 0) {
+            foreach ($delete as $id) {
+                $question = Question::find($id);
+                $question->delete();
+            }
+        }
 
         if (auth()->user()->hasRole('admin')) {
             $questions = $request->questions;
             $questions = json_decode($questions);
             foreach ($questions as $question) {
-                $a = new Question;
+                if ($this->checkQuestion($question->id)) {
+                    $a = Question::find($question->id);
+                } else {
+                    $a = new Question();
+                }
                 $a->question = $question->question;
                 $a->answer_A = $question->answer_A;
                 $a->answer_B = $question->answer_B;
@@ -59,6 +70,8 @@ class QuestionController extends Controller
                 $a->save();
             }
         }
+
+        return response()->json(['success' => 'Thành công'], 200);
     }
 
     /**
@@ -153,33 +166,26 @@ class QuestionController extends Controller
 
         if (auth()->user()->hasRole('admin')) {
             $question = Question::find($id);
-            $question->delete();
-
-            return response()->json([
-                'success' => 'true'
-            ], 200);
-        } else {
-            return response()->json([
-                'error' => 'unauthorized'
-            ], 401);
+            if ($question) {
+                $question->delete();
+                return response()->json([
+                    'message' => 'Xóa câu hỏi thành công.',
+                ], 200);
+            }
         }
     }
 
-    public function deleteMutiple($ids)
+    public function deleteMutiple(Request $request)
     {
-        if (auth()->user()->hasRole('admin')) {
-            $ids = explode(',', $ids);
-            foreach ($ids as $id) {
-                $question = Question::find($id);
-                $question->delete();
-            }
-            return response()->json([
-                'success' => 'true'
-            ], 200);
-        } else {
-            return response()->json([
-                'error' => 'unauthorized'
-            ], 401);
+        dd($request);
+    }
+
+    public function checkQuestion($id)
+    {
+        $question = Question::find($id);
+        if ($question) {
+            return true;
         }
+        return false;
     }
 }

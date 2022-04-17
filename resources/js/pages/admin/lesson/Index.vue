@@ -234,7 +234,7 @@
                             <div class="col-md-2">
                               <b-button
                                 variant="danger"
-                                @click="removeQuestion(index)"
+                                @click="removeQuestion(index, question.id)"
                               >
                                 Xóa
                               </b-button>
@@ -359,6 +359,7 @@ export default {
       },
       number_question: 0,
       questions: [],
+      delete: [],
       errors: {},
     };
   },
@@ -550,13 +551,15 @@ export default {
         this.questions.push(question);
       }
     },
-    removeQuestion(id) {
-      this.questions.splice(id, 1);
+    removeQuestion(index, id) {
+      this.delete.push(id);
+      this.questions.splice(index, 1);
     },
     async addQuestions() {
       try {
         const formData = new FormData();
         formData.append("questions", JSON.stringify(this.questions));
+        formData.append("delete", JSON.stringify(this.delete));
         await this.$store.dispatch("question/add", formData);
         this.$swal({
           title: "Thành công",
@@ -567,7 +570,7 @@ export default {
           width: 360,
         });
         this.setEmptyLesson();
-        this.$refs.modalQuestion.hide();
+        this.$refs.modalTest.hide();
         this.getCLASS(this.lesson.class_id);
       } catch (error) {
         this.errors = error.response.data.errors;

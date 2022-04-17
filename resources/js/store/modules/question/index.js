@@ -29,8 +29,9 @@ const actions = {
         await api.del(`/question/${id}`);
     },
 
-    async deleteMultiple({ commit }, ids) {
-        await api.del(`/question/delete`, { data: { ids } });
+    async deleteMultiple({ commit }, data) {
+        await console.log(data);
+        await api.del('/question/deleteMutiple', data);
     },
 
     async edit({ commit }, data) {

@@ -386,6 +386,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       number_question: 0,
       questions: [],
+      "delete": [],
       errors: {}
     };
   },
@@ -698,8 +699,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.questions.push(question);
       }
     },
-    removeQuestion: function removeQuestion(id) {
-      this.questions.splice(id, 1);
+    removeQuestion: function removeQuestion(index, id) {
+      this["delete"].push(id);
+      this.questions.splice(index, 1);
     },
     addQuestions: function addQuestions() {
       var _this8 = this;
@@ -713,10 +715,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context6.prev = 0;
                 formData = new FormData();
                 formData.append("questions", JSON.stringify(_this8.questions));
-                _context6.next = 5;
+                formData.append("delete", JSON.stringify(_this8["delete"]));
+                _context6.next = 6;
                 return _this8.$store.dispatch("question/add", formData);
 
-              case 5:
+              case 6:
                 _this8.$swal({
                   title: "Thành công",
                   icon: "success",
@@ -728,24 +731,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this8.setEmptyLesson();
 
-                _this8.$refs.modalQuestion.hide();
+                _this8.$refs.modalTest.hide();
 
                 _this8.getCLASS(_this8.lesson.class_id);
 
-                _context6.next = 14;
+                _context6.next = 15;
                 break;
 
-              case 11:
-                _context6.prev = 11;
+              case 12:
+                _context6.prev = 12;
                 _context6.t0 = _context6["catch"](0);
                 _this8.errors = _context6.t0.response.data.errors;
 
-              case 14:
+              case 15:
               case "end":
                 return _context6.stop();
             }
           }
-        }, _callee6, null, [[0, 11]]);
+        }, _callee6, null, [[0, 12]]);
       }))();
     }
   }),
@@ -1529,7 +1532,8 @@ var render = function () {
                                                   on: {
                                                     click: function ($event) {
                                                       return _vm.removeQuestion(
-                                                        index
+                                                        index,
+                                                        question.id
                                                       )
                                                     },
                                                   },
