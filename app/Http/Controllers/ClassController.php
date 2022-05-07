@@ -17,7 +17,7 @@ class ClassController extends Controller
     public function index()
     {
         //
-        $data = ClassModel::with('department', 'subject', 'student', 'lesson', 'question')->orderBy('id', 'desc')->get();
+        $data = ClassModel::with('department', 'subject', 'student', 'lesson')->orderBy('id', 'desc')->get();
         return response()->json($data, 200);
     }
 
@@ -76,7 +76,7 @@ class ClassController extends Controller
     public function show($id)
     {
         //
-        $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'question')->find($id);
+        $class = ClassModel::with('department', 'subject', 'student', 'lesson')->find($id);
         return response()->json($class, 200);
     }
 

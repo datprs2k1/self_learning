@@ -26,7 +26,9 @@ const TestShow = () => import("../pages/admin/test/Show.vue");
 const Question = () => import("../pages/admin/question/Index.vue");
 const QuestionAdd = () => import("../pages/admin/question/Add.vue");
 const QuestionEdit = () => import("../pages/admin/question/Edit.vue");
-
+const Teacher = () => import("../pages/admin/teacher/Index.vue");
+const TeacherAdd = () => import("../pages/admin/teacher/Add.vue");
+const TeacherEdit = () => import("../pages/admin/teacher/Edit.vue");
 
 const routes = [
     {
@@ -422,6 +424,49 @@ const routes = [
                     requiredRole: "admin",
                 },
             },
+            {
+                path: "teacher",
+                component: Teacher,
+                name: "teacher.index",
+                meta: {
+                    title: "Danh sách giảng viên",
+                    breadcrumb: "Giảng viên",
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "teacher/add",
+                component: TeacherAdd,
+                name: "teacher.add",
+                meta: {
+                    title: "Thêm giảng viên",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "teacher.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },
+            {
+                path: "teacher/edit/:id",
+                component: TeacherEdit,
+                name: "teacher.edit",
+                meta: {
+                    title: "Sửa giảng viên",
+                    breadcrumb() {
+                        return {
+                            label: this.$route.meta.title,
+                            parent: "teacher.index",
+                        }
+                    },
+                    requiresAuth: true,
+                    requiredRole: "admin",
+                },
+            },   
         ],
     },
 ];

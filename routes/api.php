@@ -10,6 +10,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('/document', DocumentController::class);
     Route::resource('/test', TestController::class);
     Route::resource('/question', QuestionController::class);
+    Route::resource('/teacher', TeacherController::class);
     Route::delete('/department/delete/{department}', 'App\Http\Controllers\DepartmentController@deleteMutiple');
     Route::delete('/class/delete/{class}', 'App\Http\Controllers\ClassController@deleteMutiple');
     Route::delete('/student/delete/{student}', 'App\Http\Controllers\StudentController@deleteMutiple');

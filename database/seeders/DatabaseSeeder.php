@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $role1 = Role::create(['name' => 'admin']);
 
-        $role2 = Role::create(['name' => 'lecturer']);
+        $role2 = Role::create(['name' => 'teacher']);
 
         $role3 = Role::create(['name' => 'student']);
         // gets all permissions via Gate::before rule; see AuthServiceProvider
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
 
         $user = \App\Models\User::factory()->create([
             'name' => 'Giảng viên',
-            'email' => 'lecturer@gmail.com',
+            'email' => 'teacher@gmail.com',
             'password' => Hash::make('12345678')
         ]);
         $user->assignRole($role2);

@@ -11,6 +11,7 @@ import lesson from './modules/lesson';
 import document from './modules/document';
 import test from './modules/test';
 import question from './modules/question';
+import teacher from './modules/teacher';
 
 Vue.use(Vuex);
 
@@ -24,7 +25,8 @@ const store = new Vuex.Store({
         lesson,
         document,
         test,
-        question
+        question,
+        teacher
     },
     plugins: [createPersistedState({
         paths: ['auth']

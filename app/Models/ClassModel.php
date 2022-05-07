@@ -31,17 +31,12 @@ class ClassModel extends Model
 
     public function subject()
     {
-        return $this->belongsToMany(Subject::class, 'subject_class', 'class_id', 'subject_id');
+        return $this->belongsToMany(Subject::class, 'subject_class_teacher', 'class_id', 'subject_id', 'teacher_id');
     }
 
     public function lesson()
     {
         return $this->hasMany(Lesson::class, 'class_id', 'id');
-    }
-
-    public function question()
-    {
-        return $this->hasMany(Question::class, 'class_id', 'id');
     }
 
     public function student()
