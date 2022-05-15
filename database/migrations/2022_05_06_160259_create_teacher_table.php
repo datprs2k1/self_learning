@@ -19,7 +19,11 @@ class CreateTeacherTable extends Migration
             $table->string('email');
             $table->string('phone')->length(10);
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('department_id')->unsigned();
+            $table->bigInteger('subject_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('department_id')->references('id')->on('department')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subject')->onDelete('cascade');
             $table->timestamps();
         });
     }
