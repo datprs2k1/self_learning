@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubjectClassTable extends Migration
+class CreateSubjectClassTeacherTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateSubjectClassTable extends Migration
         Schema::create('subject_class_teacher', function (Blueprint $table) {
             $table->bigInteger('subject_id')->unsigned();
             $table->bigInteger('class_id')->unsigned();
-            $table->bigInteger('teacher_id')->unsigned();
+            $table->bigInteger('teacher_id')->unsigned()->nullable();
             $table->foreign('teacher_id')->references('id')->on('teacher')->onDelete('cascade');
             $table->foreign('subject_id')->references('id')->on('subject')
                 ->onDelete('cascade');

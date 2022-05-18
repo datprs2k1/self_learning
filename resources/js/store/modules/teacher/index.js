@@ -28,6 +28,10 @@ const actions = {
         });
     },
 
+    async addTeacher({ commit }, data) {
+        await api.post('/teacher/addTeacher', data);
+    },
+
     async delete({ commit }, id) {
         await api.del(`/teacher/${id}`);
     },

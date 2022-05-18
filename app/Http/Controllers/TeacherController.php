@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
@@ -45,7 +46,7 @@ class TeacherController extends Controller
             $request->validate(
                 [
                     'name' => 'required',
-                    'email' => 'required|email|unique:teacher',
+                    'email' => 'required|email|unique:teacher|unique:users',
                     'phone' => 'required|numeric|digits:10|unique:teacher',
                 ],
                 [
@@ -196,5 +197,13 @@ class TeacherController extends Controller
                 'error' => 'unauthorized'
             ], 401);
         }
+    }
+
+    public function addTeacher(Request $request)
+    {
+        $a = DB::table('subject_class_teacher')->where('class_id', $request->class_id)->where('subject_id', $request->subject_id)->update(['teacher_id' => $request->teacher_id]);
+        return response()->json([
+            'success' => 'true'
+        ], 200);
     }
 }

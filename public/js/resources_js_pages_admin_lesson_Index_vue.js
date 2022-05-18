@@ -337,38 +337,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -387,7 +355,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       number_question: 0,
       questions: [],
       "delete": [],
-      errors: {}
+      errors: {},
+      teacher_id: null
     };
   },
   created: function created() {
@@ -426,6 +395,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return _this.getWeeks();
 
             case 12:
+              _context.next = 14;
+              return _this.getTeachers();
+
+            case 14:
             case "end":
               return _context.stop();
           }
@@ -433,7 +406,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, _callee);
     }))();
   },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("CLASS", ["getCLASS"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("CLASS", ["getCLASS"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("teacher", ["getTeachers"])), {}, {
     getSubject: function getSubject() {
       for (var i = 0; i < this.CLASS.subject.length; i++) {
         if (this.CLASS.subject[i].id == this.lesson.subject_id) {
@@ -681,6 +654,69 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee5);
       }))();
     },
+    getTeacher: function getTeacher() {
+      var _this8 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _this8.$refs.modalTeacher.show();
+
+              case 1:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    addTeacher: function addTeacher() {
+      var _this9 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+        var formData;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+          while (1) {
+            switch (_context7.prev = _context7.next) {
+              case 0:
+                _context7.prev = 0;
+                formData = new FormData();
+                formData.append('teacher_id', _this9.teacher_id);
+                formData.append("class_id", _this9.lesson.class_id);
+                formData.append("subject_id", _this9.lesson.subject_id);
+                _context7.next = 7;
+                return _this9.$store.dispatch("teacher/addTeacher", formData);
+
+              case 7:
+                _this9.$swal({
+                  title: "Thành công",
+                  icon: "success",
+                  showConfirmButton: false,
+                  position: "top-end",
+                  timer: 1000,
+                  width: 360
+                });
+
+                _this9.$refs.modalTeacher.hide();
+
+                _context7.next = 14;
+                break;
+
+              case 11:
+                _context7.prev = 11;
+                _context7.t0 = _context7["catch"](0);
+                _this9.errors = _context7.t0.response.data.errors;
+
+              case 14:
+              case "end":
+                return _context7.stop();
+            }
+          }
+        }, _callee7, null, [[0, 11]]);
+      }))();
+    },
     createQuestion: function createQuestion() {
       for (var i = 0; i < this.number_question; i++) {
         var question = {
@@ -704,23 +740,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.questions.splice(index, 1);
     },
     addQuestions: function addQuestions() {
-      var _this8 = this;
+      var _this10 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
         var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context8.prev = _context8.next) {
               case 0:
-                _context6.prev = 0;
+                _context8.prev = 0;
                 formData = new FormData();
-                formData.append("questions", JSON.stringify(_this8.questions));
-                formData.append("delete", JSON.stringify(_this8["delete"]));
-                _context6.next = 6;
-                return _this8.$store.dispatch("question/add", formData);
+                formData.append("questions", JSON.stringify(_this10.questions));
+                formData.append("delete", JSON.stringify(_this10["delete"]));
+                _context8.next = 6;
+                return _this10.$store.dispatch("question/add", formData);
 
               case 6:
-                _this8.$swal({
+                _this10.$swal({
                   title: "Thành công",
                   icon: "success",
                   showConfirmButton: false,
@@ -729,30 +765,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   width: 360
                 });
 
-                _this8.setEmptyLesson();
+                _this10.setEmptyLesson();
 
-                _this8.$refs.modalTest.hide();
+                _this10.$refs.modalTest.hide();
 
-                _this8.getCLASS(_this8.lesson.class_id);
+                _this10.getCLASS(_this10.lesson.class_id);
 
-                _context6.next = 15;
+                _context8.next = 15;
                 break;
 
               case 12:
-                _context6.prev = 12;
-                _context6.t0 = _context6["catch"](0);
-                _this8.errors = _context6.t0.response.data.errors;
+                _context8.prev = 12;
+                _context8.t0 = _context8["catch"](0);
+                _this10.errors = _context8.t0.response.data.errors;
 
               case 15:
               case "end":
-                return _context6.stop();
+                return _context8.stop();
             }
           }
-        }, _callee6, null, [[0, 12]]);
+        }, _callee8, null, [[0, 12]]);
       }))();
     }
   }),
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("CLASS", ["CLASS"])),
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("CLASS", ["CLASS"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("teacher", ["teachers"])),
   mounted: function mounted() {}
 });
 
@@ -858,15 +894,81 @@ var render = function () {
                     staticStyle: { "overflow-x": "auto" },
                   },
                   [
-                    _c("p", [_vm._v("Lớp " + _vm._s(_vm.CLASS.name))]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "Môn " +
-                          _vm._s(_vm.subject.name) +
-                          " (" +
-                          _vm._s(_vm.subject.code) +
-                          ")"
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        { staticClass: "d-flex justify-content-between" },
+                        [
+                          _c("div", [
+                            _c("p", [_vm._v("Lớp " + _vm._s(_vm.CLASS.name))]),
+                            _vm._v(" "),
+                            _c("p", [
+                              _vm._v(
+                                "Môn " +
+                                  _vm._s(_vm.subject.name) +
+                                  " (" +
+                                  _vm._s(_vm.subject.code) +
+                                  ")"
+                              ),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm.CLASS.teacher && _vm.CLASS.teacher.length > 0
+                              ? _c("div", [
+                                  _c("p", [_vm._v("Thông tin giảng viên")]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(_vm._s(_vm.CLASS.teacher[0].name)),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(_vm._s(_vm.CLASS.teacher[0].phone)),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(_vm._s(_vm.CLASS.teacher[0].email)),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.getTeacher()
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Sửa giảng\n                                                        viên"
+                                      ),
+                                    ]
+                                  ),
+                                ])
+                              : _c("div", [
+                                  _c("p", [_vm._v("Chưa có giảng viên")]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-primary",
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.getTeacher()
+                                        },
+                                      },
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Thêm giảng\n                                                        viên"
+                                      ),
+                                    ]
+                                  ),
+                                ]),
+                          ]),
+                        ]
                       ),
                     ]),
                     _vm._v(" "),
@@ -888,9 +990,9 @@ var render = function () {
                                   { staticClass: "mb-5" },
                                   [
                                     _vm._v(
-                                      "\n                        Tuần " +
+                                      "\n                                                    Tuần " +
                                         _vm._s(item.week) +
-                                        "\n                        "
+                                        "\n                                                    "
                                     ),
                                     _c(
                                       "b-list-group-item",
@@ -908,9 +1010,9 @@ var render = function () {
                                             "fas fa-graduation-cap fa-lg text-success",
                                         }),
                                         _vm._v(
-                                          "Slide bài giảng\n                          " +
+                                          "Slide\n                                                        bài giảng\n                                                        " +
                                             _vm._s(item.week) +
-                                            "\n                          "
+                                            "\n                                                        "
                                         ),
                                         _c(
                                           "b-button",
@@ -962,9 +1064,9 @@ var render = function () {
                                             "fas fa-video fa-lg text-danger",
                                         }),
                                         _vm._v(
-                                          "\n                          Video bài giảng\n                          " +
+                                          "\n                                                        Video bài giảng\n                                                        " +
                                             _vm._s(item.week) +
-                                            "\n                          "
+                                            "\n                                                        "
                                         ),
                                         _c(
                                           "b-button",
@@ -1006,12 +1108,12 @@ var render = function () {
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "\n                              fas\n                              fa-file-invoice fa-lg\n                              mr-2\n                              text-warning\n                            ",
+                                            "\n                                fas\n                                fa-file-invoice fa-lg\n                                mr-2\n                                text-warning\n                              ",
                                         }),
                                         _vm._v(
-                                          "\n                          Bài luyện tập\n                          " +
+                                          "\n                                                        Bài luyện tập\n                                                        " +
                                             _vm._s(item.week) +
-                                            "\n                          "
+                                            "\n                                                        "
                                         ),
                                         _c(
                                           "b-button",
@@ -1088,7 +1190,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                        Xác nhận\n                      "
+                                          "\n                                                    Xác nhận\n                                                "
                                         ),
                                       ]
                                     ),
@@ -1105,7 +1207,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                        Hủy\n                      "
+                                          "\n                                                    Hủy\n                                                "
                                         ),
                                       ]
                                     ),
@@ -1222,7 +1324,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                        Xác nhận\n                      "
+                                          "\n                                                    Xác nhận\n                                                "
                                         ),
                                       ]
                                     ),
@@ -1239,7 +1341,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                        Hủy\n                      "
+                                          "\n                                                    Hủy\n                                                "
                                         ),
                                       ]
                                     ),
@@ -1336,7 +1438,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                        Đóng\n                      "
+                                          "\n                                                    Đóng\n                                                "
                                         ),
                                       ]
                                     ),
@@ -1399,7 +1501,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                        Xác nhận\n                      "
+                                          "\n                                                    Xác nhận\n                                                "
                                         ),
                                       ]
                                     ),
@@ -1416,7 +1518,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                        Hủy\n                      "
+                                          "\n                                                    Hủy\n                                                "
                                         ),
                                       ]
                                     ),
@@ -1481,7 +1583,7 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                          Thêm\n                        "
+                                        "\n                                                        Thêm\n                                                    "
                                       ),
                                     ]
                                   ),
@@ -1540,7 +1642,7 @@ var render = function () {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                              Xóa\n                            "
+                                                    "\n                                                                Xóa\n                                                            "
                                                   ),
                                                 ]
                                               ),
@@ -1842,6 +1944,260 @@ var render = function () {
                               0
                             )
                           : _vm._e(),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-modal",
+                      {
+                        ref: "modalSlide",
+                        attrs: {
+                          id: "modal-slide",
+                          size: "lg",
+                          title: "Slide Bài Giảng Tuần " + _vm.lesson.week,
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "modal-footer",
+                            fn: function (ref) {
+                              var ok = ref.ok
+                              var cancel = ref.cancel
+                              return [
+                                _c(
+                                  "div",
+                                  [
+                                    _c(
+                                      "b-button",
+                                      {
+                                        attrs: { variant: "primary" },
+                                        on: { click: _vm.submitSlide },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                                    Xác nhận\n                                                "
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-button",
+                                      {
+                                        attrs: { variant: "secondary" },
+                                        on: {
+                                          click: function ($event) {
+                                            return cancel()
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                                    Hủy\n                                                "
+                                        ),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      },
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              label: "Tên bài giảng",
+                              "label-for": "name-input",
+                            },
+                          },
+                          [
+                            _c("b-form-input", {
+                              class: {
+                                "is-invalid": _vm.errors.name,
+                              },
+                              attrs: { id: "name-input", required: "" },
+                              model: {
+                                value: _vm.lesson.name,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.lesson, "name", $$v)
+                                },
+                                expression: "lesson.name",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.name
+                              ? _c(
+                                  "span",
+                                  {
+                                    staticClass: "error invalid-feedback",
+                                    attrs: { id: "exampleInputEmail1-error" },
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.name[0]))]
+                                )
+                              : _vm._e(),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              label: "Nội dung",
+                              "label-for": "slide-input",
+                            },
+                          },
+                          [
+                            _c("b-form-file", {
+                              class: {
+                                "is-invalid": _vm.errors.path,
+                              },
+                              attrs: { id: "slide-input", plain: "" },
+                              model: {
+                                value: _vm.lesson.path,
+                                callback: function ($$v) {
+                                  _vm.$set(_vm.lesson, "path", $$v)
+                                },
+                                expression: "lesson.path",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.path
+                              ? _c(
+                                  "span",
+                                  {
+                                    staticClass: "error invalid-feedback",
+                                    attrs: { id: "exampleInputEmail1-error" },
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.path[0]))]
+                                )
+                              : _vm._e(),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-modal",
+                      {
+                        ref: "modalTeacher",
+                        attrs: {
+                          id: "modal-teacher",
+                          size: "lg",
+                          title: "Thêm giảng viên",
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "modal-footer",
+                            fn: function (ref) {
+                              var ok = ref.ok
+                              var cancel = ref.cancel
+                              return [
+                                _c(
+                                  "div",
+                                  [
+                                    _c(
+                                      "b-button",
+                                      {
+                                        attrs: { variant: "primary" },
+                                        on: { click: _vm.addTeacher },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                                    Xác nhận\n                                                "
+                                        ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "b-button",
+                                      {
+                                        attrs: { variant: "secondary" },
+                                        on: {
+                                          click: function ($event) {
+                                            return cancel()
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                                    Hủy\n                                                "
+                                        ),
+                                      ]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      },
+                      [
+                        _c(
+                          "b-form-group",
+                          {
+                            attrs: {
+                              label: "Nội dung",
+                              "label-for": "slide-input",
+                            },
+                          },
+                          [
+                            _c("b-form-select", {
+                              class: { "is-invalid": _vm.errors.teacher_id },
+                              attrs: {
+                                options: _vm.teachers,
+                                "text-field": "name",
+                                "value-field": "id",
+                              },
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "first",
+                                  fn: function () {
+                                    return [
+                                      _c(
+                                        "b-form-select-option",
+                                        {
+                                          attrs: { value: null, disabled: "" },
+                                        },
+                                        [
+                                          _vm._v(
+                                            "-- Chọn giảng viên --\n                                                    "
+                                          ),
+                                        ]
+                                      ),
+                                    ]
+                                  },
+                                  proxy: true,
+                                },
+                              ]),
+                              model: {
+                                value: _vm.teacher_id,
+                                callback: function ($$v) {
+                                  _vm.teacher_id = $$v
+                                },
+                                expression: "teacher_id",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.video_path
+                              ? _c(
+                                  "span",
+                                  {
+                                    staticClass: "error invalid-feedback",
+                                    attrs: { id: "exampleInputEmail1-error" },
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.teacher_id[0]))]
+                                )
+                              : _vm._e(),
+                          ],
+                          1
+                        ),
                       ],
                       1
                     ),

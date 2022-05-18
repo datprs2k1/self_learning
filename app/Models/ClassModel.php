@@ -31,7 +31,7 @@ class ClassModel extends Model
 
     public function subject()
     {
-        return $this->belongsToMany(Subject::class, 'subject_class_teacher', 'class_id', 'subject_id', 'teacher_id');
+        return $this->belongsToMany(Subject::class, 'subject_class_teacher', 'class_id', 'subject_id');
     }
 
     public function lesson()
@@ -42,5 +42,9 @@ class ClassModel extends Model
     public function student()
     {
         return $this->hasMany(Student::class, 'class_id', 'id');
+    }
+    public function teacher()
+    {
+        return $this->belongsToMany(Teacher::class, 'subject_class_teacher', 'class_id', 'teacher_id');
     }
 }

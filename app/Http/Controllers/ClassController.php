@@ -17,7 +17,7 @@ class ClassController extends Controller
     public function index()
     {
         //
-        $data = ClassModel::with('department', 'subject', 'student', 'lesson')->orderBy('id', 'desc')->get();
+        $data = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher')->orderBy('id', 'desc')->get();
         return response()->json($data, 200);
     }
 
@@ -76,7 +76,7 @@ class ClassController extends Controller
     public function show($id)
     {
         //
-        $class = ClassModel::with('department', 'subject', 'student', 'lesson')->find($id);
+        $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher')->find($id);
         return response()->json($class, 200);
     }
 
@@ -202,7 +202,7 @@ class ClassController extends Controller
 
     public function checkAddSubjects($class_id, $subject_id)
     {
-        $row = DB::select('select * from subject_class where subject_id = ? and class_id = ?', [$subject_id, $class_id]);
+        $row = DB::select('select * from subject_class_teacher where subject_id = ? and class_id = ?', [$subject_id, $class_id]);
         if ($row) {
             return false;
         }
