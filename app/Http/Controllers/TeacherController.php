@@ -18,7 +18,7 @@ class TeacherController extends Controller
     public function index()
     {
         //
-        $teacher = Teacher::orderBy('id', 'desc')->get();
+        $teacher = Teacher::with('subjects')->orderBy('id', 'desc')->get();
         return response()->json($teacher, 200);
     }
 
@@ -48,6 +48,7 @@ class TeacherController extends Controller
                     'name' => 'required',
                     'email' => 'required|email|unique:teacher|unique:users',
                     'phone' => 'required|numeric|digits:10|unique:teacher',
+                    'subject_id' => 'required',
                 ],
                 [
                     'name.required' => 'Tên giảng viên không được để trống.',
@@ -58,6 +59,7 @@ class TeacherController extends Controller
                     'phone.numeric' => 'Số điện thoại phải là số.',
                     'phone.digits' => 'Số điện thoại phải có 10 số.',
                     'phone.unique' => 'Số điện thoại đã tồn tại.',
+                    'subject_id.required' => 'Môn học không được để trống.',
                 ]
             );
 
@@ -75,6 +77,7 @@ class TeacherController extends Controller
             $teacher->user_id = $user->id;
             $teacher->save();
 
+            $teacher->subjects()->attach($request->subject_id);
 
             $user->assignRole('teacher');
 
@@ -96,7 +99,7 @@ class TeacherController extends Controller
     {
         //
 
-        $teacher = Teacher::find($id);
+        $teacher = Teacher::with('subjects')->find($id);
         return response()->json($teacher, 200);
     }
 
@@ -146,7 +149,7 @@ class TeacherController extends Controller
             $teacher->updated_at = date('Y-m-d H:i:s');
             $teacher->save();
 
-
+            $teacher->subjects()->sync($request->subject_id);
 
             return response()->json([
                 'message' => 'Cập nhật giảng viên thành công.',

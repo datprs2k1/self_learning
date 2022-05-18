@@ -71,7 +71,10 @@
                         >{{ errors.phone[0] }}</span
                       >
                     </div>
-                    
+                    <div class="form-group">
+                      <label for="">Bộ môn</label>
+                      <multiselect v-model="teacher.subject_id" :multiple="true" selectLabel="Nhấn enter hoặc click để chọn" selectedLabel="Đang được chọn" noOptions="Trống" deselectLabel="Nhấn enter hoặc click để bỏ chọn" :options="subjects" placeholder="Chọn bộ môn" label="name" track-by="name"></multiselect>
+                    </div>
                   </div>
 
                   <div class="card-footer">
@@ -99,18 +102,24 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import Multiselect from 'vue-multiselect';
 export default {
+  components: {
+    Multiselect
+  },
   data() {
     return {
       teacher: {
         name: "",
         email: "",
         phone: "",
+        subject_id: '',
       },
       errors: {},
     };
   },
   created() {
+    this.getSubjects();
     window.addEventListener("keyup", (e) => {
       if (e.key == "Enter") {
         this.submit();
@@ -118,9 +127,15 @@ export default {
     });
   },
   methods: {
+    ...mapActions("subject", ["getSubjects"]),
     async submit() {
       try {
-        await this.$store.dispatch("teacher/add", this.teacher);
+        await this.$store.dispatch("teacher/add", {
+          name: this.teacher.name,
+          email: this.teacher.email,
+          phone: this.teacher.phone,
+          subject_id: this.teacher.subject_id.map((item) => item.id),
+        });
         this.$swal({
           title: "Thành công",
           text: "Thêm thành công.",
@@ -146,5 +161,9 @@ export default {
     },
     
   },
+  computed: {
+    ...mapGetters("subject", ["subjects"]),
+  }
 };
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>

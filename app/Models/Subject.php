@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ClassModel;
-use App\Models\Lesson;
+use App\Models\Teacher;
 
 class Subject extends Model
 {
@@ -30,4 +30,9 @@ class Subject extends Model
     // {
     //     return $this->hasMany(Lesson::class, 'subj_id', 'id');
     // }
+
+    public function teachers()
+    {
+        return $this->belongsToMany(Teacher::class, 'teacher_subject');
+    }
 }

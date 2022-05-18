@@ -16,8 +16,9 @@ const routes = [
                 path: "",
                 component: Dashboard,
                 meta: {
-                    title: "UTT SelfLearning: Quản Trị Viên",
+                    title: "UTT SelfLearning: Sinh Viên",
                     requiresAuth: true,
+                    requiredRole: "student",
                 },
             },
             {
@@ -28,6 +29,7 @@ const routes = [
                     title: "Làm bài thi",
                     breadcrumb: "Bài thi",
                     requiresAuth: true,
+                    requiredRole: "student",
                 },
             },
 

@@ -159,6 +159,21 @@
                                                     ><i
                                                         class="far fa-dot-circle"
                                                     ></i>
+                                                    Bộ môn:
+                                                    <span v-for="(subject, index) in row.item.subjects" :key="subject.id">
+                                                        <span v-if="index != row.item.subjects.length - 1">
+                                                            {{ subject.name }}, 
+                                                        </span>
+                                                        <span v-else>
+                                                            {{ subject.name }}
+                                                        </span>
+                                                    </span>
+                                                    </b-list-group-item
+                                                >
+                                                <b-list-group-item
+                                                    ><i
+                                                        class="far fa-dot-circle"
+                                                    ></i>
                                                     Ngày tạo:
                                                     {{
                                                         row.item.created_at
@@ -173,6 +188,7 @@
                                                         row.item.updated_at
                                                     }}</b-list-group-item
                                                 >
+                                                
                                             </b-list-group>
                                         </template>
                                     </b-table>
@@ -240,6 +256,13 @@ export default {
                     label: "SĐT",
                     class: "text-center",
                     sortable: true,
+                },
+                {
+                    key: "subjects",
+                    label: "Bộ môn",
+                    class: "text-center",
+                    thClass: "d-none",
+                    tdClass: "d-none",
                 },
                 {
                     key: "created_at",

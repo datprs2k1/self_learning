@@ -11,6 +11,7 @@ import excel from 'vue-excel-export';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import VueBreadcrumbs from 'vue-2-breadcrumbs';
 import LazyYoutube from 'vue-lazytube'
+import BootstrapVueTreeview from 'bootstrap-vue-treeview'
 
 // If you don't need the styles, do not connect
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -22,6 +23,7 @@ import auth from './services/auth';
 import role from './services/role';
 import App from './App.vue';
 
+Vue.use(BootstrapVueTreeview)
 Vue.use(LazyYoutube);
 Vue.use(excel)
 Vue.use(VueAxios, axios)

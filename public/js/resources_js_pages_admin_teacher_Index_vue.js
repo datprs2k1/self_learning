@@ -231,6 +231,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -265,6 +281,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         label: "SĐT",
         "class": "text-center",
         sortable: true
+      }, {
+        key: "subjects",
+        label: "Bộ môn",
+        "class": "text-center",
+        thClass: "d-none",
+        tdClass: "d-none"
       }, {
         key: "created_at",
         label: "Ngày tạo",
@@ -80530,6 +80552,46 @@ var render = function () {
                                 _c(
                                   "b-list-group",
                                   [
+                                    _c(
+                                      "b-list-group-item",
+                                      [
+                                        _c("i", {
+                                          staticClass: "far fa-dot-circle",
+                                        }),
+                                        _vm._v(
+                                          "\n                                                Bộ môn:\n                                                "
+                                        ),
+                                        _vm._l(
+                                          row.item.subjects,
+                                          function (subject, index) {
+                                            return _c(
+                                              "span",
+                                              { key: subject.id },
+                                              [
+                                                index !=
+                                                row.item.subjects.length - 1
+                                                  ? _c("span", [
+                                                      _vm._v(
+                                                        "\n                                                        " +
+                                                          _vm._s(subject.name) +
+                                                          ", \n                                                    "
+                                                      ),
+                                                    ])
+                                                  : _c("span", [
+                                                      _vm._v(
+                                                        "\n                                                        " +
+                                                          _vm._s(subject.name) +
+                                                          "\n                                                    "
+                                                      ),
+                                                    ]),
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                      ],
+                                      2
+                                    ),
+                                    _vm._v(" "),
                                     _c("b-list-group-item", [
                                       _c("i", {
                                         staticClass: "far fa-dot-circle",

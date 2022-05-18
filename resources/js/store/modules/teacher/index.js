@@ -25,6 +25,7 @@ const actions = {
             name: data.name,
             email: data.email,
             phone: data.phone,
+            subject_id: data.subject_id,
         });
     },
 
@@ -45,6 +46,7 @@ const actions = {
             name: data.name,
             email: data.email,
             phone: data.phone,
+            subject_id: data.subject_id,
         });
     },
 

@@ -2453,18 +2453,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "wrapper" },
-      [
-        _c("admin-header"),
-        _vm._v(" "),
-        _c("router-view"),
-        _vm._v(" "),
-        _c("admin-footer"),
-      ],
-      1
-    ),
+    _c("div", { staticClass: "wrapper" }, [_c("router-view")], 1),
   ])
 }
 var staticRenderFns = []

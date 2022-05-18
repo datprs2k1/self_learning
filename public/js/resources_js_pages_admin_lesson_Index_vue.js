@@ -337,6 +337,71 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -683,7 +748,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context7.prev = 0;
                 formData = new FormData();
-                formData.append('teacher_id', _this9.teacher_id);
+                formData.append("teacher_id", _this9.teacher_id);
                 formData.append("class_id", _this9.lesson.class_id);
                 formData.append("subject_id", _this9.lesson.subject_id);
                 _context7.next = 7;
@@ -942,7 +1007,7 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "Sửa giảng\n                                                        viên"
+                                        "\n                          Sửa giảng viên\n                        "
                                       ),
                                     ]
                                   ),
@@ -962,7 +1027,7 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "Thêm giảng\n                                                        viên"
+                                        "\n                          Thêm giảng viên\n                        "
                                       ),
                                     ]
                                   ),
@@ -990,9 +1055,9 @@ var render = function () {
                                   { staticClass: "mb-5" },
                                   [
                                     _vm._v(
-                                      "\n                                                    Tuần " +
+                                      "\n                        Tuần " +
                                         _vm._s(item.week) +
-                                        "\n                                                    "
+                                        "\n                        "
                                     ),
                                     _c(
                                       "b-list-group-item",
@@ -1010,9 +1075,9 @@ var render = function () {
                                             "fas fa-graduation-cap fa-lg text-success",
                                         }),
                                         _vm._v(
-                                          "Slide\n                                                        bài giảng\n                                                        " +
+                                          "Slide\n                          bài giảng\n                          " +
                                             _vm._s(item.week) +
-                                            "\n                                                        "
+                                            "\n                          "
                                         ),
                                         _c(
                                           "b-button",
@@ -1064,9 +1129,9 @@ var render = function () {
                                             "fas fa-video fa-lg text-danger",
                                         }),
                                         _vm._v(
-                                          "\n                                                        Video bài giảng\n                                                        " +
+                                          "\n                          Video bài giảng\n                          " +
                                             _vm._s(item.week) +
-                                            "\n                                                        "
+                                            "\n                          "
                                         ),
                                         _c(
                                           "b-button",
@@ -1108,12 +1173,12 @@ var render = function () {
                                       [
                                         _c("i", {
                                           staticClass:
-                                            "\n                                fas\n                                fa-file-invoice fa-lg\n                                mr-2\n                                text-warning\n                              ",
+                                            "fas fa-file-invoice fa-lg mr-2 text-warning",
                                         }),
                                         _vm._v(
-                                          "\n                                                        Bài luyện tập\n                                                        " +
+                                          "\n                          Bài luyện tập\n                          " +
                                             _vm._s(item.week) +
-                                            "\n                                                        "
+                                            "\n                          "
                                         ),
                                         _c(
                                           "b-button",
@@ -1190,7 +1255,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                                    Xác nhận\n                                                "
+                                          "\n                        Xác nhận\n                      "
                                         ),
                                       ]
                                     ),
@@ -1205,11 +1270,7 @@ var render = function () {
                                           },
                                         },
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                    Hủy\n                                                "
-                                        ),
-                                      ]
+                                      [_vm._v(" Hủy ")]
                                     ),
                                   ],
                                   1
@@ -1324,7 +1385,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                                    Xác nhận\n                                                "
+                                          "\n                        Xác nhận\n                      "
                                         ),
                                       ]
                                     ),
@@ -1339,11 +1400,7 @@ var render = function () {
                                           },
                                         },
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                    Hủy\n                                                "
-                                        ),
-                                      ]
+                                      [_vm._v(" Hủy ")]
                                     ),
                                   ],
                                   1
@@ -1436,11 +1493,7 @@ var render = function () {
                                           },
                                         },
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                    Đóng\n                                                "
-                                        ),
-                                      ]
+                                      [_vm._v(" Đóng ")]
                                     ),
                                   ],
                                   1
@@ -1501,7 +1554,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                                    Xác nhận\n                                                "
+                                          "\n                        Xác nhận\n                      "
                                         ),
                                       ]
                                     ),
@@ -1516,11 +1569,7 @@ var render = function () {
                                           },
                                         },
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                    Hủy\n                                                "
-                                        ),
-                                      ]
+                                      [_vm._v(" Hủy ")]
                                     ),
                                   ],
                                   1
@@ -1583,7 +1632,7 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                                        Thêm\n                                                    "
+                                        "\n                          Thêm\n                        "
                                       ),
                                     ]
                                   ),
@@ -1642,7 +1691,7 @@ var render = function () {
                                                 },
                                                 [
                                                   _vm._v(
-                                                    "\n                                                                Xóa\n                                                            "
+                                                    "\n                              Xóa\n                            "
                                                   ),
                                                 ]
                                               ),
@@ -1951,140 +2000,6 @@ var render = function () {
                     _c(
                       "b-modal",
                       {
-                        ref: "modalSlide",
-                        attrs: {
-                          id: "modal-slide",
-                          size: "lg",
-                          title: "Slide Bài Giảng Tuần " + _vm.lesson.week,
-                        },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "modal-footer",
-                            fn: function (ref) {
-                              var ok = ref.ok
-                              var cancel = ref.cancel
-                              return [
-                                _c(
-                                  "div",
-                                  [
-                                    _c(
-                                      "b-button",
-                                      {
-                                        attrs: { variant: "primary" },
-                                        on: { click: _vm.submitSlide },
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                                    Xác nhận\n                                                "
-                                        ),
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "b-button",
-                                      {
-                                        attrs: { variant: "secondary" },
-                                        on: {
-                                          click: function ($event) {
-                                            return cancel()
-                                          },
-                                        },
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                                    Hủy\n                                                "
-                                        ),
-                                      ]
-                                    ),
-                                  ],
-                                  1
-                                ),
-                              ]
-                            },
-                          },
-                        ]),
-                      },
-                      [
-                        _c(
-                          "b-form-group",
-                          {
-                            attrs: {
-                              label: "Tên bài giảng",
-                              "label-for": "name-input",
-                            },
-                          },
-                          [
-                            _c("b-form-input", {
-                              class: {
-                                "is-invalid": _vm.errors.name,
-                              },
-                              attrs: { id: "name-input", required: "" },
-                              model: {
-                                value: _vm.lesson.name,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.lesson, "name", $$v)
-                                },
-                                expression: "lesson.name",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.name
-                              ? _c(
-                                  "span",
-                                  {
-                                    staticClass: "error invalid-feedback",
-                                    attrs: { id: "exampleInputEmail1-error" },
-                                  },
-                                  [_vm._v(_vm._s(_vm.errors.name[0]))]
-                                )
-                              : _vm._e(),
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-form-group",
-                          {
-                            attrs: {
-                              label: "Nội dung",
-                              "label-for": "slide-input",
-                            },
-                          },
-                          [
-                            _c("b-form-file", {
-                              class: {
-                                "is-invalid": _vm.errors.path,
-                              },
-                              attrs: { id: "slide-input", plain: "" },
-                              model: {
-                                value: _vm.lesson.path,
-                                callback: function ($$v) {
-                                  _vm.$set(_vm.lesson, "path", $$v)
-                                },
-                                expression: "lesson.path",
-                              },
-                            }),
-                            _vm._v(" "),
-                            _vm.errors.path
-                              ? _c(
-                                  "span",
-                                  {
-                                    staticClass: "error invalid-feedback",
-                                    attrs: { id: "exampleInputEmail1-error" },
-                                  },
-                                  [_vm._v(_vm._s(_vm.errors.path[0]))]
-                                )
-                              : _vm._e(),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-modal",
-                      {
                         ref: "modalTeacher",
                         attrs: {
                           id: "modal-teacher",
@@ -2109,7 +2024,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                                    Xác nhận\n                                                "
+                                          "\n                        Xác nhận\n                      "
                                         ),
                                       ]
                                     ),
@@ -2124,11 +2039,7 @@ var render = function () {
                                           },
                                         },
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                                    Hủy\n                                                "
-                                        ),
-                                      ]
+                                      [_vm._v(" Hủy ")]
                                     ),
                                   ],
                                   1
@@ -2167,7 +2078,7 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            "-- Chọn giảng viên --\n                                                    "
+                                            "-- Chọn giảng viên --\n                        "
                                           ),
                                         ]
                                       ),

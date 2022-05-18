@@ -319,54 +319,7 @@
                       </div>
                     </template>
                   </b-modal>
-                  <b-modal
-                    id="modal-slide"
-                    size="lg"
-                    :title="'Slide Bài Giảng Tuần ' + lesson.week"
-                    ref="modalSlide"
-                  >
-                    <b-form-group label="Tên bài giảng" label-for="name-input">
-                      <b-form-input
-                        id="name-input"
-                        v-model="lesson.name"
-                        required
-                        :class="{
-                          'is-invalid': errors.name,
-                        }"
-                      ></b-form-input>
-                      <span
-                        v-if="errors.name"
-                        id="exampleInputEmail1-error"
-                        class="error invalid-feedback"
-                        >{{ errors.name[0] }}</span
-                      >
-                    </b-form-group>
-                    <b-form-group label="Nội dung" label-for="slide-input">
-                      <b-form-file
-                        v-model="lesson.path"
-                        id="slide-input"
-                        plain
-                        :class="{
-                          'is-invalid': errors.path,
-                        }"
-                      ></b-form-file>
-                      <span
-                        v-if="errors.path"
-                        id="exampleInputEmail1-error"
-                        class="error invalid-feedback"
-                        >{{ errors.path[0] }}</span
-                      >
-                    </b-form-group>
-                    <template #modal-footer="{ ok, cancel }">
-                      <div>
-                        <b-button variant="primary" @click="submitSlide">
-                          Xác nhận
-                        </b-button>
-                        <b-button variant="secondary" @click="cancel()"> Hủy </b-button>
-                      </div>
-                    </template>
-                  </b-modal>
-
+               
                   <b-modal
                     id="modal-teacher"
                     size="lg"
