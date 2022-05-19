@@ -63,7 +63,6 @@ class QuestionController extends Controller
                 $a->answer_D = $question->answer_D;
                 $a->class_id = $question->class_id;
                 $a->subject_id = $question->subject_id;
-                $a->lesson_id = $question->lesson_id;
                 $a->week = $question->week;
                 $a->correct_Answer = $question->correct_Answer;
                 $a->created_at = date('Y-m-d H:i:s');
@@ -85,9 +84,8 @@ class QuestionController extends Controller
         //
         $class_id = $request->class_id;
         $subject_id = $request->subject_id;
-        $lesson_id = $request->lesson_id;
         $week = $request->week;
-        $question = Question::where('class_id', $class_id)->where('subject_id', $subject_id)->where('lesson_id', $lesson_id)->where('week', $week)->get();
+        $question = Question::where('class_id', $class_id)->where('subject_id', $subject_id)->where('week', $week)->get();
         return response()->json($question, 200);
     }
 
