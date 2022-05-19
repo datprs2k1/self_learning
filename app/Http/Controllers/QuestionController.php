@@ -57,15 +57,13 @@ class QuestionController extends Controller
                     $a = new Question();
                 }
                 $a->question = $question->question;
-                $a->answer_A = $question->answer_A;
-                $a->answer_B = $question->answer_B;
-                $a->answer_C = $question->answer_C;
-                $a->answer_D = $question->answer_D;
-                $a->class_id = $question->class_id;
-                $a->subject_id = $question->subject_id;
+                $a->Ans_A = $question->Ans_A;
+                $a->Ans_B = $question->Ans_B;
+                $a->Ans_C = $question->Ans_C;
+                $a->Ans_D = $question->Ans_D;
                 $a->lesson_id = $question->lesson_id;
-                $a->week = $question->week;
-                $a->correct_Answer = $question->correct_Answer;
+                $a->total_time =  $request->totalTime;
+                $a->Correct_Ans = $question->Correct_Ans;
                 $a->created_at = date('Y-m-d H:i:s');
                 $a->save();
             }

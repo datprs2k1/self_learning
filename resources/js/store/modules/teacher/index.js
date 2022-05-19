@@ -2,12 +2,14 @@ import api from '../../../services/api';
 
 const state = {
     teachers: [],
+    teachersBySubject: [],
     teacher: {},
 };
 
 const getters = {
     teachers: state => state.teachers,
     teacher: state => state.teacher,
+    teachersBySubject: state => state.teachersBySubject,
 };
 
 const mutations = {
@@ -16,6 +18,9 @@ const mutations = {
     },
     SET_teacher: (state, teacher) => {
         state.teacher = teacher;
+    },
+    SET_teachersBySubject: (state, teacher) => {
+        state.teachersBySubject = teacher;
     }
 };
 
@@ -58,6 +63,11 @@ const actions = {
     async getTeachers({ commit }) {
         const response = await api.get('/teacher');
         commit('SET_teacherS', response.data);
+    },
+
+    async getTeachersBySubject({ commit }, id) {
+        const response = await api.get(`/teacher/subject/${id}`);
+        commit('SET_teachersBySubject', response.data);
     }
 };
 

@@ -76,7 +76,7 @@
                             <b-button
                               @click.stop="
                                 getCurrentLesson(item.week);
-                                getCurrentQuestions(item.week);
+                                getCurrentQuestions(item.id);
                               "
                               v-b-modal.modal-test
                               class="float-right p-0 pl-1 btn-warning btn-sm"
@@ -220,6 +220,25 @@
                         </div>
                       </div>
                     </b-form-group>
+                    <b-form-group label="Thời gian làm bài (phút)" label-for="name-input">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <b-form-input
+                            id="name-input"
+                            type="number"
+                            v-model="totalTime"
+                            required
+                            min="1"
+                            max="120"
+                            :class="{
+                              'is-invalid': errors.name,
+                            }"
+                          ></b-form-input>
+                        </div>
+                        
+                      </div>
+                    </b-form-group>
+
                     <div v-if="questions.length > 0">
                       <div v-for="(question, index) in questions" :key="question.id">
                         <b-form-group>
@@ -247,30 +266,32 @@
                           <div class="row mb-3">
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.correct_Answer"
+                                v-model="question.Correct_Ans"
                                 :aria-describedby="ariaDescribedby"
-                                value="A"
+                                :value="1"
                               >
                                 <label for="answer_A">Đáp án A</label>
                                 <b-form-input
                                   id="answer_A"
-                                  v-model="question.answer_A"
+                                  v-model="question.Ans_A"
                                   required
+                                  :value="1"
                                 ></b-form-input>
                               </b-form-radio>
                             </div>
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.correct_Answer"
+                                v-model="question.Correct_Ans"
                                 :aria-describedby="ariaDescribedby"
                                 name="answer"
-                                value="B"
+                                :value="2"
                               >
                                 <label for="answer_B">Đáp án B</label>
                                 <b-form-input
                                   id="answer_B"
-                                  v-model="question.answer_B"
+                                  v-model="question.Ans_B"
                                   required
+                                  :value="2"
                                 ></b-form-input>
                               </b-form-radio>
                             </div>
@@ -278,31 +299,32 @@
                           <div class="row">
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.correct_Answer"
+                                v-model="question.Correct_Ans"
                                 :aria-describedby="ariaDescribedby"
                                 name="answer_C"
-                                value="C"
+                                :value="3"
                               >
                                 <label for="answer_C">Đáp án C</label>
                                 <b-form-input
                                   id="answer_C"
-                                  v-model="question.answer_C"
+                                  v-model="question.Ans_C"
                                   required
                                 ></b-form-input>
                               </b-form-radio>
                             </div>
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.correct_Answer"
+                                v-model="question.Correct_Ans"
                                 :aria-describedby="ariaDescribedby"
                                 name="answer_D"
-                                value="D"
+                                :value="4"
                               >
                                 <label for="answer_D">Đáp án D</label>
                                 <b-form-input
                                   id="answer_D"
-                                  v-model="question.answer_D"
+                                  v-model="question.Ans_D"
                                   required
+                                  :value="4"
                                 ></b-form-input>
                               </b-form-radio>
                             </div>
@@ -327,21 +349,9 @@
                     ref="modalTeacher"
                   >
                     <b-form-group label="Nội dung" label-for="slide-input">
-                      <b-form-select
-                        v-model="teacher_id"
-                        :options="teachers"
-                        text-field="name"
-                        value-field="id"
-                        :class="{ 'is-invalid': errors.teacher_id }"
-                      >
-                        <template #first>
-                          <b-form-select-option :value="null" disabled
-                            >-- Chọn giảng viên --
-                          </b-form-select-option>
-                        </template>
-                      </b-form-select>
+                      <multiselect v-model="teacher_id" selectLabel="Nhấn enter hoặc click để chọn" selectedLabel="Đang được chọn" noOptions="Trống" deselectLabel="Nhấn enter hoặc click để bỏ chọn" :options="teachersBySubject" placeholder="Chọn giảng viên" label="name" track-by="id"></multiselect>
                       <span
-                        v-if="errors.video_path"
+                        v-if="errors.teacher_id"
                         id="exampleInputEmail1-error"
                         class="error invalid-feedback"
                         >{{ errors.teacher_id[0] }}</span
@@ -376,7 +386,11 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import Multiselect from 'vue-multiselect';
 export default {
+  components: {
+    Multiselect
+  },
   data() {
     return {
       subject: {},
@@ -390,11 +404,12 @@ export default {
         subject_id: null,
         class_id: null,
       },
-      number_question: 0,
+      number_question: 1,
       questions: [],
       delete: [],
       errors: {},
       teacher_id: null,
+      totalTime: 1,
     };
   },
   async created() {
@@ -408,11 +423,12 @@ export default {
     await this.getCLASS(this.lesson.class_id);
     await this.getSubject();
     await this.getWeeks();
-    await this.getTeachers();
+    await this.getTeachersBySubject(this.lesson.subject_id);
+    this.teacher_id = this.CLASS.teacher[0];
   },
   methods: {
     ...mapActions("CLASS", ["getCLASS"]),
-    ...mapActions("teacher", ["getTeachers"]),
+    ...mapActions("teacher", ["getTeachersBySubject"]),
     getSubject() {
       for (let i = 0; i < this.CLASS.subject.length; i++) {
         if (this.CLASS.subject[i].id == this.lesson.subject_id) {
@@ -443,12 +459,10 @@ export default {
         this.lesson.week = week;
       }
     },
-    getCurrentQuestions(week) {
+    getCurrentQuestions(lesson) {
       let questions = this.CLASS.question.filter(
         (item) =>
-          item.week == week &&
-          item.subject_id == this.lesson.subject_id &&
-          item.class_id == this.lesson.class_id
+          item.lesson_id == lesson
       );
       if (questions.length != 0) {
         this.questions = questions;
@@ -575,7 +589,7 @@ export default {
     async addTeacher() {
       try {
         const formData = new FormData();
-        formData.append("teacher_id", this.teacher_id);
+        formData.append("teacher_id", this.teacher_id.id);
         formData.append("class_id", this.lesson.class_id);
         formData.append("subject_id", this.lesson.subject_id);
         await this.$store.dispatch("teacher/addTeacher", formData);
@@ -588,6 +602,7 @@ export default {
           width: 360,
         });
         this.$refs.modalTeacher.hide();
+        this.getCLASS(this.lesson.class_id);
       } catch (error) {
         this.errors = error.response.data.errors;
       }
@@ -597,15 +612,12 @@ export default {
         let question = {
           id: i,
           question: "",
-          correct_Answer: "",
-          answer_A: "",
-          answer_B: "",
-          answer_C: "",
-          answer_D: "",
+          Correct_Ans: 0,
+          Ans_A: "",
+          Ans_B: "",
+          Ans_C: "",
+          Ans_D: "",
           lesson_id: this.lesson.id,
-          week: this.lesson.week,
-          subject_id: this.lesson.subject_id,
-          class_id: this.lesson.class_id,
         };
         this.questions.push(question);
       }
@@ -619,6 +631,7 @@ export default {
         const formData = new FormData();
         formData.append("questions", JSON.stringify(this.questions));
         formData.append("delete", JSON.stringify(this.delete));
+        formData.append("totalTime", this.totalTime);
         await this.$store.dispatch("question/add", formData);
         this.$swal({
           title: "Thành công",
@@ -638,10 +651,10 @@ export default {
   },
   computed: {
     ...mapGetters("CLASS", ["CLASS"]),
-    ...mapGetters("teacher", ["teachers"]),
+    ...mapGetters("teacher", ["teachersBySubject"]),
   },
   mounted() {},
 };
 </script>
-
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style scoped></style>

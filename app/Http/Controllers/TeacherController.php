@@ -209,4 +209,12 @@ class TeacherController extends Controller
             'success' => 'true'
         ], 200);
     }
+
+    public function getTeachersBySubject($subject_id)
+    {
+        $teachers = Teacher::whereHas('subjects', function ($query) use ($subject_id) {
+            $query->where('subject_id', $subject_id);
+        })->get();
+        return response()->json($teachers, 200);
+    }
 }

@@ -57,4 +57,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/class/deleteSubjects', 'App\Http\Controllers\ClassController@deleteSubjects');
     Route::post('/teacher/addTeacher', 'App\Http\Controllers\TeacherController@addTeacher');
     Route::post('/teacher/editTeacher', 'App\Http\Controllers\TeacherController@editTeacher');
+    Route::get('/teacher/subject/{teacher}', 'App\Http\Controllers\TeacherController@getTeachersBySubject');
 });

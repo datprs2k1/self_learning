@@ -47,4 +47,5 @@ class ClassModel extends Model
     {
         return $this->belongsToMany(Teacher::class, 'subject_class_teacher', 'class_id', 'teacher_id');
     }
+
 }
