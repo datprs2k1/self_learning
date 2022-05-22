@@ -11,6 +11,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -199,6 +214,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+setInterval(function () {
+  var remaining = localStorage.endTime - new Date();
+
+  if (remaining >= 0) {
+    var seconds = Math.floor(remaining / 1000);
+    $('#timer').text(new Date(seconds * 1000).toISOString().slice(14, 19));
+  } else {// reset();
+  }
+}, 100);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -225,9 +296,6 @@ __webpack_require__.r(__webpack_exports__);
             id: 2,
             name: "Điểm số"
           }, {
-            id: 3,
-            name: "Thông tin chung"
-          }, {
             id: 4,
             name: "Tuần 1",
             children: [{
@@ -240,30 +308,275 @@ __webpack_require__.r(__webpack_exports__);
               id: 3,
               name: "Bài test"
             }]
-          }, {
-            id: 5,
-            name: "Tuần 2"
-          }, {
-            id: 6,
-            name: "Tuần 3"
           }]
-        }, {
-          id: 4,
-          name: "Kỹ năng mềm"
-        }, {
-          id: 5,
-          name: "Các khoá học khác"
         }]
-      }]
+      }],
+      contextMenuItems: [{
+        code: 'DELETE_NODE',
+        label: 'Delete node'
+      }, {
+        code: 'ADD_CHILD_NODE',
+        label: 'Add child'
+      }],
+      video_path: '',
+      subject_name: '',
+      questions: [],
+      totalTime: 0,
+      showQuestions: false,
+      selected: []
     };
   },
-  methods: {
+  created: function created() {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.getMyCourse();
+
+            case 2:
+              _context.next = 4;
+              return _this.getLessons();
+
+            case 4:
+              _this.treeData[1].children = _this.myCourse.subject;
+
+              _this.treeData[1].children.forEach(function (element) {
+                element.children = [{
+                  name: 'Danh sách thành viên'
+                }, {
+                  name: 'Điểm số'
+                }];
+
+                for (var index = 0; index < element.weeks; index++) {
+                  element.children.push({
+                    name: 'Tuần ' + (index + 1),
+                    children: [{
+                      name: 'Bài học tự học',
+                      subject_id: element.id,
+                      class_id: _this.myCourse.id,
+                      week: index + 1,
+                      type: 'slide'
+                    }, {
+                      name: 'Video bài giảng',
+                      subject_id: element.id,
+                      class_id: _this.myCourse.id,
+                      week: index + 1,
+                      type: 'video'
+                    }, {
+                      name: 'Bài test',
+                      subject_id: element.id,
+                      class_id: _this.myCourse.id,
+                      week: index + 1,
+                      type: 'test'
+                    }]
+                  });
+                }
+
+                ;
+                element.type = 'subject';
+              });
+
+              if (sessionStorage.getItem('questions') != null) {
+                _this.questions = JSON.parse(sessionStorage.getItem('questions'));
+                _this.showQuestions = true;
+              }
+
+              if (sessionStorage.getItem('selected_test') != null) {
+                _this.selected = JSON.parse(sessionStorage.getItem('selected_test'));
+              }
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('student', ['getMyCourse'])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('lesson', ['getLessons'])), {}, {
     logout: function logout() {
       axios.get("/api/logout").then(function () {
         window.location.pathname = "/home";
       });
+    },
+    nodeSelect: function nodeSelect(node, isSelected) {
+      var _this2 = this;
+
+      switch (node.data.type) {
+        case 'subject':
+          break;
+
+        case 'slide':
+          if (this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) != '' && isSelected) {
+            window.open("/files/".concat(this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week)), '_blank');
+          } else if (!this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) && isSelected) {
+            this.$swal({
+              title: 'Chưa có bài giảng',
+              type: 'warning',
+              icon: 'warning',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Thoát'
+            });
+          }
+
+          break;
+
+        case 'video':
+          if (this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week) != '' && isSelected) {
+            this.video_path = this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week);
+            this.subject_name = this.lessons.filter(function (lesson) {
+              return lesson.subject_id == node.data.subject_id && lesson.class_id == node.data.class_id && lesson.week == node.data.week;
+            })[0].name;
+            this.showModalVideo();
+          } else if (!this.getVideoPath(node.data.subject_id, node.data.week, node.data.week) && isSelected) {
+            this.$swal({
+              title: 'Chưa có video',
+              type: 'warning',
+              icon: 'warning',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Thoát'
+            });
+          }
+
+          break;
+
+        case 'test':
+          if (this.getQuestions(node.data.subject_id, node.data.class_id, node.data.week) != [] && isSelected) {
+            this.showQuestions = false;
+
+            if (this.questions.length > 0) {
+              this.$swal({
+                title: 'Bạn muốn làm bài tập trắc nghiệm?',
+                text: "C\xF3 ".concat(this.questions.length, " c\xE2u h\u1ECFi trong v\xF2ng ").concat(this.totalTime, " ph\xFAt"),
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy'
+              }).then(function (result) {
+                if (result.isConfirmed) {
+                  _this2.showQuestions = true;
+                  var interval = _this2.totalTime * 60 * 1000;
+                  localStorage.endTime = +new Date() + interval;
+                  sessionStorage.setItem('questions', JSON.stringify(_this2.questions));
+                }
+              });
+            } else {
+              this.$swal({
+                title: 'Chưa có bài test',
+                type: 'warning',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Thoát'
+              });
+              this.questions = [];
+              this.totalTime = 0;
+            }
+          } else if (!this.getQuestions(node.data.subject_id, node.data.class_id, node.data.week) && isSelected) {
+            this.$swal({
+              title: 'Chưa có bài test',
+              type: 'warning',
+              icon: 'warning',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Thoát'
+            });
+            this.questions = [];
+            this.totalTime = 0;
+          }
+
+          break;
+
+        default:
+          break;
+      }
+
+      ;
+    },
+    getSlidePath: function getSlidePath(subject_id, class_id, week) {
+      try {
+        return this.lessons.filter(function (lesson) {
+          return lesson.subject_id == subject_id && lesson.class_id == class_id && lesson.week == week;
+        })[0].path;
+      } catch (error) {
+        return '';
+      }
+    },
+    getVideoPath: function getVideoPath(subject_id, class_id, week) {
+      try {
+        return this.lessons.filter(function (lesson) {
+          return lesson.subject_id == subject_id && lesson.class_id == class_id && lesson.week == week;
+        })[0].video_path;
+      } catch (error) {
+        return '';
+      }
+    },
+    showModalVideo: function showModalVideo() {
+      this.$refs.modal_video.show();
+    },
+    getQuestions: function getQuestions(subject_id, class_id, week) {
+      try {
+        this.questions = this.myCourse.question.filter(function (question) {
+          return question.subject_id == subject_id && question.class_id == class_id && question.week == week;
+        }).sort(function () {
+          return Math.random() - 0.5;
+        });
+        this.totalTime = this.questions[0].total_time;
+      } catch (error) {
+        return [];
+      }
+    },
+    setSelected: function setSelected() {
+      sessionStorage.setItem('selected_test', JSON.stringify(this.selected));
+    },
+    submit: function submit() {
+      var _this3 = this;
+
+      this.$swal({
+        title: 'Bạn đã chắc chắn nộp bài?',
+        text: this.questions.length - this.selected.length > 0 ? "C\xF3 ".concat(this.questions.length - this.selected.length, " c\xE2u ch\u01B0a \u0111\u01B0\u1EE3c ch\u1ECDn") : '',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Đồng ý',
+        cancelButtonText: 'Hủy'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          localStorage.removeItem('endTime');
+          sessionStorage.removeItem('questions');
+          sessionStorage.removeItem('selected_test');
+
+          _this3.$store.dispatch('student/submitTest', {
+            totalTime: document.getElementById('timer').innerText,
+            selected: _this3.selected,
+            lengthQuestions: _this3.questions.length
+          }).then(function (res) {
+            console.log(res);
+
+            _this3.$swal({
+              title: 'Nộp bài thành công',
+              text: "\u0110i\u1EC3m: ".concat(res.scores),
+              type: 'success',
+              icon: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Thoát'
+            });
+
+            _this3.questions = [];
+            _this3.totalTime = 0;
+            _this3.selected = [];
+            _this3.showQuestions = false;
+          });
+        }
+      });
     }
-  }
+  }),
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('student', ['myCourse'])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('lesson', ['lessons']))
 });
 
 /***/ }),
@@ -314,7 +627,7 @@ ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_aos_css__WEBPACK_IMPORTED_MODULE_9__["default"]);
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_style_css__WEBPACK_IMPORTED_MODULE_10__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\r\n/* HEADER START */\n#header[data-v-19cc9d87] {\r\n    background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\r\n    background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\r\n    min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\r\n    font-size: 20px;\n}\n.home[data-v-19cc9d87] {\r\n    background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\r\n    display: flex !important;\n}\n.site-menu>li[data-v-19cc9d87] {\r\n    height: 48px;\r\n    line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\r\n    background-color: #f58635;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.home:hover>.icon.icon-home2[data-v-19cc9d87] {\r\n    color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\r\n    background-color: #f58635 !important;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\r\n    background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\r\n    padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.social-wrap>a[data-v-19cc9d87] {\r\n    width: 48px;\r\n    height: 48px;\n}\n#avatar[data-v-19cc9d87] {\r\n    width: 64.86px;\r\n    height: 100%;\r\n    float: right;\r\n    border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\r\n    float: right;\r\n    outline: none;\n}\r\n\r\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\r\n    outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open>.ctx-menu {\r\n    /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg>.svg-icon {\r\n    fill: unset !important;\r\n    opacity: 0.65 !important;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\r\n/* HEADER START */\n#header[data-v-19cc9d87] {\r\n    background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\r\n    background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\r\n    min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\r\n    font-size: 20px;\n}\n.home[data-v-19cc9d87] {\r\n    background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\r\n    display: flex !important;\n}\n.site-menu>li[data-v-19cc9d87] {\r\n    height: 48px;\r\n    line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\r\n    background-color: #f58635;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.home:hover>.icon.icon-home2[data-v-19cc9d87] {\r\n    color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\r\n    background-color: #f58635 !important;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\r\n    background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\r\n    padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.social-wrap>a[data-v-19cc9d87] {\r\n    width: 48px;\r\n    height: 48px;\n}\n#avatar[data-v-19cc9d87] {\r\n    width: 64.86px;\r\n    height: 100%;\r\n    float: right;\r\n    border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\r\n    float: right;\r\n    outline: none;\n}\r\n\r\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\r\n    outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open>.ctx-menu {\r\n    /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg>.svg-icon {\r\n    fill: unset !important;\r\n    opacity: 0.65 !important;\n}\n.form-check[data-v-19cc9d87] {\r\n    padding-left: 1.5em !important;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -882,201 +1195,322 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticStyle: { "border-top": "4px solid #f58635" } }, [
-    _c("div", { attrs: { id: "header" } }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "container-fluid py-3 navbar-login" }, [
-        _c("div", { staticClass: "row w-100" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-4 px-0" }, [
-            _c("div", { staticClass: "row h-100" }, [
-              _c(
-                "div",
-                { staticClass: "col-md-9 p-0" },
-                [
-                  _c(
-                    "b-dropdown",
-                    {
-                      attrs: { id: "dropdown-in-header", variant: "primary" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "button-content",
-                          fn: function () {
-                            return [
-                              _vm._v(
-                                "\r\n                                    Họ tên\r\n                                "
-                              ),
-                            ]
-                          },
-                          proxy: true,
-                        },
-                      ]),
-                    },
-                    [
-                      _vm._v(" "),
-                      _c(
-                        "b-dropdown-item-button",
-                        [
-                          _c("b-icon", {
-                            attrs: { icon: "lock-fill", "aria-hidden": "true" },
-                          }),
-                          _vm._v(
-                            "\r\n                                    Locked\r\n                                    "
-                          ),
-                          _c("span", { staticClass: "sr-only" }, [
-                            _vm._v("(Click to unlock)"),
-                          ]),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("b-dropdown-divider"),
-                      _vm._v(" "),
-                      _c(
-                        "b-dropdown-group",
-                        {
-                          staticClass: "small",
-                          attrs: { header: "Choose options" },
-                        },
-                        [
-                          _c(
-                            "b-dropdown-item-button",
-                            [
-                              _c("b-icon", {
-                                attrs: { icon: "blank", "aria-hidden": "true" },
-                              }),
-                              _vm._v(
-                                "\r\n                                        Option A\r\n                                        "
-                              ),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("(Not selected)"),
-                              ]),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-dropdown-item-button",
-                            [
-                              _c("b-icon", {
-                                attrs: { icon: "check", "aria-hidden": "true" },
-                              }),
-                              _vm._v(
-                                "\r\n                                        Option B\r\n                                        "
-                              ),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("(Selected)"),
-                              ]),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-dropdown-item-button",
-                            [
-                              _c("b-icon", {
-                                attrs: { icon: "blank", "aria-hidden": "true" },
-                              }),
-                              _vm._v(
-                                "\r\n                                        Option C\r\n                                        "
-                              ),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("(Not selected)"),
-                              ]),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("b-dropdown-divider"),
-                      _vm._v(" "),
-                      _c("b-dropdown-item-button", [_vm._v("Some action")]),
-                      _vm._v(" "),
-                      _c("b-dropdown-item-button", [
-                        _vm._v(
-                          "Some other\r\n                                    action"
-                        ),
-                      ]),
-                      _vm._v(" "),
-                      _c("b-dropdown-divider"),
-                      _vm._v(" "),
-                      _c(
-                        "b-dropdown-item-button",
-                        { attrs: { variant: "danger" } },
-                        [
-                          _c("b-icon", {
-                            attrs: {
-                              icon: "trash-fill",
-                              "aria-hidden": "true",
+  return _c(
+    "div",
+    { staticStyle: { "border-top": "4px solid #f58635" } },
+    [
+      _c("div", { attrs: { id: "header" } }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "container-fluid py-3 navbar-login" }, [
+          _c("div", { staticClass: "row w-100" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-4 px-0" }, [
+              _c("div", { staticClass: "row h-100" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-md-9 p-0" },
+                  [
+                    _c(
+                      "b-dropdown",
+                      {
+                        attrs: { id: "dropdown-in-header", variant: "primary" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "button-content",
+                            fn: function () {
+                              return [
+                                _vm._v(
+                                  "\r\n                                    Họ tên\r\n                                "
+                                ),
+                              ]
                             },
-                          }),
+                            proxy: true,
+                          },
+                        ]),
+                      },
+                      [
+                        _vm._v(" "),
+                        _c(
+                          "b-dropdown-item-button",
+                          [
+                            _c("b-icon", {
+                              attrs: {
+                                icon: "lock-fill",
+                                "aria-hidden": "true",
+                              },
+                            }),
+                            _vm._v(
+                              "\r\n                                    Locked\r\n                                    "
+                            ),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("(Click to unlock)"),
+                            ]),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("b-dropdown-divider"),
+                        _vm._v(" "),
+                        _c(
+                          "b-dropdown-group",
+                          {
+                            staticClass: "small",
+                            attrs: { header: "Choose options" },
+                          },
+                          [
+                            _c(
+                              "b-dropdown-item-button",
+                              [
+                                _c("b-icon", {
+                                  attrs: {
+                                    icon: "blank",
+                                    "aria-hidden": "true",
+                                  },
+                                }),
+                                _vm._v(
+                                  "\r\n                                        Option A\r\n                                        "
+                                ),
+                                _c("span", { staticClass: "sr-only" }, [
+                                  _vm._v("(Not selected)"),
+                                ]),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "b-dropdown-item-button",
+                              [
+                                _c("b-icon", {
+                                  attrs: {
+                                    icon: "check",
+                                    "aria-hidden": "true",
+                                  },
+                                }),
+                                _vm._v(
+                                  "\r\n                                        Option B\r\n                                        "
+                                ),
+                                _c("span", { staticClass: "sr-only" }, [
+                                  _vm._v("(Selected)"),
+                                ]),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "b-dropdown-item-button",
+                              [
+                                _c("b-icon", {
+                                  attrs: {
+                                    icon: "blank",
+                                    "aria-hidden": "true",
+                                  },
+                                }),
+                                _vm._v(
+                                  "\r\n                                        Option C\r\n                                        "
+                                ),
+                                _c("span", { staticClass: "sr-only" }, [
+                                  _vm._v("(Not selected)"),
+                                ]),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("b-dropdown-divider"),
+                        _vm._v(" "),
+                        _c("b-dropdown-item-button", [_vm._v("Some action")]),
+                        _vm._v(" "),
+                        _c("b-dropdown-item-button", [
                           _vm._v(
-                            "\r\n                                    Delete\r\n                                "
+                            "Some other\r\n                                    action"
                           ),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(2),
+                        ]),
+                        _vm._v(" "),
+                        _c("b-dropdown-divider"),
+                        _vm._v(" "),
+                        _c(
+                          "b-dropdown-item-button",
+                          { attrs: { variant: "danger" } },
+                          [
+                            _c("b-icon", {
+                              attrs: {
+                                icon: "trash-fill",
+                                "aria-hidden": "true",
+                              },
+                            }),
+                            _vm._v(
+                              "\r\n                                    Delete\r\n                                "
+                            ),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(2),
+              ]),
             ]),
           ]),
         ]),
+        _vm._v(" "),
+        _c(
+          "header",
+          {
+            staticClass: "site-navbar site-navbar-target",
+            staticStyle: { "background-color": "#3a454b", "z-index": "1" },
+            attrs: { role: "banner" },
+          },
+          [
+            _c("div", { staticClass: "container-fluid" }, [
+              _c("div", { staticClass: "d-flex align-items-center" }, [
+                _c("div", { staticClass: "mr-auto" }, [
+                  _c(
+                    "nav",
+                    {
+                      staticClass:
+                        "site-navigation position-relative text-right",
+                      attrs: { role: "navigation" },
+                    },
+                    [
+                      _c(
+                        "ul",
+                        {
+                          staticClass:
+                            "site-menu main-menu js-clone-nav mr-auto d-none d-lg-block p-0",
+                        },
+                        [
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _vm._m(6),
+                          _vm._v(" "),
+                          _vm._m(7),
+                          _vm._v(" "),
+                          _c("li", { staticStyle: { float: "right" } }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "nav-link text-left p-0 px-3 text-white",
+                                attrs: { href: "" },
+                              },
+                              [_c("b-icon", { attrs: { icon: "search" } })],
+                              1
+                            ),
+                          ]),
+                        ]
+                      ),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _vm._m(8),
+              ]),
+            ]),
+          ]
+        ),
       ]),
       _vm._v(" "),
       _c(
-        "header",
+        "div",
         {
-          staticClass: "site-navbar site-navbar-target",
-          staticStyle: { "background-color": "#3a454b", "z-index": "1" },
-          attrs: { role: "banner" },
+          staticClass: "container-fluid",
+          staticStyle: {
+            height: "1500px",
+            width: "100%",
+            "margin-top": "48px",
+          },
         },
         [
-          _c("div", { staticClass: "container-fluid" }, [
-            _c("div", { staticClass: "d-flex align-items-center" }, [
-              _c("div", { staticClass: "mr-auto" }, [
+          _c(
+            "div",
+            {
+              staticClass: "row h-100",
+              staticStyle: { "padding-top": "24px" },
+            },
+            [
+              _c("div", { staticClass: "col-md-3 h-50" }, [
+                _c("h6", [_vm._v("Bảng Điều Khiển")]),
+                _vm._v(" "),
                 _c(
-                  "nav",
+                  "div",
                   {
-                    staticClass: "site-navigation position-relative text-right",
-                    attrs: { role: "navigation" },
+                    staticClass: "w-100 mt-3 mb-3",
+                    staticStyle: {
+                      "border-top": "3px solid #f58635",
+                      padding: "12px",
+                      "border-radius": "3px",
+                      "box-shadow": "0px 2px 2px 2px rgba(0, 0, 0, 0.05)",
+                    },
                   },
                   [
                     _c(
-                      "ul",
+                      "div",
+                      { staticClass: "px-3 pb-1" },
+                      [
+                        _c("b-icon", {
+                          staticStyle: {
+                            color: "#f58635",
+                            width: "24px",
+                            height: "24px",
+                          },
+                          attrs: { icon: "diagram3-fill" },
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticStyle: {
+                              "margin-top": "1px",
+                              "margin-left": "10px",
+                              "font-weight": "700",
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            Điều Hướng\r\n                        "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
                       {
-                        staticClass:
-                          "site-menu main-menu js-clone-nav mr-auto d-none d-lg-block p-0",
+                        staticClass: "left-sidebar px-3",
+                        staticStyle: { "border-top": "2px solid #dddddd" },
                       },
                       [
-                        _vm._m(3),
-                        _vm._v(" "),
-                        _vm._m(4),
-                        _vm._v(" "),
-                        _vm._m(5),
-                        _vm._v(" "),
-                        _vm._m(6),
-                        _vm._v(" "),
-                        _vm._m(7),
-                        _vm._v(" "),
-                        _c("li", { staticStyle: { float: "right" } }, [
+                        _c("div", { staticClass: "row" }, [
+                          _vm._m(9),
+                          _vm._v(" "),
                           _c(
-                            "a",
-                            {
-                              staticClass:
-                                "nav-link text-left p-0 px-3 text-white",
-                              attrs: { href: "" },
-                            },
-                            [_c("b-icon", { attrs: { icon: "search" } })],
+                            "div",
+                            { staticClass: "col-md-12 p-0" },
+                            [
+                              _c("b-tree-view", {
+                                attrs: {
+                                  data: _vm.treeData,
+                                  contextMenu: false,
+                                  contextMenuItems: _vm.contextMenuItems,
+                                  renameNodeOnDblClick: false,
+                                },
+                                on: { nodeSelect: _vm.nodeSelect },
+                              }),
+                            ],
                             1
                           ),
                         ]),
@@ -1084,156 +1518,336 @@ var render = function () {
                     ),
                   ]
                 ),
-              ]),
-              _vm._v(" "),
-              _vm._m(8),
-            ]),
-          ]),
-        ]
-      ),
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "container-fluid",
-        staticStyle: { height: "1500px", width: "100%", "margin-top": "48px" },
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "row h-100", staticStyle: { "padding-top": "24px" } },
-          [
-            _c("div", { staticClass: "col-md-3 h-50" }, [
-              _c("h6", [_vm._v("Bảng Điều Khiển")]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "w-100 mt-3 mb-3",
-                  staticStyle: {
-                    "border-top": "3px solid #f58635",
-                    padding: "12px",
-                    "border-radius": "3px",
-                    "box-shadow": "0px 2px 2px 2px rgba(0, 0, 0, 0.05)",
-                  },
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "px-3 pb-1" },
-                    [
-                      _c("b-icon", {
-                        staticStyle: {
-                          color: "#f58635",
-                          width: "24px",
-                          height: "24px",
-                        },
-                        attrs: { icon: "diagram3-fill" },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticStyle: {
-                            "margin-top": "1px",
-                            "margin-left": "10px",
-                            "font-weight": "700",
-                          },
-                        },
-                        [
-                          _vm._v(
-                            "\r\n                            Điều Hướng\r\n                        "
-                          ),
-                        ]
-                      ),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "left-sidebar px-3",
-                      staticStyle: { "border-top": "2px solid #dddddd" },
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "w-100 mt-3 mb-3",
+                    staticStyle: {
+                      "border-top": "3px solid #f58635",
+                      padding: "12px",
+                      "border-radius": "3px",
+                      "box-shadow": "0px 2px 2px 2px rgba(0, 0, 0, 0.05)",
                     },
-                    [
-                      _c("div", { staticClass: "row" }, [
-                        _vm._m(9),
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "px-3 pb-1" },
+                      [
+                        _c("b-icon", {
+                          staticStyle: {
+                            color: "#f58635",
+                            width: "24px",
+                            height: "24px",
+                          },
+                          attrs: { icon: "volume-up-fill" },
+                        }),
                         _vm._v(" "),
                         _c(
-                          "div",
-                          { staticClass: "col-md-12 p-0" },
+                          "span",
+                          {
+                            staticStyle: {
+                              "margin-top": "1px",
+                              "margin-left": "10px",
+                              "font-weight": "700",
+                            },
+                          },
                           [
-                            _c("b-tree-view", {
-                              attrs: { data: _vm.treeData },
-                            }),
-                          ],
-                          1
+                            _vm._v(
+                              "\r\n                            Tin mới nhất\r\n                        "
+                            ),
+                          ]
                         ),
-                      ]),
-                    ]
-                  ),
-                ]
-              ),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm._m(10),
+                  ]
+                ),
+              ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: "w-100 mt-3 mb-3",
+                  staticClass: "col-md-6 h-50 rounded",
                   staticStyle: {
-                    "border-top": "3px solid #f58635",
-                    padding: "12px",
-                    "border-radius": "3px",
-                    "box-shadow": "0px 2px 2px 2px rgba(0, 0, 0, 0.05)",
+                    "border-top": "3px solid rgb(245, 134, 53)",
+                    "box-shadow": "rgb(0 0 0 / 5%) 0px 2px 2px 2px",
+                    "padding-top": "12px",
+                    "margin-top": "35px",
                   },
                 },
                 [
-                  _c(
-                    "div",
-                    { staticClass: "px-3 pb-1" },
-                    [
-                      _c("b-icon", {
-                        staticStyle: {
-                          color: "#f58635",
-                          width: "24px",
-                          height: "24px",
-                        },
-                        attrs: { icon: "volume-up-fill" },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          staticStyle: {
-                            "margin-top": "1px",
-                            "margin-left": "10px",
-                            "font-weight": "700",
-                          },
-                        },
+                  _vm.showQuestions
+                    ? _c(
+                        "div",
                         [
-                          _vm._v(
-                            "\r\n                            Tin mới nhất\r\n                        "
-                          ),
-                        ]
-                      ),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm._m(10),
+                          _vm._l(_vm.questions, function (item, index) {
+                            return _c("div", { key: item.id }, [
+                              _c("h6", [
+                                _vm._v(
+                                  "Câu " +
+                                    _vm._s(index + 1) +
+                                    ": " +
+                                    _vm._s(item.question)
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-check" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.selected[index],
+                                      expression: "selected[index]",
+                                    },
+                                  ],
+                                  staticClass: "form-check-input",
+                                  attrs: {
+                                    type: "radio",
+                                    id: "exampleRadios1" + index,
+                                  },
+                                  domProps: {
+                                    value: { question_id: item.id, value: 1 },
+                                    checked: _vm._q(_vm.selected[index], {
+                                      question_id: item.id,
+                                      value: 1,
+                                    }),
+                                  },
+                                  on: {
+                                    change: [
+                                      function ($event) {
+                                        return _vm.$set(_vm.selected, index, {
+                                          question_id: item.id,
+                                          value: 1,
+                                        })
+                                      },
+                                      _vm.setSelected,
+                                    ],
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-check-label",
+                                    attrs: { for: "exampleRadios1" + index },
+                                    on: { change: _vm.setSelected },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                            " +
+                                        _vm._s(item.answer_A) +
+                                        "\r\n                        "
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-check" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.selected[index],
+                                      expression: "selected[index]",
+                                    },
+                                  ],
+                                  staticClass: "form-check-input",
+                                  attrs: {
+                                    type: "radio",
+                                    id: "exampleRadios2" + index,
+                                  },
+                                  domProps: {
+                                    value: { question_id: item.id, value: 2 },
+                                    checked: _vm._q(_vm.selected[index], {
+                                      question_id: item.id,
+                                      value: 2,
+                                    }),
+                                  },
+                                  on: {
+                                    change: [
+                                      function ($event) {
+                                        return _vm.$set(_vm.selected, index, {
+                                          question_id: item.id,
+                                          value: 2,
+                                        })
+                                      },
+                                      _vm.setSelected,
+                                    ],
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-check-label",
+                                    attrs: { for: "exampleRadios2" + index },
+                                    on: { change: _vm.setSelected },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                            " +
+                                        _vm._s(item.answer_B) +
+                                        "\r\n                        "
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-check" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.selected[index],
+                                      expression: "selected[index]",
+                                    },
+                                  ],
+                                  staticClass: "form-check-input",
+                                  attrs: {
+                                    type: "radio",
+                                    id: "exampleRadios3" + index,
+                                  },
+                                  domProps: {
+                                    value: { question_id: item.id, value: 3 },
+                                    checked: _vm._q(_vm.selected[index], {
+                                      question_id: item.id,
+                                      value: 3,
+                                    }),
+                                  },
+                                  on: {
+                                    change: [
+                                      function ($event) {
+                                        return _vm.$set(_vm.selected, index, {
+                                          question_id: item.id,
+                                          value: 3,
+                                        })
+                                      },
+                                      _vm.setSelected,
+                                    ],
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-check-label",
+                                    attrs: { for: "exampleRadios3" + index },
+                                    on: { change: _vm.setSelected },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                            " +
+                                        _vm._s(item.answer_C) +
+                                        "\r\n                        "
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-check" }, [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.selected[index],
+                                      expression: "selected[index]",
+                                    },
+                                  ],
+                                  staticClass: "form-check-input",
+                                  attrs: {
+                                    type: "radio",
+                                    id: "exampleRadios4" + index,
+                                  },
+                                  domProps: {
+                                    value: { question_id: item.id, value: 4 },
+                                    checked: _vm._q(_vm.selected[index], {
+                                      question_id: item.id,
+                                      value: 4,
+                                    }),
+                                  },
+                                  on: {
+                                    change: [
+                                      function ($event) {
+                                        return _vm.$set(_vm.selected, index, {
+                                          question_id: item.id,
+                                          value: 4,
+                                        })
+                                      },
+                                      _vm.setSelected,
+                                    ],
+                                  },
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-check-label",
+                                    attrs: { for: "exampleRadios4" + index },
+                                    on: { change: _vm.setSelected },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                            " +
+                                        _vm._s(item.answer_D) +
+                                        "\r\n                        "
+                                    ),
+                                  ]
+                                ),
+                              ]),
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "border-top mt-2" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary mt-2 float-right",
+                                on: { click: _vm.submit },
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n                            Nộp bài\r\n                        "
+                                ),
+                              ]
+                            ),
+                          ]),
+                        ],
+                        2
+                      )
+                    : _vm._e(),
                 ]
               ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 bg-light h-50" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3 bg-dark h-50" }),
-          ]
-        ),
-      ]
-    ),
-  ])
+              _vm._v(" "),
+              _vm._m(11),
+            ]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modal_video",
+          attrs: { size: "lg", "hide-footer": "", title: _vm.subject_name },
+        },
+        [
+          _c("LazyYoutube", {
+            attrs: { src: this.video_path, maxWidth: "100%" },
+          }),
+        ],
+        1
+      ),
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {
@@ -1435,6 +2049,26 @@ var staticRenderFns = [
         ]),
       ]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3 h-50" }, [
+      _c(
+        "div",
+        {
+          staticStyle: {
+            "border-top": "3px solid rgb(245, 134, 53)",
+            "box-shadow": "rgb(0 0 0 / 5%) 0px 2px 2px 2px",
+            "padding-top": "12px",
+            "margin-top": "35px",
+            "border-radius": "3px",
+          },
+        },
+        [_c("span", { attrs: { id: "timer" } })]
+      ),
+    ])
   },
 ]
 render._withStripped = true

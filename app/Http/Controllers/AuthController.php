@@ -7,12 +7,7 @@ use App\Models\User;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-// Test database connection
-try {
-    DB::connection()->getPdo();
-} catch (\Exception $e) {
-    die("Could not connect to the database.  Please check your configuration. error:" . $e);
-}
+
 class AuthController extends Controller
 {
 

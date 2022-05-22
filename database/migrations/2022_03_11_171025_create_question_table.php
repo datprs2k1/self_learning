@@ -16,14 +16,17 @@ class CreateQuestionTable extends Migration
         Schema::create('question', function (Blueprint $table) {
             $table->id();
             $table->string('question');
-            $table->string('Ans_A');
-            $table->string('Ans_B');
-            $table->string('Ans_C');
-            $table->string('Ans_D');
-            $table->integer('Correct_Ans');
-            $table->bigInteger('lesson_id')->unsigned();
+            $table->string('answer_A');
+            $table->string('answer_B');
+            $table->string('answer_C');
+            $table->string('answer_D');
+            $table->integer('correct_Answer');
+            $table->integer('week');
+            $table->bigInteger('subject_id')->unsigned();
+            $table->bigInteger('class_id')->unsigned();
             $table->integer('total_time');
-            $table->foreign('lesson_id')->references('id')->on('lesson')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subject')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('cascade');
             $table->timestamps();
         });
     }

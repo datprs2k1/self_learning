@@ -438,7 +438,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       "delete": [],
       errors: {},
       teacher_id: null,
-      totalTime: 1
+      total_time: 1
     };
   },
   created: function created() {
@@ -525,16 +525,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.lesson.week = week;
       }
     },
-    getCurrentQuestions: function getCurrentQuestions(lesson) {
+    getCurrentQuestions: function getCurrentQuestions(week) {
+      var _this3 = this;
+
       var questions = this.CLASS.question.filter(function (item) {
-        return item.lesson_id == lesson;
+        return item.week == week && item.subject_id == _this3.lesson.subject_id && item.class_id == _this3.lesson.class_id;
       });
 
       if (questions.length != 0) {
         this.questions = questions;
         this.number_question = questions.length;
+        this.total_time = questions[0].total_time;
       } else {
         this.questions = [];
+        this.number_question = 1;
+        this.total_time = 1;
       }
     },
     setEmptyLesson: function setEmptyLesson() {
@@ -545,7 +550,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errors = {};
     },
     submitSlide: function submitSlide() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var formData;
@@ -555,68 +560,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.prev = 0;
                 formData = new FormData();
-                formData.append("name", _this3.lesson.name);
-                formData.append("path", _this3.lesson.path);
+                formData.append("name", _this4.lesson.name);
+                formData.append("path", _this4.lesson.path);
                 formData.append("video_path", null);
-                formData.append("week", _this3.lesson.week);
-                formData.append("subject_id", _this3.lesson.subject_id);
-                formData.append("class_id", _this3.lesson.class_id);
-                formData.append("type", "slide");
-                _context2.next = 11;
-                return _this3.$store.dispatch("lesson/add", formData);
-
-              case 11:
-                _this3.$swal({
-                  title: "Thành công",
-                  icon: "success",
-                  showConfirmButton: false,
-                  position: "top-end",
-                  timer: 1000,
-                  width: 360
-                });
-
-                _this3.setEmptyLesson();
-
-                _this3.$refs.modalSlide.hide();
-
-                _this3.getCLASS(_this3.lesson.class_id);
-
-                _context2.next = 20;
-                break;
-
-              case 17:
-                _context2.prev = 17;
-                _context2.t0 = _context2["catch"](0);
-                _this3.errors = _context2.t0.response.data.errors;
-
-              case 20:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, null, [[0, 17]]);
-      }))();
-    },
-    submitVideo: function submitVideo() {
-      var _this4 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-                formData = new FormData();
-                formData.append("video_path", _this4.lesson.video_path);
                 formData.append("week", _this4.lesson.week);
                 formData.append("subject_id", _this4.lesson.subject_id);
                 formData.append("class_id", _this4.lesson.class_id);
-                formData.append("type", "video");
-                _context3.next = 9;
+                formData.append("type", "slide");
+                _context2.next = 11;
                 return _this4.$store.dispatch("lesson/add", formData);
 
-              case 9:
+              case 11:
                 _this4.$swal({
                   title: "Thành công",
                   icon: "success",
@@ -628,9 +582,60 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this4.setEmptyLesson();
 
-                _this4.$refs.modalVideo.hide();
+                _this4.$refs.modalSlide.hide();
 
                 _this4.getCLASS(_this4.lesson.class_id);
+
+                _context2.next = 20;
+                break;
+
+              case 17:
+                _context2.prev = 17;
+                _context2.t0 = _context2["catch"](0);
+                _this4.errors = _context2.t0.response.data.errors;
+
+              case 20:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 17]]);
+      }))();
+    },
+    submitVideo: function submitVideo() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var formData;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                formData = new FormData();
+                formData.append("video_path", _this5.lesson.video_path);
+                formData.append("week", _this5.lesson.week);
+                formData.append("subject_id", _this5.lesson.subject_id);
+                formData.append("class_id", _this5.lesson.class_id);
+                formData.append("type", "video");
+                _context3.next = 9;
+                return _this5.$store.dispatch("lesson/add", formData);
+
+              case 9:
+                _this5.$swal({
+                  title: "Thành công",
+                  icon: "success",
+                  showConfirmButton: false,
+                  position: "top-end",
+                  timer: 1000,
+                  width: 360
+                });
+
+                _this5.setEmptyLesson();
+
+                _this5.$refs.modalVideo.hide();
+
+                _this5.getCLASS(_this5.lesson.class_id);
 
                 _context3.next = 18;
                 break;
@@ -638,7 +643,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 15:
                 _context3.prev = 15;
                 _context3.t0 = _context3["catch"](0);
-                _this4.errors = _context3.t0.response.data.errors;
+                _this5.errors = _context3.t0.response.data.errors;
 
               case 18:
               case "end":
@@ -649,7 +654,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getSlide: function getSlide(week) {
-      var _this5 = this;
+      var _this6 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var slide;
@@ -658,29 +663,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return _this5.getCLASS(_this5.lesson.class_id);
+                return _this6.getCLASS(_this6.lesson.class_id);
 
               case 2:
-                slide = _this5.CLASS.lesson.filter(function (item) {
-                  return item.week == week && item.subject_id == _this5.lesson.subject_id && item.class_id == _this5.lesson.class_id;
+                slide = _this6.CLASS.lesson.filter(function (item) {
+                  return item.week == week && item.subject_id == _this6.lesson.subject_id && item.class_id == _this6.lesson.class_id;
                 });
 
                 if (slide.length == 0) {
-                  _this5.$swal({
+                  _this6.$swal({
                     title: "Chưa có nội dung slide",
                     icon: "info",
                     width: 480
                   });
                 } else {
                   if (slide[0].path == null) {
-                    _this5.$swal({
+                    _this6.$swal({
                       title: "Chưa có nội dung slide",
                       icon: "info",
                       width: 480
                     });
                   } else {
-                    _this5.lesson = slide[0];
-                    window.open("../files/" + _this5.lesson.path, "_blank");
+                    _this6.lesson = slide[0];
+                    window.open("../files/" + _this6.lesson.path, "_blank");
                   }
                 }
 
@@ -693,7 +698,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getVideo: function getVideo(week) {
-      var _this6 = this;
+      var _this7 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
         var video;
@@ -702,30 +707,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context5.prev = _context5.next) {
               case 0:
                 _context5.next = 2;
-                return _this6.getCLASS(_this6.lesson.class_id);
+                return _this7.getCLASS(_this7.lesson.class_id);
 
               case 2:
-                video = _this6.CLASS.lesson.filter(function (item) {
-                  return item.week == week && item.subject_id == _this6.lesson.subject_id && item.class_id == _this6.lesson.class_id;
+                video = _this7.CLASS.lesson.filter(function (item) {
+                  return item.week == week && item.subject_id == _this7.lesson.subject_id && item.class_id == _this7.lesson.class_id;
                 });
 
                 if (video.length == 0) {
-                  _this6.$swal({
+                  _this7.$swal({
                     title: "Chưa có nội dung video",
                     icon: "info",
                     width: 480
                   });
                 } else {
                   if (video[0].video_path == null) {
-                    _this6.$swal({
+                    _this7.$swal({
                       title: "Chưa có nội dung video",
                       icon: "info",
                       width: 480
                     });
                   } else {
-                    _this6.lesson = video[0];
+                    _this7.lesson = video[0];
 
-                    _this6.$refs.modalViewVideo.show();
+                    _this7.$refs.modalViewVideo.show();
                   }
                 }
 
@@ -738,14 +743,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getTeacher: function getTeacher() {
-      var _this7 = this;
+      var _this8 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                _this7.$refs.modalTeacher.show();
+                _this8.$refs.modalTeacher.show();
 
               case 1:
               case "end":
@@ -756,7 +761,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     addTeacher: function addTeacher() {
-      var _this8 = this;
+      var _this9 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
         var formData;
@@ -766,14 +771,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context7.prev = 0;
                 formData = new FormData();
-                formData.append("teacher_id", _this8.teacher_id.id);
-                formData.append("class_id", _this8.lesson.class_id);
-                formData.append("subject_id", _this8.lesson.subject_id);
+                formData.append("teacher_id", _this9.teacher_id.id);
+                formData.append("class_id", _this9.lesson.class_id);
+                formData.append("subject_id", _this9.lesson.subject_id);
                 _context7.next = 7;
-                return _this8.$store.dispatch("teacher/addTeacher", formData);
+                return _this9.$store.dispatch("teacher/addTeacher", formData);
 
               case 7:
-                _this8.$swal({
+                _this9.$swal({
                   title: "Thành công",
                   icon: "success",
                   showConfirmButton: false,
@@ -782,9 +787,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   width: 360
                 });
 
-                _this8.$refs.modalTeacher.hide();
+                _this9.$refs.modalTeacher.hide();
 
-                _this8.getCLASS(_this8.lesson.class_id);
+                _this9.getCLASS(_this9.lesson.class_id);
 
                 _context7.next = 15;
                 break;
@@ -792,7 +797,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 12:
                 _context7.prev = 12;
                 _context7.t0 = _context7["catch"](0);
-                _this8.errors = _context7.t0.response.data.errors;
+                _this9.errors = _context7.t0.response.data.errors;
 
               case 15:
               case "end":
@@ -807,12 +812,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         var question = {
           id: i,
           question: "",
-          Correct_Ans: 0,
-          Ans_A: "",
-          Ans_B: "",
-          Ans_C: "",
-          Ans_D: "",
-          lesson_id: this.lesson.id
+          correct_Answer: 0,
+          answer_A: "",
+          answer_B: "",
+          answer_C: "",
+          answer_D: "",
+          week: this.lesson.week,
+          subject_id: this.lesson.subject_id,
+          class_id: this.lesson.class_id
         };
         this.questions.push(question);
       }
@@ -822,7 +829,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.questions.splice(index, 1);
     },
     addQuestions: function addQuestions() {
-      var _this9 = this;
+      var _this10 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
         var formData;
@@ -832,14 +839,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context8.prev = 0;
                 formData = new FormData();
-                formData.append("questions", JSON.stringify(_this9.questions));
-                formData.append("delete", JSON.stringify(_this9["delete"]));
-                formData.append("totalTime", _this9.totalTime);
+                formData.append("questions", JSON.stringify(_this10.questions));
+                formData.append("delete", JSON.stringify(_this10["delete"]));
+                formData.append("total_time", _this10.total_time);
                 _context8.next = 7;
-                return _this9.$store.dispatch("question/add", formData);
+                return _this10.$store.dispatch("question/add", formData);
 
               case 7:
-                _this9.$swal({
+                _this10.$swal({
                   title: "Thành công",
                   icon: "success",
                   showConfirmButton: false,
@@ -848,11 +855,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   width: 360
                 });
 
-                _this9.setEmptyLesson();
+                _this10.setEmptyLesson();
 
-                _this9.$refs.modalTest.hide();
+                _this10.$refs.modalTest.hide();
 
-                _this9.getCLASS(_this9.lesson.class_id);
+                _this10.getCLASS(_this10.lesson.class_id);
 
                 _context8.next = 16;
                 break;
@@ -860,7 +867,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 13:
                 _context8.prev = 13;
                 _context8.t0 = _context8["catch"](0);
-                _this9.errors = _context8.t0.response.data.errors;
+                _this10.errors = _context8.t0.response.data.errors;
 
               case 16:
               case "end":
@@ -1289,7 +1296,9 @@ var render = function () {
                                               click: function ($event) {
                                                 $event.stopPropagation()
                                                 _vm.getCurrentLesson(item.week)
-                                                _vm.getCurrentQuestions(item.id)
+                                                _vm.getCurrentQuestions(
+                                                  item.week
+                                                )
                                               },
                                             },
                                           },
@@ -1758,11 +1767,11 @@ var render = function () {
                                       max: "120",
                                     },
                                     model: {
-                                      value: _vm.totalTime,
+                                      value: _vm.total_time,
                                       callback: function ($$v) {
-                                        _vm.totalTime = $$v
+                                        _vm.total_time = $$v
                                       },
-                                      expression: "totalTime",
+                                      expression: "total_time",
                                     },
                                   }),
                                 ],
@@ -1850,270 +1859,336 @@ var render = function () {
                                       1
                                     ),
                                     _vm._v(" "),
-                                    _c(
-                                      "b-form-group",
-                                      {
-                                        attrs: {
-                                          label: "Đáp án",
-                                          "label-for": "name-input",
-                                        },
+                                    _c("b-form-group", {
+                                      attrs: {
+                                        label: "Đáp án",
+                                        "label-for": "name-input",
                                       },
-                                      [
-                                        _c("div", { staticClass: "row mb-3" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "col-md-6" },
-                                            [
-                                              _c(
-                                                "b-form-radio",
-                                                {
-                                                  attrs: {
-                                                    "aria-describedby":
-                                                      _vm.ariaDescribedby,
-                                                    value: 1,
-                                                  },
-                                                  model: {
-                                                    value: question.Correct_Ans,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        question,
-                                                        "Correct_Ans",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "question.Correct_Ans",
-                                                  },
-                                                },
-                                                [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      attrs: {
-                                                        for: "answer_A",
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function (ref) {
+                                              var ariaDescribedby =
+                                                ref.ariaDescribedby
+                                              return [
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "row mb-3" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "col-md-6",
                                                       },
-                                                    },
-                                                    [_vm._v("Đáp án A")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("b-form-input", {
-                                                    attrs: {
-                                                      id: "answer_A",
-                                                      required: "",
-                                                      value: 1,
-                                                    },
-                                                    model: {
-                                                      value: question.Ans_A,
-                                                      callback: function ($$v) {
-                                                        _vm.$set(
-                                                          question,
-                                                          "Ans_A",
-                                                          $$v
-                                                        )
+                                                      [
+                                                        _c(
+                                                          "b-form-radio",
+                                                          {
+                                                            attrs: {
+                                                              "aria-describedby":
+                                                                ariaDescribedby,
+                                                              value: 1,
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                question.correct_Answer,
+                                                              callback:
+                                                                function ($$v) {
+                                                                  _vm.$set(
+                                                                    question,
+                                                                    "correct_Answer",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                              expression:
+                                                                "question.correct_Answer",
+                                                            },
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                attrs: {
+                                                                  for: "answer_A",
+                                                                },
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Đáp án A"
+                                                                ),
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("b-form-input", {
+                                                              attrs: {
+                                                                id: "answer_A",
+                                                                required: "",
+                                                                value: 1,
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  question.answer_A,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      question,
+                                                                      "answer_A",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "question.answer_A",
+                                                              },
+                                                            }),
+                                                          ],
+                                                          1
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "col-md-6",
                                                       },
-                                                      expression:
-                                                        "question.Ans_A",
-                                                    },
-                                                  }),
-                                                ],
-                                                1
-                                              ),
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "col-md-6" },
-                                            [
-                                              _c(
-                                                "b-form-radio",
-                                                {
-                                                  attrs: {
-                                                    "aria-describedby":
-                                                      _vm.ariaDescribedby,
-                                                    name: "answer",
-                                                    value: 2,
-                                                  },
-                                                  model: {
-                                                    value: question.Correct_Ans,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        question,
-                                                        "Correct_Ans",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "question.Correct_Ans",
-                                                  },
-                                                },
-                                                [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      attrs: {
-                                                        for: "answer_B",
+                                                      [
+                                                        _c(
+                                                          "b-form-radio",
+                                                          {
+                                                            attrs: {
+                                                              "aria-describedby":
+                                                                ariaDescribedby,
+                                                              name: "answer",
+                                                              value: 2,
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                question.correct_Answer,
+                                                              callback:
+                                                                function ($$v) {
+                                                                  _vm.$set(
+                                                                    question,
+                                                                    "correct_Answer",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                              expression:
+                                                                "question.correct_Answer",
+                                                            },
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                attrs: {
+                                                                  for: "answer_B",
+                                                                },
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Đáp án B"
+                                                                ),
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("b-form-input", {
+                                                              attrs: {
+                                                                id: "answer_B",
+                                                                required: "",
+                                                                value: 2,
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  question.answer_B,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      question,
+                                                                      "answer_B",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "question.answer_B",
+                                                              },
+                                                            }),
+                                                          ],
+                                                          1
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
+                                                  ]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                  "div",
+                                                  { staticClass: "row" },
+                                                  [
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "col-md-6",
                                                       },
-                                                    },
-                                                    [_vm._v("Đáp án B")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("b-form-input", {
-                                                    attrs: {
-                                                      id: "answer_B",
-                                                      required: "",
-                                                      value: 2,
-                                                    },
-                                                    model: {
-                                                      value: question.Ans_B,
-                                                      callback: function ($$v) {
-                                                        _vm.$set(
-                                                          question,
-                                                          "Ans_B",
-                                                          $$v
-                                                        )
+                                                      [
+                                                        _c(
+                                                          "b-form-radio",
+                                                          {
+                                                            attrs: {
+                                                              "aria-describedby":
+                                                                ariaDescribedby,
+                                                              name: "answer_C",
+                                                              value: 3,
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                question.correct_Answer,
+                                                              callback:
+                                                                function ($$v) {
+                                                                  _vm.$set(
+                                                                    question,
+                                                                    "correct_Answer",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                              expression:
+                                                                "question.correct_Answer",
+                                                            },
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                attrs: {
+                                                                  for: "answer_C",
+                                                                },
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Đáp án C"
+                                                                ),
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("b-form-input", {
+                                                              attrs: {
+                                                                id: "answer_C",
+                                                                required: "",
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  question.answer_C,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      question,
+                                                                      "answer_C",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "question.answer_C",
+                                                              },
+                                                            }),
+                                                          ],
+                                                          1
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "div",
+                                                      {
+                                                        staticClass: "col-md-6",
                                                       },
-                                                      expression:
-                                                        "question.Ans_B",
-                                                    },
-                                                  }),
-                                                ],
-                                                1
-                                              ),
-                                            ],
-                                            1
-                                          ),
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", { staticClass: "row" }, [
-                                          _c(
-                                            "div",
-                                            { staticClass: "col-md-6" },
-                                            [
-                                              _c(
-                                                "b-form-radio",
-                                                {
-                                                  attrs: {
-                                                    "aria-describedby":
-                                                      _vm.ariaDescribedby,
-                                                    name: "answer_C",
-                                                    value: 3,
-                                                  },
-                                                  model: {
-                                                    value: question.Correct_Ans,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        question,
-                                                        "Correct_Ans",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "question.Correct_Ans",
-                                                  },
-                                                },
-                                                [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      attrs: {
-                                                        for: "answer_C",
-                                                      },
-                                                    },
-                                                    [_vm._v("Đáp án C")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("b-form-input", {
-                                                    attrs: {
-                                                      id: "answer_C",
-                                                      required: "",
-                                                    },
-                                                    model: {
-                                                      value: question.Ans_C,
-                                                      callback: function ($$v) {
-                                                        _vm.$set(
-                                                          question,
-                                                          "Ans_C",
-                                                          $$v
-                                                        )
-                                                      },
-                                                      expression:
-                                                        "question.Ans_C",
-                                                    },
-                                                  }),
-                                                ],
-                                                1
-                                              ),
-                                            ],
-                                            1
-                                          ),
-                                          _vm._v(" "),
-                                          _c(
-                                            "div",
-                                            { staticClass: "col-md-6" },
-                                            [
-                                              _c(
-                                                "b-form-radio",
-                                                {
-                                                  attrs: {
-                                                    "aria-describedby":
-                                                      _vm.ariaDescribedby,
-                                                    name: "answer_D",
-                                                    value: 4,
-                                                  },
-                                                  model: {
-                                                    value: question.Correct_Ans,
-                                                    callback: function ($$v) {
-                                                      _vm.$set(
-                                                        question,
-                                                        "Correct_Ans",
-                                                        $$v
-                                                      )
-                                                    },
-                                                    expression:
-                                                      "question.Correct_Ans",
-                                                  },
-                                                },
-                                                [
-                                                  _c(
-                                                    "label",
-                                                    {
-                                                      attrs: {
-                                                        for: "answer_D",
-                                                      },
-                                                    },
-                                                    [_vm._v("Đáp án D")]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("b-form-input", {
-                                                    attrs: {
-                                                      id: "answer_D",
-                                                      required: "",
-                                                      value: 4,
-                                                    },
-                                                    model: {
-                                                      value: question.Ans_D,
-                                                      callback: function ($$v) {
-                                                        _vm.$set(
-                                                          question,
-                                                          "Ans_D",
-                                                          $$v
-                                                        )
-                                                      },
-                                                      expression:
-                                                        "question.Ans_D",
-                                                    },
-                                                  }),
-                                                ],
-                                                1
-                                              ),
-                                            ],
-                                            1
-                                          ),
-                                        ]),
-                                      ]
-                                    ),
+                                                      [
+                                                        _c(
+                                                          "b-form-radio",
+                                                          {
+                                                            attrs: {
+                                                              "aria-describedby":
+                                                                ariaDescribedby,
+                                                              name: "answer_D",
+                                                              value: 4,
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                question.correct_Answer,
+                                                              callback:
+                                                                function ($$v) {
+                                                                  _vm.$set(
+                                                                    question,
+                                                                    "correct_Answer",
+                                                                    $$v
+                                                                  )
+                                                                },
+                                                              expression:
+                                                                "question.correct_Answer",
+                                                            },
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "label",
+                                                              {
+                                                                attrs: {
+                                                                  for: "answer_D",
+                                                                },
+                                                              },
+                                                              [
+                                                                _vm._v(
+                                                                  "Đáp án D"
+                                                                ),
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("b-form-input", {
+                                                              attrs: {
+                                                                id: "answer_D",
+                                                                required: "",
+                                                                value: 4,
+                                                              },
+                                                              model: {
+                                                                value:
+                                                                  question.answer_D,
+                                                                callback:
+                                                                  function (
+                                                                    $$v
+                                                                  ) {
+                                                                    _vm.$set(
+                                                                      question,
+                                                                      "answer_D",
+                                                                      $$v
+                                                                    )
+                                                                  },
+                                                                expression:
+                                                                  "question.answer_D",
+                                                              },
+                                                            }),
+                                                          ],
+                                                          1
+                                                        ),
+                                                      ],
+                                                      1
+                                                    ),
+                                                  ]
+                                                ),
+                                              ]
+                                            },
+                                          },
+                                        ],
+                                        null,
+                                        true
+                                      ),
+                                    }),
                                   ],
                                   1
                                 )

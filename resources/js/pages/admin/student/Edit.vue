@@ -113,19 +113,8 @@
                     </div>
                     <div class="form-group">
                       <label for="class">Tên lớp</label>
-                      <b-form-select
-                        v-model="student.class_id"
-                        :options="CLASS"
-                        text-field="name"
-                        value-field="id"
-                        :class="{ 'is-invalid': errors.class_id }"
-                      >
-                        <template #first>
-                          <b-form-select-option :value="null" disabled
-                            >-- Chọn lớp --</b-form-select-option
-                          >
-                        </template>
-                      </b-form-select>
+                        <multiselect v-model="student.class" :class="{ 'is-invalid': errors.class_id }" selectLabel="Nhấn enter hoặc click để chọn" selectedLabel="Đang được chọn" noOptions="Trống" deselectLabel="Nhấn enter hoặc click để bỏ chọn" :options="CLASS" placeholder="Chọn lớp" label="name" track-by="name"></multiselect>
+
                       <span
                         v-if="errors.class_id"
                         id="exampleInputEmail1-error"
@@ -160,7 +149,11 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import Multiselect from 'vue-multiselect';
 export default {
+  components: {
+    Multiselect
+  },
   data() {
     return {
       errors: {},
@@ -212,3 +205,5 @@ export default {
   },
 };
 </script>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+

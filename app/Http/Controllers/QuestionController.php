@@ -39,7 +39,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         //
-        $delete = json_decode($request->delete);
+         $delete = json_decode($request->delete);
         if (count($delete) > 0) {
             foreach ($delete as $id) {
                 $question = Question::find($id);
@@ -57,13 +57,15 @@ class QuestionController extends Controller
                     $a = new Question();
                 }
                 $a->question = $question->question;
-                $a->Ans_A = $question->Ans_A;
-                $a->Ans_B = $question->Ans_B;
-                $a->Ans_C = $question->Ans_C;
-                $a->Ans_D = $question->Ans_D;
-                $a->lesson_id = $question->lesson_id;
-                $a->total_time =  $request->totalTime;
-                $a->Correct_Ans = $question->Correct_Ans;
+                $a->answer_A = $question->answer_A;
+                $a->answer_B = $question->answer_B;
+                $a->answer_C = $question->answer_C;
+                $a->answer_D = $question->answer_D;
+                $a->class_id = $question->class_id;
+                $a->subject_id = $question->subject_id;
+                $a->week = $question->week;
+                $a->total_time = $request->total_time;
+                $a->correct_Answer = $question->correct_Answer;
                 $a->created_at = date('Y-m-d H:i:s');
                 $a->save();
             }
@@ -83,9 +85,8 @@ class QuestionController extends Controller
         //
         $class_id = $request->class_id;
         $subject_id = $request->subject_id;
-        $lesson_id = $request->lesson_id;
         $week = $request->week;
-        $question = Question::where('class_id', $class_id)->where('subject_id', $subject_id)->where('lesson_id', $lesson_id)->where('week', $week)->get();
+        $question = Question::where('class_id', $class_id)->where('subject_id', $subject_id)->where('week', $week)->get();
         return response()->json($question, 200);
     }
 
@@ -135,17 +136,17 @@ class QuestionController extends Controller
 
             $question = Question::find($id);
             $question->question = $request->question;
-            $question->Ans_A = $request->Ans_A;
-            $question->Ans_B = $request->Ans_B;
-            $question->Ans_C = $request->Ans_C;
-            $question->Ans_D = $request->Ans_D;
-            $question->Correct_Ans = $request->Correct_Ans;
-            $question->test_id = $request->test_id;
-            $question->created_at = date('Y-m-d H:i:s');
+            $question->answer_A = $request->answer_A;
+            $question->answer_B = $request->answer_B;
+            $question->answer_C = $request->answer_C;
+            $question->answer_D = $request->answer_D;
+            $question->correct_Answer = $request->correct_Answer;
+            $question->total_time = $request->total_time;
+            $question->updated_at = date('Y-m-d H:i:s');
             $question->save();
 
             return response()->json([
-                'message' => 'Thêm sinh viên thành công.',
+                'message' => 'Sửa câu hỏi thành công.',
             ], 200);
         } else {
             return response()->json(['errors' => ['auth' => ['Bạn không có quyền truy cập.']]], 302);

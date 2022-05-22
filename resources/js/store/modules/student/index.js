@@ -3,11 +3,13 @@ import api from '../../../services/api';
 const state = {
     students: [],
     student: {},
+    myCourse: {},
 };
 
 const getters = {
     students: state => state.students,
     student: state => state.student,
+    myCourse: state => state.myCourse,
 };
 
 const mutations = {
@@ -16,6 +18,9 @@ const mutations = {
     },
     SET_STUDENT: (state, student) => {
         state.student = student;
+    },
+    SET_MY_COURSE: (state, myCourse) => {
+        state.myCourse = myCourse;
     }
 };
 
@@ -27,7 +32,7 @@ const actions = {
             email: data.email,
             phone: data.phone,
             dept_id: data.dept_id,
-            class_id: data.class_id,
+            class_id: data.class_id.id,
         });
     },
 
@@ -46,7 +51,7 @@ const actions = {
             email: data.email,
             phone: data.phone,
             dept_id: data.dept_id,
-            class_id: data.class_id,
+            class_id: data.class.id,
         });
     },
 
@@ -58,6 +63,16 @@ const actions = {
     async getStudents({ commit }) {
         const response = await api.get('/student');
         commit('SET_STUDENTS', response.data);
+    },
+
+    async getMyCourse({ commit }) {
+        const response = await api.get(`/getMyCoursesByClassId`);
+        commit('SET_MY_COURSE', response.data);
+    },
+
+    async submitTest({ commit }, data) {
+        const response = await api.post('/checkTest', data);
+        return response.data;
     }
 };
 

@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-
+use App\Models\ClassModel;
+use App\Models\Result;
+use App\Models\Question;
 
 class StudentController extends Controller
 {
@@ -212,5 +214,41 @@ class StudentController extends Controller
                 'error' => 'unauthorized'
             ], 401);
         }
+    }
+
+    public function getMyCourses()
+    {
+        $email = auth()->user()->email;
+        $student = Student::where('email', $email)->first();
+        $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher', 'question')->find($student->class_id);
+        foreach ($class->question as $value) {
+            unset($value['correct_Answer']);
+        }
+        return response()->json($class, 200);
+    }
+
+    public function checkTest(Request $request)
+    {
+        $email = auth()->user()->email;
+        $student = Student::where('email', $email)->first();
+        $count = 0;
+        foreach ($request->selected as $value) {
+            $result = new Result();
+            $result->student_id = $student->id;
+            $result->question_id = $value['question_id'];
+            $result->answer = $value['value'];
+            $result->totalTime = $request->totalTime;
+            $result->created_at = date('Y-m-d H:i:s');
+            $result->save();
+
+            $question = Question::find($value['question_id']);
+            if ($question->correct_Answer == $value['value']) {
+                $count++;
+            } 
+        }
+        $scores = round(10 / ($request->lengthQuestions) * $count, 2);
+        return response()->json([
+            'scores' => $scores
+        ], 200);
     }
 }

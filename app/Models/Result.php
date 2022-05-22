@@ -11,14 +11,12 @@ class Result extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id, question_id, answer, begin, end'];
+    protected $fillable = ['user_id, question_id, answer, totalTime'];
     protected $primaryKey = 'id';
     protected $table = 'result';
     protected $casts = [
         'created_at' => 'datetime:d/m/Y H:i:s',
         'updated_at' => 'datetime:d/m/Y H:i:s',
-        'begin' => 'date:hh:mm:ss',
-        'end' => 'date:hh:mm:ss',
     ];
 
     public $timestamps = false;

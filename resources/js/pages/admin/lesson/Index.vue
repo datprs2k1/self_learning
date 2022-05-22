@@ -76,7 +76,7 @@
                             <b-button
                               @click.stop="
                                 getCurrentLesson(item.week);
-                                getCurrentQuestions(item.id);
+                                getCurrentQuestions(item.week);
                               "
                               v-b-modal.modal-test
                               class="float-right p-0 pl-1 btn-warning btn-sm"
@@ -226,7 +226,7 @@
                           <b-form-input
                             id="name-input"
                             type="number"
-                            v-model="totalTime"
+                            v-model="total_time"
                             required
                             min="1"
                             max="120"
@@ -262,18 +262,18 @@
                           >
                           </b-form-input>
                         </b-form-group>
-                        <b-form-group label="Đáp án" label-for="name-input">
+                        <b-form-group label="Đáp án" v-slot="{ ariaDescribedby }" label-for="name-input">
                           <div class="row mb-3">
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.Correct_Ans"
+                                v-model="question.correct_Answer"
                                 :aria-describedby="ariaDescribedby"
                                 :value="1"
                               >
                                 <label for="answer_A">Đáp án A</label>
                                 <b-form-input
                                   id="answer_A"
-                                  v-model="question.Ans_A"
+                                  v-model="question.answer_A"
                                   required
                                   :value="1"
                                 ></b-form-input>
@@ -281,7 +281,7 @@
                             </div>
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.Correct_Ans"
+                                v-model="question.correct_Answer"
                                 :aria-describedby="ariaDescribedby"
                                 name="answer"
                                 :value="2"
@@ -289,7 +289,7 @@
                                 <label for="answer_B">Đáp án B</label>
                                 <b-form-input
                                   id="answer_B"
-                                  v-model="question.Ans_B"
+                                  v-model="question.answer_B"
                                   required
                                   :value="2"
                                 ></b-form-input>
@@ -299,7 +299,7 @@
                           <div class="row">
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.Correct_Ans"
+                                v-model="question.correct_Answer"
                                 :aria-describedby="ariaDescribedby"
                                 name="answer_C"
                                 :value="3"
@@ -307,14 +307,14 @@
                                 <label for="answer_C">Đáp án C</label>
                                 <b-form-input
                                   id="answer_C"
-                                  v-model="question.Ans_C"
+                                  v-model="question.answer_C"
                                   required
                                 ></b-form-input>
                               </b-form-radio>
                             </div>
                             <div class="col-md-6">
                               <b-form-radio
-                                v-model="question.Correct_Ans"
+                                v-model="question.correct_Answer"
                                 :aria-describedby="ariaDescribedby"
                                 name="answer_D"
                                 :value="4"
@@ -322,7 +322,7 @@
                                 <label for="answer_D">Đáp án D</label>
                                 <b-form-input
                                   id="answer_D"
-                                  v-model="question.Ans_D"
+                                  v-model="question.answer_D"
                                   required
                                   :value="4"
                                 ></b-form-input>
@@ -409,7 +409,7 @@ export default {
       delete: [],
       errors: {},
       teacher_id: null,
-      totalTime: 1,
+      total_time: 1,
     };
   },
   async created() {
@@ -459,16 +459,21 @@ export default {
         this.lesson.week = week;
       }
     },
-    getCurrentQuestions(lesson) {
+    getCurrentQuestions(week) {
       let questions = this.CLASS.question.filter(
         (item) =>
-          item.lesson_id == lesson
+          item.week == week &&
+          item.subject_id == this.lesson.subject_id &&
+          item.class_id == this.lesson.class_id
       );
       if (questions.length != 0) {
         this.questions = questions;
         this.number_question = questions.length;
+        this.total_time = questions[0].total_time;
       } else {
         this.questions = [];
+        this.number_question = 1;
+        this.total_time = 1;
       }
     },
     setEmptyLesson() {
@@ -612,12 +617,14 @@ export default {
         let question = {
           id: i,
           question: "",
-          Correct_Ans: 0,
-          Ans_A: "",
-          Ans_B: "",
-          Ans_C: "",
-          Ans_D: "",
-          lesson_id: this.lesson.id,
+          correct_Answer: 0,
+          answer_A: "",
+          answer_B: "",
+          answer_C: "",
+          answer_D: "",
+          week: this.lesson.week,
+          subject_id: this.lesson.subject_id,
+          class_id: this.lesson.class_id,
         };
         this.questions.push(question);
       }
@@ -631,7 +638,7 @@ export default {
         const formData = new FormData();
         formData.append("questions", JSON.stringify(this.questions));
         formData.append("delete", JSON.stringify(this.delete));
-        formData.append("totalTime", this.totalTime);
+        formData.append("total_time", this.total_time);
         await this.$store.dispatch("question/add", formData);
         this.$swal({
           title: "Thành công",

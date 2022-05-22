@@ -10,7 +10,7 @@ class Question extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['question, Ans_A, Ans_B, Ans_C, Ans_D, Correct_Ans, lesson_id, total_time'];
+    protected $fillable = ['question, answer_A, answer_B, answer_C, answer_D, correct_Answer, week, subject_id, class_id, total_time'];
     protected $primaryKey = 'id';
     protected $table = 'question';
     protected $casts = [

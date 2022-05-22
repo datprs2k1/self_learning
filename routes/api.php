@@ -8,7 +8,6 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TeacherController;
 
@@ -39,7 +38,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('/subject', SubjectController::class);
     Route::resource('/lesson', LessonController::class);
     Route::resource('/document', DocumentController::class);
-    Route::resource('/test', TestController::class);
     Route::resource('/question', QuestionController::class);
     Route::resource('/teacher', TeacherController::class);
     Route::delete('/department/delete/{department}', 'App\Http\Controllers\DepartmentController@deleteMutiple');
@@ -48,14 +46,14 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/subject/delete/{subject}', 'App\Http\Controllers\SubjectController@deleteMutiple');
     Route::delete('/lesson/delete/{lesson}', 'App\Http\Controllers\LessonController@deleteMutiple');
     Route::delete('/document/delete/{document}', 'App\Http\Controllers\DocumentController@deleteMutiple');
-    Route::delete('/test/delete/{test}', 'App\Http\Controllers\TestController@deleteMutiple');
     Route::delete('/question/deleteMutiple', 'App\Http\Controllers\QuestionController@deleteMutiple');
     Route::get('/question/test/{test}', 'App\Http\Controllers\QuestionController@getQuestionTest');
-    Route::post('/test/checkTest/{test}', 'App\Http\Controllers\TestController@checkTest');
     Route::post('/class/addSubject', 'App\Http\Controllers\ClassController@addSubject');
     Route::post('/class/deleteSubject', 'App\Http\Controllers\ClassController@deleteSubject');
     Route::post('/class/deleteSubjects', 'App\Http\Controllers\ClassController@deleteSubjects');
     Route::post('/teacher/addTeacher', 'App\Http\Controllers\TeacherController@addTeacher');
     Route::post('/teacher/editTeacher', 'App\Http\Controllers\TeacherController@editTeacher');
     Route::get('/teacher/subject/{teacher}', 'App\Http\Controllers\TeacherController@getTeachersBySubject');
+    Route::get('/getMyCoursesByClassId', 'App\Http\Controllers\StudentController@getMyCourses');
+    Route::post('/checkTest', 'App\Http\Controllers\StudentController@checkTest');
 });
