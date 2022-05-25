@@ -260,12 +260,130 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 setInterval(function () {
   var remaining = localStorage.endTime - new Date();
 
   if (remaining >= 0) {
     var seconds = Math.floor(remaining / 1000);
-    $('#timer').text(new Date(seconds * 1000).toISOString().slice(14, 19));
+    $("#timer").text(new Date(seconds * 1000).toISOString().slice(14, 19));
   } else {// reset();
   }
 }, 100);
@@ -273,6 +391,45 @@ setInterval(function () {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      fields: [{
+        key: "index",
+        label: "STT"
+      }, {
+        key: "code",
+        label: "MSV",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "name",
+        label: "Họ tên",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "email",
+        label: "Email",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "phone",
+        label: "SĐT",
+        "class": "text-center",
+        sortable: true
+      }],
+      results: [{
+        key: "index",
+        label: "STT"
+      }, {
+        key: "question.week",
+        label: "Tuần",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "answer",
+        label: "Số câu đúng",
+        "class": "text-center",
+        sortable: true
+      }],
+      showTime: false,
       treeData: [{
         id: 1,
         name: "Học Trực Tuyến Cùng UTT",
@@ -312,18 +469,19 @@ setInterval(function () {
         }]
       }],
       contextMenuItems: [{
-        code: 'DELETE_NODE',
-        label: 'Delete node'
+        code: "DELETE_NODE",
+        label: "Delete node"
       }, {
-        code: 'ADD_CHILD_NODE',
-        label: 'Add child'
+        code: "ADD_CHILD_NODE",
+        label: "Add child"
       }],
-      video_path: '',
-      subject_name: '',
+      video_path: "",
+      subject_name: "",
       questions: [],
       totalTime: 0,
       showQuestions: false,
-      selected: []
+      selected: [],
+      result: []
     };
   },
   created: function created() {
@@ -346,47 +504,51 @@ setInterval(function () {
 
               _this.treeData[1].children.forEach(function (element) {
                 element.children = [{
-                  name: 'Danh sách thành viên'
+                  name: "Danh sách thành viên",
+                  type: "danhsach"
                 }, {
-                  name: 'Điểm số'
+                  name: "Điểm số",
+                  type: "diemso",
+                  class_id: _this.myCourse.id,
+                  subject_id: element.id
                 }];
 
                 for (var index = 0; index < element.weeks; index++) {
                   element.children.push({
-                    name: 'Tuần ' + (index + 1),
+                    name: "Tuần " + (index + 1),
                     children: [{
-                      name: 'Bài học tự học',
+                      name: "Bài học tự học",
                       subject_id: element.id,
                       class_id: _this.myCourse.id,
                       week: index + 1,
-                      type: 'slide'
+                      type: "slide"
                     }, {
-                      name: 'Video bài giảng',
+                      name: "Video bài giảng",
                       subject_id: element.id,
                       class_id: _this.myCourse.id,
                       week: index + 1,
-                      type: 'video'
+                      type: "video"
                     }, {
-                      name: 'Bài test',
+                      name: "Bài test",
                       subject_id: element.id,
                       class_id: _this.myCourse.id,
                       week: index + 1,
-                      type: 'test'
+                      type: "test"
                     }]
                   });
                 }
 
-                ;
-                element.type = 'subject';
+                element.type = "subject";
               });
 
-              if (sessionStorage.getItem('questions') != null) {
-                _this.questions = JSON.parse(sessionStorage.getItem('questions'));
+              if (sessionStorage.getItem("questions") != null) {
+                _this.questions = JSON.parse(sessionStorage.getItem("questions"));
                 _this.showQuestions = true;
+                _this.showTime = true;
               }
 
-              if (sessionStorage.getItem('selected_test') != null) {
-                _this.selected = JSON.parse(sessionStorage.getItem('selected_test'));
+              if (sessionStorage.getItem("selected_test") != null) {
+                _this.selected = JSON.parse(sessionStorage.getItem("selected_test"));
               }
 
             case 8:
@@ -397,7 +559,7 @@ setInterval(function () {
       }, _callee);
     }))();
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('student', ['getMyCourse'])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)('lesson', ['getLessons'])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("student", ["getMyCourse"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("lesson", ["getLessons"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)("student", ["getResult"])), {}, {
     logout: function logout() {
       axios.get("/api/logout").then(function () {
         window.location.pathname = "/home";
@@ -407,26 +569,41 @@ setInterval(function () {
       var _this2 = this;
 
       switch (node.data.type) {
-        case 'subject':
+        case "danhsach":
+          this.$refs.modalDanhSach.show();
           break;
 
-        case 'slide':
-          if (this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) != '' && isSelected) {
-            window.open("/files/".concat(this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week)), '_blank');
+        case "diemso":
+          this.getResult(node.data.subject_id, node.data.class_id).then(function (data) {
+            var result = data.filter(function (item) {
+              return item.question.subject_id == node.data.subject_id && item.question.class_id == node.data.class_id;
+            });
+            _this2.result = result;
+
+            _this2.$refs.modalDiemSo.show();
+          });
+          break;
+
+        case "subject":
+          break;
+
+        case "slide":
+          if (this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) != null && isSelected) {
+            window.open("/files/".concat(this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week)), "_blank");
           } else if (!this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) && isSelected) {
             this.$swal({
-              title: 'Chưa có bài giảng',
-              type: 'warning',
-              icon: 'warning',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'Thoát'
+              title: "Chưa có bài giảng",
+              type: "warning",
+              icon: "warning",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Thoát"
             });
           }
 
           break;
 
-        case 'video':
-          if (this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week) != '' && isSelected) {
+        case "video":
+          if (this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week) != null && isSelected) {
             this.video_path = this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week);
             this.subject_name = this.lessons.filter(function (lesson) {
               return lesson.subject_id == node.data.subject_id && lesson.class_id == node.data.class_id && lesson.week == node.data.week;
@@ -434,56 +611,58 @@ setInterval(function () {
             this.showModalVideo();
           } else if (!this.getVideoPath(node.data.subject_id, node.data.week, node.data.week) && isSelected) {
             this.$swal({
-              title: 'Chưa có video',
-              type: 'warning',
-              icon: 'warning',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'Thoát'
+              title: "Chưa có video",
+              type: "warning",
+              icon: "warning",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Thoát"
             });
           }
 
           break;
 
-        case 'test':
+        case "test":
           if (this.getQuestions(node.data.subject_id, node.data.class_id, node.data.week) != [] && isSelected) {
             this.showQuestions = false;
+            this.showTime = false;
 
             if (this.questions.length > 0) {
               this.$swal({
-                title: 'Bạn muốn làm bài tập trắc nghiệm?',
+                title: "Bạn muốn làm bài tập trắc nghiệm?",
                 text: "C\xF3 ".concat(this.questions.length, " c\xE2u h\u1ECFi trong v\xF2ng ").concat(this.totalTime, " ph\xFAt"),
-                icon: 'question',
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Đồng ý',
-                cancelButtonText: 'Hủy'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Đồng ý",
+                cancelButtonText: "Hủy"
               }).then(function (result) {
                 if (result.isConfirmed) {
                   _this2.showQuestions = true;
+                  _this2.showTime = true;
                   var interval = _this2.totalTime * 60 * 1000;
                   localStorage.endTime = +new Date() + interval;
-                  sessionStorage.setItem('questions', JSON.stringify(_this2.questions));
+                  sessionStorage.setItem("questions", JSON.stringify(_this2.questions));
                 }
               });
             } else {
               this.$swal({
-                title: 'Chưa có bài test',
-                type: 'warning',
-                icon: 'warning',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Thoát'
+                title: "Chưa có bài test",
+                type: "warning",
+                icon: "warning",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Thoát"
               });
               this.questions = [];
               this.totalTime = 0;
             }
           } else if (!this.getQuestions(node.data.subject_id, node.data.class_id, node.data.week) && isSelected) {
             this.$swal({
-              title: 'Chưa có bài test',
-              type: 'warning',
-              icon: 'warning',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'Thoát'
+              title: "Chưa có bài test",
+              type: "warning",
+              icon: "warning",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Thoát"
             });
             this.questions = [];
             this.totalTime = 0;
@@ -494,8 +673,6 @@ setInterval(function () {
         default:
           break;
       }
-
-      ;
     },
     getSlidePath: function getSlidePath(subject_id, class_id, week) {
       try {
@@ -503,7 +680,7 @@ setInterval(function () {
           return lesson.subject_id == subject_id && lesson.class_id == class_id && lesson.week == week;
         })[0].path;
       } catch (error) {
-        return '';
+        return "";
       }
     },
     getVideoPath: function getVideoPath(subject_id, class_id, week) {
@@ -512,7 +689,7 @@ setInterval(function () {
           return lesson.subject_id == subject_id && lesson.class_id == class_id && lesson.week == week;
         })[0].video_path;
       } catch (error) {
-        return '';
+        return "";
       }
     },
     showModalVideo: function showModalVideo() {
@@ -531,52 +708,53 @@ setInterval(function () {
       }
     },
     setSelected: function setSelected() {
-      sessionStorage.setItem('selected_test', JSON.stringify(this.selected));
+      sessionStorage.setItem("selected_test", JSON.stringify(this.selected));
     },
     submit: function submit() {
       var _this3 = this;
 
       this.$swal({
-        title: 'Bạn đã chắc chắn nộp bài?',
-        text: this.questions.length - this.selected.length > 0 ? "C\xF3 ".concat(this.questions.length - this.selected.length, " c\xE2u ch\u01B0a \u0111\u01B0\u1EE3c ch\u1ECDn") : '',
-        icon: 'question',
+        title: "Bạn đã chắc chắn nộp bài?",
+        text: this.questions.length - this.selected.length > 0 ? "C\xF3 ".concat(this.questions.length - this.selected.length, " c\xE2u ch\u01B0a \u0111\u01B0\u1EE3c ch\u1ECDn") : "",
+        icon: "question",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Đồng ý',
-        cancelButtonText: 'Hủy'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Đồng ý",
+        cancelButtonText: "Hủy"
       }).then(function (result) {
         if (result.isConfirmed) {
-          localStorage.removeItem('endTime');
-          sessionStorage.removeItem('questions');
-          sessionStorage.removeItem('selected_test');
+          localStorage.removeItem("endTime");
+          sessionStorage.removeItem("questions");
+          sessionStorage.removeItem("selected_test");
 
-          _this3.$store.dispatch('student/submitTest', {
-            totalTime: document.getElementById('timer').innerText,
+          _this3.$store.dispatch("student/submitTest", {
+            totalTime: document.getElementById("timer").innerText,
             selected: _this3.selected,
             lengthQuestions: _this3.questions.length
           }).then(function (res) {
             console.log(res);
 
             _this3.$swal({
-              title: 'Nộp bài thành công',
+              title: "Nộp bài thành công",
               text: "\u0110i\u1EC3m: ".concat(res.scores),
-              type: 'success',
-              icon: 'success',
-              confirmButtonColor: '#3085d6',
-              confirmButtonText: 'Thoát'
+              type: "success",
+              icon: "success",
+              confirmButtonColor: "#3085d6",
+              confirmButtonText: "Thoát"
             });
 
             _this3.questions = [];
             _this3.totalTime = 0;
             _this3.selected = [];
             _this3.showQuestions = false;
+            _this3.showTime = false;
           });
         }
       });
     }
   }),
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('student', ['myCourse'])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)('lesson', ['lessons']))
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("student", ["myCourse"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("lesson", ["lessons"]))
 });
 
 /***/ }),
@@ -627,7 +805,7 @@ ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_aos_css__WEBPACK_IMPORTED_MODULE_9__["default"]);
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_style_css__WEBPACK_IMPORTED_MODULE_10__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\r\n/* HEADER START */\n#header[data-v-19cc9d87] {\r\n    background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\r\n    background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\r\n    min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\r\n    font-size: 20px;\n}\n.home[data-v-19cc9d87] {\r\n    background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\r\n    display: flex !important;\n}\n.site-menu>li[data-v-19cc9d87] {\r\n    height: 48px;\r\n    line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\r\n    background-color: #f58635;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.home:hover>.icon.icon-home2[data-v-19cc9d87] {\r\n    color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\r\n    background-color: #f58635 !important;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\r\n    background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\r\n    padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.social-wrap>a[data-v-19cc9d87] {\r\n    width: 48px;\r\n    height: 48px;\n}\n#avatar[data-v-19cc9d87] {\r\n    width: 64.86px;\r\n    height: 100%;\r\n    float: right;\r\n    border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\r\n    float: right;\r\n    outline: none;\n}\r\n\r\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\r\n    outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open>.ctx-menu {\r\n    /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg>.svg-icon {\r\n    fill: unset !important;\r\n    opacity: 0.65 !important;\n}\n.form-check[data-v-19cc9d87] {\r\n    padding-left: 1.5em !important;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\n/* HEADER START */\n#header[data-v-19cc9d87] {\n  background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\n  background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\n  min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\n  font-size: 20px;\n}\n.home[data-v-19cc9d87] {\n  background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\n  height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\n  display: flex !important;\n}\n.site-menu > li[data-v-19cc9d87] {\n  height: 48px;\n  line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\n  background-color: #f58635;\n  transition-delay: 0.05s;\n  transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\n  background-color: #ffa500;\n}\n.home:hover > .icon.icon-home2[data-v-19cc9d87] {\n  color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\n  background-color: #f58635 !important;\n  transition-delay: 0.05s;\n  transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\n  background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\n  padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\n  background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\n  height: 48px;\n}\n.social-wrap > a[data-v-19cc9d87] {\n  width: 48px;\n  height: 48px;\n}\n#avatar[data-v-19cc9d87] {\n  width: 64.86px;\n  height: 100%;\n  float: right;\n  border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\n  float: right;\n  outline: none;\n}\n\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\n  outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\n  padding-left: 68px;\n  padding-right: 68px;\n}\n\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\n  padding-left: 68px;\n  padding-right: 68px;\n}\n\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open > .ctx-menu {\n  /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg > .svg-icon {\n  fill: unset !important;\n  opacity: 0.65 !important;\n}\n.form-check[data-v-19cc9d87] {\n  padding-left: 1.5em !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1220,11 +1398,7 @@ var render = function () {
                           {
                             key: "button-content",
                             fn: function () {
-                              return [
-                                _vm._v(
-                                  "\r\n                                    Họ tên\r\n                                "
-                                ),
-                              ]
+                              return [_vm._v(" Họ tên ")]
                             },
                             proxy: true,
                           },
@@ -1242,7 +1416,7 @@ var render = function () {
                               },
                             }),
                             _vm._v(
-                              "\r\n                                    Locked\r\n                                    "
+                              "\n                  Locked\n                  "
                             ),
                             _c("span", { staticClass: "sr-only" }, [
                               _vm._v("(Click to unlock)"),
@@ -1270,7 +1444,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\r\n                                        Option A\r\n                                        "
+                                  "\n                    Option A\n                    "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Not selected)"),
@@ -1289,7 +1463,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\r\n                                        Option B\r\n                                        "
+                                  "\n                    Option B\n                    "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Selected)"),
@@ -1308,7 +1482,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\r\n                                        Option C\r\n                                        "
+                                  "\n                    Option C\n                    "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Not selected)"),
@@ -1325,9 +1499,7 @@ var render = function () {
                         _c("b-dropdown-item-button", [_vm._v("Some action")]),
                         _vm._v(" "),
                         _c("b-dropdown-item-button", [
-                          _vm._v(
-                            "Some other\r\n                                    action"
-                          ),
+                          _vm._v("Some other action"),
                         ]),
                         _vm._v(" "),
                         _c("b-dropdown-divider"),
@@ -1343,7 +1515,7 @@ var render = function () {
                               },
                             }),
                             _vm._v(
-                              "\r\n                                    Delete\r\n                                "
+                              "\n                  Delete\n                "
                             ),
                           ],
                           1
@@ -1477,11 +1649,7 @@ var render = function () {
                               "font-weight": "700",
                             },
                           },
-                          [
-                            _vm._v(
-                              "\r\n                            Điều Hướng\r\n                        "
-                            ),
-                          ]
+                          [_vm._v("\n              Điều Hướng\n            ")]
                         ),
                       ],
                       1
@@ -1553,11 +1721,7 @@ var render = function () {
                               "font-weight": "700",
                             },
                           },
-                          [
-                            _vm._v(
-                              "\r\n                            Tin mới nhất\r\n                        "
-                            ),
-                          ]
+                          [_vm._v("\n              Tin mới nhất\n            ")]
                         ),
                       ],
                       1
@@ -1639,9 +1803,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                            " +
+                                      "\n                " +
                                         _vm._s(item.answer_A) +
-                                        "\r\n                        "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -1691,9 +1855,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                            " +
+                                      "\n                " +
                                         _vm._s(item.answer_B) +
-                                        "\r\n                        "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -1743,9 +1907,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                            " +
+                                      "\n                " +
                                         _vm._s(item.answer_C) +
-                                        "\r\n                        "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -1795,9 +1959,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\r\n                            " +
+                                      "\n                " +
                                         _vm._s(item.answer_D) +
-                                        "\r\n                        "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -1812,11 +1976,7 @@ var render = function () {
                                 staticClass: "btn btn-primary mt-2 float-right",
                                 on: { click: _vm.submit },
                               },
-                              [
-                                _vm._v(
-                                  "\r\n                            Nộp bài\r\n                        "
-                                ),
-                              ]
+                              [_vm._v("\n              Nộp bài\n            ")]
                             ),
                           ]),
                         ],
@@ -1826,7 +1986,25 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(11),
+              _c("div", { staticClass: "col-md-3 h-50" }, [
+                _c(
+                  "div",
+                  {
+                    staticStyle: {
+                      "border-top": "3px solid rgb(245, 134, 53)",
+                      "box-shadow": "rgb(0 0 0 / 5%) 0px 2px 2px 2px",
+                      "padding-top": "12px",
+                      "margin-top": "35px",
+                      "border-radius": "3px",
+                    },
+                  },
+                  [
+                    _vm.showTime
+                      ? _c("span", { attrs: { id: "timer" } })
+                      : _vm._e(),
+                  ]
+                ),
+              ]),
             ]
           ),
         ]
@@ -1844,6 +2022,140 @@ var render = function () {
           }),
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modalDanhSach",
+          attrs: { id: "modal-danhsach", size: "lg", title: "Điểm số" },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-footer",
+              fn: function (ref) {
+                var ok = ref.ok
+                var cancel = ref.cancel
+                return [
+                  _c(
+                    "div",
+                    [
+                      _c("b-button", { attrs: { variant: "primary" } }, [
+                        _vm._v(" Xác nhận "),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "secondary" },
+                          on: {
+                            click: function ($event) {
+                              return cancel()
+                            },
+                          },
+                        },
+                        [_vm._v(" Hủy ")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+            },
+          ]),
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("b-table", {
+                attrs: { items: _vm.myCourse.student, fields: _vm.fields },
+                scopedSlots: _vm._u([
+                  {
+                    key: "cell(index)",
+                    fn: function (row) {
+                      return [
+                        _vm._v(
+                          "\n          " + _vm._s(row.index + 1) + "\n        "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+            ],
+            1
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modalDiemSo",
+          attrs: {
+            id: "modal-diemso",
+            size: "lg",
+            title: "Danh sách thành viên",
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-footer",
+              fn: function (ref) {
+                var ok = ref.ok
+                var cancel = ref.cancel
+                return [
+                  _c(
+                    "div",
+                    [
+                      _c("b-button", { attrs: { variant: "primary" } }, [
+                        _vm._v(" Xác nhận "),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "secondary" },
+                          on: {
+                            click: function ($event) {
+                              return cancel()
+                            },
+                          },
+                        },
+                        [_vm._v(" Hủy ")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+            },
+          ]),
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("b-table", {
+                attrs: { items: _vm.result, fields: _vm.results },
+                scopedSlots: _vm._u([
+                  {
+                    key: "cell(index)",
+                    fn: function (row) {
+                      return [
+                        _vm._v(
+                          "\n          " + _vm._s(row.index + 1) + "\n        "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+            ],
+            1
+          ),
+        ]
       ),
     ],
     1
@@ -2016,9 +2328,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12 p-0 pt-3" }, [
       _c("h6", { staticStyle: { "font-weight": "600" } }, [
-        _vm._v(
-          "\r\n                                    Bảng Điều Khiển\r\n                                "
-        ),
+        _vm._v("Bảng Điều Khiển"),
       ]),
     ])
   },
@@ -2042,33 +2352,13 @@ var staticRenderFns = [
             },
             [
               _vm._v(
-                "\r\n                                (Chưa có thông báo nào được gửi.)\r\n                            "
+                "\n                (Chưa có thông báo nào được gửi.)\n              "
               ),
             ]
           ),
         ]),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-3 h-50" }, [
-      _c(
-        "div",
-        {
-          staticStyle: {
-            "border-top": "3px solid rgb(245, 134, 53)",
-            "box-shadow": "rgb(0 0 0 / 5%) 0px 2px 2px 2px",
-            "padding-top": "12px",
-            "margin-top": "35px",
-            "border-radius": "3px",
-          },
-        },
-        [_c("span", { attrs: { id: "timer" } })]
-      ),
-    ])
   },
 ]
 render._withStripped = true

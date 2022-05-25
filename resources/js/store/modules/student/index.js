@@ -73,6 +73,10 @@ const actions = {
     async submitTest({ commit }, data) {
         const response = await api.post('/checkTest', data);
         return response.data;
+    },
+    async getResult({ commit }, data) {
+        const response = await api.get('/getResult', data);
+        return response.data;
     }
 };
 

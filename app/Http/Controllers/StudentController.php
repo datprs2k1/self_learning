@@ -244,11 +244,19 @@ class StudentController extends Controller
             $question = Question::find($value['question_id']);
             if ($question->correct_Answer == $value['value']) {
                 $count++;
-            } 
+            }
         }
         $scores = round(10 / ($request->lengthQuestions) * $count, 2);
         return response()->json([
             'scores' => $scores
         ], 200);
+    }
+
+    public function getResult(Request $request)
+    {
+        $email = auth()->user()->email;
+        $student = Student::where('email', $email)->first();
+        $results = Result::with('Question')->where('student_id', $student->id)->get();
+        return response()->json($results, 200);
     }
 }
