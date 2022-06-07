@@ -67,6 +67,6 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::logout();
+        Auth::user()->tokens()->delete();
     }
 }

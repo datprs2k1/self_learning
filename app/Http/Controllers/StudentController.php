@@ -233,20 +233,21 @@ class StudentController extends Controller
         $student = Student::where('email', $email)->first();
         $count = 0;
         foreach ($request->selected as $value) {
-            $result = new Result();
-            $result->student_id = $student->id;
-            $result->question_id = $value['question_id'];
-            $result->answer = $value['value'];
-            $result->totalTime = $request->totalTime;
-            $result->created_at = date('Y-m-d H:i:s');
-            $result->save();
-
             $question = Question::find($value['question_id']);
             if ($question->correct_Answer == $value['value']) {
                 $count++;
             }
         }
         $scores = round(10 / ($request->lengthQuestions) * $count, 2);
+        $result = new Result();
+        $result->student_id = $student->id;
+        $result->class_id = $request->class_id;
+        $result->subject_id = $request->subject_id;
+        $result->week = $request->week;
+        $result->totalTime = $request->totalTime;
+        $result->totalScore = $scores;
+        $result->created_at = date('Y-m-d H:i:s');
+        $result->save();
         return response()->json([
             'scores' => $scores
         ], 200);
@@ -256,7 +257,8 @@ class StudentController extends Controller
     {
         $email = auth()->user()->email;
         $student = Student::where('email', $email)->first();
-        $results = Result::with('Question')->where('student_id', $student->id)->get();
+        $results = Result::where('student_id', $student->id)->get();
+        
         return response()->json($results, 200);
     }
 }

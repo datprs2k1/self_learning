@@ -378,6 +378,114 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 setInterval(function () {
   var remaining = localStorage.endTime - new Date();
 
@@ -409,23 +517,18 @@ setInterval(function () {
         label: "Email",
         "class": "text-center",
         sortable: true
-      }, {
-        key: "phone",
-        label: "SĐT",
-        "class": "text-center",
-        sortable: true
       }],
       results: [{
         key: "index",
         label: "STT"
       }, {
-        key: "question.week",
+        key: "week",
         label: "Tuần",
         "class": "text-center",
         sortable: true
       }, {
-        key: "answer",
-        label: "Số câu đúng",
+        key: "totalScore",
+        label: "Điểm",
         "class": "text-center",
         sortable: true
       }],
@@ -435,38 +538,12 @@ setInterval(function () {
         name: "Học Trực Tuyến Cùng UTT",
         children: [{
           id: 3,
-          name: "Neptune"
-        }, {
-          id: 4,
-          name: "Stratus"
+          name: "Giới thiệu"
         }]
       }, {
         id: 2,
         name: "Khóa học của tôi",
-        children: [{
-          id: 3,
-          name: "Công nghệ thông tin",
-          children: [{
-            id: 1,
-            name: "Danh sách thành viên"
-          }, {
-            id: 2,
-            name: "Điểm số"
-          }, {
-            id: 4,
-            name: "Tuần 1",
-            children: [{
-              id: 1,
-              name: "Bài học tự học"
-            }, {
-              id: 2,
-              name: "Tài liệu"
-            }, {
-              id: 3,
-              name: "Bài test"
-            }]
-          }]
-        }]
+        children: [{}]
       }],
       contextMenuItems: [{
         code: "DELETE_NODE",
@@ -570,25 +647,37 @@ setInterval(function () {
 
       switch (node.data.type) {
         case "danhsach":
-          this.$refs.modalDanhSach.show();
+          if (isSelected) {
+            this.$refs.modalDiemSo.hide();
+            this.$refs.modalDanhSach.show();
+          }
+
           break;
 
         case "diemso":
-          this.getResult(node.data.subject_id, node.data.class_id).then(function (data) {
-            var result = data.filter(function (item) {
-              return item.question.subject_id == node.data.subject_id && item.question.class_id == node.data.class_id;
-            });
-            _this2.result = result;
+          if (isSelected) {
+            this.getResult({
+              subject_id: node.data.subject_id,
+              class_id: node.data.class_id
+            }).then(function (data) {
+              var result = data.filter(function (item) {
+                return item.subject_id == node.data.subject_id && item.class_id == node.data.class_id;
+              });
+              _this2.result = result;
 
-            _this2.$refs.modalDiemSo.show();
-          });
+              _this2.$refs.modalDanhSach.hide();
+
+              _this2.$refs.modalDiemSo.show();
+            });
+          }
+
           break;
 
         case "subject":
           break;
 
         case "slide":
-          if (this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) != null && isSelected) {
+          if (this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) != "" && isSelected) {
             window.open("/files/".concat(this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week)), "_blank");
           } else if (!this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) && isSelected) {
             this.$swal({
@@ -603,13 +692,23 @@ setInterval(function () {
           break;
 
         case "video":
-          if (this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week) != null && isSelected) {
-            this.video_path = this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week);
-            this.subject_name = this.lessons.filter(function (lesson) {
-              return lesson.subject_id == node.data.subject_id && lesson.class_id == node.data.class_id && lesson.week == node.data.week;
-            })[0].name;
-            this.showModalVideo();
-          } else if (!this.getVideoPath(node.data.subject_id, node.data.week, node.data.week) && isSelected) {
+          try {
+            if (this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week) != null && isSelected) {
+              this.video_path = this.getVideoPath(node.data.subject_id, node.data.class_id, node.data.week);
+              this.subject_name = this.lessons.filter(function (lesson) {
+                return lesson.subject_id == node.data.subject_id && lesson.class_id == node.data.class_id && lesson.week == node.data.week;
+              })[0].name;
+              this.showModalVideo();
+            } else if (!this.getVideoPath(node.data.subject_id, node.data.week, node.data.week) && isSelected) {
+              this.$swal({
+                title: "Chưa có video",
+                type: "warning",
+                icon: "warning",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Thoát"
+              });
+            }
+          } catch (error) {
             this.$swal({
               title: "Chưa có video",
               type: "warning",
@@ -642,6 +741,41 @@ setInterval(function () {
                   _this2.showTime = true;
                   var interval = _this2.totalTime * 60 * 1000;
                   localStorage.endTime = +new Date() + interval;
+                  setInterval(function () {
+                    var remaining = localStorage.endTime - new Date();
+
+                    if (remaining < 0) {
+                      _this2.$store.dispatch("student/submitTest", {
+                        class_id: _this2.questions[0].class_id,
+                        subject_id: _this2.questions[0].subject_id,
+                        week: _this2.questions[0].week,
+                        totalTime: document.getElementById("timer").innerText,
+                        selected: _this2.selected,
+                        lengthQuestions: _this2.questions.length
+                      }).then(function (res) {
+                        console.log(res);
+
+                        _this2.$swal({
+                          title: "Nộp bài thành công",
+                          text: "\u0110i\u1EC3m: ".concat(res.scores),
+                          type: "success",
+                          icon: "success",
+                          confirmButtonColor: "#3085d6",
+                          confirmButtonText: "Thoát"
+                        });
+
+                        _this2.questions = [];
+                        _this2.totalTime = 0;
+                        _this2.selected = [];
+                        _this2.showQuestions = false;
+                        _this2.showTime = false;
+                      });
+
+                      localStorage.removeItem("endTime");
+                      sessionStorage.removeItem("questions");
+                      sessionStorage.removeItem("selected_test");
+                    }
+                  }, 100);
                   sessionStorage.setItem("questions", JSON.stringify(_this2.questions));
                 }
               });
@@ -724,11 +858,10 @@ setInterval(function () {
         cancelButtonText: "Hủy"
       }).then(function (result) {
         if (result.isConfirmed) {
-          localStorage.removeItem("endTime");
-          sessionStorage.removeItem("questions");
-          sessionStorage.removeItem("selected_test");
-
           _this3.$store.dispatch("student/submitTest", {
+            class_id: _this3.questions[0].class_id,
+            subject_id: _this3.questions[0].subject_id,
+            week: _this3.questions[0].week,
             totalTime: document.getElementById("timer").innerText,
             selected: _this3.selected,
             lengthQuestions: _this3.questions.length
@@ -750,6 +883,10 @@ setInterval(function () {
             _this3.showQuestions = false;
             _this3.showTime = false;
           });
+
+          localStorage.removeItem("endTime");
+          sessionStorage.removeItem("questions");
+          sessionStorage.removeItem("selected_test");
         }
       });
     }
@@ -805,7 +942,7 @@ ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_aos_css__WEBPACK_IMPORTED_MODULE_9__["default"]);
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_style_css__WEBPACK_IMPORTED_MODULE_10__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\n/* HEADER START */\n#header[data-v-19cc9d87] {\n  background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\n  background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\n  min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\n  font-size: 20px;\n}\n.home[data-v-19cc9d87] {\n  background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\n  height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\n  display: flex !important;\n}\n.site-menu > li[data-v-19cc9d87] {\n  height: 48px;\n  line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\n  background-color: #f58635;\n  transition-delay: 0.05s;\n  transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\n  background-color: #ffa500;\n}\n.home:hover > .icon.icon-home2[data-v-19cc9d87] {\n  color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\n  background-color: #f58635 !important;\n  transition-delay: 0.05s;\n  transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\n  background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\n  padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\n  background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\n  height: 48px;\n}\n.social-wrap > a[data-v-19cc9d87] {\n  width: 48px;\n  height: 48px;\n}\n#avatar[data-v-19cc9d87] {\n  width: 64.86px;\n  height: 100%;\n  float: right;\n  border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\n  float: right;\n  outline: none;\n}\n\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\n  outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\n  padding-left: 68px;\n  padding-right: 68px;\n}\n\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\n  padding-left: 68px;\n  padding-right: 68px;\n}\n\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open > .ctx-menu {\n  /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg > .svg-icon {\n  fill: unset !important;\n  opacity: 0.65 !important;\n}\n.form-check[data-v-19cc9d87] {\n  padding-left: 1.5em !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\r\n/* HEADER START */\n#header[data-v-19cc9d87] {\r\n    background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\r\n    background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\r\n    min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\r\n    font-size: 20px;\n}\n.home[data-v-19cc9d87] {\r\n    background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\r\n    display: flex !important;\n}\n.site-menu > li[data-v-19cc9d87] {\r\n    height: 48px;\r\n    line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\r\n    background-color: #f58635;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.home:hover > .icon.icon-home2[data-v-19cc9d87] {\r\n    color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\r\n    background-color: #f58635 !important;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\r\n    background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\r\n    padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.social-wrap > a[data-v-19cc9d87] {\r\n    width: 48px;\r\n    height: 48px;\n}\n#avatar[data-v-19cc9d87] {\r\n    width: 64.86px;\r\n    height: 100%;\r\n    float: right;\r\n    border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\r\n    float: right;\r\n    outline: none;\n}\r\n\r\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\r\n    outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open > .ctx-menu {\r\n    /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg > .svg-icon {\r\n    fill: unset !important;\r\n    opacity: 0.65 !important;\n}\n.form-check[data-v-19cc9d87] {\r\n    padding-left: 1.5em !important;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1398,7 +1535,11 @@ var render = function () {
                           {
                             key: "button-content",
                             fn: function () {
-                              return [_vm._v(" Họ tên ")]
+                              return [
+                                _vm._v(
+                                  "\n                                    Họ tên\n                                "
+                                ),
+                              ]
                             },
                             proxy: true,
                           },
@@ -1416,7 +1557,7 @@ var render = function () {
                               },
                             }),
                             _vm._v(
-                              "\n                  Locked\n                  "
+                              "\n                                    Locked\n                                    "
                             ),
                             _c("span", { staticClass: "sr-only" }, [
                               _vm._v("(Click to unlock)"),
@@ -1444,7 +1585,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\n                    Option A\n                    "
+                                  "\n                                        Option A\n                                        "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Not selected)"),
@@ -1463,7 +1604,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\n                    Option B\n                    "
+                                  "\n                                        Option B\n                                        "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Selected)"),
@@ -1482,7 +1623,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\n                    Option C\n                    "
+                                  "\n                                        Option C\n                                        "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Not selected)"),
@@ -1499,7 +1640,9 @@ var render = function () {
                         _c("b-dropdown-item-button", [_vm._v("Some action")]),
                         _vm._v(" "),
                         _c("b-dropdown-item-button", [
-                          _vm._v("Some other action"),
+                          _vm._v(
+                            "Some other\n                                    action"
+                          ),
                         ]),
                         _vm._v(" "),
                         _c("b-dropdown-divider"),
@@ -1515,7 +1658,7 @@ var render = function () {
                               },
                             }),
                             _vm._v(
-                              "\n                  Delete\n                "
+                              "\n                                    Delete\n                                "
                             ),
                           ],
                           1
@@ -1649,7 +1792,11 @@ var render = function () {
                               "font-weight": "700",
                             },
                           },
-                          [_vm._v("\n              Điều Hướng\n            ")]
+                          [
+                            _vm._v(
+                              "\n                            Điều Hướng\n                        "
+                            ),
+                          ]
                         ),
                       ],
                       1
@@ -1721,7 +1868,11 @@ var render = function () {
                               "font-weight": "700",
                             },
                           },
-                          [_vm._v("\n              Tin mới nhất\n            ")]
+                          [
+                            _vm._v(
+                              "\n                            Tin mới nhất\n                        "
+                            ),
+                          ]
                         ),
                       ],
                       1
@@ -1803,9 +1954,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                " +
+                                      "\n                                " +
                                         _vm._s(item.answer_A) +
-                                        "\n              "
+                                        "\n                            "
                                     ),
                                   ]
                                 ),
@@ -1855,9 +2006,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                " +
+                                      "\n                                " +
                                         _vm._s(item.answer_B) +
-                                        "\n              "
+                                        "\n                            "
                                     ),
                                   ]
                                 ),
@@ -1907,9 +2058,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                " +
+                                      "\n                                " +
                                         _vm._s(item.answer_C) +
-                                        "\n              "
+                                        "\n                            "
                                     ),
                                   ]
                                 ),
@@ -1959,9 +2110,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                " +
+                                      "\n                                " +
                                         _vm._s(item.answer_D) +
-                                        "\n              "
+                                        "\n                            "
                                     ),
                                   ]
                                 ),
@@ -1976,7 +2127,11 @@ var render = function () {
                                 staticClass: "btn btn-primary mt-2 float-right",
                                 on: { click: _vm.submit },
                               },
-                              [_vm._v("\n              Nộp bài\n            ")]
+                              [
+                                _vm._v(
+                                  "\n                            Nộp bài\n                        "
+                                ),
+                              ]
                             ),
                           ]),
                         ],
@@ -2028,73 +2183,8 @@ var render = function () {
         "b-modal",
         {
           ref: "modalDanhSach",
-          attrs: { id: "modal-danhsach", size: "lg", title: "Điểm số" },
-          scopedSlots: _vm._u([
-            {
-              key: "modal-footer",
-              fn: function (ref) {
-                var ok = ref.ok
-                var cancel = ref.cancel
-                return [
-                  _c(
-                    "div",
-                    [
-                      _c("b-button", { attrs: { variant: "primary" } }, [
-                        _vm._v(" Xác nhận "),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "b-button",
-                        {
-                          attrs: { variant: "secondary" },
-                          on: {
-                            click: function ($event) {
-                              return cancel()
-                            },
-                          },
-                        },
-                        [_vm._v(" Hủy ")]
-                      ),
-                    ],
-                    1
-                  ),
-                ]
-              },
-            },
-          ]),
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("b-table", {
-                attrs: { items: _vm.myCourse.student, fields: _vm.fields },
-                scopedSlots: _vm._u([
-                  {
-                    key: "cell(index)",
-                    fn: function (row) {
-                      return [
-                        _vm._v(
-                          "\n          " + _vm._s(row.index + 1) + "\n        "
-                        ),
-                      ]
-                    },
-                  },
-                ]),
-              }),
-            ],
-            1
-          ),
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          ref: "modalDiemSo",
           attrs: {
-            id: "modal-diemso",
+            id: "modal-danhsach",
             size: "lg",
             title: "Danh sách thành viên",
           },
@@ -2122,7 +2212,74 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v(" Hủy ")]
+                        [_vm._v("\n                    Hủy\n                ")]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              },
+            },
+          ]),
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "form-group" },
+            [
+              _c("b-table", {
+                attrs: { items: _vm.myCourse.student, fields: _vm.fields },
+                scopedSlots: _vm._u([
+                  {
+                    key: "cell(index)",
+                    fn: function (row) {
+                      return [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(row.index + 1) +
+                            "\n                "
+                        ),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+            ],
+            1
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          ref: "modalDiemSo",
+          attrs: { id: "modal-diemso", size: "lg", title: "Điểm số" },
+          scopedSlots: _vm._u([
+            {
+              key: "modal-footer",
+              fn: function (ref) {
+                var ok = ref.ok
+                var cancel = ref.cancel
+                return [
+                  _c(
+                    "div",
+                    [
+                      _c("b-button", { attrs: { variant: "primary" } }, [
+                        _vm._v(" Xác nhận "),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { variant: "secondary" },
+                          on: {
+                            click: function ($event) {
+                              return cancel()
+                            },
+                          },
+                        },
+                        [_vm._v("\n                    Hủy\n                ")]
                       ),
                     ],
                     1
@@ -2145,7 +2302,9 @@ var render = function () {
                     fn: function (row) {
                       return [
                         _vm._v(
-                          "\n          " + _vm._s(row.index + 1) + "\n        "
+                          "\n                    " +
+                            _vm._s(row.index + 1) +
+                            "\n                "
                         ),
                       ]
                     },
@@ -2328,7 +2487,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12 p-0 pt-3" }, [
       _c("h6", { staticStyle: { "font-weight": "600" } }, [
-        _vm._v("Bảng Điều Khiển"),
+        _vm._v(
+          "\n                                    Bảng Điều Khiển\n                                "
+        ),
       ]),
     ])
   },
@@ -2352,7 +2513,7 @@ var staticRenderFns = [
             },
             [
               _vm._v(
-                "\n                (Chưa có thông báo nào được gửi.)\n              "
+                "\n                                (Chưa có thông báo nào được gửi.)\n                            "
               ),
             ]
           ),

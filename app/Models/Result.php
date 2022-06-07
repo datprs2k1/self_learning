@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Question;
+use App\Models\Student;
 
 class Result extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id, question_id, answer, totalTime'];
+    protected $fillable = ['student_id, subject_id, class_id, week, totalTime, totalScore'];
     protected $primaryKey = 'id';
     protected $table = 'result';
     protected $casts = [
@@ -21,13 +20,8 @@ class Result extends Model
 
     public $timestamps = false;
 
-    public function User()
+    public function student()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
-    }
-
-    public function Question()
-    {
-        return $this->belongsTo(Question::class, 'question_id', 'id');
+        return $this->belongsTo(Student::class, 'student_id');
     }
 }

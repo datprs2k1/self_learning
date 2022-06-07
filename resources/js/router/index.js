@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
             next();
             return;
         }
-        next("/login");
+        window.location.href = '/login';
     } else {
         next();
     }

@@ -16,11 +16,14 @@ class CreateResultTable extends Migration
         Schema::create('result', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('question_id')->unsigned();
-            $table->integer('answer');
+            $table->bigInteger('subject_id')->unsigned();
+            $table->bigInteger('class_id')->unsigned();
+            $table->integer('week');
             $table->string('totalTime');
+            $table->string('totalScore');
             $table->foreign('student_id')->references('id')->on('student')->onDelete('cascade');
-            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subject')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('class')->onDelete('cascade');
             $table->timestamps();
         });
     }
