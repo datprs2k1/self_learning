@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use App\Models\ClassModel;
 use App\Models\Result;
 use App\Models\Question;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -257,8 +258,11 @@ class StudentController extends Controller
     {
         $email = auth()->user()->email;
         $student = Student::where('email', $email)->first();
-        $results = Result::where('student_id', $student->id)->get();
-        
+        $results = Result::select('id', 'student_id', 'subject_id', 'class_id', 'week', 'totalTime', 'created_at', DB::raw('MAX(totalScore) as maxScore'))
+        ->where('student_id', $student->id)
+        ->groupBy('subject_id', 'class_id', 'week')
+        ->get();
+        // $results = DB::select('select `id`, `student_id`, `subject_id`, `class_id`, `week`, `totalTime`, `created_at`, MAX(totalScore) as maxScore from `result` where `student_id` = ' . $student->id . ' group by `subject_id`, `class_id`, `week`');
         return response()->json($results, 200);
     }
 }

@@ -99,11 +99,14 @@ export default {
       try {
         await this.$store.dispatch("auth/login", this.form);
         if (this.$store.getters['auth/getCurrentUser'].role == 'admin') {
-          this.$router.push("adminpanel");
+          // this.$router.push("adminpanel");
+          window.location.href = "/adminpanel";
         } else if (this.$store.getters['auth/getCurrentUser'].role == 'lecturer') {
-          this.$router.push("lecturer");
+          // this.$router.push("lecturer");
+          window.location.href = "/lecturer";
         } else if (this.$store.getters['auth/getCurrentUser'].role == 'student') {
-          this.$router.push("student");
+          // this.$router.push("student");
+          window.location.href = "/student";
         }
       } catch (error) {
         this.errors = error.response.data.errors;

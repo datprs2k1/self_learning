@@ -129,11 +129,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 if (_this.$store.getters['auth/getCurrentUser'].role == 'admin') {
-                  _this.$router.push("adminpanel");
+                  // this.$router.push("adminpanel");
+                  window.location.href = "/adminpanel";
                 } else if (_this.$store.getters['auth/getCurrentUser'].role == 'lecturer') {
-                  _this.$router.push("lecturer");
+                  // this.$router.push("lecturer");
+                  window.location.href = "/lecturer";
                 } else if (_this.$store.getters['auth/getCurrentUser'].role == 'student') {
-                  _this.$router.push("student");
+                  // this.$router.push("student");
+                  window.location.href = "/student";
                 }
 
                 _context.next = 10;

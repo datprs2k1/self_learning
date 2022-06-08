@@ -527,8 +527,18 @@ setInterval(function () {
         "class": "text-center",
         sortable: true
       }, {
-        key: "totalScore",
+        key: "maxScore",
         label: "Điểm",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "totalTime",
+        label: "Thời gian làm (phút)",
+        "class": "text-center",
+        sortable: true
+      }, {
+        key: "created_at",
+        label: "Lần làm bài gần đây",
         "class": "text-center",
         sortable: true
       }],
