@@ -35,16 +35,10 @@
                       @click.prevent="setEmptySelected"
                       variant="info"
                       >Danh sách môn học
-                      <b-badge variant="primary">{{
-                        CLASS.subject.length
-                      }}</b-badge>
+                      <b-badge variant="primary">{{ CLASS.subject.length }}</b-badge>
                     </b-button>
                   </b-card-header>
-                  <b-collapse
-                    id="subject"
-                    accordion="my-accordion"
-                    role="tabpanel"
-                  >
+                  <b-collapse id="subject" accordion="my-accordion" role="tabpanel">
                     <div class="card-body" style="overflow-x: auto">
                       <b-row>
                         <b-col md="1">
@@ -52,18 +46,14 @@
                             id="per-page-select"
                             v-model="subjectopt.perPage"
                             :options="subjectopt.pageOptions"
-                            v-b-tooltip.hover.v-secondary="
-                              'Số bản ghi trên một trang'
-                            "
+                            v-b-tooltip.hover.v-secondary="'Số bản ghi trên một trang'"
                           ></b-form-select>
                         </b-col>
-                        <b-col md="">
+                        <b-col md="" v-if="is('admin')">
                           <button
                             @click="deleteSubjects"
                             class="btn-danger btn"
-                            v-b-tooltip.hover.v-secondary="
-                              'Xóa các bản ghi đã chọn'
-                            "
+                            v-b-tooltip.hover.v-secondary="'Xóa các bản ghi đã chọn'"
                           >
                             <i class="fas fa-trash"></i>
                           </button>
@@ -122,7 +112,7 @@
                               v-b-tooltip.hover.v-secondary="'Bài giảng'"
                             ></i
                           ></router-link>
-                          <span @click="deleteSubject(row.item.id)">
+                          <span @click="deleteSubject(row.item.id)" v-if="is('admin')">
                             <i
                               class="fas fa-trash-alt fa-lg"
                               v-b-tooltip.hover.v-secondary="'Xóa bản ghi'"
@@ -152,16 +142,10 @@
                       @click.prevent="setEmptySelected"
                       variant="info"
                       >Danh sách sinh viên
-                      <b-badge variant="primary">{{
-                        CLASS.student.length
-                      }}</b-badge>
+                      <b-badge variant="primary">{{ CLASS.student.length }}</b-badge>
                     </b-button>
                   </b-card-header>
-                  <b-collapse
-                    id="student"
-                    accordion="my-accordion"
-                    role="tabpanel"
-                  >
+                  <b-collapse id="student" accordion="my-accordion" role="tabpanel">
                     <div class="card-body" style="overflow-x: auto">
                       <b-row>
                         <b-col md="1">
@@ -169,18 +153,14 @@
                             id="per-page-select"
                             v-model="studentotp.perPage"
                             :options="studentotp.pageOptions"
-                            v-b-tooltip.hover.v-secondary="
-                              'Số bản ghi trên một trang'
-                            "
+                            v-b-tooltip.hover.v-secondary="'Số bản ghi trên một trang'"
                           ></b-form-select>
                         </b-col>
-                        <b-col md="">
+                        <b-col md="" v-if="is('admin')">
                           <button
                             @click="deleteStudents"
                             class="btn-danger btn"
-                            v-b-tooltip.hover.v-secondary="
-                              'Xóa các bản ghi đã chọn'
-                            "
+                            v-b-tooltip.hover.v-secondary="'Xóa các bản ghi đã chọn'"
                           >
                             <i class="fas fa-trash"></i>
                           </button>
@@ -233,6 +213,7 @@
                             ></i>
                           </span>
                           <router-link
+                            v-if="is('admin')"
                             :to="{
                               name: 'student.edit',
                               params: {
@@ -244,7 +225,7 @@
                               v-b-tooltip.hover.v-secondary="'Sửa bản ghi'"
                             ></i
                           ></router-link>
-                          <span @click="deleteStudent(row.item.id)">
+                          <span @click="deleteStudent(row.item.id)" v-if="is('admin')">
                             <i
                               class="fas fa-trash-alt fa-lg"
                               v-b-tooltip.hover.v-secondary="'Xóa bản ghi'"
@@ -390,18 +371,14 @@ export default {
   methods: {
     ...mapActions("CLASS", ["getCLASS"]),
     subjectSelectAll(checked) {
-      this.subjectopt.selected = checked
-        ? this.CLASS.subject.map((item) => item.id)
-        : [];
+      this.subjectopt.selected = checked ? this.CLASS.subject.map((item) => item.id) : [];
     },
     subjectSelectOne(checked) {
       this.subjectopt.allSelected =
         this.CLASS.subject.length === this.subjectopt.selected.length;
     },
     studentSelectAll(checked) {
-      this.studentotp.selected = checked
-        ? this.CLASS.student.map((item) => item.id)
-        : [];
+      this.studentotp.selected = checked ? this.CLASS.student.map((item) => item.id) : [];
     },
     studentSelectOne(checked) {
       this.studentotp.allSelected =
@@ -532,10 +509,7 @@ export default {
         width: 480,
       }).then(async (result) => {
         if (result.isConfirmed) {
-          await this.$store.dispatch(
-            "student/deleteMutiple",
-            this.studentotp.selected
-          );
+          await this.$store.dispatch("student/deleteMutiple", this.studentotp.selected);
           this.$swal({
             title: "Đã xóa!",
             icon: "success",
@@ -566,6 +540,7 @@ export default {
   },
   computed: {
     ...mapGetters("CLASS", ["CLASS"]),
+    ...mapGetters("teacher", ["teacherBySujectClass", "teachersBySubject"]),
   },
 };
 </script>

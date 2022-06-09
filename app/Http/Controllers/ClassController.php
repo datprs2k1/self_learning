@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ClassModel;
 use App\Models\Subject;
+use App\Models\User;
 use DB;
+use Illuminate\Support\Arr;
+
+use Illuminate\Support\Facades\Auth;
 
 class ClassController extends Controller
 {
@@ -17,7 +21,28 @@ class ClassController extends Controller
     public function index()
     {
         //
-        $data = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher', 'question')->orderBy('id', 'desc')->get();
+        if (Auth::user()->hasRole('admin')) {
+            $class = ClassModel::with('Subject', 'department', 'teacher')->orderBy('id', 'desc')->get();
+            return response()->json($class, 200);
+        } else if (Auth::user()->hasRole('teacher')) {
+            $a = ClassModel::with('Subject', 'department', 'teacher')->orderBy('id', 'desc')->get();
+            $class = [];
+
+            foreach ($a as $key => $value) {
+                if (count($value->teacher) > 0) {
+                    foreach ($value->teacher as $key2 => $value2) {
+                        if ($value2->user_id == Auth::user()->id) {
+                            array_push($class, $value);
+                        }
+                    }
+                }
+            }
+
+            return response()->json($class, 200);
+        } else {
+            return response()->json(['message' => 'Bạn không có quyền truy cập'], 401);
+        }
+
         return response()->json($data, 200);
     }
 
@@ -76,8 +101,29 @@ class ClassController extends Controller
     public function show($id)
     {
         //
-        $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher', 'question')->find($id);
-        return response()->json($class, 200);
+        if (Auth::user()->hasRole('admin')) {
+            $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher')->find($id);
+            return response()->json($class);
+        } else if (Auth::user()->hasRole('teacher')) {
+            $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher')->find($id);
+            foreach ($class->teacher as $key => $value) {
+                if ($value->user_id == Auth::user()->id) {
+                    $teacher = $value;
+                }
+            }
+            $subject_id = DB::table('subject_class_teacher')->where('class_id', $id)->where('teacher_id', $teacher->id)->pluck('subject_id');
+
+            foreach ($class->subject as $key => $value) {
+                unset($class->subject[$key]);
+            }
+
+            foreach ($subject_id as $key => $value) {
+                $class->subject[$key] = Subject::find($value);
+            }
+            return response()->json($class);
+        } else {
+            return response()->json(['message' => 'Bạn không có quyền truy cập'], 401);
+        }
     }
 
     /**

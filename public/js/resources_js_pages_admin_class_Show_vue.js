@@ -307,25 +307,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -699,7 +680,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.studentotp.allSelected = false;
     }
   }),
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("CLASS", ["CLASS"]))
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("CLASS", ["CLASS"])), (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)("teacher", ["teacherBySujectClass", "teachersBySubject"]))
 });
 
 /***/ }),
@@ -907,7 +888,7 @@ var render = function () {
                                               value:
                                                 "Số bản ghi trên một trang",
                                               expression:
-                                                "\n                            'Số bản ghi trên một trang'\n                          ",
+                                                "'Số bản ghi trên một trang'",
                                               modifiers: {
                                                 hover: true,
                                                 "v-secondary": true,
@@ -934,34 +915,37 @@ var render = function () {
                                       1
                                     ),
                                     _vm._v(" "),
-                                    _c("b-col", { attrs: { md: "" } }, [
-                                      _c(
-                                        "button",
-                                        {
-                                          directives: [
+                                    _vm.is("admin")
+                                      ? _c("b-col", { attrs: { md: "" } }, [
+                                          _c(
+                                            "button",
                                             {
-                                              name: "b-tooltip",
-                                              rawName:
-                                                "v-b-tooltip.hover.v-secondary",
-                                              value: "Xóa các bản ghi đã chọn",
-                                              expression:
-                                                "\n                            'Xóa các bản ghi đã chọn'\n                          ",
-                                              modifiers: {
-                                                hover: true,
-                                                "v-secondary": true,
-                                              },
+                                              directives: [
+                                                {
+                                                  name: "b-tooltip",
+                                                  rawName:
+                                                    "v-b-tooltip.hover.v-secondary",
+                                                  value:
+                                                    "Xóa các bản ghi đã chọn",
+                                                  expression:
+                                                    "'Xóa các bản ghi đã chọn'",
+                                                  modifiers: {
+                                                    hover: true,
+                                                    "v-secondary": true,
+                                                  },
+                                                },
+                                              ],
+                                              staticClass: "btn-danger btn",
+                                              on: { click: _vm.deleteSubjects },
                                             },
-                                          ],
-                                          staticClass: "btn-danger btn",
-                                          on: { click: _vm.deleteSubjects },
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fas fa-trash",
-                                          }),
-                                        ]
-                                      ),
-                                    ]),
+                                            [
+                                              _c("i", {
+                                                staticClass: "fas fa-trash",
+                                              }),
+                                            ]
+                                          ),
+                                        ])
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _c(
                                       "b-col",
@@ -1143,37 +1127,40 @@ var render = function () {
                                             ]
                                           ),
                                           _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              on: {
-                                                click: function ($event) {
-                                                  return _vm.deleteSubject(
-                                                    row.item.id
-                                                  )
-                                                },
-                                              },
-                                            },
-                                            [
-                                              _c("i", {
-                                                directives: [
-                                                  {
-                                                    name: "b-tooltip",
-                                                    rawName:
-                                                      "v-b-tooltip.hover.v-secondary",
-                                                    value: "Xóa bản ghi",
-                                                    expression: "'Xóa bản ghi'",
-                                                    modifiers: {
-                                                      hover: true,
-                                                      "v-secondary": true,
+                                          _vm.is("admin")
+                                            ? _c(
+                                                "span",
+                                                {
+                                                  on: {
+                                                    click: function ($event) {
+                                                      return _vm.deleteSubject(
+                                                        row.item.id
+                                                      )
                                                     },
                                                   },
-                                                ],
-                                                staticClass:
-                                                  "fas fa-trash-alt fa-lg",
-                                              }),
-                                            ]
-                                          ),
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    directives: [
+                                                      {
+                                                        name: "b-tooltip",
+                                                        rawName:
+                                                          "v-b-tooltip.hover.v-secondary",
+                                                        value: "Xóa bản ghi",
+                                                        expression:
+                                                          "'Xóa bản ghi'",
+                                                        modifiers: {
+                                                          hover: true,
+                                                          "v-secondary": true,
+                                                        },
+                                                      },
+                                                    ],
+                                                    staticClass:
+                                                      "fas fa-trash-alt fa-lg",
+                                                  }),
+                                                ]
+                                              )
+                                            : _vm._e(),
                                         ]
                                       },
                                     },
@@ -1301,7 +1288,7 @@ var render = function () {
                                               value:
                                                 "Số bản ghi trên một trang",
                                               expression:
-                                                "\n                            'Số bản ghi trên một trang'\n                          ",
+                                                "'Số bản ghi trên một trang'",
                                               modifiers: {
                                                 hover: true,
                                                 "v-secondary": true,
@@ -1328,34 +1315,37 @@ var render = function () {
                                       1
                                     ),
                                     _vm._v(" "),
-                                    _c("b-col", { attrs: { md: "" } }, [
-                                      _c(
-                                        "button",
-                                        {
-                                          directives: [
+                                    _vm.is("admin")
+                                      ? _c("b-col", { attrs: { md: "" } }, [
+                                          _c(
+                                            "button",
                                             {
-                                              name: "b-tooltip",
-                                              rawName:
-                                                "v-b-tooltip.hover.v-secondary",
-                                              value: "Xóa các bản ghi đã chọn",
-                                              expression:
-                                                "\n                            'Xóa các bản ghi đã chọn'\n                          ",
-                                              modifiers: {
-                                                hover: true,
-                                                "v-secondary": true,
-                                              },
+                                              directives: [
+                                                {
+                                                  name: "b-tooltip",
+                                                  rawName:
+                                                    "v-b-tooltip.hover.v-secondary",
+                                                  value:
+                                                    "Xóa các bản ghi đã chọn",
+                                                  expression:
+                                                    "'Xóa các bản ghi đã chọn'",
+                                                  modifiers: {
+                                                    hover: true,
+                                                    "v-secondary": true,
+                                                  },
+                                                },
+                                              ],
+                                              staticClass: "btn-danger btn",
+                                              on: { click: _vm.deleteStudents },
                                             },
-                                          ],
-                                          staticClass: "btn-danger btn",
-                                          on: { click: _vm.deleteStudents },
-                                        },
-                                        [
-                                          _c("i", {
-                                            staticClass: "fas fa-trash",
-                                          }),
-                                        ]
-                                      ),
-                                    ]),
+                                            [
+                                              _c("i", {
+                                                staticClass: "fas fa-trash",
+                                              }),
+                                            ]
+                                          ),
+                                        ])
+                                      : _vm._e(),
                                     _vm._v(" "),
                                     _c(
                                       "b-col",
@@ -1529,70 +1519,76 @@ var render = function () {
                                             ]
                                           ),
                                           _vm._v(" "),
-                                          _c(
-                                            "router-link",
-                                            {
-                                              attrs: {
-                                                to: {
-                                                  name: "student.edit",
-                                                  params: {
-                                                    id: row.item.id,
-                                                  },
-                                                },
-                                              },
-                                            },
-                                            [
-                                              _c("i", {
-                                                directives: [
-                                                  {
-                                                    name: "b-tooltip",
-                                                    rawName:
-                                                      "v-b-tooltip.hover.v-secondary",
-                                                    value: "Sửa bản ghi",
-                                                    expression: "'Sửa bản ghi'",
-                                                    modifiers: {
-                                                      hover: true,
-                                                      "v-secondary": true,
+                                          _vm.is("admin")
+                                            ? _c(
+                                                "router-link",
+                                                {
+                                                  attrs: {
+                                                    to: {
+                                                      name: "student.edit",
+                                                      params: {
+                                                        id: row.item.id,
+                                                      },
                                                     },
                                                   },
-                                                ],
-                                                staticClass:
-                                                  "fas fa-edit fa-lg",
-                                              }),
-                                            ]
-                                          ),
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    directives: [
+                                                      {
+                                                        name: "b-tooltip",
+                                                        rawName:
+                                                          "v-b-tooltip.hover.v-secondary",
+                                                        value: "Sửa bản ghi",
+                                                        expression:
+                                                          "'Sửa bản ghi'",
+                                                        modifiers: {
+                                                          hover: true,
+                                                          "v-secondary": true,
+                                                        },
+                                                      },
+                                                    ],
+                                                    staticClass:
+                                                      "fas fa-edit fa-lg",
+                                                  }),
+                                                ]
+                                              )
+                                            : _vm._e(),
                                           _vm._v(" "),
-                                          _c(
-                                            "span",
-                                            {
-                                              on: {
-                                                click: function ($event) {
-                                                  return _vm.deleteStudent(
-                                                    row.item.id
-                                                  )
-                                                },
-                                              },
-                                            },
-                                            [
-                                              _c("i", {
-                                                directives: [
-                                                  {
-                                                    name: "b-tooltip",
-                                                    rawName:
-                                                      "v-b-tooltip.hover.v-secondary",
-                                                    value: "Xóa bản ghi",
-                                                    expression: "'Xóa bản ghi'",
-                                                    modifiers: {
-                                                      hover: true,
-                                                      "v-secondary": true,
+                                          _vm.is("admin")
+                                            ? _c(
+                                                "span",
+                                                {
+                                                  on: {
+                                                    click: function ($event) {
+                                                      return _vm.deleteStudent(
+                                                        row.item.id
+                                                      )
                                                     },
                                                   },
-                                                ],
-                                                staticClass:
-                                                  "fas fa-trash-alt fa-lg",
-                                              }),
-                                            ]
-                                          ),
+                                                },
+                                                [
+                                                  _c("i", {
+                                                    directives: [
+                                                      {
+                                                        name: "b-tooltip",
+                                                        rawName:
+                                                          "v-b-tooltip.hover.v-secondary",
+                                                        value: "Xóa bản ghi",
+                                                        expression:
+                                                          "'Xóa bản ghi'",
+                                                        modifiers: {
+                                                          hover: true,
+                                                          "v-secondary": true,
+                                                        },
+                                                      },
+                                                    ],
+                                                    staticClass:
+                                                      "fas fa-trash-alt fa-lg",
+                                                  }),
+                                                ]
+                                              )
+                                            : _vm._e(),
                                         ]
                                       },
                                     },

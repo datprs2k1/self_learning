@@ -39,7 +39,7 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         //
-         $delete = json_decode($request->delete);
+        $delete = json_decode($request->delete);
         if (count($delete) > 0) {
             foreach ($delete as $id) {
                 $question = Question::find($id);
@@ -112,7 +112,7 @@ class QuestionController extends Controller
     {
         //
 
-        if (auth()->user()->hasRole('admin')) {
+        if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('teacher')) {
             $request->validate(
                 [
                     'question' => 'required',

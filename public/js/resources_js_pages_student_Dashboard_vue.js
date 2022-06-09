@@ -378,114 +378,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 setInterval(function () {
   var remaining = localStorage.endTime - new Date();
 
@@ -528,12 +420,12 @@ setInterval(function () {
         sortable: true
       }, {
         key: "maxScore",
-        label: "Điểm",
+        label: "Điểm cao nhất",
         "class": "text-center",
         sortable: true
       }, {
         key: "totalTime",
-        label: "Thời gian làm (phút)",
+        label: "Thời gian hoàn thành (phút)",
         "class": "text-center",
         sortable: true
       }, {
@@ -952,7 +844,7 @@ ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_aos_css__WEBPACK_IMPORTED_MODULE_9__["default"]);
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_public_css_style_css__WEBPACK_IMPORTED_MODULE_10__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\r\n/* HEADER START */\n#header[data-v-19cc9d87] {\r\n    background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\r\n    background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\r\n    min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\r\n    font-size: 20px;\n}\n.home[data-v-19cc9d87] {\r\n    background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\r\n    display: flex !important;\n}\n.site-menu > li[data-v-19cc9d87] {\r\n    height: 48px;\r\n    line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\r\n    background-color: #f58635;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.home:hover > .icon.icon-home2[data-v-19cc9d87] {\r\n    color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\r\n    background-color: #f58635 !important;\r\n    transition-delay: 0.05s;\r\n    transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\r\n    background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\r\n    padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\r\n    background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\r\n    height: 48px;\n}\n.social-wrap > a[data-v-19cc9d87] {\r\n    width: 48px;\r\n    height: 48px;\n}\n#avatar[data-v-19cc9d87] {\r\n    width: 64.86px;\r\n    height: 100%;\r\n    float: right;\r\n    border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\r\n    float: right;\r\n    outline: none;\n}\r\n\r\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\r\n    outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\r\n    padding-left: 68px;\r\n    padding-right: 68px;\n}\r\n\r\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open > .ctx-menu {\r\n    /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg > .svg-icon {\r\n    fill: unset !important;\r\n    opacity: 0.65 !important;\n}\n.form-check[data-v-19cc9d87] {\r\n    padding-left: 1.5em !important;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* @import \"../../../../public/css/jquery.mb.YTPlayer.min.css\"; */\n/* HEADER START */\n#header[data-v-19cc9d87] {\n  background-image: linear-gradient(to bottom, #fff 0%, #f4f4f4 160%);\n  background-repeat: repeat-x;\n}\n.navbar-login[data-v-19cc9d87] {\n  min-height: 100px;\n}\n.icon-home2[data-v-19cc9d87]:before {\n  font-size: 20px;\n}\n.home[data-v-19cc9d87] {\n  background-color: #f58635;\n}\n.d-flex.align-items-center[data-v-19cc9d87] {\n  height: 48px;\n}\n.site-menu[data-v-19cc9d87] {\n  display: flex !important;\n}\n.site-menu > li[data-v-19cc9d87] {\n  height: 48px;\n  line-height: 48px;\n}\n.nav-link.text-left[data-v-19cc9d87]:hover {\n  background-color: #f58635;\n  transition-delay: 0.05s;\n  transition-duration: 0.3s;\n}\n.nav-link.text-left.home[data-v-19cc9d87]:hover {\n  background-color: #ffa500;\n}\n.home:hover > .icon.icon-home2[data-v-19cc9d87] {\n  color: white;\n}\n.dropdown.bg-secondary li a[data-v-19cc9d87]:hover {\n  background-color: #f58635 !important;\n  transition-delay: 0.05s;\n  transition-duration: 0.35s;\n}\n.site-mobile-menu[data-v-19cc9d87] {\n  background-color: #3a454b;\n}\n.site-nav-wrap li a[data-v-19cc9d87] {\n  padding: 7px 1rem !important;\n}\n.site-mobile-menu-body .nav-link.text-left.home[data-v-19cc9d87]:hover {\n  background-color: #ffa500;\n}\n.social-wrap[data-v-19cc9d87] {\n  height: 48px;\n}\n.social-wrap > a[data-v-19cc9d87] {\n  width: 48px;\n  height: 48px;\n}\n#avatar[data-v-19cc9d87] {\n  width: 64.86px;\n  height: 100%;\n  float: right;\n  border-radius: 3px;\n}\n#dropdown-in-header[data-v-19cc9d87] {\n  float: right;\n  outline: none;\n}\n\n/* deep ghi đè */\n[data-v-19cc9d87] .dropdown-item {\n  outline: none;\n}\n.container-fluid[data-v-19cc9d87] {\n  padding-left: 68px;\n  padding-right: 68px;\n}\n\n/* HEADER END */\n.container-fluid[data-v-19cc9d87] {\n  padding-left: 68px;\n  padding-right: 68px;\n}\n\n/* LEFT SIDEBAR */\n[data-v-19cc9d87] .open > .ctx-menu {\n  /* display: none; */\n}\n[data-v-19cc9d87] .tree-node svg > .svg-icon {\n  fill: unset !important;\n  opacity: 0.65 !important;\n}\n.form-check[data-v-19cc9d87] {\n  padding-left: 1.5em !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1545,11 +1437,7 @@ var render = function () {
                           {
                             key: "button-content",
                             fn: function () {
-                              return [
-                                _vm._v(
-                                  "\n                                    Họ tên\n                                "
-                                ),
-                              ]
+                              return [_vm._v(" Họ tên ")]
                             },
                             proxy: true,
                           },
@@ -1567,7 +1455,7 @@ var render = function () {
                               },
                             }),
                             _vm._v(
-                              "\n                                    Locked\n                                    "
+                              "\n                  Locked\n                  "
                             ),
                             _c("span", { staticClass: "sr-only" }, [
                               _vm._v("(Click to unlock)"),
@@ -1595,7 +1483,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\n                                        Option A\n                                        "
+                                  "\n                    Option A\n                    "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Not selected)"),
@@ -1614,7 +1502,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\n                                        Option B\n                                        "
+                                  "\n                    Option B\n                    "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Selected)"),
@@ -1633,7 +1521,7 @@ var render = function () {
                                   },
                                 }),
                                 _vm._v(
-                                  "\n                                        Option C\n                                        "
+                                  "\n                    Option C\n                    "
                                 ),
                                 _c("span", { staticClass: "sr-only" }, [
                                   _vm._v("(Not selected)"),
@@ -1650,9 +1538,7 @@ var render = function () {
                         _c("b-dropdown-item-button", [_vm._v("Some action")]),
                         _vm._v(" "),
                         _c("b-dropdown-item-button", [
-                          _vm._v(
-                            "Some other\n                                    action"
-                          ),
+                          _vm._v("Some other action"),
                         ]),
                         _vm._v(" "),
                         _c("b-dropdown-divider"),
@@ -1668,7 +1554,7 @@ var render = function () {
                               },
                             }),
                             _vm._v(
-                              "\n                                    Delete\n                                "
+                              "\n                  Delete\n                "
                             ),
                           ],
                           1
@@ -1802,11 +1688,7 @@ var render = function () {
                               "font-weight": "700",
                             },
                           },
-                          [
-                            _vm._v(
-                              "\n                            Điều Hướng\n                        "
-                            ),
-                          ]
+                          [_vm._v("\n              Điều Hướng\n            ")]
                         ),
                       ],
                       1
@@ -1878,11 +1760,7 @@ var render = function () {
                               "font-weight": "700",
                             },
                           },
-                          [
-                            _vm._v(
-                              "\n                            Tin mới nhất\n                        "
-                            ),
-                          ]
+                          [_vm._v("\n              Tin mới nhất\n            ")]
                         ),
                       ],
                       1
@@ -1964,9 +1842,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                " +
+                                      "\n                " +
                                         _vm._s(item.answer_A) +
-                                        "\n                            "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -2016,9 +1894,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                " +
+                                      "\n                " +
                                         _vm._s(item.answer_B) +
-                                        "\n                            "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -2068,9 +1946,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                " +
+                                      "\n                " +
                                         _vm._s(item.answer_C) +
-                                        "\n                            "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -2120,9 +1998,9 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                " +
+                                      "\n                " +
                                         _vm._s(item.answer_D) +
-                                        "\n                            "
+                                        "\n              "
                                     ),
                                   ]
                                 ),
@@ -2137,11 +2015,7 @@ var render = function () {
                                 staticClass: "btn btn-primary mt-2 float-right",
                                 on: { click: _vm.submit },
                               },
-                              [
-                                _vm._v(
-                                  "\n                            Nộp bài\n                        "
-                                ),
-                              ]
+                              [_vm._v("\n              Nộp bài\n            ")]
                             ),
                           ]),
                         ],
@@ -2222,7 +2096,7 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("\n                    Hủy\n                ")]
+                        [_vm._v(" Hủy ")]
                       ),
                     ],
                     1
@@ -2245,9 +2119,7 @@ var render = function () {
                     fn: function (row) {
                       return [
                         _vm._v(
-                          "\n                    " +
-                            _vm._s(row.index + 1) +
-                            "\n                "
+                          "\n          " + _vm._s(row.index + 1) + "\n        "
                         ),
                       ]
                     },
@@ -2289,7 +2161,7 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("\n                    Hủy\n                ")]
+                        [_vm._v(" Hủy ")]
                       ),
                     ],
                     1
@@ -2312,9 +2184,7 @@ var render = function () {
                     fn: function (row) {
                       return [
                         _vm._v(
-                          "\n                    " +
-                            _vm._s(row.index + 1) +
-                            "\n                "
+                          "\n          " + _vm._s(row.index + 1) + "\n        "
                         ),
                       ]
                     },
@@ -2497,9 +2367,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12 p-0 pt-3" }, [
       _c("h6", { staticStyle: { "font-weight": "600" } }, [
-        _vm._v(
-          "\n                                    Bảng Điều Khiển\n                                "
-        ),
+        _vm._v("Bảng Điều Khiển"),
       ]),
     ])
   },
@@ -2523,7 +2391,7 @@ var staticRenderFns = [
             },
             [
               _vm._v(
-                "\n                                (Chưa có thông báo nào được gửi.)\n                            "
+                "\n                (Chưa có thông báo nào được gửi.)\n              "
               ),
             ]
           ),

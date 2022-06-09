@@ -1,9 +1,7 @@
 <template>
   <div>
     <!-- Preloader -->
-    <div
-      class="preloader flex-column justify-content-center align-items-center"
-    >
+    <div class="preloader flex-column justify-content-center align-items-center">
       <img
         class="animation__shake"
         src="/images/logo-utt.png"
@@ -34,12 +32,7 @@
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
         <li class="nav-item">
-          <a
-            class="nav-link"
-            data-widget="navbar-search"
-            href="#"
-            role="button"
-          >
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
             <i class="fas fa-search"></i>
           </a>
           <div class="navbar-search-block">
@@ -147,9 +140,7 @@
               <!-- Message End -->
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer"
-              >See All Messages</a
-            >
+            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
           </div>
         </li>
         <!-- Notifications Dropdown Menu -->
@@ -176,9 +167,7 @@
               <span class="float-right text-muted text-sm">2 days</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer"
-              >See All Notifications</a
-            >
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
         </li>
         <li class="nav-item">
@@ -257,7 +246,7 @@
           >
             <!-- Add icons to the links using the .nav-icon class
               with font-awesome or any other icon font library -->
-            <li class="nav-item">
+            <li class="nav-item" v-if="is('admin')">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-warehouse"></i>
                 <p>
@@ -268,19 +257,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <router-link
-                    :to="{ name: 'department.index' }"
-                    class="nav-link"
-                  >
+                  <router-link :to="{ name: 'department.index' }" class="nav-link">
                     <i class="ml-1 mr-1 nav-icon fas fa-table"></i>
                     <p>Danh sách</p>
                   </router-link>
                 </li>
                 <li class="nav-item">
-                  <router-link
-                    :to="{ name: 'department.add' }"
-                    class="nav-link"
-                  >
+                  <router-link :to="{ name: 'department.add' }" class="nav-link">
                     <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
                     <p>Thêm</p>
                   </router-link>
@@ -303,7 +286,7 @@
                     <p>Danh sách</p>
                   </router-link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="is('admin')">
                   <router-link :to="{ name: 'class.add' }" class="nav-link">
                     <i class="ml-1 mr-1 nav-icon fas fa-plus-circle"></i>
                     <p>Thêm</p>
@@ -311,7 +294,7 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="is('admin')">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
@@ -335,7 +318,7 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="is('admin')">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
@@ -359,7 +342,7 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="is('admin')">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
@@ -383,7 +366,6 @@
                 </li>
               </ul>
             </li>
-          
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

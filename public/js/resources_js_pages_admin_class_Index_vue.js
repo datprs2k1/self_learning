@@ -222,39 +222,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -80926,188 +80893,193 @@ var render = function () {
                         staticStyle: { "overflow-x": "auto" },
                       },
                       [
-                        _c(
-                          "b-row",
-                          [
-                            _c(
-                              "b-col",
-                              { attrs: { md: "1" } },
-                              [
-                                _c("b-form-select", {
-                                  directives: [
-                                    {
-                                      name: "b-tooltip",
-                                      rawName: "v-b-tooltip.hover.v-secondary",
-                                      value: "Số bản ghi trên một trang",
-                                      expression:
-                                        "\n                                                'Số bản ghi trên một trang'\n                                            ",
-                                      modifiers: {
-                                        hover: true,
-                                        "v-secondary": true,
-                                      },
-                                    },
-                                  ],
-                                  attrs: {
-                                    id: "per-page-select",
-                                    options: _vm.pageOptions,
-                                  },
-                                  model: {
-                                    value: _vm.perPage,
-                                    callback: function ($$v) {
-                                      _vm.perPage = $$v
-                                    },
-                                    expression: "perPage",
-                                  },
-                                }),
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { attrs: { md: "" } },
+                        _vm.is("admin")
+                          ? _c(
+                              "b-row",
                               [
                                 _c(
-                                  "span",
+                                  "b-col",
+                                  { attrs: { md: "1" } },
                                   [
-                                    _c(
-                                      "export-excel",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "b-tooltip",
-                                            rawName:
-                                              "v-b-tooltip.hover.v-secondary",
-                                            value:
-                                              "Xuất Excel các bản ghi đã chọn",
-                                            expression:
-                                              "\n                                                    'Xuất Excel các bản ghi đã chọn'\n                                                ",
-                                            modifiers: {
-                                              hover: true,
-                                              "v-secondary": true,
-                                            },
-                                          },
-                                        ],
-                                        staticClass: "btn btn-success",
-                                        attrs: {
-                                          data: _vm.json_data,
-                                          name: "Danh sách lớp.xls",
-                                          id: "export-excel",
-                                        },
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass: "fa fa-file-excel",
-                                        }),
-                                      ]
-                                    ),
-                                  ],
-                                  1
-                                ),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _c(
-                                    "button",
-                                    {
+                                    _c("b-form-select", {
                                       directives: [
                                         {
                                           name: "b-tooltip",
                                           rawName:
                                             "v-b-tooltip.hover.v-secondary",
-                                          value: "Xuất PDF các bản ghi đã chọn",
+                                          value: "Số bản ghi trên một trang",
                                           expression:
-                                            "\n                                                    'Xuất PDF các bản ghi đã chọn'\n                                                ",
+                                            "'Số bản ghi trên một trang'",
                                           modifiers: {
                                             hover: true,
                                             "v-secondary": true,
                                           },
                                         },
                                       ],
-                                      staticClass: "btn btn-warning",
-                                    },
-                                    [
-                                      _c("i", {
-                                        staticClass: "fas fa-file-pdf",
-                                        on: { click: _vm.exportPdf },
-                                      }),
-                                    ]
-                                  ),
-                                ]),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "b-tooltip",
-                                        rawName:
-                                          "v-b-tooltip.hover.v-secondary",
-                                        value: "Xóa các bản ghi đã chọn",
-                                        expression:
-                                          "\n                                                'Xóa các bản ghi đã chọn'\n                                            ",
-                                        modifiers: {
-                                          hover: true,
-                                          "v-secondary": true,
-                                        },
+                                      attrs: {
+                                        id: "per-page-select",
+                                        options: _vm.pageOptions,
                                       },
-                                    ],
-                                    staticClass: "btn-danger btn",
-                                    on: { click: _vm.deleteMutiple },
-                                  },
-                                  [_c("i", { staticClass: "fas fa-trash" })]
+                                      model: {
+                                        value: _vm.perPage,
+                                        callback: function ($$v) {
+                                          _vm.perPage = $$v
+                                        },
+                                        expression: "perPage",
+                                      },
+                                    }),
+                                  ],
+                                  1
                                 ),
                                 _vm._v(" "),
                                 _c(
-                                  "router-link",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "b-tooltip",
-                                        rawName:
-                                          "v-b-tooltip.hover.v-secondary",
-                                        value: "Thêm mới bản ghi",
-                                        expression:
-                                          "\n                                                'Thêm mới bản ghi'\n                                            ",
-                                        modifiers: {
-                                          hover: true,
-                                          "v-secondary": true,
-                                        },
-                                      },
-                                    ],
-                                    staticClass: "btn btn-primary",
-                                    attrs: { to: { name: "class.add" } },
-                                  },
-                                  [_c("i", { staticClass: "fas fa-plus" })]
-                                ),
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "b-col",
-                              { staticClass: "my-1", attrs: { md: "4" } },
-                              [
-                                _c(
-                                  "b-form-group",
+                                  "b-col",
+                                  { attrs: { md: "" } },
                                   [
                                     _c(
-                                      "b-input-group",
+                                      "span",
                                       [
-                                        _c("b-form-input", {
-                                          attrs: {
-                                            id: "filter-input",
-                                            type: "search",
-                                            placeholder:
-                                              "Nhập từ khóa tìm kiếm",
-                                          },
-                                          model: {
-                                            value: _vm.filter,
-                                            callback: function ($$v) {
-                                              _vm.filter = $$v
+                                        _c(
+                                          "export-excel",
+                                          {
+                                            directives: [
+                                              {
+                                                name: "b-tooltip",
+                                                rawName:
+                                                  "v-b-tooltip.hover.v-secondary",
+                                                value:
+                                                  "Xuất Excel các bản ghi đã chọn",
+                                                expression:
+                                                  "'Xuất Excel các bản ghi đã chọn'",
+                                                modifiers: {
+                                                  hover: true,
+                                                  "v-secondary": true,
+                                                },
+                                              },
+                                            ],
+                                            staticClass: "btn btn-success",
+                                            attrs: {
+                                              data: _vm.json_data,
+                                              name: "Danh sách lớp.xls",
+                                              id: "export-excel",
                                             },
-                                            expression: "filter",
                                           },
-                                        }),
+                                          [
+                                            _c("i", {
+                                              staticClass: "fa fa-file-excel",
+                                            }),
+                                          ]
+                                        ),
+                                      ],
+                                      1
+                                    ),
+                                    _vm._v(" "),
+                                    _c("span", [
+                                      _c(
+                                        "button",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "b-tooltip",
+                                              rawName:
+                                                "v-b-tooltip.hover.v-secondary",
+                                              value:
+                                                "Xuất PDF các bản ghi đã chọn",
+                                              expression:
+                                                "'Xuất PDF các bản ghi đã chọn'",
+                                              modifiers: {
+                                                hover: true,
+                                                "v-secondary": true,
+                                              },
+                                            },
+                                          ],
+                                          staticClass: "btn btn-warning",
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass: "fas fa-file-pdf",
+                                            on: { click: _vm.exportPdf },
+                                          }),
+                                        ]
+                                      ),
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Xóa các bản ghi đã chọn",
+                                            expression:
+                                              "'Xóa các bản ghi đã chọn'",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "btn-danger btn",
+                                        on: { click: _vm.deleteMutiple },
+                                      },
+                                      [_c("i", { staticClass: "fas fa-trash" })]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "router-link",
+                                      {
+                                        directives: [
+                                          {
+                                            name: "b-tooltip",
+                                            rawName:
+                                              "v-b-tooltip.hover.v-secondary",
+                                            value: "Thêm mới bản ghi",
+                                            expression: "'Thêm mới bản ghi'",
+                                            modifiers: {
+                                              hover: true,
+                                              "v-secondary": true,
+                                            },
+                                          },
+                                        ],
+                                        staticClass: "btn btn-primary",
+                                        attrs: { to: { name: "class.add" } },
+                                      },
+                                      [_c("i", { staticClass: "fas fa-plus" })]
+                                    ),
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "b-col",
+                                  { staticClass: "my-1", attrs: { md: "4" } },
+                                  [
+                                    _c(
+                                      "b-form-group",
+                                      [
+                                        _c(
+                                          "b-input-group",
+                                          [
+                                            _c("b-form-input", {
+                                              attrs: {
+                                                id: "filter-input",
+                                                type: "search",
+                                                placeholder:
+                                                  "Nhập từ khóa tìm kiếm",
+                                              },
+                                              model: {
+                                                value: _vm.filter,
+                                                callback: function ($$v) {
+                                                  _vm.filter = $$v
+                                                },
+                                                expression: "filter",
+                                              },
+                                            }),
+                                          ],
+                                          1
+                                        ),
                                       ],
                                       1
                                     ),
@@ -81116,10 +81088,8 @@ var render = function () {
                                 ),
                               ],
                               1
-                            ),
-                          ],
-                          1
-                        ),
+                            )
+                          : _vm._e(),
                         _vm._v(" "),
                         _c("b-table", {
                           attrs: {
@@ -81222,8 +81192,7 @@ var render = function () {
                                             rawName:
                                               "v-b-tooltip.hover.v-secondary",
                                             value: "Xem chi tiết",
-                                            expression:
-                                              "\n                                                    'Xem chi tiết'\n                                                ",
+                                            expression: "'Xem chi tiết'",
                                             modifiers: {
                                               hover: true,
                                               "v-secondary": true,
@@ -81235,134 +81204,151 @@ var render = function () {
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      staticStyle: { cursor: "pointer" },
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.showModal(
-                                            row.item.id,
-                                            row.item.name
-                                          )
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("i", {
-                                        directives: [
-                                          {
-                                            name: "b-tooltip",
-                                            rawName:
-                                              "v-b-tooltip.hover.v-secondary",
-                                            value: "Thêm môn học",
-                                            expression:
-                                              "\n                                                    'Thêm môn học'\n                                                ",
-                                            modifiers: {
-                                              hover: true,
-                                              "v-secondary": true,
+                                  _vm.is("admin")
+                                    ? _c(
+                                        "div",
+                                        [
+                                          _c(
+                                            "span",
+                                            {
+                                              staticStyle: {
+                                                cursor: "pointer",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.showModal(
+                                                    row.item.id,
+                                                    row.item.name
+                                                  )
+                                                },
+                                              },
                                             },
-                                          },
-                                        ],
-                                        staticClass: "fas fa-plus fa-lg",
-                                      }),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "router-link",
-                                    {
-                                      attrs: {
-                                        to: {
-                                          name: "student.add",
-                                          params: {
-                                            class_id: row.item.id,
-                                            dept_id: row.item.department.id,
-                                          },
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("i", {
-                                        directives: [
-                                          {
-                                            name: "b-tooltip",
-                                            rawName:
-                                              "v-b-tooltip.hover.v-secondary",
-                                            value: "Thêm sinh viên",
-                                            expression:
-                                              "\n                                                    'Thêm sinh viên'\n                                                ",
-                                            modifiers: {
-                                              hover: true,
-                                              "v-secondary": true,
+                                            [
+                                              _c("i", {
+                                                directives: [
+                                                  {
+                                                    name: "b-tooltip",
+                                                    rawName:
+                                                      "v-b-tooltip.hover.v-secondary",
+                                                    value: "Thêm môn học",
+                                                    expression:
+                                                      "'Thêm môn học'",
+                                                    modifiers: {
+                                                      hover: true,
+                                                      "v-secondary": true,
+                                                    },
+                                                  },
+                                                ],
+                                                staticClass:
+                                                  "fas fa-plus fa-lg",
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to: {
+                                                  name: "student.add",
+                                                  params: {
+                                                    class_id: row.item.id,
+                                                    dept_id:
+                                                      row.item.department.id,
+                                                  },
+                                                },
+                                              },
                                             },
-                                          },
-                                        ],
-                                        staticClass: "fas fa-plus fa-lg",
-                                      }),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "router-link",
-                                    {
-                                      attrs: {
-                                        to: {
-                                          name: "class.edit",
-                                          params: { id: row.item.id },
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("i", {
-                                        directives: [
-                                          {
-                                            name: "b-tooltip",
-                                            rawName:
-                                              "v-b-tooltip.hover.v-secondary",
-                                            value: "Sửa bản ghi",
-                                            expression:
-                                              "\n                                                    'Sửa bản ghi'\n                                                ",
-                                            modifiers: {
-                                              hover: true,
-                                              "v-secondary": true,
+                                            [
+                                              _c("i", {
+                                                directives: [
+                                                  {
+                                                    name: "b-tooltip",
+                                                    rawName:
+                                                      "v-b-tooltip.hover.v-secondary",
+                                                    value: "Thêm sinh viên",
+                                                    expression:
+                                                      "'Thêm sinh viên'",
+                                                    modifiers: {
+                                                      hover: true,
+                                                      "v-secondary": true,
+                                                    },
+                                                  },
+                                                ],
+                                                staticClass:
+                                                  "fas fa-plus fa-lg",
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to: {
+                                                  name: "class.edit",
+                                                  params: {
+                                                    id: row.item.id,
+                                                  },
+                                                },
+                                              },
                                             },
-                                          },
-                                        ],
-                                        staticClass: "fas fa-edit fa-lg",
-                                      }),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "span",
-                                    {
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.deleteCLASS(row.item.id)
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("i", {
-                                        directives: [
-                                          {
-                                            name: "b-tooltip",
-                                            rawName:
-                                              "v-b-tooltip.hover.v-secondary",
-                                            value: "Xóa bản ghi",
-                                            expression:
-                                              "\n                                                    'Xóa bản ghi'\n                                                ",
-                                            modifiers: {
-                                              hover: true,
-                                              "v-secondary": true,
+                                            [
+                                              _c("i", {
+                                                directives: [
+                                                  {
+                                                    name: "b-tooltip",
+                                                    rawName:
+                                                      "v-b-tooltip.hover.v-secondary",
+                                                    value: "Sửa bản ghi",
+                                                    expression: "'Sửa bản ghi'",
+                                                    modifiers: {
+                                                      hover: true,
+                                                      "v-secondary": true,
+                                                    },
+                                                  },
+                                                ],
+                                                staticClass:
+                                                  "fas fa-edit fa-lg",
+                                              }),
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              on: {
+                                                click: function ($event) {
+                                                  return _vm.deleteCLASS(
+                                                    row.item.id
+                                                  )
+                                                },
+                                              },
                                             },
-                                          },
+                                            [
+                                              _c("i", {
+                                                directives: [
+                                                  {
+                                                    name: "b-tooltip",
+                                                    rawName:
+                                                      "v-b-tooltip.hover.v-secondary",
+                                                    value: "Xóa bản ghi",
+                                                    expression: "'Xóa bản ghi'",
+                                                    modifiers: {
+                                                      hover: true,
+                                                      "v-secondary": true,
+                                                    },
+                                                  },
+                                                ],
+                                                staticClass:
+                                                  "fas fa-trash-alt fa-lg",
+                                              }),
+                                            ]
+                                          ),
                                         ],
-                                        staticClass: "fas fa-trash-alt fa-lg",
-                                      }),
-                                    ]
-                                  ),
+                                        1
+                                      )
+                                    : _vm._e(),
                                 ]
                               },
                             },
@@ -81371,9 +81357,9 @@ var render = function () {
                               fn: function (row) {
                                 return [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\n                    " +
                                       _vm._s(row.index + 1) +
-                                      "\n                                    "
+                                      "\n                  "
                                   ),
                                 ]
                               },

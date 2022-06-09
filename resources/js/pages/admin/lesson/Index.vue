@@ -21,18 +21,32 @@
                         <p>Môn {{ subject.name }} ({{ subject.code }})</p>
                       </div>
                       <div>
-                        <div v-if="CLASS.teacher && CLASS.teacher.length > 0">
+                        <div v-if="teacherSC && teacherSC.length > 0">
                           <p>Thông tin giảng viên</p>
-                          <p>{{ CLASS.teacher[0].name }}</p>
-                          <p>{{ CLASS.teacher[0].phone }}</p>
-                          <p>{{ CLASS.teacher[0].email }}</p>
-                          <button class="btn btn-primary" @click="getTeacher()">
+                          <p>
+                            {{ teacherSC[0].name }}
+                          </p>
+                          <p>
+                            {{ teacherSC[0].phone }}
+                          </p>
+                          <p>
+                            {{ teacherSC[0].email }}
+                          </p>
+                          <button
+                            class="btn btn-primary"
+                            @click="getTeacher()"
+                            v-if="is('admin')"
+                          >
                             Sửa giảng viên
                           </button>
                         </div>
                         <div v-else>
                           <p>Chưa có giảng viên</p>
-                          <button class="btn btn-primary" @click="getTeacher()">
+                          <button
+                            class="btn btn-primary"
+                            @click="getTeacher()"
+                            v-if="is('admin')"
+                          >
                             Thêm giảng viên
                           </button>
                         </div>
@@ -235,7 +249,6 @@
                             }"
                           ></b-form-input>
                         </div>
-                        
                       </div>
                     </b-form-group>
 
@@ -262,7 +275,11 @@
                           >
                           </b-form-input>
                         </b-form-group>
-                        <b-form-group label="Đáp án" v-slot="{ ariaDescribedby }" label-for="name-input">
+                        <b-form-group
+                          label="Đáp án"
+                          v-slot="{ ariaDescribedby }"
+                          label-for="name-input"
+                        >
                           <div class="row mb-3">
                             <div class="col-md-6">
                               <b-form-radio
@@ -341,7 +358,7 @@
                       </div>
                     </template>
                   </b-modal>
-               
+
                   <b-modal
                     id="modal-teacher"
                     size="lg"
@@ -349,7 +366,17 @@
                     ref="modalTeacher"
                   >
                     <b-form-group label="Nội dung" label-for="slide-input">
-                      <multiselect v-model="teacher_id" selectLabel="Nhấn enter hoặc click để chọn" selectedLabel="Đang được chọn" noOptions="Trống" deselectLabel="Nhấn enter hoặc click để bỏ chọn" :options="teachersBySubject" placeholder="Chọn giảng viên" label="name" track-by="id"></multiselect>
+                      <multiselect
+                        v-model="teacher_id"
+                        selectLabel="Nhấn enter hoặc click để chọn"
+                        selectedLabel="Đang được chọn"
+                        noOptions="Trống"
+                        deselectLabel="Nhấn enter hoặc click để bỏ chọn"
+                        :options="teachersBySubject"
+                        placeholder="Chọn giảng viên"
+                        label="name"
+                        track-by="id"
+                      ></multiselect>
                       <span
                         v-if="errors.teacher_id"
                         id="exampleInputEmail1-error"
@@ -386,10 +413,10 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Multiselect from 'vue-multiselect';
+import Multiselect from "vue-multiselect";
 export default {
   components: {
-    Multiselect
+    Multiselect,
   },
   data() {
     return {
@@ -424,11 +451,16 @@ export default {
     await this.getSubject();
     await this.getWeeks();
     await this.getTeachersBySubject(this.lesson.subject_id);
+    await this.getTeacherSC({
+      class_id: this.lesson.class_id,
+      subject_id: this.lesson.subject_id,
+    });
     this.teacher_id = this.CLASS.teacher[0];
   },
   methods: {
     ...mapActions("CLASS", ["getCLASS"]),
-    ...mapActions("teacher", ["getTeachersBySubject"]),
+    ...mapActions("teacher", ["getTeacherSC", "getTeachersBySubject"]),
+
     getSubject() {
       for (let i = 0; i < this.CLASS.subject.length; i++) {
         if (this.CLASS.subject[i].id == this.lesson.subject_id) {
@@ -658,7 +690,7 @@ export default {
   },
   computed: {
     ...mapGetters("CLASS", ["CLASS"]),
-    ...mapGetters("teacher", ["teachersBySubject"]),
+    ...mapGetters("teacher", ["teacherSC", "teachersBySubject"]),
   },
   mounted() {},
 };

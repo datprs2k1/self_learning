@@ -92,17 +92,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -128,13 +117,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.$store.dispatch("auth/login", _this.form);
 
               case 3:
-                if (_this.$store.getters['auth/getCurrentUser'].role == 'admin') {
+                if (_this.$store.getters["auth/getCurrentUser"].role == "admin") {
                   // this.$router.push("adminpanel");
                   window.location.href = "/adminpanel";
-                } else if (_this.$store.getters['auth/getCurrentUser'].role == 'lecturer') {
+                } else if (_this.$store.getters["auth/getCurrentUser"].role == "lecturer") {
                   // this.$router.push("lecturer");
-                  window.location.href = "/lecturer";
-                } else if (_this.$store.getters['auth/getCurrentUser'].role == 'student') {
+                  window.location.href = "/adminpanel";
+                } else if (_this.$store.getters["auth/getCurrentUser"].role == "student") {
                   // this.$router.push("student");
                   window.location.href = "/student";
                 }
@@ -197,7 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#error[data-v-2a71a5b3] {\r\n  font-size: 18px;\r\n  font-weight: 500;\r\n  width: 100%;\r\n  text-align: center;\r\n  margin-bottom: 12px;\r\n  margin-left: 16px;\r\n  margin-right: 16px;\r\n  padding: 8px 0;\r\n  outline: none;\r\n  border-radius: 5px;\r\n  color: #721c24;\r\n  background-color: #f8d7da;\r\n  border: 1px solid #f5c6cb;\n}\n.checkbox[data-v-2a71a5b3] {\r\n  cursor: pointer;\n}\n.shake[data-v-2a71a5b3] {\r\n  -webkit-animation: shake-data-v-2a71a5b3 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;\r\n          animation: shake-data-v-2a71a5b3 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;\r\n  transform: translate3d(0, 0, 0);\n}\n@-webkit-keyframes shake-data-v-2a71a5b3 {\n10%,\r\n  90% {\r\n    transform: translate3d(-1px, 0, 0);\n}\n20%,\r\n  80% {\r\n    transform: translate3d(2px, 0, 0);\n}\n30%,\r\n  50%,\r\n  70% {\r\n    transform: translate3d(-4px, 0, 0);\n}\n40%,\r\n  60% {\r\n    transform: translate3d(4px, 0, 0);\n}\n}\n@keyframes shake-data-v-2a71a5b3 {\n10%,\r\n  90% {\r\n    transform: translate3d(-1px, 0, 0);\n}\n20%,\r\n  80% {\r\n    transform: translate3d(2px, 0, 0);\n}\n30%,\r\n  50%,\r\n  70% {\r\n    transform: translate3d(-4px, 0, 0);\n}\n40%,\r\n  60% {\r\n    transform: translate3d(4px, 0, 0);\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#error[data-v-2a71a5b3] {\n  font-size: 18px;\n  font-weight: 500;\n  width: 100%;\n  text-align: center;\n  margin-bottom: 12px;\n  margin-left: 16px;\n  margin-right: 16px;\n  padding: 8px 0;\n  outline: none;\n  border-radius: 5px;\n  color: #721c24;\n  background-color: #f8d7da;\n  border: 1px solid #f5c6cb;\n}\n.checkbox[data-v-2a71a5b3] {\n  cursor: pointer;\n}\n.shake[data-v-2a71a5b3] {\n  -webkit-animation: shake-data-v-2a71a5b3 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;\n          animation: shake-data-v-2a71a5b3 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;\n  transform: translate3d(0, 0, 0);\n}\n@-webkit-keyframes shake-data-v-2a71a5b3 {\n10%,\n  90% {\n    transform: translate3d(-1px, 0, 0);\n}\n20%,\n  80% {\n    transform: translate3d(2px, 0, 0);\n}\n30%,\n  50%,\n  70% {\n    transform: translate3d(-4px, 0, 0);\n}\n40%,\n  60% {\n    transform: translate3d(4px, 0, 0);\n}\n}\n@keyframes shake-data-v-2a71a5b3 {\n10%,\n  90% {\n    transform: translate3d(-1px, 0, 0);\n}\n20%,\n  80% {\n    transform: translate3d(2px, 0, 0);\n}\n30%,\n  50%,\n  70% {\n    transform: translate3d(-4px, 0, 0);\n}\n40%,\n  60% {\n    transform: translate3d(4px, 0, 0);\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -485,7 +474,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12 form-group" }, [
       _c("input", { staticClass: "checkbox", attrs: { type: "checkbox" } }),
-      _vm._v(" Lưu thông tin đăng\n              nhập\n            "),
+      _vm._v(" Lưu thông tin đăng nhập\n            "),
     ])
   },
 ]

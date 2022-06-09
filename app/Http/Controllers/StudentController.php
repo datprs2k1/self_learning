@@ -259,9 +259,9 @@ class StudentController extends Controller
         $email = auth()->user()->email;
         $student = Student::where('email', $email)->first();
         $results = Result::select('id', 'student_id', 'subject_id', 'class_id', 'week', 'totalTime', 'created_at', DB::raw('MAX(totalScore) as maxScore'))
-        ->where('student_id', $student->id)
-        ->groupBy('subject_id', 'class_id', 'week')
-        ->get();
+            ->where('student_id', $student->id)
+            ->groupBy('subject_id', 'class_id', 'week')
+            ->get();
         // $results = DB::select('select `id`, `student_id`, `subject_id`, `class_id`, `week`, `totalTime`, `created_at`, MAX(totalScore) as maxScore from `result` where `student_id` = ' . $student->id . ' group by `subject_id`, `class_id`, `week`');
         return response()->json($results, 200);
     }

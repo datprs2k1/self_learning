@@ -27,18 +27,12 @@
         <div class="row justify-content-center">
           <div class="col-md-5">
             <div class="row">
-              <span
-                id="error"
-                :class="{ shake: animated }"
-                v-if="errors.email"
-                >{{ errors.email[0] }}</span
-              >
-              <span
-                id="error"
-                :class="{ shake: animated }"
-                v-else-if="errors.password"
-                >{{ errors.password[0] }}</span
-              >
+              <span id="error" :class="{ shake: animated }" v-if="errors.email">{{
+                errors.email[0]
+              }}</span>
+              <span id="error" :class="{ shake: animated }" v-else-if="errors.password">{{
+                errors.password[0]
+              }}</span>
               <div class="col-md-12 form-group">
                 <label for="username">Tài khoản</label>
                 <input
@@ -60,17 +54,12 @@
                 />
               </div>
               <div class="col-md-12 form-group">
-                <input class="checkbox" type="checkbox" /> Lưu thông tin đăng
-                nhập
+                <input class="checkbox" type="checkbox" /> Lưu thông tin đăng nhập
               </div>
             </div>
             <div class="row">
               <div class="col-12">
-                <button
-                  type="submit"
-                  class="btn btn-primary px-5"
-                  @click="login"
-                >
+                <button type="submit" class="btn btn-primary px-5" @click="login">
                   Đăng nhập
                 </button>
               </div>
@@ -98,13 +87,13 @@ export default {
     async login() {
       try {
         await this.$store.dispatch("auth/login", this.form);
-        if (this.$store.getters['auth/getCurrentUser'].role == 'admin') {
+        if (this.$store.getters["auth/getCurrentUser"].role == "admin") {
           // this.$router.push("adminpanel");
           window.location.href = "/adminpanel";
-        } else if (this.$store.getters['auth/getCurrentUser'].role == 'lecturer') {
+        } else if (this.$store.getters["auth/getCurrentUser"].role == "lecturer") {
           // this.$router.push("lecturer");
-          window.location.href = "/lecturer";
-        } else if (this.$store.getters['auth/getCurrentUser'].role == 'student') {
+          window.location.href = "/adminpanel";
+        } else if (this.$store.getters["auth/getCurrentUser"].role == "student") {
           // this.$router.push("student");
           window.location.href = "/student";
         }

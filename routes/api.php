@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/teacher/addTeacher', 'App\Http\Controllers\TeacherController@addTeacher');
     Route::post('/teacher/editTeacher', 'App\Http\Controllers\TeacherController@editTeacher');
     Route::get('/teacher/subject/{teacher}', 'App\Http\Controllers\TeacherController@getTeachersBySubject');
+    Route::post('/teacher/subject', 'App\Http\Controllers\TeacherController@getTeachersBySubjectClass');
     Route::get('/getMyCoursesByClassId', 'App\Http\Controllers\StudentController@getMyCourses');
     Route::post('/checkTest', 'App\Http\Controllers\StudentController@checkTest');
     Route::post('/getResult', 'App\Http\Controllers\StudentController@getResult');

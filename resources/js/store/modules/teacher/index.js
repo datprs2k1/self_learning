@@ -3,6 +3,7 @@ import api from '../../../services/api';
 const state = {
     teachers: [],
     teachersBySubject: [],
+    teacherSC: [],
     teacher: {},
 };
 
@@ -10,6 +11,7 @@ const getters = {
     teachers: state => state.teachers,
     teacher: state => state.teacher,
     teachersBySubject: state => state.teachersBySubject,
+    teacherSC: state => state.teacherSC,
 };
 
 const mutations = {
@@ -21,6 +23,9 @@ const mutations = {
     },
     SET_teachersBySubject: (state, teacher) => {
         state.teachersBySubject = teacher;
+    },
+    SET_teacherSC: (state, teacher) => {
+        state.teacherSC = teacher;
     }
 };
 
@@ -68,6 +73,10 @@ const actions = {
     async getTeachersBySubject({ commit }, id) {
         const response = await api.get(`/teacher/subject/${id}`);
         commit('SET_teachersBySubject', response.data);
+    },
+    async getTeacherSC({ commit }, data) {
+        const response = await api.post(`/teacher/subject`, data);
+        commit('SET_teacherSC', response.data);
     }
 };
 

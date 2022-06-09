@@ -40,7 +40,7 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         //
-        if (auth()->user()->hasRole('admin')) {
+        if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('teacher')) {
             $checkExist = $this->checkExistLesson($request->class_id, $request->subject_id, $request->week);
             if ($checkExist != 0) {
                 $lesson = Lesson::find($checkExist);
@@ -131,7 +131,7 @@ class LessonController extends Controller
     public function update(Request $request, $id)
     {
         //
-        if (auth()->user()->hasRole('admin')) {
+        if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('teacher')) {
             $request->validate(
                 [
                     'name' => 'required|max:255',
@@ -177,7 +177,7 @@ class LessonController extends Controller
     public function destroy($id)
     {
         //
-        if (auth()->user()->hasRole('admin')) {
+        if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('teacher')) {
             $lesson = Lesson::find($id);
             $lesson->delete();
 
@@ -193,7 +193,7 @@ class LessonController extends Controller
 
     public function deleteMutiple($ids)
     {
-        if (auth()->user()->hasRole('admin')) {
+        if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('teacher')) {
             $ids = explode(',', $ids);
             foreach ($ids as $id) {
                 $lesson = Lesson::find($id);

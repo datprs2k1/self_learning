@@ -217,4 +217,11 @@ class TeacherController extends Controller
         })->get();
         return response()->json($teachers, 200);
     }
+
+    public function getTeachersBySubjectClass(Request $request)
+    {
+        $teacher_id = DB::table('subject_class_teacher')->where('class_id', $request->class_id)->where('subject_id', $request->subject_id)->pluck('teacher_id');
+        $teachers = Teacher::whereIn('id', $teacher_id)->get();
+        return response()->json($teachers, 200);
+    }
 }

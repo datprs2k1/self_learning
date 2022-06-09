@@ -1,14 +1,11 @@
 import Vue from 'vue';
 
 Vue.prototype.is = function (value) {
-    if (this.$store.getters['Auth/getPermissions'] == '') {
+    if (this.$store.getters['auth/getCurrentUser'].role == '') {
         return false
     }
-    let roles = this.$store.getters['Auth/getPermissions']
-    let _return = false
-    if (!Array.isArray(roles)) {
-        return false
-    }
+    let roles = this.$store.getters['auth/getCurrentUser'].role
+    let _return = false;
     if (value.includes('|')) {
         value.split('|').forEach(function (item) {
             if (roles.includes(item.trim())) {

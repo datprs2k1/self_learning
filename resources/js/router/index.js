@@ -45,7 +45,8 @@ router.beforeEach((to, from, next) => {
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiredRole)) {
         if (store.getters['auth/isAuthenticated']) {
-            if (store.getters['auth/getCurrentUser'].role === to.meta.requiredRole) {
+            const roles = to.meta.requiredRole.split('|');
+            if (roles.includes(store.getters['auth/getCurrentUser'].role)) {
                 next();
                 return;
             }

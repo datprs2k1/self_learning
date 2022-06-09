@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- Content Wrapper. Contains page content -->
+    <h1 v-if="is('admin')">Admin</h1>
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
@@ -12,7 +13,9 @@
             <!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item">
+                  <a href="#">Home</a>
+                </li>
                 <li class="breadcrumb-item active">Dashboard v1</li>
               </ol>
             </div>
@@ -113,18 +116,12 @@
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a
-                          class="nav-link active"
-                          href="#revenue-chart"
-                          data-toggle="tab"
+                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab"
                           >Area</a
                         >
                       </li>
                       <li class="nav-item">
-                        <a
-                          class="nav-link"
-                          href="#sales-chart"
-                          data-toggle="tab"
+                        <a class="nav-link" href="#sales-chart" data-toggle="tab"
                           >Donut</a
                         >
                       </li>
@@ -169,9 +166,7 @@
                   <h3 class="card-title">Direct Chat</h3>
 
                   <div class="card-tools">
-                    <span title="3 New Messages" class="badge badge-primary"
-                      >3</span
-                    >
+                    <span title="3 New Messages" class="badge badge-primary">3</span>
                     <button
                       type="button"
                       class="btn btn-tool"
@@ -187,11 +182,7 @@
                     >
                       <i class="fas fa-comments"></i>
                     </button>
-                    <button
-                      type="button"
-                      class="btn btn-tool"
-                      data-card-widget="remove"
-                    >
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
                       <i class="fas fa-times"></i>
                     </button>
                   </div>
@@ -203,9 +194,7 @@
                     <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left"
-                          >Alexander Pierce</span
-                        >
+                        <span class="direct-chat-name float-left">Alexander Pierce</span>
                         <span class="direct-chat-timestamp float-right"
                           >23 Jan 2:00 pm</span
                         >
@@ -227,9 +216,7 @@
                     <!-- Message to the right -->
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-right"
-                          >Sarah Bullock</span
-                        >
+                        <span class="direct-chat-name float-right">Sarah Bullock</span>
                         <span class="direct-chat-timestamp float-left"
                           >23 Jan 2:05 pm</span
                         >
@@ -249,9 +236,7 @@
                     <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left"
-                          >Alexander Pierce</span
-                        >
+                        <span class="direct-chat-name float-left">Alexander Pierce</span>
                         <span class="direct-chat-timestamp float-right"
                           >23 Jan 5:37 pm</span
                         >
@@ -273,9 +258,7 @@
                     <!-- Message to the right -->
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-right"
-                          >Sarah Bullock</span
-                        >
+                        <span class="direct-chat-name float-right">Sarah Bullock</span>
                         <span class="direct-chat-timestamp float-left"
                           >23 Jan 6:10 pm</span
                         >
@@ -381,9 +364,7 @@
                                 >2/10/2015</small
                               >
                             </span>
-                            <span class="contacts-list-msg"
-                              >Where is your new...</span
-                            >
+                            <span class="contacts-list-msg">Where is your new...</span>
                           </div>
                           <!-- /.contacts-list-info -->
                         </a>
@@ -404,9 +385,7 @@
                                 >1/27/2015</small
                               >
                             </span>
-                            <span class="contacts-list-msg"
-                              >Can I take a look at...</span
-                            >
+                            <span class="contacts-list-msg">Can I take a look at...</span>
                           </div>
                           <!-- /.contacts-list-info -->
                         </a>
@@ -427,9 +406,7 @@
                                 >1/4/2015</small
                               >
                             </span>
-                            <span class="contacts-list-msg"
-                              >Never mind I found...</span
-                            >
+                            <span class="contacts-list-msg">Never mind I found...</span>
                           </div>
                           <!-- /.contacts-list-info -->
                         </a>
@@ -451,9 +428,7 @@
                         class="form-control"
                       />
                       <span class="input-group-append">
-                        <button type="button" class="btn btn-primary">
-                          Send
-                        </button>
+                        <button type="button" class="btn btn-primary">Send</button>
                       </span>
                     </div>
                   </form>
@@ -501,12 +476,7 @@
                       </span>
                       <!-- checkbox -->
                       <div class="icheck-primary d-inline ml-2">
-                        <input
-                          type="checkbox"
-                          value=""
-                          name="todo1"
-                          id="todoCheck1"
-                        />
+                        <input type="checkbox" value="" name="todo1" id="todoCheck1" />
                         <label for="todoCheck1"></label>
                       </div>
                       <!-- todo text -->
@@ -551,12 +521,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
                       <div class="icheck-primary d-inline ml-2">
-                        <input
-                          type="checkbox"
-                          value=""
-                          name="todo3"
-                          id="todoCheck3"
-                        />
+                        <input type="checkbox" value="" name="todo3" id="todoCheck3" />
                         <label for="todoCheck3"></label>
                       </div>
                       <span class="text">Let theme shine like a star</span>
@@ -574,12 +539,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
                       <div class="icheck-primary d-inline ml-2">
-                        <input
-                          type="checkbox"
-                          value=""
-                          name="todo4"
-                          id="todoCheck4"
-                        />
+                        <input type="checkbox" value="" name="todo4" id="todoCheck4" />
                         <label for="todoCheck4"></label>
                       </div>
                       <span class="text">Let theme shine like a star</span>
@@ -597,17 +557,10 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
                       <div class="icheck-primary d-inline ml-2">
-                        <input
-                          type="checkbox"
-                          value=""
-                          name="todo5"
-                          id="todoCheck5"
-                        />
+                        <input type="checkbox" value="" name="todo5" id="todoCheck5" />
                         <label for="todoCheck5"></label>
                       </div>
-                      <span class="text"
-                        >Check your messages and notifications</span
-                      >
+                      <span class="text">Check your messages and notifications</span>
                       <small class="badge badge-primary"
                         ><i class="far fa-clock"></i> 1 week</small
                       >
@@ -622,12 +575,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
                       <div class="icheck-primary d-inline ml-2">
-                        <input
-                          type="checkbox"
-                          value=""
-                          name="todo6"
-                          id="todoCheck6"
-                        />
+                        <input type="checkbox" value="" name="todo6" id="todoCheck6" />
                         <label for="todoCheck6"></label>
                       </div>
                       <span class="text">Let theme shine like a star</span>
@@ -863,58 +811,78 @@
       <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-  </div>  
+  </div>
 </template>
 
 <script>
 export default {
   mounted() {
-    let plugin = document.createElement('script');
-      plugin.setAttribute('src', '../../../../admin/plugins/jquery/jquery.min.js');
-      document.head.appendChild(plugin);
-      let plugin1 = document.createElement('script');
-      plugin1.setAttribute('src', '../../../../admin/plugins/jquery-ui/jquery-ui.min.js');
-      document.head.appendChild(plugin1);
-      let plugin2 = document.createElement('script');
-      plugin2.setAttribute('src', '../../../../admin/plugins/bootstrap/js/bootstrap.bundle.min.js');
-      document.head.appendChild(plugin2);
-      let plugin3 = document.createElement('script');
-      plugin3.setAttribute('src', '../../../../admin/plugins/chart.js/Chart.min.js');
-      document.head.appendChild(plugin3);
-      let plugin4 = document.createElement('script');
-      plugin4.setAttribute('src', '../../../../admin/plugins/sparklines/sparkline.js');
-      document.head.appendChild(plugin4);
-      let plugin5 = document.createElement('script');
-      plugin5.setAttribute('src', '../../../../admin/plugins/jqvmap/jquery.vmap.min.js');
-      document.head.appendChild(plugin5);
-      let plugin6 = document.createElement('script');
-      plugin6.setAttribute('src', '../../../../admin/plugins/jqvmap/maps/jquery.vmap.usa.js');
-      document.head.appendChild(plugin6);
-      let plugin7 = document.createElement('script');
-      plugin7.setAttribute('src', '../../../../admin/plugins/jquery-knob/jquery.knob.min.js');
-      document.head.appendChild(plugin7);
-      let plugin8 = document.createElement('script');
-      plugin8.setAttribute('src', '../../../../admin/plugins/moment/moment.min.js');
-      document.head.appendChild(plugin8);
-      let plugin9 = document.createElement('script');
-      plugin9.setAttribute('src', '../../../../admin/plugins/daterangepicker/daterangepicker.js');
-      document.head.appendChild(plugin9);
-      let plugin10 = document.createElement('script');
-      plugin10.setAttribute('src', '../../../../admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js');
-      document.head.appendChild(plugin10);
-      let plugin11 = document.createElement('script');
-      plugin11.setAttribute('src', '../../../../admin/plugins/summernote/summernote-bs4.min.js');
-      document.head.appendChild(plugin11);
-      let plugin12 = document.createElement('script');
-      plugin12.setAttribute('src', '../../../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js');
-      document.head.appendChild(plugin12);
-      // let plugin13 = document.createElement('script');
-      // plugin11.setAttribute('src', '../../../../admin/dist/js/adminlte.min.js');
-      // document.head.appendChild(plugin13);
-      let plugin14 = document.createElement('script');
-      plugin14.setAttribute('src', '../../../../admin/dist/js/pages/dashboard.js');
-      document.head.appendChild(plugin14);
-
-  }
+    let plugin = document.createElement("script");
+    plugin.setAttribute("src", "../../../../admin/plugins/jquery/jquery.min.js");
+    document.head.appendChild(plugin);
+    let plugin1 = document.createElement("script");
+    plugin1.setAttribute("src", "../../../../admin/plugins/jquery-ui/jquery-ui.min.js");
+    document.head.appendChild(plugin1);
+    let plugin2 = document.createElement("script");
+    plugin2.setAttribute(
+      "src",
+      "../../../../admin/plugins/bootstrap/js/bootstrap.bundle.min.js"
+    );
+    document.head.appendChild(plugin2);
+    let plugin3 = document.createElement("script");
+    plugin3.setAttribute("src", "../../../../admin/plugins/chart.js/Chart.min.js");
+    document.head.appendChild(plugin3);
+    let plugin4 = document.createElement("script");
+    plugin4.setAttribute("src", "../../../../admin/plugins/sparklines/sparkline.js");
+    document.head.appendChild(plugin4);
+    let plugin5 = document.createElement("script");
+    plugin5.setAttribute("src", "../../../../admin/plugins/jqvmap/jquery.vmap.min.js");
+    document.head.appendChild(plugin5);
+    let plugin6 = document.createElement("script");
+    plugin6.setAttribute(
+      "src",
+      "../../../../admin/plugins/jqvmap/maps/jquery.vmap.usa.js"
+    );
+    document.head.appendChild(plugin6);
+    let plugin7 = document.createElement("script");
+    plugin7.setAttribute(
+      "src",
+      "../../../../admin/plugins/jquery-knob/jquery.knob.min.js"
+    );
+    document.head.appendChild(plugin7);
+    let plugin8 = document.createElement("script");
+    plugin8.setAttribute("src", "../../../../admin/plugins/moment/moment.min.js");
+    document.head.appendChild(plugin8);
+    let plugin9 = document.createElement("script");
+    plugin9.setAttribute(
+      "src",
+      "../../../../admin/plugins/daterangepicker/daterangepicker.js"
+    );
+    document.head.appendChild(plugin9);
+    let plugin10 = document.createElement("script");
+    plugin10.setAttribute(
+      "src",
+      "../../../../admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"
+    );
+    document.head.appendChild(plugin10);
+    let plugin11 = document.createElement("script");
+    plugin11.setAttribute(
+      "src",
+      "../../../../admin/plugins/summernote/summernote-bs4.min.js"
+    );
+    document.head.appendChild(plugin11);
+    let plugin12 = document.createElement("script");
+    plugin12.setAttribute(
+      "src",
+      "../../../../admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"
+    );
+    document.head.appendChild(plugin12);
+    // let plugin13 = document.createElement('script');
+    // plugin11.setAttribute('src', '../../../../admin/dist/js/adminlte.min.js');
+    // document.head.appendChild(plugin13);
+    let plugin14 = document.createElement("script");
+    plugin14.setAttribute("src", "../../../../admin/dist/js/pages/dashboard.js");
+    document.head.appendChild(plugin14);
+  },
 };
 </script>

@@ -414,6 +414,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -481,9 +508,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return _this.getTeachersBySubject(_this.lesson.subject_id);
 
             case 14:
+              _context.next = 16;
+              return _this.getTeacherSC({
+                class_id: _this.lesson.class_id,
+                subject_id: _this.lesson.subject_id
+              });
+
+            case 16:
               _this.teacher_id = _this.CLASS.teacher[0];
 
-            case 15:
+            case 17:
             case "end":
               return _context.stop();
           }
@@ -491,7 +525,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }, _callee);
     }))();
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)("CLASS", ["getCLASS"])), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)("teacher", ["getTeachersBySubject"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)("CLASS", ["getCLASS"])), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapActions)("teacher", ["getTeacherSC", "getTeachersBySubject"])), {}, {
     getSubject: function getSubject() {
       for (var i = 0; i < this.CLASS.subject.length; i++) {
         if (this.CLASS.subject[i].id == this.lesson.subject_id) {
@@ -878,7 +912,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     }
   }),
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)("CLASS", ["CLASS"])), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)("teacher", ["teachersBySubject"])),
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)("CLASS", ["CLASS"])), (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)("teacher", ["teacherSC", "teachersBySubject"])),
   mounted: function mounted() {}
 });
 
@@ -1077,58 +1111,74 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("div", [
-                            _vm.CLASS.teacher && _vm.CLASS.teacher.length > 0
+                            _vm.teacherSC && _vm.teacherSC.length > 0
                               ? _c("div", [
                                   _c("p", [_vm._v("Thông tin giảng viên")]),
                                   _vm._v(" "),
                                   _c("p", [
-                                    _vm._v(_vm._s(_vm.CLASS.teacher[0].name)),
+                                    _vm._v(
+                                      "\n                          " +
+                                        _vm._s(_vm.teacherSC[0].name) +
+                                        "\n                        "
+                                    ),
                                   ]),
                                   _vm._v(" "),
                                   _c("p", [
-                                    _vm._v(_vm._s(_vm.CLASS.teacher[0].phone)),
+                                    _vm._v(
+                                      "\n                          " +
+                                        _vm._s(_vm.teacherSC[0].phone) +
+                                        "\n                        "
+                                    ),
                                   ]),
                                   _vm._v(" "),
                                   _c("p", [
-                                    _vm._v(_vm._s(_vm.CLASS.teacher[0].email)),
+                                    _vm._v(
+                                      "\n                          " +
+                                        _vm._s(_vm.teacherSC[0].email) +
+                                        "\n                        "
+                                    ),
                                   ]),
                                   _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass: "btn btn-primary",
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.getTeacher()
+                                  _vm.is("admin")
+                                    ? _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary",
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.getTeacher()
+                                            },
+                                          },
                                         },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                          Sửa giảng viên\n                        "
-                                      ),
-                                    ]
-                                  ),
+                                        [
+                                          _vm._v(
+                                            "\n                          Sửa giảng viên\n                        "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
                                 ])
                               : _c("div", [
                                   _c("p", [_vm._v("Chưa có giảng viên")]),
                                   _vm._v(" "),
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass: "btn btn-primary",
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.getTeacher()
+                                  _vm.is("admin")
+                                    ? _c(
+                                        "button",
+                                        {
+                                          staticClass: "btn btn-primary",
+                                          on: {
+                                            click: function ($event) {
+                                              return _vm.getTeacher()
+                                            },
+                                          },
                                         },
-                                      },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                          Thêm giảng viên\n                        "
-                                      ),
-                                    ]
-                                  ),
+                                        [
+                                          _vm._v(
+                                            "\n                          Thêm giảng viên\n                        "
+                                          ),
+                                        ]
+                                      )
+                                    : _vm._e(),
                                 ]),
                           ]),
                         ]

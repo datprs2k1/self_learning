@@ -45,7 +45,7 @@ const routes = [
                 meta: {
                     title: "UTT SelfLearning: Quản Trị Viên",
                     requiresAuth: true,
-                    requiredRole: "admin",
+                    requiredRole: "admin|teacher",
                 },
             },
             {
@@ -115,7 +115,7 @@ const routes = [
                     title: "Danh Sách Lớp",
                     breadcrumb: "Lớp",
                     requiresAuth: true,
-                    requiredRole: "admin",
+                    requiredRole: "admin|teacher",
                 },
             },
             {
@@ -147,7 +147,7 @@ const routes = [
                         }
                     },
                     requiresAuth: true,
-                    requiredRole: "admin",
+                    requiredRole: "admin|teacher",
                 },
             },
             {
@@ -217,7 +217,7 @@ const routes = [
                     title: "Danh Sách Môn Học",
                     breadcrumb: "Môn Học",
                     requiresAuth: true,
-                    requiredRole: "admin",
+                    requiredRole: "admin|teacher",
                 },
             },
             {
@@ -244,7 +244,7 @@ const routes = [
                     title: "Danh Sách Bài Giảng",
                     breadcrumb: "Bài Giảng",
                     requiresAuth: true,
-                    requiredRole: "admin",
+                    requiredRole: "admin|teacher",
                 },
             },
             {
@@ -466,7 +466,7 @@ const routes = [
                     requiresAuth: true,
                     requiredRole: "admin",
                 },
-            },   
+            },
         ],
     },
 ];
