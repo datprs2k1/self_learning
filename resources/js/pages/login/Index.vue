@@ -90,7 +90,7 @@ export default {
         if (this.$store.getters["auth/getCurrentUser"].role == "admin") {
           // this.$router.push("adminpanel");
           window.location.href = "/adminpanel";
-        } else if (this.$store.getters["auth/getCurrentUser"].role == "lecturer") {
+        } else if (this.$store.getters["auth/getCurrentUser"].role == "teacher") {
           // this.$router.push("lecturer");
           window.location.href = "/adminpanel";
         } else if (this.$store.getters["auth/getCurrentUser"].role == "student") {

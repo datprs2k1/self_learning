@@ -17,8 +17,8 @@
         <div class="row align-items-center">
           <div class="col-lg-9 d-none d-lg-block">
             <a href="#" class="small mr-3"
-              ><span class="icon-map-marker mr-2"></span> 54 Triều Khúc, Thanh
-              Xuân, Hà Nội</a
+              ><span class="icon-map-marker mr-2"></span> 54 Triều Khúc, Thanh Xuân, Hà
+              Nội</a
             >
             <a href="#" class="small mr-3"
               ><span class="icon-phone2 mr-2"></span> 024 3854 4264</a
@@ -53,10 +53,7 @@
       </div>
     </div>
 
-    <header
-      class="site-navbar py-4 js-sticky-header site-navbar-target"
-      role="banner"
-    >
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
       <div class="container">
         <div class="d-flex align-items-center">
           <div class="site-logo">
@@ -69,19 +66,8 @@
             /></a>
           </div>
           <div class="mr-auto">
-            <nav
-              class="site-navigation position-relative text-right"
-              role="navigation"
-            >
-              <ul
-                class="
-                  site-menu
-                  main-menu
-                  js-clone-nav
-                  mr-auto
-                  d-none d-lg-block
-                "
-              >
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="active">
                   <a href="/" class="nav-link text-left">Trang chủ</a>
                 </li>
@@ -89,14 +75,10 @@
                   <a to="/about" class="nav-link text-left">Giới thiệu</a>
                   <ul class="dropdown">
                     <li>
-                      <a href="/about" class="nav-link text-left"
-                        >Our Teacher</a
-                      >
+                      <a href="/about" class="nav-link text-left">Our Teacher</a>
                     </li>
                     <li>
-                      <a href="/about" class="nav-link text-left"
-                        >Our Student</a
-                      >
+                      <a href="/about" class="nav-link text-left">Our Student</a>
                     </li>
                   </ul>
                 </li>
@@ -121,12 +103,7 @@
 
               <a
                 href="#"
-                class="
-                  d-inline-block d-lg-none
-                  site-menu-toggle
-                  js-menu-toggle
-                  text-black
-                "
+                class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"
                 ><span class="icon-menu h3"></span
               ></a>
             </div>
@@ -142,7 +119,7 @@ export default {
     async logout() {
       try {
         await this.$store.dispatch("auth/logout");
-        await this.$router.push({ name: "Home" });
+        window.location.href = "/";
       } catch (error) {}
     },
   },

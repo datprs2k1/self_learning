@@ -1,15 +1,6 @@
 <template>
   <div>
-    <div v-if="is('student')">
-      <StudentComponent></StudentComponent>
-    </div>
-    <div v-else-if="is('lecturer')">
-      <LecturerComponent></LecturerComponent>
-    </div>
-    <div v-else-if="is('admin')">
-      <AdminComponent></AdminComponent>
-    </div>
-    <div v-else>
+    <div>
       <div
         class="hero-slide owl-carousel site-blocks-cover"
         :key="$route.fullPath + 'carousel'"
@@ -28,10 +19,7 @@
           </div>
         </div>
 
-        <div
-          class="intro-section"
-          style="background-image: url('images/hero_1.jpg')"
-        >
+        <div class="intro-section" style="background-image: url('images/hero_1.jpg')">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
@@ -62,15 +50,12 @@
                   <div class="feature-1-content-child">
                     <h2>Tài nguyên học liệu phong phú</h2>
                     <p>
-                      Hệ thống gồm nhiều các khoá học được thiết kế đẹp, nội
-                      dung phong phú của các giảng viên uy tín của Trường
-                      ĐHCNGTVT
+                      Hệ thống gồm nhiều các khoá học được thiết kế đẹp, nội dung phong
+                      phú của các giảng viên uy tín của Trường ĐHCNGTVT
                     </p>
                   </div>
                   <p>
-                    <a href="/about" class="btn btn-primary px-4 rounded-0"
-                      >Đọc thêm</a
-                    >
+                    <a href="/about" class="btn btn-primary px-4 rounded-0">Đọc thêm</a>
                   </p>
                 </div>
               </div>
@@ -84,15 +69,12 @@
                   <div class="feature-1-content-child">
                     <h2>Tích cực và chủ động</h2>
                     <p>
-                      Hệ thống khuyến khích sinh viên học tập tích cực và chủ
-                      động, dễ dàng chia sẻ và trao đổi tương tác mọi nơi mọi
-                      lúc
+                      Hệ thống khuyến khích sinh viên học tập tích cực và chủ động, dễ
+                      dàng chia sẻ và trao đổi tương tác mọi nơi mọi lúc
                     </p>
                   </div>
                   <p>
-                    <a href="/about" class="btn btn-primary px-4 rounded-0"
-                      >Đọc thêm</a
-                    >
+                    <a href="/about" class="btn btn-primary px-4 rounded-0">Đọc thêm</a>
                   </p>
                 </div>
               </div>
@@ -106,15 +88,12 @@
                   <div class="feature-1-content-child">
                     <h2>Thuận tiện và linh hoạt</h2>
                     <p>
-                      Hệ thống khiến việc học tập online trở nên dễ dàng hơn,
-                      thiết kế thân thiện, thích hợp sử dụng trên nhiều nền tảng
-                      PC, Mobile
+                      Hệ thống khiến việc học tập online trở nên dễ dàng hơn, thiết kế
+                      thân thiện, thích hợp sử dụng trên nhiều nền tảng PC, Mobile
                     </p>
                   </div>
                   <p>
-                    <a href="/about" class="btn btn-primary px-4 rounded-0"
-                      >Đọc thêm</a
-                    >
+                    <a href="/about" class="btn btn-primary px-4 rounded-0">Đọc thêm</a>
                   </p>
                 </div>
               </div>
@@ -131,8 +110,7 @@
                 <span>Popular Courses</span>
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Officia, id?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?
               </p>
             </div>
           </div>
@@ -143,10 +121,7 @@
                 <div class="course-1-item">
                   <figure class="thumnail">
                     <a href="course-single.html"
-                      ><img
-                        src="images/course_1.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/course_1.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="price">$99.00</div>
                     <div class="category">
@@ -163,13 +138,11 @@
                       <span class="icon-star2 text-warning"></span>
                     </div>
                     <p class="desc mb-4">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Similique accusantium ipsam.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+                      accusantium ipsam.
                     </p>
                     <p>
-                      <a
-                        href="course-single.html"
-                        class="btn btn-primary rounded-0 px-4"
+                      <a href="course-single.html" class="btn btn-primary rounded-0 px-4"
                         >Enroll In This Course</a
                       >
                     </p>
@@ -179,10 +152,7 @@
                 <div class="course-1-item">
                   <figure class="thumnail">
                     <a href="course-single.html"
-                      ><img
-                        src="images/course_2.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/course_2.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="price">$99.00</div>
                     <div class="category">
@@ -199,13 +169,11 @@
                       <span class="icon-star2 text-warning"></span>
                     </div>
                     <p class="desc mb-4">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Similique accusantium ipsam.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+                      accusantium ipsam.
                     </p>
                     <p>
-                      <a
-                        href="course-single.html"
-                        class="btn btn-primary rounded-0 px-4"
+                      <a href="course-single.html" class="btn btn-primary rounded-0 px-4"
                         >Enroll In This Course</a
                       >
                     </p>
@@ -215,10 +183,7 @@
                 <div class="course-1-item">
                   <figure class="thumnail">
                     <a href="course-single.html"
-                      ><img
-                        src="images/course_3.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/course_3.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="price">$99.00</div>
                     <div class="category">
@@ -235,13 +200,11 @@
                       <span class="icon-star2 text-warning"></span>
                     </div>
                     <p class="desc mb-4">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Similique accusantium ipsam.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+                      accusantium ipsam.
                     </p>
                     <p>
-                      <a
-                        href="courses-single.html"
-                        class="btn btn-primary rounded-0 px-4"
+                      <a href="courses-single.html" class="btn btn-primary rounded-0 px-4"
                         >Enroll In This Course</a
                       >
                     </p>
@@ -251,10 +214,7 @@
                 <div class="course-1-item">
                   <figure class="thumnail">
                     <a href="course-single.html"
-                      ><img
-                        src="images/course_4.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/course_4.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="price">$99.00</div>
                     <div class="category">
@@ -271,13 +231,11 @@
                       <span class="icon-star2 text-warning"></span>
                     </div>
                     <p class="desc mb-4">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Similique accusantium ipsam.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+                      accusantium ipsam.
                     </p>
                     <p>
-                      <a
-                        href="course-single.html"
-                        class="btn btn-primary rounded-0 px-4"
+                      <a href="course-single.html" class="btn btn-primary rounded-0 px-4"
                         >Enroll In This Course</a
                       >
                     </p>
@@ -287,10 +245,7 @@
                 <div class="course-1-item">
                   <figure class="thumnail">
                     <a href="course-single.html"
-                      ><img
-                        src="images/course_5.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/course_5.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="price">$99.00</div>
                     <div class="category">
@@ -307,13 +262,11 @@
                       <span class="icon-star2 text-warning"></span>
                     </div>
                     <p class="desc mb-4">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Similique accusantium ipsam.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+                      accusantium ipsam.
                     </p>
                     <p>
-                      <a
-                        href="course-single.html"
-                        class="btn btn-primary rounded-0 px-4"
+                      <a href="course-single.html" class="btn btn-primary rounded-0 px-4"
                         >Enroll In This Course</a
                       >
                     </p>
@@ -323,10 +276,7 @@
                 <div class="course-1-item">
                   <figure class="thumnail">
                     <a href="course-single.html"
-                      ><img
-                        src="images/course_6.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/course_6.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="price">$99.00</div>
                     <div class="category">
@@ -343,13 +293,11 @@
                       <span class="icon-star2 text-warning"></span>
                     </div>
                     <p class="desc mb-4">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                      Similique accusantium ipsam.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique
+                      accusantium ipsam.
                     </p>
                     <p>
-                      <a
-                        href="course-single.html"
-                        class="btn btn-primary rounded-0 px-4"
+                      <a href="course-single.html" class="btn btn-primary rounded-0 px-4"
                         >Enroll In This Course</a
                       >
                     </p>
@@ -372,15 +320,13 @@
             </div>
             <div class="col-lg-8">
               <p class="lead mt-5">
-                Hệ thống UTT - SelfLearning là hệ thống phần mềm hỗ trợ dạy &
-                học cho cán bộ giảng viên sinh viên trường Đại học Công nghệ
-                Giao thông vận tải.
+                Hệ thống UTT - SelfLearning là hệ thống phần mềm hỗ trợ dạy & học cho cán
+                bộ giảng viên sinh viên trường Đại học Công nghệ Giao thông vận tải.
               </p>
               <p>
-                Hệ thống tận dụng triệt để thế mạnh của công nghệ thông tin
-                trong dạy & học nhằm nâng cao hiệu quả đào tạo; tiết kiệm sử
-                dụng phòng học và thời gian lên lớp của cán bộ cũng như sinh
-                viên.
+                Hệ thống tận dụng triệt để thế mạnh của công nghệ thông tin trong dạy &
+                học nhằm nâng cao hiệu quả đào tạo; tiết kiệm sử dụng phòng học và thời
+                gian lên lớp của cán bộ cũng như sinh viên.
               </p>
 
               <p><a href="/about">Đọc thêm</a></p>
@@ -401,14 +347,8 @@
 
           <div class="owl-slide owl-carousel">
             <div class="ftco-testimonial-1">
-              <div
-                class="ftco-testimonial-vcard d-flex align-items-center mb-4"
-              >
-                <img
-                  src="images/person_1.jpg"
-                  alt="Image"
-                  class="img-fluid mr-3"
-                />
+              <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3" />
                 <div>
                   <h3>Allison Holmes</h3>
                   <span>Designer</span>
@@ -416,24 +356,17 @@
               </div>
               <div>
                 <p>
-                  &ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing
-                  elit. Neque, mollitia. Possimus mollitia nobis libero quidem
-                  aut tempore dolore iure maiores, perferendis, provident
-                  numquam illum nisi amet necessitatibus. A, provident
-                  aperiam!&rdquo;
+                  &ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
+                  mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure
+                  maiores, perferendis, provident numquam illum nisi amet necessitatibus.
+                  A, provident aperiam!&rdquo;
                 </p>
               </div>
             </div>
 
             <div class="ftco-testimonial-1">
-              <div
-                class="ftco-testimonial-vcard d-flex align-items-center mb-4"
-              >
-                <img
-                  src="images/person_2.jpg"
-                  alt="Image"
-                  class="img-fluid mr-3"
-                />
+              <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3" />
                 <div>
                   <h3>Allison Holmes</h3>
                   <span>Designer</span>
@@ -441,23 +374,17 @@
               </div>
               <div>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Neque, mollitia. Possimus mollitia nobis libero quidem aut
-                  tempore dolore iure maiores, perferendis, provident numquam
-                  illum nisi amet necessitatibus. A, provident aperiam!
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
+                  mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure
+                  maiores, perferendis, provident numquam illum nisi amet necessitatibus.
+                  A, provident aperiam!
                 </p>
               </div>
             </div>
 
             <div class="ftco-testimonial-1">
-              <div
-                class="ftco-testimonial-vcard d-flex align-items-center mb-4"
-              >
-                <img
-                  src="images/person_4.jpg"
-                  alt="Image"
-                  class="img-fluid mr-3"
-                />
+              <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                <img src="images/person_4.jpg" alt="Image" class="img-fluid mr-3" />
                 <div>
                   <h3>Allison Holmes</h3>
                   <span>Designer</span>
@@ -465,24 +392,17 @@
               </div>
               <div>
                 <p>
-                  &ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing
-                  elit. Neque, mollitia. Possimus mollitia nobis libero quidem
-                  aut tempore dolore iure maiores, perferendis, provident
-                  numquam illum nisi amet necessitatibus. A, provident
-                  aperiam!&rdquo;
+                  &ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
+                  mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure
+                  maiores, perferendis, provident numquam illum nisi amet necessitatibus.
+                  A, provident aperiam!&rdquo;
                 </p>
               </div>
             </div>
 
             <div class="ftco-testimonial-1">
-              <div
-                class="ftco-testimonial-vcard d-flex align-items-center mb-4"
-              >
-                <img
-                  src="images/person_3.jpg"
-                  alt="Image"
-                  class="img-fluid mr-3"
-                />
+              <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                <img src="images/person_3.jpg" alt="Image" class="img-fluid mr-3" />
                 <div>
                   <h3>Allison Holmes</h3>
                   <span>Designer</span>
@@ -490,23 +410,17 @@
               </div>
               <div>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Neque, mollitia. Possimus mollitia nobis libero quidem aut
-                  tempore dolore iure maiores, perferendis, provident numquam
-                  illum nisi amet necessitatibus. A, provident aperiam!
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
+                  mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure
+                  maiores, perferendis, provident numquam illum nisi amet necessitatibus.
+                  A, provident aperiam!
                 </p>
               </div>
             </div>
 
             <div class="ftco-testimonial-1">
-              <div
-                class="ftco-testimonial-vcard d-flex align-items-center mb-4"
-              >
-                <img
-                  src="images/person_2.jpg"
-                  alt="Image"
-                  class="img-fluid mr-3"
-                />
+              <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3" />
                 <div>
                   <h3>Allison Holmes</h3>
                   <span>Designer</span>
@@ -514,24 +428,17 @@
               </div>
               <div>
                 <p>
-                  &ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing
-                  elit. Neque, mollitia. Possimus mollitia nobis libero quidem
-                  aut tempore dolore iure maiores, perferendis, provident
-                  numquam illum nisi amet necessitatibus. A, provident
-                  aperiam!&rdquo;
+                  &ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
+                  mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure
+                  maiores, perferendis, provident numquam illum nisi amet necessitatibus.
+                  A, provident aperiam!&rdquo;
                 </p>
               </div>
             </div>
 
             <div class="ftco-testimonial-1">
-              <div
-                class="ftco-testimonial-vcard d-flex align-items-center mb-4"
-              >
-                <img
-                  src="images/person_4.jpg"
-                  alt="Image"
-                  class="img-fluid mr-3"
-                />
+              <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
+                <img src="images/person_4.jpg" alt="Image" class="img-fluid mr-3" />
                 <div>
                   <h3>Allison Holmes</h3>
                   <span>Designer</span>
@@ -539,10 +446,10 @@
               </div>
               <div>
                 <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Neque, mollitia. Possimus mollitia nobis libero quidem aut
-                  tempore dolore iure maiores, perferendis, provident numquam
-                  illum nisi amet necessitatibus. A, provident aperiam!
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,
+                  mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure
+                  maiores, perferendis, provident numquam illum nisi amet necessitatibus.
+                  A, provident aperiam!
                 </p>
               </div>
             </div>
@@ -550,37 +457,31 @@
         </div>
       </div>
 
-      <div
-        class="section-bg style-1"
-        style="background-image: url('images/hero_1.jpg')"
-      >
+      <div class="section-bg style-1" style="background-image: url('images/hero_1.jpg')">
         <div class="container">
           <div class="row">
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
               <span class="icon flaticon-mortarboard"></span>
               <h3>Our Philosphy</h3>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Reiciendis recusandae, iure repellat quis delectus ea? Dolore,
-                amet reprehenderit.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis
+                recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.
               </p>
             </div>
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
               <span class="icon flaticon-school-material"></span>
               <h3>Academics Principle</h3>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Reiciendis recusandae, iure repellat quis delectus ea? Dolore,
-                amet reprehenderit.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis
+                recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.
               </p>
             </div>
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
               <span class="icon flaticon-library"></span>
               <h3>Key of Success</h3>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Reiciendis recusandae, iure repellat quis delectus ea? Dolore,
-                amet reprehenderit.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis
+                recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.
               </p>
             </div>
           </div>
@@ -599,10 +500,7 @@
                 <div class="col-lg-6">
                   <div class="post-entry-big">
                     <a href="news-single.html" class="img-link"
-                      ><img
-                        src="images/blog_large_1.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/blog_large_1.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="post-content">
                       <div class="post-meta">
@@ -612,9 +510,7 @@
                         <a href="#">Updates</a>
                       </div>
                       <h3 class="post-heading">
-                        <a href="news-single.html"
-                          >Campus Camping and Learning Session</a
-                        >
+                        <a href="news-single.html">Campus Camping and Learning Session</a>
                       </h3>
                     </div>
                   </div>
@@ -622,10 +518,7 @@
                 <div class="col-lg-6">
                   <div class="post-entry-big horizontal d-flex mb-4">
                     <a href="news-single.html" class="img-link mr-4"
-                      ><img
-                        src="images/blog_1.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/blog_1.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="post-content">
                       <div class="post-meta">
@@ -635,19 +528,14 @@
                         <a href="#">Updates</a>
                       </div>
                       <h3 class="post-heading">
-                        <a href="news-single.html"
-                          >Campus Camping and Learning Session</a
-                        >
+                        <a href="news-single.html">Campus Camping and Learning Session</a>
                       </h3>
                     </div>
                   </div>
 
                   <div class="post-entry-big horizontal d-flex mb-4">
                     <a href="news-single.html" class="img-link mr-4"
-                      ><img
-                        src="images/blog_2.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/blog_2.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="post-content">
                       <div class="post-meta">
@@ -657,19 +545,14 @@
                         <a href="#">Updates</a>
                       </div>
                       <h3 class="post-heading">
-                        <a href="news-single.html"
-                          >Campus Camping and Learning Session</a
-                        >
+                        <a href="news-single.html">Campus Camping and Learning Session</a>
                       </h3>
                     </div>
                   </div>
 
                   <div class="post-entry-big horizontal d-flex mb-4">
                     <a href="news-single.html" class="img-link mr-4"
-                      ><img
-                        src="images/blog_1.jpg"
-                        alt="Image"
-                        class="img-fluid"
+                      ><img src="images/blog_1.jpg" alt="Image" class="img-fluid"
                     /></a>
                     <div class="post-content">
                       <div class="post-meta">
@@ -679,9 +562,7 @@
                         <a href="#">Updates</a>
                       </div>
                       <h3 class="post-heading">
-                        <a href="news-single.html"
-                          >Campus Camping and Learning Session</a
-                        >
+                        <a href="news-single.html">Campus Camping and Learning Session</a>
                       </h3>
                     </div>
                   </div>
@@ -729,8 +610,8 @@
             <div class="col-lg-7">
               <h2>Subscribe to us!</h2>
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia,
+                Far far away, behind the word mountains, far from the countries Vokalia
+                and Consonantia,
               </p>
             </div>
             <div class="col-lg-5">

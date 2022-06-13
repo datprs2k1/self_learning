@@ -120,7 +120,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (_this.$store.getters["auth/getCurrentUser"].role == "admin") {
                   // this.$router.push("adminpanel");
                   window.location.href = "/adminpanel";
-                } else if (_this.$store.getters["auth/getCurrentUser"].role == "lecturer") {
+                } else if (_this.$store.getters["auth/getCurrentUser"].role == "teacher") {
                   // this.$router.push("lecturer");
                   window.location.href = "/adminpanel";
                 } else if (_this.$store.getters["auth/getCurrentUser"].role == "student") {

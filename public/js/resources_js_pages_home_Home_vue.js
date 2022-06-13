@@ -744,125 +744,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -918,7 +799,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.col-lg-12 > .slideshow[data-v-4c3f1cd4] {\r\n  font-size: 36px;\r\n  color: white;\r\n  font-weight: 700;\n}\np.slideshow[data-v-4c3f1cd4] {\r\n  max-width: unset;\n}\n.col-lg-4 img[data-v-4c3f1cd4] {\r\n  opacity: 0.85;\n}\n@media only screen and (max-width: 1200px) {\n.feature-1-content-child[data-v-4c3f1cd4] {\r\n    min-height: 224px;\n}\n}\n@media only screen and (max-width: 767px) {\n.feature-1-content-child[data-v-4c3f1cd4] {\r\n    min-height: unset;\n}\n}\n.owl-nav[data-v-4c3f1cd4] {\r\n  opacity: 0.6;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.col-lg-12 > .slideshow[data-v-4c3f1cd4] {\n  font-size: 36px;\n  color: white;\n  font-weight: 700;\n}\np.slideshow[data-v-4c3f1cd4] {\n  max-width: unset;\n}\n.col-lg-4 img[data-v-4c3f1cd4] {\n  opacity: 0.85;\n}\n@media only screen and (max-width: 1200px) {\n.feature-1-content-child[data-v-4c3f1cd4] {\n    min-height: 224px;\n}\n}\n@media only screen and (max-width: 767px) {\n.feature-1-content-child[data-v-4c3f1cd4] {\n    min-height: unset;\n}\n}\n.owl-nav[data-v-4c3f1cd4] {\n  opacity: 0.6;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1280,36 +1161,30 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.is("student")
-      ? _c("div", [_c("StudentComponent")], 1)
-      : _vm.is("lecturer")
-      ? _c("div", [_c("LecturerComponent")], 1)
-      : _vm.is("admin")
-      ? _c("div", [_c("AdminComponent")], 1)
-      : _c("div", [
-          _c(
-            "div",
-            {
-              key: _vm.$route.fullPath + "carousel",
-              staticClass: "hero-slide owl-carousel site-blocks-cover",
-            },
-            [_vm._m(0), _vm._v(" "), _vm._m(1)]
-          ),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _vm._m(4),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _vm._m(6),
-          _vm._v(" "),
-          _vm._m(7),
-          _vm._v(" "),
-          _vm._m(8),
-        ]),
+    _c("div", [
+      _c(
+        "div",
+        {
+          key: _vm.$route.fullPath + "carousel",
+          staticClass: "hero-slide owl-carousel site-blocks-cover",
+        },
+        [_vm._m(0), _vm._v(" "), _vm._m(1)]
+      ),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _vm._m(6),
+      _vm._v(" "),
+      _vm._m(7),
+      _vm._v(" "),
+      _vm._m(8),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -1414,7 +1289,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", [
                     _vm._v(
-                      "\n                    Hệ thống gồm nhiều các khoá học được thiết kế đẹp, nội\n                    dung phong phú của các giảng viên uy tín của Trường\n                    ĐHCNGTVT\n                  "
+                      "\n                    Hệ thống gồm nhiều các khoá học được thiết kế đẹp, nội dung phong\n                    phú của các giảng viên uy tín của Trường ĐHCNGTVT\n                  "
                     ),
                   ]),
                 ]),
@@ -1447,7 +1322,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", [
                     _vm._v(
-                      "\n                    Hệ thống khuyến khích sinh viên học tập tích cực và chủ\n                    động, dễ dàng chia sẻ và trao đổi tương tác mọi nơi mọi\n                    lúc\n                  "
+                      "\n                    Hệ thống khuyến khích sinh viên học tập tích cực và chủ động, dễ\n                    dàng chia sẻ và trao đổi tương tác mọi nơi mọi lúc\n                  "
                     ),
                   ]),
                 ]),
@@ -1478,7 +1353,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", [
                     _vm._v(
-                      "\n                    Hệ thống khiến việc học tập online trở nên dễ dàng hơn,\n                    thiết kế thân thiện, thích hợp sử dụng trên nhiều nền tảng\n                    PC, Mobile\n                  "
+                      "\n                    Hệ thống khiến việc học tập online trở nên dễ dàng hơn, thiết kế\n                    thân thiện, thích hợp sử dụng trên nhiều nền tảng PC, Mobile\n                  "
                     ),
                   ]),
                 ]),
@@ -1517,7 +1392,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n              Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n              Officia, id?\n            "
+                  "\n              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?\n            "
                 ),
               ]),
             ]),
@@ -1560,7 +1435,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", { staticClass: "desc mb-4" }, [
                     _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n                    Similique accusantium ipsam.\n                  "
+                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1610,7 +1485,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", { staticClass: "desc mb-4" }, [
                     _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n                    Similique accusantium ipsam.\n                  "
+                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1660,7 +1535,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", { staticClass: "desc mb-4" }, [
                     _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n                    Similique accusantium ipsam.\n                  "
+                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1710,7 +1585,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", { staticClass: "desc mb-4" }, [
                     _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n                    Similique accusantium ipsam.\n                  "
+                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1760,7 +1635,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", { staticClass: "desc mb-4" }, [
                     _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n                    Similique accusantium ipsam.\n                  "
+                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1810,7 +1685,7 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("p", { staticClass: "desc mb-4" }, [
                     _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n                    Similique accusantium ipsam.\n                  "
+                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
                     ),
                   ]),
                   _vm._v(" "),
@@ -1850,13 +1725,13 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-lg-8" }, [
             _c("p", { staticClass: "lead mt-5" }, [
               _vm._v(
-                "\n              Hệ thống UTT - SelfLearning là hệ thống phần mềm hỗ trợ dạy &\n              học cho cán bộ giảng viên sinh viên trường Đại học Công nghệ\n              Giao thông vận tải.\n            "
+                "\n              Hệ thống UTT - SelfLearning là hệ thống phần mềm hỗ trợ dạy & học cho cán\n              bộ giảng viên sinh viên trường Đại học Công nghệ Giao thông vận tải.\n            "
               ),
             ]),
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "\n              Hệ thống tận dụng triệt để thế mạnh của công nghệ thông tin\n              trong dạy & học nhằm nâng cao hiệu quả đào tạo; tiết kiệm sử\n              dụng phòng học và thời gian lên lớp của cán bộ cũng như sinh\n              viên.\n            "
+                "\n              Hệ thống tận dụng triệt để thế mạnh của công nghệ thông tin trong dạy &\n              học nhằm nâng cao hiệu quả đào tạo; tiết kiệm sử dụng phòng học và thời\n              gian lên lớp của cán bộ cũng như sinh viên.\n            "
               ),
             ]),
             _vm._v(" "),
@@ -1907,7 +1782,7 @@ var staticRenderFns = [
             _c("div", [
               _c("p", [
                 _vm._v(
-                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing\n                elit. Neque, mollitia. Possimus mollitia nobis libero quidem\n                aut tempore dolore iure maiores, perferendis, provident\n                numquam illum nisi amet necessitatibus. A, provident\n                aperiam!”\n              "
+                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
                 ),
               ]),
             ]),
@@ -1937,7 +1812,7 @@ var staticRenderFns = [
             _c("div", [
               _c("p", [
                 _vm._v(
-                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n                Neque, mollitia. Possimus mollitia nobis libero quidem aut\n                tempore dolore iure maiores, perferendis, provident numquam\n                illum nisi amet necessitatibus. A, provident aperiam!\n              "
+                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
                 ),
               ]),
             ]),
@@ -1967,7 +1842,7 @@ var staticRenderFns = [
             _c("div", [
               _c("p", [
                 _vm._v(
-                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing\n                elit. Neque, mollitia. Possimus mollitia nobis libero quidem\n                aut tempore dolore iure maiores, perferendis, provident\n                numquam illum nisi amet necessitatibus. A, provident\n                aperiam!”\n              "
+                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
                 ),
               ]),
             ]),
@@ -1997,7 +1872,7 @@ var staticRenderFns = [
             _c("div", [
               _c("p", [
                 _vm._v(
-                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n                Neque, mollitia. Possimus mollitia nobis libero quidem aut\n                tempore dolore iure maiores, perferendis, provident numquam\n                illum nisi amet necessitatibus. A, provident aperiam!\n              "
+                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
                 ),
               ]),
             ]),
@@ -2027,7 +1902,7 @@ var staticRenderFns = [
             _c("div", [
               _c("p", [
                 _vm._v(
-                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing\n                elit. Neque, mollitia. Possimus mollitia nobis libero quidem\n                aut tempore dolore iure maiores, perferendis, provident\n                numquam illum nisi amet necessitatibus. A, provident\n                aperiam!”\n              "
+                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
                 ),
               ]),
             ]),
@@ -2057,7 +1932,7 @@ var staticRenderFns = [
             _c("div", [
               _c("p", [
                 _vm._v(
-                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n                Neque, mollitia. Possimus mollitia nobis libero quidem aut\n                tempore dolore iure maiores, perferendis, provident numquam\n                illum nisi amet necessitatibus. A, provident aperiam!\n              "
+                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
                 ),
               ]),
             ]),
@@ -2086,7 +1961,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n              Reiciendis recusandae, iure repellat quis delectus ea? Dolore,\n              amet reprehenderit.\n            "
+                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
                 ),
               ]),
             ]),
@@ -2098,7 +1973,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n              Reiciendis recusandae, iure repellat quis delectus ea? Dolore,\n              amet reprehenderit.\n            "
+                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
                 ),
               ]),
             ]),
@@ -2110,7 +1985,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit.\n              Reiciendis recusandae, iure repellat quis delectus ea? Dolore,\n              amet reprehenderit.\n            "
+                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
                 ),
               ]),
             ]),
@@ -2379,7 +2254,7 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n              Far far away, behind the word mountains, far from the countries\n              Vokalia and Consonantia,\n            "
+                  "\n              Far far away, behind the word mountains, far from the countries Vokalia\n              and Consonantia,\n            "
                 ),
               ]),
             ]),
