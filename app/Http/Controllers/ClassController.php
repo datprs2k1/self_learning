@@ -286,4 +286,11 @@ class ClassController extends Controller
             ], 401);
         }
     }
+
+    public function getClassCount()
+    {
+        $count = ClassModel::count();
+
+        return response()->json($count, 200);
+    }
 }

@@ -172,4 +172,10 @@ class DepartmentController extends Controller
         }
     }
 
+    public function getDepartmentCount()
+    {
+        $count = Department::count();
+
+        return response()->json($count, 200);
+    }
 }

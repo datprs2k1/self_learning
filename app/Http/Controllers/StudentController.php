@@ -265,4 +265,10 @@ class StudentController extends Controller
         // $results = DB::select('select `id`, `student_id`, `subject_id`, `class_id`, `week`, `totalTime`, `created_at`, MAX(totalScore) as maxScore from `result` where `student_id` = ' . $student->id . ' group by `subject_id`, `class_id`, `week`');
         return response()->json($results, 200);
     }
+
+    public function getStudentCount()
+    {
+        $count = Student::count();
+        return response()->json($count, 200);
+    }
 }

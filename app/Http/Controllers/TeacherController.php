@@ -224,4 +224,10 @@ class TeacherController extends Controller
         $teachers = Teacher::whereIn('id', $teacher_id)->get();
         return response()->json($teachers, 200);
     }
+
+    public function getTeacherCount()
+    {
+        $count = Teacher::count();
+        return response()->json($count, 200);
+    }
 }

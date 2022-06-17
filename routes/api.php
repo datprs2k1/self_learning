@@ -32,14 +32,17 @@ Route::post('register', 'App\Http\Controllers\AuthController@register');
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('logout', 'App\Http\Controllers\AuthController@logout');
-
+    Route::get('/department/count', [DepartmentController::class, 'getDepartmentCount']);
     Route::resource('/department', DepartmentController::class);
+    Route::get('class/count', [ClassController::class, 'getClassCount']);
     Route::resource('/class', ClassController::class);
+    Route::get('student/count', [StudentController::class, 'getStudentCount']);
     Route::resource('/student', StudentController::class);
     Route::resource('/subject', SubjectController::class);
     Route::resource('/lesson', LessonController::class);
     Route::resource('/document', DocumentController::class);
     Route::resource('/question', QuestionController::class);
+    Route::get('teacher/count', [TeacherController::class, 'getTeacherCount']);
     Route::resource('/teacher', TeacherController::class);
     Route::delete('/department/delete/{department}', 'App\Http\Controllers\DepartmentController@deleteMutiple');
     Route::delete('/class/delete/{class}', 'App\Http\Controllers\ClassController@deleteMutiple');
