@@ -21,9 +21,7 @@
                         id="per-page-select"
                         v-model="perPage"
                         :options="pageOptions"
-                        v-b-tooltip.hover.v-secondary="
-                          'Số bản ghi trên một trang'
-                        "
+                        v-b-tooltip.hover.v-secondary="'Số bản ghi trên một trang'"
                       ></b-form-select>
                     </b-col>
                     <b-col md="">
@@ -33,9 +31,7 @@
                           class="btn btn-success"
                           name="Danh sách môn học.xls"
                           id="export-excel"
-                          v-b-tooltip.hover.v-secondary="
-                            'Xuất Excel các bản ghi đã chọn'
-                          "
+                          v-b-tooltip.hover.v-secondary="'Xuất Excel các bản ghi đã chọn'"
                         >
                           <i class="fa fa-file-excel"></i>
                         </export-excel>
@@ -43,9 +39,7 @@
                       <span>
                         <button
                           class="btn btn-warning"
-                          v-b-tooltip.hover.v-secondary="
-                            'Xuất PDF các bản ghi đã chọn'
-                          "
+                          v-b-tooltip.hover.v-secondary="'Xuất PDF các bản ghi đã chọn'"
                         >
                           <i class="fas fa-file-pdf" @click="exportPdf"></i>
                         </button>
@@ -54,9 +48,7 @@
                       <button
                         @click="deleteMutiple"
                         class="btn-danger btn"
-                        v-b-tooltip.hover.v-secondary="
-                          'Xóa các bản ghi đã chọn'
-                        "
+                        v-b-tooltip.hover.v-secondary="'Xóa các bản ghi đã chọn'"
                       >
                         <i class="fas fa-trash"></i>
                       </button>
@@ -110,18 +102,6 @@
                     </template>
 
                     <template #cell(actions)="row">
-                      <router-link
-                        :to="{
-                          name: 'lesson.add',
-                          params: {
-                            subj_id: row.item.id,
-                          },
-                        }"
-                        ><i
-                          class="fas fa-plus fa-lg"
-                          v-b-tooltip.hover.v-secondary="'Thêm bài giảng'"
-                        ></i
-                      ></router-link>
                       <router-link
                         :to="{
                           name: 'subject.edit',
@@ -425,13 +405,7 @@ export default {
         : [];
       this.pdf_data = checked
         ? this.subjects.map((item, index) => {
-            return [
-              index + 1,
-              item.code,
-              item.name,
-              item.created_at,
-              item.updated_at,
-            ];
+            return [index + 1, item.code, item.name, item.created_at, item.updated_at];
           })
         : [];
     },
@@ -451,13 +425,7 @@ export default {
         this.pdf_data = this.subjects
           .filter((item) => this.selected.includes(item.id))
           .map((item, index) => {
-            return [
-              index + 1,
-              item.code,
-              item.name,
-              item.created_at,
-              item.updated_at,
-            ];
+            return [index + 1, item.code, item.name, item.created_at, item.updated_at];
           });
       }
       this.allSelected = this.subjects.length === this.selected.length;
@@ -608,5 +576,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>

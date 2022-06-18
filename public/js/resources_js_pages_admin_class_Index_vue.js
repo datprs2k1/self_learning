@@ -792,26 +792,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -81471,8 +81451,7 @@ var render = function () {
                                       name: "b-tooltip",
                                       rawName: "v-b-tooltip.hover.v-secondary",
                                       value: "Số bản ghi trên một trang",
-                                      expression:
-                                        "\n                        'Số bản ghi trên một trang'\n                      ",
+                                      expression: "'Số bản ghi trên một trang'",
                                       modifiers: {
                                         hover: true,
                                         "v-secondary": true,
@@ -81513,7 +81492,7 @@ var render = function () {
                                             value:
                                               "Xuất Excel các bản ghi đã chọn",
                                             expression:
-                                              "\n                          'Xuất Excel các bản ghi đã chọn'\n                        ",
+                                              "'Xuất Excel các bản ghi đã chọn'",
                                             modifiers: {
                                               hover: true,
                                               "v-secondary": true,
@@ -81548,7 +81527,7 @@ var render = function () {
                                             "v-b-tooltip.hover.v-secondary",
                                           value: "Xuất PDF các bản ghi đã chọn",
                                           expression:
-                                            "\n                          'Xuất PDF các bản ghi đã chọn'\n                        ",
+                                            "'Xuất PDF các bản ghi đã chọn'",
                                           modifiers: {
                                             hover: true,
                                             "v-secondary": true,
@@ -81575,8 +81554,7 @@ var render = function () {
                                         rawName:
                                           "v-b-tooltip.hover.v-secondary",
                                         value: "Xóa các bản ghi đã chọn",
-                                        expression:
-                                          "\n                        'Xóa các bản ghi đã chọn'\n                      ",
+                                        expression: "'Xóa các bản ghi đã chọn'",
                                         modifiers: {
                                           hover: true,
                                           "v-secondary": true,
@@ -81735,38 +81713,6 @@ var render = function () {
                               key: "cell(actions)",
                               fn: function (row) {
                                 return [
-                                  _c(
-                                    "router-link",
-                                    {
-                                      attrs: {
-                                        to: {
-                                          name: "lesson.add",
-                                          params: {
-                                            subj_id: row.item.id,
-                                          },
-                                        },
-                                      },
-                                    },
-                                    [
-                                      _c("i", {
-                                        directives: [
-                                          {
-                                            name: "b-tooltip",
-                                            rawName:
-                                              "v-b-tooltip.hover.v-secondary",
-                                            value: "Thêm bài giảng",
-                                            expression: "'Thêm bài giảng'",
-                                            modifiers: {
-                                              hover: true,
-                                              "v-secondary": true,
-                                            },
-                                          },
-                                        ],
-                                        staticClass: "fas fa-plus fa-lg",
-                                      }),
-                                    ]
-                                  ),
-                                  _vm._v(" "),
                                   _c(
                                     "router-link",
                                     {
