@@ -22,25 +22,16 @@ class ClassController extends Controller
     {
         //
         if (Auth::user()->hasRole('admin')) {
-            $class = ClassModel::with('Subject', 'department', 'teacher')->orderBy('id', 'desc')->get();
+            $class = ClassModel::with('department', 'teacher')->orderBy('id', 'desc')->get();
             return response()->json($class, 200);
         } else if (Auth::user()->hasRole('teacher')) {
-            $a = ClassModel::with('Subject', 'department', 'teacher')->orderBy('id', 'desc')->get();
-            $class = [];
-
-            foreach ($a as $key => $value) {
-                if (count($value->teacher) > 0) {
-                    foreach ($value->teacher as $key2 => $value2) {
-                        if ($value2->user_id == Auth::user()->id) {
-                            array_push($class, $value);
-                        }
-                    }
-                }
-            }
+            $class = ClassModel::with('department')->whereHas('teacher', function ($query) {
+                $query->where('user_id', Auth::user()->id);
+            })->orderBy('id', 'desc')->distinct()->get();
 
             return response()->json($class, 200);
         } else {
-            return response()->json(['message' => 'Bạn không có quyền truy cập'], 401);
+            return response()->json(['message' => 'Bạn không có quyền truy cp'], 401);
         }
 
         return response()->json($data, 200);
