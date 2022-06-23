@@ -1,10 +1,7 @@
 <template>
   <div>
     <div>
-      <div
-        class="hero-slide owl-carousel site-blocks-cover"
-        :key="$route.fullPath + 'carousel'"
-      >
+      <div class="hero-slide owl-carousel site-blocks-cover">
         <div
           class="intro-section"
           style="background-image: url('images/laptop_hoc_sinh.jpg')"

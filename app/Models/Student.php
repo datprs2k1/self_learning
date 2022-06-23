@@ -30,4 +30,9 @@ class Student extends Model
     {
         return $this->belongsTo(ClassModel::class, 'class_id', 'id');
     }
+
+    public function Result()
+    {
+        return $this->hasMany(Result::class, 'student_id', 'id');
+    }
 }

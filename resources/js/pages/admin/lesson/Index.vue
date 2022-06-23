@@ -19,6 +19,13 @@
                       <div>
                         <p>Lớp {{ CLASS.name }}</p>
                         <p>Môn {{ subject.name }} ({{ subject.code }})</p>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          @click="viewResult()"
+                        >
+                          Xem điểm
+                        </button>
                       </div>
                       <div>
                         <div v-if="teacherSC && teacherSC.length > 0">
@@ -394,6 +401,70 @@
                       </div>
                     </template>
                   </b-modal>
+                  <b-modal
+                    id="modal-result"
+                    size="lg"
+                    :title="'Xem kết quả'"
+                    ref="modalResult"
+                  >
+                    <b-row>
+                      <b-col md="">
+                        <span>
+                          <export-excel
+                            :data="json_data"
+                            class="btn btn-success"
+                            name="Danh sách lớp.xls"
+                            id="export-excel"
+                            v-b-tooltip.hover.v-secondary="
+                              'Xuất Excel các bản ghi đã chọn'
+                            "
+                          >
+                            <i class="fa fa-file-excel"></i>
+                          </export-excel>
+                        </span>
+                      </b-col>
+                      <b-col md="">
+                        <span>
+                          <b-form-select
+                            v-model="select"
+                            :options="weeks"
+                            value-field="week"
+                            text-field="value"
+                            @change="getValue"
+                          >
+                          </b-form-select>
+                        </span>
+                      </b-col>
+                      <b-col md="4" class="my-1">
+                        <b-form-group>
+                          <b-input-group>
+                            <b-form-input
+                              id="filter-input"
+                              v-model="filter"
+                              type="search"
+                              placeholder="Nhập từ khóa tìm kiếm"
+                            ></b-form-input>
+                          </b-input-group>
+                        </b-form-group>
+                      </b-col>
+                    </b-row>
+                    <div class="form-group">
+                      <b-table :items="data" :fields="fields" :filter="filter">
+                        <template #cell(index)="row">
+                          {{ row.index + 1 }}
+                        </template>
+                      </b-table>
+                    </div>
+
+                    <template #modal-footer="{ ok, cancel }">
+                      <div>
+                        <b-button variant="primary" @click="cancel()">
+                          Xác nhận
+                        </b-button>
+                        <b-button variant="secondary" @click="cancel()"> Hủy </b-button>
+                      </div>
+                    </template>
+                  </b-modal>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -412,8 +483,11 @@
 </template>
 
 <script>
+import api from "../../../services/api";
 import { mapActions, mapGetters } from "vuex";
 import Multiselect from "vue-multiselect";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
 export default {
   components: {
     Multiselect,
@@ -437,6 +511,50 @@ export default {
       errors: {},
       teacher_id: null,
       total_time: 1,
+      result: [],
+      fields: [
+        {
+          key: "index",
+          label: "STT",
+        },
+        {
+          key: "code",
+          label: "MSV",
+          class: "text-center",
+          sortable: true,
+        },
+        {
+          key: "name",
+          label: "Họ tên",
+          class: "text-center",
+          sortable: true,
+        },
+        {
+          key: "score",
+          label: "Điểm",
+          class: "text-center",
+          sortable: true,
+        },
+        {
+          key: "week",
+          label: "Tuần",
+          class: "text-center",
+          sortable: true,
+        },
+      ],
+      filter: null,
+      json_data: [],
+      json_meta: [
+        [
+          {
+            key: "charset",
+            value: "utf-8",
+          },
+        ],
+      ],
+      select: 1,
+      pdf_data: [],
+      data: [],
     };
   },
   async created() {
@@ -455,11 +573,97 @@ export default {
       class_id: this.lesson.class_id,
       subject_id: this.lesson.subject_id,
     });
+    await this.getResult();
+
+    await this.getValue();
     this.teacher_id = this.CLASS.teacher[0];
+
+    this.json_data = this.result.map((item, index) => {
+      return {
+        STT: index + 1,
+        "Mã sinh viên": item.code,
+        "Họ tên": item.name,
+        Điểm: item.score,
+        Tuần: item.week,
+      };
+    });
+
+    this.pdf_data = this.result.map((item, index) => {
+      return [index + 1, item.student.code, item.student.name, item.score];
+    });
   },
   methods: {
     ...mapActions("CLASS", ["getCLASS"]),
     ...mapActions("teacher", ["getTeacherSC", "getTeachersBySubject"]),
+    async getValue() {
+      this.data = this.result.filter((item) => {
+        return item.week == this.select;
+      });
+    },
+
+    async getResult() {
+      this.result = null;
+      const data = await api.post("/teacher/xemketqua", {
+        class_id: this.lesson.class_id,
+        subject_id: this.lesson.subject_id,
+      });
+
+      this.result = data.data;
+    },
+
+    viewResult() {
+      this.$refs.modalResult.show();
+    },
+
+    exportPdf() {
+      if (this.pdf_data.length === 0) return;
+      this.pdf_data.unshift([
+        {
+          text: "STT",
+          fillColor: "#6c7ae0",
+          color: "white",
+          alignment: "center",
+        },
+        {
+          text: "Mã sinh viên",
+          fillColor: "#6c7ae0",
+          color: "white",
+          alignment: "center",
+        },
+        {
+          text: "Họ tên",
+          fillColor: "#6c7ae0",
+          color: "white",
+          alignment: "center",
+        },
+        {
+          text: "Điểm",
+          fillColor: "#6c7ae0",
+          color: "white",
+          alignment: "center",
+        },
+      ]);
+      var docDefinition = {
+        header: {
+          text: "DANH SÁCH ĐIỂM",
+          alignment: "center",
+          bold: "true",
+          fontSize: 20,
+        },
+        content: [
+          {
+            table: {
+              headerRows: 1,
+              widths: ["auto", "*", "*", "*", "*"],
+              body: this.pdf_data,
+            },
+          },
+        ],
+      };
+
+      pdfMake.vfs = pdfFonts.pdfMake.vfs;
+      pdfMake.createPdf(docDefinition).download("Danh sách lớp.pdf");
+    },
 
     getSubject() {
       for (let i = 0; i < this.CLASS.subject.length; i++) {
@@ -470,7 +674,11 @@ export default {
     },
     getWeeks() {
       for (let i = 0; i < this.subject.weeks; i++) {
-        let object = { week: i + 1, lessons: [] };
+        let object = {
+          week: i + 1,
+          lessons: [],
+          value: "Tuần " + (i + 1),
+        };
         this.weeks.push(object);
       }
     },

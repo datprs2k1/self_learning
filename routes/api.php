@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::resource('/lesson', LessonController::class);
     Route::resource('/document', DocumentController::class);
     Route::resource('/question', QuestionController::class);
+    Route::post('/teacher/xemketqua', [TeacherController::class, 'xemketqua']);
     Route::get('teacher/count', [TeacherController::class, 'getTeacherCount']);
     Route::resource('/teacher', TeacherController::class);
     Route::delete('/department/delete/{department}', 'App\Http\Controllers\DepartmentController@deleteMutiple');

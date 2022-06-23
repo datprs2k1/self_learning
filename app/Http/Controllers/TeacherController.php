@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClassModel;
+use App\Models\Result;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -229,5 +233,51 @@ class TeacherController extends Controller
     {
         $count = Teacher::count();
         return response()->json($count, 200);
+    }
+
+    public function xemketqua(Request $request)
+    {
+        $data = Result::with('student')
+            ->where('result.class_id', $request->class_id)
+            ->where('subject_id', $request->subject_id)
+            ->groupBy('student_id', 'subject_id', 'week')
+            ->get([
+                'student_id',
+                DB::raw('MAX(totalScore) as score'),
+                'week'
+            ]);
+
+
+        $student = Student::where('class_id', $request->class_id)->get([
+            'id',
+            'name',
+            'code'
+        ]);
+
+        $result = [];
+
+        foreach ($data as $item) {
+            foreach ($student as $a) {
+                if ($item->student_id == $a->id) {
+                    $result[] = [
+                        'id' => $a->id,
+                        'name' => $a->name,
+                        'code' => $a->code,
+                        'score' => $item->score,
+                        'week' => $item->week
+                    ];
+                } else {
+                    $result[] = [
+                        'id' => $a->id,
+                        'name' => $a->name,
+                        'code' => $a->code,
+                        'score' => 0,
+                        'week' => $item->week
+                    ];
+                }
+            }
+        }
+
+        return response()->json($result, 200);
     }
 }

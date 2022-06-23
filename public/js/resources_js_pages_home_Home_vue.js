@@ -741,9 +741,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -1160,1126 +1157,1110 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c(
-        "div",
-        {
-          key: _vm.$route.fullPath + "carousel",
-          staticClass: "hero-slide owl-carousel site-blocks-cover",
-        },
-        [_vm._m(0), _vm._v(" "), _vm._m(1)]
-      ),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4),
-      _vm._v(" "),
-      _vm._m(5),
-      _vm._v(" "),
-      _vm._m(6),
-      _vm._v(" "),
-      _vm._m(7),
-      _vm._v(" "),
-      _vm._m(8),
-    ]),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "intro-section",
-        staticStyle: {
-          "background-image": "url('images/laptop_hoc_sinh.jpg')",
-        },
-      },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row align-items-center" }, [
-            _c(
-              "div",
-              {
-                staticClass: "col-lg-12 mx-auto text-center",
-                attrs: { "data-aos": "fade-up" },
-              },
-              [
-                _c("h2", { staticClass: "slideshow" }, [
-                  _vm._v("HỆ THỐNG QUẢN LÝ VIỆC TỰ HỌC"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "slideshow" }, [
-                  _vm._v("UTT - SELFLEARNING"),
-                ]),
-              ]
-            ),
-          ]),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "intro-section",
-        staticStyle: { "background-image": "url('images/hero_1.jpg')" },
-      },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row align-items-center" }, [
-            _c(
-              "div",
-              {
-                staticClass: "col-lg-12 mx-auto text-center",
-                attrs: { "data-aos": "fade-up" },
-              },
-              [
-                _c("h2", { staticClass: "slideshow" }, [
-                  _vm._v("HỆ THỐNG QUẢN LÝ VIỆC TỰ HỌC"),
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "slideshow" }, [
-                  _vm._v("UTT - SELFLEARNING"),
-                ]),
-              ]
-            ),
-          ]),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "site-section" }, [
-      _c("div", { staticClass: "container" }, [
+    return _c("div", [
+      _c("div", [
         _c(
           "div",
-          { staticClass: "row mb-5 justify-content-center text-center" },
+          { staticClass: "hero-slide owl-carousel site-blocks-cover" },
           [
-            _c("div", { staticClass: "col-lg-4 mb-5" }, [
-              _c("h2", { staticClass: "section-title-underline mb-5" }, [
-                _c("span", [_vm._v("Ưu Điểm")]),
-              ]),
-            ]),
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-4 col-md-6 mb-4 mb-lg-0" }, [
-            _c("div", { staticClass: "feature-1 border h-100" }, [
-              _c("div", { staticClass: "icon-wrapper bg-primary" }, [
-                _c("span", { staticClass: "flaticon-mortarboard text-white" }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "feature-1-content" }, [
-                _c("div", { staticClass: "feature-1-content-child" }, [
-                  _c("h2", [_vm._v("Tài nguyên học liệu phong phú")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                    Hệ thống gồm nhiều các khoá học được thiết kế đẹp, nội dung phong\n                    phú của các giảng viên uy tín của Trường ĐHCNGTVT\n                  "
+            _c(
+              "div",
+              {
+                staticClass: "intro-section",
+                staticStyle: {
+                  "background-image": "url('images/laptop_hoc_sinh.jpg')",
+                },
+              },
+              [
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row align-items-center" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-lg-12 mx-auto text-center",
+                        attrs: { "data-aos": "fade-up" },
+                      },
+                      [
+                        _c("h2", { staticClass: "slideshow" }, [
+                          _vm._v("HỆ THỐNG QUẢN LÝ VIỆC TỰ HỌC"),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "slideshow" }, [
+                          _vm._v("UTT - SELFLEARNING"),
+                        ]),
+                      ]
                     ),
                   ]),
                 ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary px-4 rounded-0",
-                      attrs: { href: "/about" },
-                    },
-                    [_vm._v("Đọc thêm")]
-                  ),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "intro-section",
+                staticStyle: { "background-image": "url('images/hero_1.jpg')" },
+              },
+              [
+                _c("div", { staticClass: "container" }, [
+                  _c("div", { staticClass: "row align-items-center" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-lg-12 mx-auto text-center",
+                        attrs: { "data-aos": "fade-up" },
+                      },
+                      [
+                        _c("h2", { staticClass: "slideshow" }, [
+                          _vm._v("HỆ THỐNG QUẢN LÝ VIỆC TỰ HỌC"),
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "slideshow" }, [
+                          _vm._v("UTT - SELFLEARNING"),
+                        ]),
+                      ]
+                    ),
+                  ]),
+                ]),
+              ]
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "site-section" }, [
+          _c("div", { staticClass: "container" }, [
+            _c(
+              "div",
+              { staticClass: "row mb-5 justify-content-center text-center" },
+              [
+                _c("div", { staticClass: "col-lg-4 mb-5" }, [
+                  _c("h2", { staticClass: "section-title-underline mb-5" }, [
+                    _c("span", [_vm._v("Ưu Điểm")]),
+                  ]),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-4 col-md-6 mb-4 mb-lg-0" }, [
+                _c("div", { staticClass: "feature-1 border h-100" }, [
+                  _c("div", { staticClass: "icon-wrapper bg-primary" }, [
+                    _c("span", {
+                      staticClass: "flaticon-mortarboard text-white",
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "feature-1-content" }, [
+                    _c("div", { staticClass: "feature-1-content-child" }, [
+                      _c("h2", [_vm._v("Tài nguyên học liệu phong phú")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                    Hệ thống gồm nhiều các khoá học được thiết kế đẹp, nội dung phong\n                    phú của các giảng viên uy tín của Trường ĐHCNGTVT\n                  "
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary px-4 rounded-0",
+                          attrs: { href: "/about" },
+                        },
+                        [_vm._v("Đọc thêm")]
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-md-6 mb-4 mb-lg-0" }, [
+                _c("div", { staticClass: "feature-1 border h-100" }, [
+                  _c("div", { staticClass: "icon-wrapper bg-primary" }, [
+                    _c("span", {
+                      staticClass: "flaticon-school-material text-white",
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "feature-1-content" }, [
+                    _c("div", { staticClass: "feature-1-content-child" }, [
+                      _c("h2", [_vm._v("Tích cực và chủ động")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                    Hệ thống khuyến khích sinh viên học tập tích cực và chủ động, dễ\n                    dàng chia sẻ và trao đổi tương tác mọi nơi mọi lúc\n                  "
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary px-4 rounded-0",
+                          attrs: { href: "/about" },
+                        },
+                        [_vm._v("Đọc thêm")]
+                      ),
+                    ]),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4 col-md-6 mb-4 mb-lg-0" }, [
+                _c("div", { staticClass: "feature-1 border h-100" }, [
+                  _c("div", { staticClass: "icon-wrapper bg-primary" }, [
+                    _c("span", { staticClass: "flaticon-library text-white" }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "feature-1-content" }, [
+                    _c("div", { staticClass: "feature-1-content-child" }, [
+                      _c("h2", [_vm._v("Thuận tiện và linh hoạt")]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                    Hệ thống khiến việc học tập online trở nên dễ dàng hơn, thiết kế\n                    thân thiện, thích hợp sử dụng trên nhiều nền tảng PC, Mobile\n                  "
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary px-4 rounded-0",
+                          attrs: { href: "/about" },
+                        },
+                        [_vm._v("Đọc thêm")]
+                      ),
+                    ]),
+                  ]),
                 ]),
               ]),
             ]),
           ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 col-md-6 mb-4 mb-lg-0" }, [
-            _c("div", { staticClass: "feature-1 border h-100" }, [
-              _c("div", { staticClass: "icon-wrapper bg-primary" }, [
-                _c("span", {
-                  staticClass: "flaticon-school-material text-white",
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "site-section" }, [
+          _c("div", { staticClass: "container" }, [
+            _c(
+              "div",
+              { staticClass: "row mb-5 justify-content-center text-center" },
+              [
+                _c("div", { staticClass: "col-lg-6 mb-5" }, [
+                  _c("h2", { staticClass: "section-title-underline mb-3" }, [
+                    _c("span", [_vm._v("Popular Courses")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?\n            "
+                    ),
+                  ]),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("div", { staticClass: "owl-slide-3 owl-carousel" }, [
+                  _c("div", { staticClass: "course-1-item" }, [
+                    _c("figure", { staticClass: "thumnail" }, [
+                      _c("a", { attrs: { href: "course-single.html" } }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: { src: "images/course_1.jpg", alt: "Image" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "category" }, [
+                        _c("h3", [_vm._v("Mobile Application")]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "course-1-content pb-4" }, [
+                      _c("h2", [
+                        _vm._v("How To Create Mobile Apps Using Ionic"),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "rating text-center mb-3" }, [
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "desc mb-4" }, [
+                        _vm._v(
+                          "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary rounded-0 px-4",
+                            attrs: { href: "course-single.html" },
+                          },
+                          [_vm._v("Enroll In This Course")]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "course-1-item" }, [
+                    _c("figure", { staticClass: "thumnail" }, [
+                      _c("a", { attrs: { href: "course-single.html" } }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: { src: "images/course_2.jpg", alt: "Image" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "category" }, [
+                        _c("h3", [_vm._v("Web Design")]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "course-1-content pb-4" }, [
+                      _c("h2", [
+                        _vm._v("How To Create Mobile Apps Using Ionic"),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "rating text-center mb-3" }, [
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "desc mb-4" }, [
+                        _vm._v(
+                          "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary rounded-0 px-4",
+                            attrs: { href: "course-single.html" },
+                          },
+                          [_vm._v("Enroll In This Course")]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "course-1-item" }, [
+                    _c("figure", { staticClass: "thumnail" }, [
+                      _c("a", { attrs: { href: "course-single.html" } }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: { src: "images/course_3.jpg", alt: "Image" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "category" }, [
+                        _c("h3", [_vm._v("Arithmetic")]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "course-1-content pb-4" }, [
+                      _c("h2", [
+                        _vm._v("How To Create Mobile Apps Using Ionic"),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "rating text-center mb-3" }, [
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "desc mb-4" }, [
+                        _vm._v(
+                          "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary rounded-0 px-4",
+                            attrs: { href: "courses-single.html" },
+                          },
+                          [_vm._v("Enroll In This Course")]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "course-1-item" }, [
+                    _c("figure", { staticClass: "thumnail" }, [
+                      _c("a", { attrs: { href: "course-single.html" } }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: { src: "images/course_4.jpg", alt: "Image" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "category" }, [
+                        _c("h3", [_vm._v("Mobile Application")]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "course-1-content pb-4" }, [
+                      _c("h2", [
+                        _vm._v("How To Create Mobile Apps Using Ionic"),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "rating text-center mb-3" }, [
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "desc mb-4" }, [
+                        _vm._v(
+                          "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary rounded-0 px-4",
+                            attrs: { href: "course-single.html" },
+                          },
+                          [_vm._v("Enroll In This Course")]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "course-1-item" }, [
+                    _c("figure", { staticClass: "thumnail" }, [
+                      _c("a", { attrs: { href: "course-single.html" } }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: { src: "images/course_5.jpg", alt: "Image" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "category" }, [
+                        _c("h3", [_vm._v("Web Design")]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "course-1-content pb-4" }, [
+                      _c("h2", [
+                        _vm._v("How To Create Mobile Apps Using Ionic"),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "rating text-center mb-3" }, [
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "desc mb-4" }, [
+                        _vm._v(
+                          "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary rounded-0 px-4",
+                            attrs: { href: "course-single.html" },
+                          },
+                          [_vm._v("Enroll In This Course")]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "course-1-item" }, [
+                    _c("figure", { staticClass: "thumnail" }, [
+                      _c("a", { attrs: { href: "course-single.html" } }, [
+                        _c("img", {
+                          staticClass: "img-fluid",
+                          attrs: { src: "images/course_6.jpg", alt: "Image" },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "category" }, [
+                        _c("h3", [_vm._v("Mobile Application")]),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "course-1-content pb-4" }, [
+                      _c("h2", [
+                        _vm._v("How To Create Mobile Apps Using Ionic"),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "rating text-center mb-3" }, [
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon-star2 text-warning" }),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "desc mb-4" }, [
+                        _vm._v(
+                          "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary rounded-0 px-4",
+                            attrs: { href: "course-single.html" },
+                          },
+                          [_vm._v("Enroll In This Course")]
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "section-bg style-1" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("h2", { staticClass: "section-title-underline style-2" }, [
+                  _c("span", [_vm._v("Giới thiệu chung")]),
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: { src: "images/laptop.jpg", width: "240px" },
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "feature-1-content" }, [
-                _c("div", { staticClass: "feature-1-content-child" }, [
-                  _c("h2", [_vm._v("Tích cực và chủ động")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                    Hệ thống khuyến khích sinh viên học tập tích cực và chủ động, dễ\n                    dàng chia sẻ và trao đổi tương tác mọi nơi mọi lúc\n                  "
-                    ),
-                  ]),
+              _c("div", { staticClass: "col-lg-8" }, [
+                _c("p", { staticClass: "lead mt-5" }, [
+                  _vm._v(
+                    "\n              Hệ thống UTT - SelfLearning là hệ thống phần mềm hỗ trợ dạy & học cho cán\n              bộ giảng viên sinh viên trường Đại học Công nghệ Giao thông vận tải.\n            "
+                  ),
                 ]),
                 _vm._v(" "),
                 _c("p", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary px-4 rounded-0",
-                      attrs: { href: "/about" },
-                    },
-                    [_vm._v("Đọc thêm")]
+                  _vm._v(
+                    "\n              Hệ thống tận dụng triệt để thế mạnh của công nghệ thông tin trong dạy &\n              học nhằm nâng cao hiệu quả đào tạo; tiết kiệm sử dụng phòng học và thời\n              gian lên lớp của cán bộ cũng như sinh viên.\n            "
                   ),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-4 col-md-6 mb-4 mb-lg-0" }, [
-            _c("div", { staticClass: "feature-1 border h-100" }, [
-              _c("div", { staticClass: "icon-wrapper bg-primary" }, [
-                _c("span", { staticClass: "flaticon-library text-white" }),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "feature-1-content" }, [
-                _c("div", { staticClass: "feature-1-content-child" }, [
-                  _c("h2", [_vm._v("Thuận tiện và linh hoạt")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                    Hệ thống khiến việc học tập online trở nên dễ dàng hơn, thiết kế\n                    thân thiện, thích hợp sử dụng trên nhiều nền tảng PC, Mobile\n                  "
-                    ),
-                  ]),
                 ]),
                 _vm._v(" "),
                 _c("p", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary px-4 rounded-0",
-                      attrs: { href: "/about" },
-                    },
-                    [_vm._v("Đọc thêm")]
-                  ),
+                  _c("a", { attrs: { href: "/about" } }, [_vm._v("Đọc thêm")]),
                 ]),
               ]),
             ]),
           ]),
         ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "site-section" }, [
-      _c("div", { staticClass: "container" }, [
-        _c(
-          "div",
-          { staticClass: "row mb-5 justify-content-center text-center" },
-          [
-            _c("div", { staticClass: "col-lg-6 mb-5" }, [
-              _c("h2", { staticClass: "section-title-underline mb-3" }, [
-                _c("span", [_vm._v("Popular Courses")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "site-section" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row mb-5" }, [
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("h2", { staticClass: "section-title-underline" }, [
+                  _c("span", [_vm._v("Testimonials")]),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "owl-slide owl-carousel" }, [
+              _c("div", { staticClass: "ftco-testimonial-1" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "ftco-testimonial-vcard d-flex align-items-center mb-4",
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "img-fluid mr-3",
+                      attrs: { src: "images/person_1.jpg", alt: "Image" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h3", [_vm._v("Allison Holmes")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Designer")]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
+                    ),
+                  ]),
+                ]),
               ]),
               _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?\n            "
+              _c("div", { staticClass: "ftco-testimonial-1" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "ftco-testimonial-vcard d-flex align-items-center mb-4",
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "img-fluid mr-3",
+                      attrs: { src: "images/person_2.jpg", alt: "Image" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h3", [_vm._v("Allison Holmes")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Designer")]),
+                    ]),
+                  ]
                 ),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ftco-testimonial-1" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "ftco-testimonial-vcard d-flex align-items-center mb-4",
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "img-fluid mr-3",
+                      attrs: { src: "images/person_4.jpg", alt: "Image" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h3", [_vm._v("Allison Holmes")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Designer")]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ftco-testimonial-1" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "ftco-testimonial-vcard d-flex align-items-center mb-4",
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "img-fluid mr-3",
+                      attrs: { src: "images/person_3.jpg", alt: "Image" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h3", [_vm._v("Allison Holmes")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Designer")]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ftco-testimonial-1" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "ftco-testimonial-vcard d-flex align-items-center mb-4",
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "img-fluid mr-3",
+                      attrs: { src: "images/person_2.jpg", alt: "Image" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h3", [_vm._v("Allison Holmes")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Designer")]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ftco-testimonial-1" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "ftco-testimonial-vcard d-flex align-items-center mb-4",
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "img-fluid mr-3",
+                      attrs: { src: "images/person_4.jpg", alt: "Image" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c("h3", [_vm._v("Allison Holmes")]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Designer")]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", [
+                  _c("p", [
+                    _vm._v(
+                      "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "section-bg style-1",
+            staticStyle: { "background-image": "url('images/hero_1.jpg')" },
+          },
+          [
+            _c("div", { staticClass: "container" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-4 col-md-6 mb-5 mb-lg-0" }, [
+                  _c("span", { staticClass: "icon flaticon-mortarboard" }),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Our Philosphy")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-4 col-md-6 mb-5 mb-lg-0" }, [
+                  _c("span", { staticClass: "icon flaticon-school-material" }),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Academics Principle")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-4 col-md-6 mb-5 mb-lg-0" }, [
+                  _c("span", { staticClass: "icon flaticon-library" }),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Key of Success")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
+                    ),
+                  ]),
+                ]),
               ]),
             ]),
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-12" }, [
-            _c("div", { staticClass: "owl-slide-3 owl-carousel" }, [
-              _c("div", { staticClass: "course-1-item" }, [
-                _c("figure", { staticClass: "thumnail" }, [
-                  _c("a", { attrs: { href: "course-single.html" } }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "images/course_1.jpg", alt: "Image" },
-                    }),
+        _c("div", { staticClass: "news-updates" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-9" }, [
+                _c("div", { staticClass: "section-heading" }, [
+                  _c("h2", { staticClass: "text-black" }, [
+                    _vm._v("News & Updates"),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "category" }, [
-                    _c("h3", [_vm._v("Mobile Application")]),
-                  ]),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("Read All News")]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "course-1-content pb-4" }, [
-                  _c("h2", [_vm._v("How To Create Mobile Apps Using Ionic")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "rating text-center mb-3" }, [
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-lg-6" }, [
+                    _c("div", { staticClass: "post-entry-big" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "img-link",
+                          attrs: { href: "news-single.html" },
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "img-fluid",
+                            attrs: {
+                              src: "images/blog_large_1.jpg",
+                              alt: "Image",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "post-content" }, [
+                        _c("div", { staticClass: "post-meta" }, [
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("June 6, 2019"),
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
+                          _vm._v(" "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Admission"),
+                          ]),
+                          _vm._v(",\n                      "),
+                          _c("a", { attrs: { href: "#" } }, [
+                            _vm._v("Updates"),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("h3", { staticClass: "post-heading" }, [
+                          _c("a", { attrs: { href: "news-single.html" } }, [
+                            _vm._v("Campus Camping and Learning Session"),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
                   ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "desc mb-4" }, [
-                    _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
+                  _c("div", { staticClass: "col-lg-6" }, [
                     _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary rounded-0 px-4",
-                        attrs: { href: "course-single.html" },
-                      },
-                      [_vm._v("Enroll In This Course")]
+                      "div",
+                      { staticClass: "post-entry-big horizontal d-flex mb-4" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "img-link mr-4",
+                            attrs: { href: "news-single.html" },
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              attrs: { src: "images/blog_1.jpg", alt: "Image" },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "post-content" }, [
+                          _c("div", { staticClass: "post-meta" }, [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("June 6, 2019"),
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
+                            _vm._v(" "),
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Admission"),
+                            ]),
+                            _vm._v(",\n                      "),
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Updates"),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "post-heading" }, [
+                            _c("a", { attrs: { href: "news-single.html" } }, [
+                              _vm._v("Campus Camping and Learning Session"),
+                            ]),
+                          ]),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "post-entry-big horizontal d-flex mb-4" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "img-link mr-4",
+                            attrs: { href: "news-single.html" },
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              attrs: { src: "images/blog_2.jpg", alt: "Image" },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "post-content" }, [
+                          _c("div", { staticClass: "post-meta" }, [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("June 6, 2019"),
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
+                            _vm._v(" "),
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Admission"),
+                            ]),
+                            _vm._v(",\n                      "),
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Updates"),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "post-heading" }, [
+                            _c("a", { attrs: { href: "news-single.html" } }, [
+                              _vm._v("Campus Camping and Learning Session"),
+                            ]),
+                          ]),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "post-entry-big horizontal d-flex mb-4" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "img-link mr-4",
+                            attrs: { href: "news-single.html" },
+                          },
+                          [
+                            _c("img", {
+                              staticClass: "img-fluid",
+                              attrs: { src: "images/blog_1.jpg", alt: "Image" },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "post-content" }, [
+                          _c("div", { staticClass: "post-meta" }, [
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("June 6, 2019"),
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
+                            _vm._v(" "),
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Admission"),
+                            ]),
+                            _vm._v(",\n                      "),
+                            _c("a", { attrs: { href: "#" } }, [
+                              _vm._v("Updates"),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "post-heading" }, [
+                            _c("a", { attrs: { href: "news-single.html" } }, [
+                              _vm._v("Campus Camping and Learning Session"),
+                            ]),
+                          ]),
+                        ]),
+                      ]
                     ),
                   ]),
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "course-1-item" }, [
-                _c("figure", { staticClass: "thumnail" }, [
-                  _c("a", { attrs: { href: "course-single.html" } }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "images/course_2.jpg", alt: "Image" },
-                    }),
+              _c("div", { staticClass: "col-lg-3" }, [
+                _c("div", { staticClass: "section-heading" }, [
+                  _c("h2", { staticClass: "text-black" }, [
+                    _vm._v("Campus Videos"),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "category" }, [
-                    _c("h3", [_vm._v("Web Design")]),
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("View All Videos"),
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "course-1-content pb-4" }, [
-                  _c("h2", [_vm._v("How To Create Mobile Apps Using Ionic")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "rating text-center mb-3" }, [
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
+                _c(
+                  "a",
+                  {
+                    staticClass: "video-1 mb-4",
+                    attrs: {
+                      href: "https://vimeo.com/45830194",
+                      "data-fancybox": "",
+                      "data-ratio": "2",
+                    },
+                  },
+                  [
+                    _c("span", { staticClass: "play" }, [
+                      _c("span", { staticClass: "icon-play" }),
+                    ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "desc mb-4" }, [
-                    _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary rounded-0 px-4",
-                        attrs: { href: "course-single.html" },
-                      },
-                      [_vm._v("Enroll In This Course")]
-                    ),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "course-1-item" }, [
-                _c("figure", { staticClass: "thumnail" }, [
-                  _c("a", { attrs: { href: "course-single.html" } }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "images/course_3.jpg", alt: "Image" },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "category" }, [
-                    _c("h3", [_vm._v("Arithmetic")]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "course-1-content pb-4" }, [
-                  _c("h2", [_vm._v("How To Create Mobile Apps Using Ionic")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "rating text-center mb-3" }, [
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "desc mb-4" }, [
-                    _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary rounded-0 px-4",
-                        attrs: { href: "courses-single.html" },
-                      },
-                      [_vm._v("Enroll In This Course")]
-                    ),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "course-1-item" }, [
-                _c("figure", { staticClass: "thumnail" }, [
-                  _c("a", { attrs: { href: "course-single.html" } }, [
-                    _c("img", {
-                      staticClass: "img-fluid",
-                      attrs: { src: "images/course_4.jpg", alt: "Image" },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "category" }, [
-                    _c("h3", [_vm._v("Mobile Application")]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "course-1-content pb-4" }, [
-                  _c("h2", [_vm._v("How To Create Mobile Apps Using Ionic")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "rating text-center mb-3" }, [
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "desc mb-4" }, [
-                    _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary rounded-0 px-4",
-                        attrs: { href: "course-single.html" },
-                      },
-                      [_vm._v("Enroll In This Course")]
-                    ),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "course-1-item" }, [
-                _c("figure", { staticClass: "thumnail" }, [
-                  _c("a", { attrs: { href: "course-single.html" } }, [
                     _c("img", {
                       staticClass: "img-fluid",
                       attrs: { src: "images/course_5.jpg", alt: "Image" },
                     }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "category" }, [
-                    _c("h3", [_vm._v("Web Design")]),
-                  ]),
-                ]),
+                  ]
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "course-1-content pb-4" }, [
-                  _c("h2", [_vm._v("How To Create Mobile Apps Using Ionic")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "rating text-center mb-3" }, [
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
+                _c(
+                  "a",
+                  {
+                    staticClass: "video-1 mb-4",
+                    attrs: {
+                      href: "https://vimeo.com/45830194",
+                      "data-fancybox": "",
+                      "data-ratio": "2",
+                    },
+                  },
+                  [
+                    _c("span", { staticClass: "play" }, [
+                      _c("span", { staticClass: "icon-play" }),
+                    ]),
                     _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "desc mb-4" }, [
-                    _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary rounded-0 px-4",
-                        attrs: { href: "course-single.html" },
-                      },
-                      [_vm._v("Enroll In This Course")]
-                    ),
-                  ]),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "course-1-item" }, [
-                _c("figure", { staticClass: "thumnail" }, [
-                  _c("a", { attrs: { href: "course-single.html" } }, [
                     _c("img", {
                       staticClass: "img-fluid",
-                      attrs: { src: "images/course_6.jpg", alt: "Image" },
+                      attrs: { src: "images/course_5.jpg", alt: "Image" },
                     }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "price" }, [_vm._v("$99.00")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "category" }, [
-                    _c("h3", [_vm._v("Mobile Application")]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "course-1-content pb-4" }, [
-                  _c("h2", [_vm._v("How To Create Mobile Apps Using Ionic")]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "rating text-center mb-3" }, [
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "icon-star2 text-warning" }),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "desc mb-4" }, [
-                    _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique\n                    accusantium ipsam.\n                  "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-primary rounded-0 px-4",
-                        attrs: { href: "course-single.html" },
-                      },
-                      [_vm._v("Enroll In This Course")]
-                    ),
-                  ]),
-                ]),
+                  ]
+                ),
               ]),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "section-bg style-1" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("h2", { staticClass: "section-title-underline style-2" }, [
-              _c("span", [_vm._v("Giới thiệu chung")]),
-            ]),
-            _vm._v(" "),
-            _c("img", { attrs: { src: "images/laptop.jpg", width: "240px" } }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-8" }, [
-            _c("p", { staticClass: "lead mt-5" }, [
-              _vm._v(
-                "\n              Hệ thống UTT - SelfLearning là hệ thống phần mềm hỗ trợ dạy & học cho cán\n              bộ giảng viên sinh viên trường Đại học Công nghệ Giao thông vận tải.\n            "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n              Hệ thống tận dụng triệt để thế mạnh của công nghệ thông tin trong dạy &\n              học nhằm nâng cao hiệu quả đào tạo; tiết kiệm sử dụng phòng học và thời\n              gian lên lớp của cán bộ cũng như sinh viên.\n            "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _c("a", { attrs: { href: "/about" } }, [_vm._v("Đọc thêm")]),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "site-section" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row mb-5" }, [
-          _c("div", { staticClass: "col-lg-4" }, [
-            _c("h2", { staticClass: "section-title-underline" }, [
-              _c("span", [_vm._v("Testimonials")]),
             ]),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "owl-slide owl-carousel" }, [
-          _c("div", { staticClass: "ftco-testimonial-1" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "ftco-testimonial-vcard d-flex align-items-center mb-4",
-              },
-              [
-                _c("img", {
-                  staticClass: "img-fluid mr-3",
-                  attrs: { src: "images/person_1.jpg", alt: "Image" },
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("h3", [_vm._v("Allison Holmes")]),
+        _c(
+          "div",
+          {
+            staticClass: "site-section ftco-subscribe-1",
+            staticStyle: { "background-image": "url('images/bg_1.jpg')" },
+          },
+          [
+            _c("div", { staticClass: "container" }, [
+              _c("div", { staticClass: "row align-items-center" }, [
+                _c("div", { staticClass: "col-lg-7" }, [
+                  _c("h2", [_vm._v("Subscribe to us!")]),
                   _vm._v(" "),
-                  _c("span", [_vm._v("Designer")]),
+                  _c("p", [
+                    _vm._v(
+                      "\n              Far far away, behind the word mountains, far from the countries Vokalia\n              and Consonantia,\n            "
+                    ),
+                  ]),
                 ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("p", [
-                _vm._v(
-                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ftco-testimonial-1" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "ftco-testimonial-vcard d-flex align-items-center mb-4",
-              },
-              [
-                _c("img", {
-                  staticClass: "img-fluid mr-3",
-                  attrs: { src: "images/person_2.jpg", alt: "Image" },
-                }),
                 _vm._v(" "),
-                _c("div", [
-                  _c("h3", [_vm._v("Allison Holmes")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Designer")]),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("p", [
-                _vm._v(
-                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ftco-testimonial-1" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "ftco-testimonial-vcard d-flex align-items-center mb-4",
-              },
-              [
-                _c("img", {
-                  staticClass: "img-fluid mr-3",
-                  attrs: { src: "images/person_4.jpg", alt: "Image" },
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("h3", [_vm._v("Allison Holmes")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Designer")]),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("p", [
-                _vm._v(
-                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ftco-testimonial-1" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "ftco-testimonial-vcard d-flex align-items-center mb-4",
-              },
-              [
-                _c("img", {
-                  staticClass: "img-fluid mr-3",
-                  attrs: { src: "images/person_3.jpg", alt: "Image" },
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("h3", [_vm._v("Allison Holmes")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Designer")]),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("p", [
-                _vm._v(
-                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ftco-testimonial-1" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "ftco-testimonial-vcard d-flex align-items-center mb-4",
-              },
-              [
-                _c("img", {
-                  staticClass: "img-fluid mr-3",
-                  attrs: { src: "images/person_2.jpg", alt: "Image" },
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("h3", [_vm._v("Allison Holmes")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Designer")]),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("p", [
-                _vm._v(
-                  "\n                “Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!”\n              "
-                ),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "ftco-testimonial-1" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "ftco-testimonial-vcard d-flex align-items-center mb-4",
-              },
-              [
-                _c("img", {
-                  staticClass: "img-fluid mr-3",
-                  attrs: { src: "images/person_4.jpg", alt: "Image" },
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _c("h3", [_vm._v("Allison Holmes")]),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Designer")]),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", [
-              _c("p", [
-                _vm._v(
-                  "\n                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque,\n                mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure\n                maiores, perferendis, provident numquam illum nisi amet necessitatibus.\n                A, provident aperiam!\n              "
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "section-bg style-1",
-        staticStyle: { "background-image": "url('images/hero_1.jpg')" },
-      },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-4 col-md-6 mb-5 mb-lg-0" }, [
-              _c("span", { staticClass: "icon flaticon-mortarboard" }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Our Philosphy")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-4 col-md-6 mb-5 mb-lg-0" }, [
-              _c("span", { staticClass: "icon flaticon-school-material" }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Academics Principle")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-4 col-md-6 mb-5 mb-lg-0" }, [
-              _c("span", { staticClass: "icon flaticon-library" }),
-              _vm._v(" "),
-              _c("h3", [_vm._v("Key of Success")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis\n              recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.\n            "
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "news-updates" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
-            _c("div", { staticClass: "section-heading" }, [
-              _c("h2", { staticClass: "text-black" }, [
-                _vm._v("News & Updates"),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [_vm._v("Read All News")]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c("div", { staticClass: "post-entry-big" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "img-link",
-                      attrs: { href: "news-single.html" },
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "img-fluid",
-                        attrs: { src: "images/blog_large_1.jpg", alt: "Image" },
-                      }),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "post-content" }, [
-                    _c("div", { staticClass: "post-meta" }, [
-                      _c("a", { attrs: { href: "#" } }, [
-                        _vm._v("June 6, 2019"),
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
-                      _vm._v(" "),
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Admission")]),
-                      _vm._v(",\n                      "),
-                      _c("a", { attrs: { href: "#" } }, [_vm._v("Updates")]),
-                    ]),
+                _c("div", { staticClass: "col-lg-5" }, [
+                  _c("form", { staticClass: "d-flex", attrs: { action: "" } }, [
+                    _c("input", {
+                      staticClass: "rounded form-control mr-2 py-3",
+                      attrs: { type: "text", placeholder: "Enter your email" },
+                    }),
                     _vm._v(" "),
-                    _c("h3", { staticClass: "post-heading" }, [
-                      _c("a", { attrs: { href: "news-single.html" } }, [
-                        _vm._v("Campus Camping and Learning Session"),
-                      ]),
-                    ]),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary rounded py-3 px-4",
+                        attrs: { type: "submit" },
+                      },
+                      [_vm._v("\n                Send\n              ")]
+                    ),
                   ]),
                 ]),
               ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-6" }, [
-                _c(
-                  "div",
-                  { staticClass: "post-entry-big horizontal d-flex mb-4" },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "img-link mr-4",
-                        attrs: { href: "news-single.html" },
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "img-fluid",
-                          attrs: { src: "images/blog_1.jpg", alt: "Image" },
-                        }),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "post-content" }, [
-                      _c("div", { staticClass: "post-meta" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("June 6, 2019"),
-                        ]),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
-                        _vm._v(" "),
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Admission"),
-                        ]),
-                        _vm._v(",\n                      "),
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Updates")]),
-                      ]),
-                      _vm._v(" "),
-                      _c("h3", { staticClass: "post-heading" }, [
-                        _c("a", { attrs: { href: "news-single.html" } }, [
-                          _vm._v("Campus Camping and Learning Session"),
-                        ]),
-                      ]),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "post-entry-big horizontal d-flex mb-4" },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "img-link mr-4",
-                        attrs: { href: "news-single.html" },
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "img-fluid",
-                          attrs: { src: "images/blog_2.jpg", alt: "Image" },
-                        }),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "post-content" }, [
-                      _c("div", { staticClass: "post-meta" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("June 6, 2019"),
-                        ]),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
-                        _vm._v(" "),
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Admission"),
-                        ]),
-                        _vm._v(",\n                      "),
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Updates")]),
-                      ]),
-                      _vm._v(" "),
-                      _c("h3", { staticClass: "post-heading" }, [
-                        _c("a", { attrs: { href: "news-single.html" } }, [
-                          _vm._v("Campus Camping and Learning Session"),
-                        ]),
-                      ]),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "post-entry-big horizontal d-flex mb-4" },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "img-link mr-4",
-                        attrs: { href: "news-single.html" },
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "img-fluid",
-                          attrs: { src: "images/blog_1.jpg", alt: "Image" },
-                        }),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "post-content" }, [
-                      _c("div", { staticClass: "post-meta" }, [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("June 6, 2019"),
-                        ]),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "mx-1" }, [_vm._v("/")]),
-                        _vm._v(" "),
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("Admission"),
-                        ]),
-                        _vm._v(",\n                      "),
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("Updates")]),
-                      ]),
-                      _vm._v(" "),
-                      _c("h3", { staticClass: "post-heading" }, [
-                        _c("a", { attrs: { href: "news-single.html" } }, [
-                          _vm._v("Campus Camping and Learning Session"),
-                        ]),
-                      ]),
-                    ]),
-                  ]
-                ),
-              ]),
             ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-3" }, [
-            _c("div", { staticClass: "section-heading" }, [
-              _c("h2", { staticClass: "text-black" }, [
-                _vm._v("Campus Videos"),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#" } }, [_vm._v("View All Videos")]),
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "video-1 mb-4",
-                attrs: {
-                  href: "https://vimeo.com/45830194",
-                  "data-fancybox": "",
-                  "data-ratio": "2",
-                },
-              },
-              [
-                _c("span", { staticClass: "play" }, [
-                  _c("span", { staticClass: "icon-play" }),
-                ]),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "images/course_5.jpg", alt: "Image" },
-                }),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "video-1 mb-4",
-                attrs: {
-                  href: "https://vimeo.com/45830194",
-                  "data-fancybox": "",
-                  "data-ratio": "2",
-                },
-              },
-              [
-                _c("span", { staticClass: "play" }, [
-                  _c("span", { staticClass: "icon-play" }),
-                ]),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "img-fluid",
-                  attrs: { src: "images/course_5.jpg", alt: "Image" },
-                }),
-              ]
-            ),
-          ]),
-        ]),
+          ]
+        ),
       ]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "site-section ftco-subscribe-1",
-        staticStyle: { "background-image": "url('images/bg_1.jpg')" },
-      },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row align-items-center" }, [
-            _c("div", { staticClass: "col-lg-7" }, [
-              _c("h2", [_vm._v("Subscribe to us!")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n              Far far away, behind the word mountains, far from the countries Vokalia\n              and Consonantia,\n            "
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-5" }, [
-              _c("form", { staticClass: "d-flex", attrs: { action: "" } }, [
-                _c("input", {
-                  staticClass: "rounded form-control mr-2 py-3",
-                  attrs: { type: "text", placeholder: "Enter your email" },
-                }),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary rounded py-3 px-4",
-                    attrs: { type: "submit" },
-                  },
-                  [_vm._v("\n                Send\n              ")]
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]
-    )
   },
 ]
 render._withStripped = true
