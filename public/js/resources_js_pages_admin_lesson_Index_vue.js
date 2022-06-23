@@ -691,7 +691,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context3.next = 3;
                 return _services_api__WEBPACK_IMPORTED_MODULE_1__["default"].post("/teacher/xemketqua", {
                   class_id: _this3.lesson.class_id,
-                  subject_id: _this3.lesson.subject_id
+                  subject_id: _this3.lesson.subject_id,
+                  week: _this3.subject.weeks
                 });
 
               case 3:

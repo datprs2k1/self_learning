@@ -256,24 +256,23 @@ class TeacherController extends Controller
 
         $result = [];
 
+        for ($i = 1; $i <= $request->week; $i++) {
+            foreach ($student as $item) {
+                $result[] = [
+                    'id' => $item->id,
+                    'name' => $item->name,
+                    'code' => $item->code,
+                    'score' => 0,
+                    'week' => $i
+                ];
+            }
+        }
+
+
         foreach ($data as $item) {
-            foreach ($student as $a) {
-                if ($item->student_id == $a->id) {
-                    $result[] = [
-                        'id' => $a->id,
-                        'name' => $a->name,
-                        'code' => $a->code,
-                        'score' => $item->score,
-                        'week' => $item->week
-                    ];
-                } else {
-                    $result[] = [
-                        'id' => $a->id,
-                        'name' => $a->name,
-                        'code' => $a->code,
-                        'score' => 0,
-                        'week' => $item->week
-                    ];
+            foreach ($result as $key => $value) {
+                if ($value['id'] == $item->student_id && $value['week'] == $item->week) {
+                    $result[$key]['score'] = $item->score;
                 }
             }
         }

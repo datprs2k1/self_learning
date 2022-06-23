@@ -606,6 +606,7 @@ export default {
       const data = await api.post("/teacher/xemketqua", {
         class_id: this.lesson.class_id,
         subject_id: this.lesson.subject_id,
+        week: this.subject.weeks,
       });
 
       this.result = data.data;
