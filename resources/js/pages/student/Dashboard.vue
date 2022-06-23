@@ -547,8 +547,7 @@ export default {
           break;
         case "slide":
           if (
-            this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) !=
-              "" &&
+            this.getSlidePath(node.data.subject_id, node.data.class_id, node.data.week) &&
             isSelected
           ) {
             window.open(
