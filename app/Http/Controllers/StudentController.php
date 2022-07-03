@@ -189,6 +189,9 @@ class StudentController extends Controller
             $student = Student::find($id);
             $student->delete();
 
+            $user = User::where('email', $student->email)->first();
+            $user->delete();
+
             return response()->json([
                 'success' => 'true'
             ], 200);
@@ -206,6 +209,9 @@ class StudentController extends Controller
             foreach ($ids as $id) {
                 $student = Student::find($id);
                 $student->delete();
+
+                $user = User::where('email', $student->email)->first();
+                $user->delete();
             }
             return response()->json([
                 'success' => 'true'
