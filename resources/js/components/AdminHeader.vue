@@ -49,7 +49,7 @@
             />
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block">{{ getCurrentUser().name }}</a>
           </div>
         </div>
 
@@ -208,3 +208,12 @@
     </aside>
   </div>
 </template>
+
+<script>
+export default {
+  name: "Sidebar",
+  data() {
+    return {};
+  },
+};
+</script>
