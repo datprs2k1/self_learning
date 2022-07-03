@@ -93,10 +93,10 @@ class ClassController extends Controller
     {
         //
         if (Auth::user()->hasRole('admin')) {
-            $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher')->find($id);
+            $class = ClassModel::with('department', 'question', 'subject', 'student', 'lesson', 'teacher')->find($id);
             return response()->json($class);
         } else if (Auth::user()->hasRole('teacher')) {
-            $class = ClassModel::with('department', 'subject', 'student', 'lesson', 'teacher')->find($id);
+            $class = ClassModel::with('department', 'question', 'subject', 'student', 'lesson', 'teacher')->find($id);
             foreach ($class->teacher as $key => $value) {
                 if ($value->user_id == Auth::user()->id) {
                     $teacher = $value;
