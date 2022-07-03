@@ -289,11 +289,7 @@
                         >
                           <div class="row mb-3">
                             <div class="col-md-6">
-                              <b-form-radio
-                                v-model="question.correct_Answer"
-                                :aria-describedby="ariaDescribedby"
-                                :value="1"
-                              >
+                              <b-form-radio v-model="question.correct_Answer" :value="1">
                                 <label for="answer_A">Đáp án A</label>
                                 <b-form-input
                                   id="answer_A"
@@ -304,12 +300,7 @@
                               </b-form-radio>
                             </div>
                             <div class="col-md-6">
-                              <b-form-radio
-                                v-model="question.correct_Answer"
-                                :aria-describedby="ariaDescribedby"
-                                name="answer"
-                                :value="2"
-                              >
+                              <b-form-radio v-model="question.correct_Answer" :value="2">
                                 <label for="answer_B">Đáp án B</label>
                                 <b-form-input
                                   id="answer_B"
@@ -322,12 +313,7 @@
                           </div>
                           <div class="row">
                             <div class="col-md-6">
-                              <b-form-radio
-                                v-model="question.correct_Answer"
-                                :aria-describedby="ariaDescribedby"
-                                name="answer_C"
-                                :value="3"
-                              >
+                              <b-form-radio v-model="question.correct_Answer" :value="3">
                                 <label for="answer_C">Đáp án C</label>
                                 <b-form-input
                                   id="answer_C"
@@ -337,12 +323,7 @@
                               </b-form-radio>
                             </div>
                             <div class="col-md-6">
-                              <b-form-radio
-                                v-model="question.correct_Answer"
-                                :aria-describedby="ariaDescribedby"
-                                name="answer_D"
-                                :value="4"
-                              >
+                              <b-form-radio v-model="question.correct_Answer" :value="4">
                                 <label for="answer_D">Đáp án D</label>
                                 <b-form-input
                                   id="answer_D"

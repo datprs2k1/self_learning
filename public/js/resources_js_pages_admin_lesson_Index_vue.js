@@ -497,25 +497,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -81685,11 +81666,7 @@ var render = function () {
                                                         _c(
                                                           "b-form-radio",
                                                           {
-                                                            attrs: {
-                                                              "aria-describedby":
-                                                                ariaDescribedby,
-                                                              value: 1,
-                                                            },
+                                                            attrs: { value: 1 },
                                                             model: {
                                                               value:
                                                                 question.correct_Answer,
@@ -81759,12 +81736,7 @@ var render = function () {
                                                         _c(
                                                           "b-form-radio",
                                                           {
-                                                            attrs: {
-                                                              "aria-describedby":
-                                                                ariaDescribedby,
-                                                              name: "answer",
-                                                              value: 2,
-                                                            },
+                                                            attrs: { value: 2 },
                                                             model: {
                                                               value:
                                                                 question.correct_Answer,
@@ -81840,12 +81812,7 @@ var render = function () {
                                                         _c(
                                                           "b-form-radio",
                                                           {
-                                                            attrs: {
-                                                              "aria-describedby":
-                                                                ariaDescribedby,
-                                                              name: "answer_C",
-                                                              value: 3,
-                                                            },
+                                                            attrs: { value: 3 },
                                                             model: {
                                                               value:
                                                                 question.correct_Answer,
@@ -81914,12 +81881,7 @@ var render = function () {
                                                         _c(
                                                           "b-form-radio",
                                                           {
-                                                            attrs: {
-                                                              "aria-describedby":
-                                                                ariaDescribedby,
-                                                              name: "answer_D",
-                                                              value: 4,
-                                                            },
+                                                            attrs: { value: 4 },
                                                             model: {
                                                               value:
                                                                 question.correct_Answer,
